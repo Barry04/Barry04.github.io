@@ -1,0 +1,1227 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>面向对象课程设计实验报告 | Barry</title><meta name="keywords" content="报告"><meta name="author" content="Barry"><meta name="copyright" content="Barry"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="目 录 一．需求分析    11.1 概述    11.2 课题分析    21.3 实现功能步骤    21.4 设计工作详解    21.5 运行环境    2二．概要设计    42.1 系统流程图    42.2 功能模块图    52.3 排序算法操作演示程序初始化模块    52.4 按钮控制模块    62.5 排序算法模块    72.6 异常提示控制模块    7三．详细设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象课程设计实验报告">
+<meta property="og:url" content="http://barry04.github.io/2020/04/06/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Barry">
+<meta property="og:description" content="目 录 一．需求分析    11.1 概述    11.2 课题分析    21.3 实现功能步骤    21.4 设计工作详解    21.5 运行环境    2二．概要设计    42.1 系统流程图    42.2 功能模块图    52.3 排序算法操作演示程序初始化模块    52.4 按钮控制模块    62.5 排序算法模块    72.6 异常提示控制模块    7三．详细设计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://barry04.github.io/my/img/11.jpg">
+<meta property="article:published_time" content="2020-04-06T11:53:25.000Z">
+<meta property="article:modified_time" content="2022-02-24T08:46:19.590Z">
+<meta property="article:author" content="Barry">
+<meta property="article:tag" content="报告">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://barry04.github.io/my/img/11.jpg"><link rel="shortcut icon" href="/my/img/3.ico"><link rel="canonical" href="http://barry04.github.io/2020/04/06/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1c880e3072f88104c74fc46cb00f1a24";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面向对象课程设计实验报告',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-02-24 16:46:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" type="text/css" href="/self/duotone.css"><link rel="stylesheet" type="text/css" href="/my/css/mine.css"><link rel="stylesheet" type="text/css" href="/my//css/myicon.css"><link rel="stylesheet" href="/my/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/2021/"><span> 2020</span></a></li><li><a class="site-page child" href="/categories/2021/"><span> 2021</span></a></li><li><a class="site-page child" href="/categories/2022/"><span> 2022</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44688297"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/my/img/11.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Barry</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/2021/"><span> 2020</span></a></li><li><a class="site-page child" href="/categories/2021/"><span> 2021</span></a></li><li><a class="site-page child" href="/categories/2022/"><span> 2022</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44688297"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面向对象课程设计实验报告</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-06T11:53:25.000Z" title="发表于 2020-04-06 19:53:25">2020-04-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-02-24T08:46:19.590Z" title="更新于 2022-02-24 16:46:19">2022-02-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2020/">2020</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>34分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面向对象课程设计实验报告"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>目 录</p>
+<p>一．需求分析    1<br>1.1 概述    1<br>1.2 课题分析    2<br>1.3 实现功能步骤    2<br>1.4 设计工作详解    2<br>1.5 运行环境    2<br>二．概要设计    4<br>2.1 系统流程图    4<br>2.2 功能模块图    5<br>2.3 排序算法操作演示程序初始化模块    5<br>2.4 按钮控制模块    6<br>2.5 排序算法模块    7<br>2.6 异常提示控制模块    7<br>三．详细设计    8<br>3.1 排序算法操作演示程序初始化模块    8<br>3.2按钮控制模块    8<br>3.2.1 基本控件数据初始化模块    9<br>3.2.2 显示数据模块    10<br>3.2.3待排序的数据保存到文件模块    11<br>3.2.4 程序自动随机生成数据模块    11<br>3.2.5 排序算法开始模块    12<br>3.2.6 排序算法演示单步控制模块    13<br>3.3提示显示模块    14<br>3.4 提示界面显示控制模块    15<br>3.5 界面显示配置模块    16<br>3.6 提示界面配置模块    20<br>3.7程序流程    21<br>3.8 系统界面    22<br>四．调试分析    24<br>4.1 调试过程中所遇到的问题及解决方法    24<br>4.2 经验与体会    24<br>五．用户使用说明    25<br>六．测试结果    25<br>七．参考文献    27<br>八．附录    27</p>
+<p>一．需求分析<br>1.1 概述<br>Java是一种简单的，面向对象的，分布式的，解释型的，健壮安全的，结构中立的，可移植的，性能优异、多线程的动态语言。<br>Java平台由Java虚拟机（Java Virtual Machine）和Java 应用编程接口（Application Programming Interface、简称API）构成。Java 应用编程接口为Java应用提供了一个独立于操作系统的标准接口，可分为基本部分和扩展部分。在硬件或操作系统平台上安装一个Java平台之后，Java应用程序就可运行。现在Java平台已经嵌入了几乎所有的操作系统。这样Java程序可以只编译一次，就可以在各种系统中运行。Java应用编程接口已经从1.1x版发展到1.2版。目前常用的Java平台基于Java1.5，最近版本为Java1.7。<br>Java分为三个体系JavaSE(Java2 Platform Standard Edition，java平台标准版)，JavaEE(Java 2 Platform,Enterprise Edition，java平台企业版)，JavaME(Java 2 Platform Micro Edition，java平台微型版)。<br>本程序所使用的Java SE（Java Platform，Standard Edition）。Java SE 以前称为 J2SE。它允许开发和部署在桌面、服务器、嵌入式环境和实时环境中使用的 Java 应用程序。Java SE 包含了支持 Java Web 服务开发的类，并为 Java Platform，Enterprise Edition（Java EE）提供基础。<br>以下就给出这次课题设计的题目：排序算法操作演示程序。</p>
+<p>功能需求：<br>该系统主要功能包括排序数据生成、排序过程演示及数据存储。其具体要求如下：<br>数据生成：可以采用手工录入排序数据和随机生成两种方式；<br>排序数据展示：能够采用动画的方式形象展示待排序数据；<br>排序过程演示：可以采用快排序、插入排序、起泡排序等排序算法对待排序数据进行排序，并用动画方式展示出来；<br>数据存储：可以对排序的数据进行保存操作。<br>要求动画演示过程可以进行暂停、继续等操作</p>
+<p>技术要求：<br>1、课程设计必须使用面向对象中的封装性、继承性以及多态性（类、继承、抽象类、接口、多态），且类设计必须合理<br>2、可视化一律采用JavaFX（不允许使用Swing或AWT）<br>3、所有题目均要设计数据存储，且数据存储采用文件（文本文件或二进制文件）<br>1.2 课题分析<br>从这个题目来分析，要做的主要有四大点。<br>第一点就是要完成数据的输入以及数据的展示的运行。其中包括：</p>
+<ol>
+<li>用户自定义数据也就是用户自己输入数据。</li>
+<li>程序自己随机生成数据。</li>
+<li>在界面上显示用户输入的数据或者是程序自己随机生成的数据。<br>第二点就是要完成对排序数据的排序过程的动画演示。而且要实现的几种不同的算法，不同的算法的演示的过程会有相应的提示。在演示的过程中可以及时停止且在停下来之后的过程中可以继续演示（接着未演示完的过程）<br>第三点我在本题目上增加了一个功能，单步功能。<br>第四点是如何实现数据的保存在本地的文件。</li>
+</ol>
+<p>1.3 实现功能步骤</p>
+<ol>
+<li>程序开始时我设计时会有一个提示，告知用户是如何去演示本程序，以及告知用户一些基本的注意事项。</li>
+<li>程序可判断用户是否输入了待排序的数据，未输入点击了开始排序则提示用户未输入待排序的数据。输入了待排序的数据则在显示待排序的数据区域显示待排序的数据。</li>
+<li>程序可判断用户是否点击了随机按钮，点击后则显示在显示待排序数据区域内随机的待排序的数据。</li>
+<li>在用户点击RUN按钮时，程序会自动演示数据排序的动画。而且在用户点击STOP按钮动画能及时停下。</li>
+<li>在用户点击STEP按钮时，程序会一步一步演示数据排序的动画。</li>
+</ol>
+<p>1.4 设计工作详解<br>通过分析，我认为数据可用数据矩形块的高度去表示数据的大小，然后再交换两个数据块的位置这样就可以实现一个动画的效果。</p>
+<p>1.5 运行环境<br>系统软件：Window XP<br>所需文件：pro_main.java（主程序代码），LiftGroupMaster.java（控制台程序），OutButton.java，PersonControl.java，LiftMaster.java（单电梯主类），LiftCage.java，LiftState.java，LiftTage.java，InnerButton.java。<br>语言选择：Java SE（Java Platform，Standard Edition）<br>工具软件：MyEclipse 8.x</p>
+<p>二．概要设计<br>2.1 系统流程图</p>
+<p>图2.1 系统流程图<br>2.2 功能模块图</p>
+<p>图2.2 功能模块图<br>2.3 排序算法操作演示程序初始化模块<br>在这一模块当中，初始化程序窗口的大小，并创建程序窗口。<br>包含方法：<br>public void start(Stage primaryStage){<br>}</p>
+<p>public static void main(String[] args) {<br>        launch(args);<br>    }<br>2.4 按钮控制模块<br>这一模块是本程序的一个重要的模块，其中包括对一些数据的初始化，主要是对控制界面的大部分的按钮事件添加事件驱动，以及一些控件的初始化的数据的初始化。与人为控制的交互的事件驱动的控制事件的调用。以实现对排序算法的演示。<br>数据类型：<br>@FXML<br>    private AnchorPane mainpane;<br>    @FXML<br>    private ComboBox<String> sortlist;<br>    @FXML<br>    private Pane sortPane;<br>    @FXML<br>    private Button randomButton;<br>    @FXML<br>    private Button saveButton;<br>    @FXML<br>    private Button GetButton;<br>    @FXML<br>    private Button Intput_over_Button;<br>    @FXML<br>    private Button RunButton;<br>    @FXML<br>    private Button PauseButton;<br>    @FXML<br>    private Button StepButton;<br>    @FXML<br>    private TextField myTextField;<br>    @FXML<br>private VBox explain;<br>&#x2F;&#x2F;以上是对一些界面初始化的叙述。<br>&#x2F;&#x2F;下面是对数据操作和动画的数组的描写。<br>    static ArrayList<Integer> dataArrayList &#x3D; new ArrayList();<br>    static SequentialTransition sTransition &#x3D; new SequentialTransition();<br>    ArrayList<Rectangle> rectangle &#x3D; new ArrayList();<br>    ArrayList<Timeline> timeline &#x3D; new ArrayList();<br>static int count &#x3D; 0;<br>&#x2F;&#x2F;初始化按钮的数据<br>public void initialize(URL location, ResourceBundle resources) {<br>        this.initchoice();<br>    }<br>&#x2F;&#x2F;显示数据矩形方法<br>public void showData(ActionEvent event)<br>&#x2F;&#x2F;保存待排序的数据方法<br>public void savedata(ActionEvent event)<br>&#x2F;&#x2F;随机待排序数据的方法<br>public void randomdata(ActionEvent event)<br>&#x2F;&#x2F;主界面按钮事件处理方法<br>public void start(ActionEvent event)<br>&#x2F;&#x2F;单步按钮事件处理方法<br>public void Step(ActionEvent event)<br>&#x2F;&#x2F;清空数据<br>public void clear()<br>&#x2F;&#x2F;隐藏提示控件方法<br>public void Hideknow(ActionEvent event)<br>&#x2F;&#x2F;暂停控件处理方法<br>public void Pause(ActionEvent event)<br>2.5 排序算法模块<br>这一模块有三个子模块分别为冒泡排序算法模块，快排算法模块和插入算法模块，三个模块主要是实现是对排序算法的动画的，对每一步的算法的动画添加及播放演示。<br>2.6 异常提示控制模块<br>这是对单个输入异常，比如用户输入的不是数字的话就会提示，还有用户输入没有安照指定的要求去输入的话同样也会有一些异常。<br>三．详细设计<br>3.1 排序算法操作演示程序初始化模块<br>该模块是嵌套在Main.class主程序文件中的，以实现对控制类的参数初始化以及对窗口大小的初始化。<br>   核心代码：<br>        public void start(Stage primaryStage) {<br>        try {<br>            Parent root &#x3D; (Parent)FXMLLoader.load(this.getClass().getResource(“&#x2F;application&#x2F;Myscene.fxml”));<br>            primaryStage.setResizable(false);<br>            primaryStage.setTitle(“My Application”);<br>            primaryStage.setScene(new Scene(root));<br>            primaryStage.show();<br>        } catch (Exception var3) {<br>            var3.printStackTrace();<br>        }</p>
+<pre><code>&#125;
+
+public static void main(String[] args) &#123;
+    launch(args);
+&#125;
+</code></pre>
+<p>3.2按钮控制模块<br>基本控件申明：<br>    @FXML<br>    private AnchorPane mainpane;<br>    @FXML<br>    private ComboBox<String> sortlist;<br>    @FXML<br>    private Pane sortPane;<br>    @FXML<br>    private Button randomButton;<br>    @FXML<br>    private Button saveButton;<br>    @FXML<br>    private Button GetButton;<br>    @FXML<br>    private Button Intput_over_Button;<br>    @FXML<br>    private Button RunButton;<br>    @FXML<br>    private Button PauseButton;<br>    @FXML<br>    private Button StepButton;<br>    @FXML<br>    private TextField myTextField;<br>    @FXML<br>private VBox explain;<br>基本数据申明：<br>    static ArrayList<Integer> dataArrayList &#x3D; new ArrayList();<br>    static SequentialTransition sTransition &#x3D; new SequentialTransition();<br>    ArrayList<Rectangle> rectangle &#x3D; new ArrayList();<br>    ArrayList<Timeline> timeline &#x3D; new ArrayList();<br>    static int count &#x3D; 0;<br>3.2.1 基本控件数据初始化模块<br>构造函数与initchoice()初始化了算法的选择</p>
+<p>&#x2F;&#x2F;构造函数<br>private void initchoice() {<br>        this.sortlist.getItems().addAll(new String[]{“1.BubbleSort”, “2.QuickSort”, “3.InsertSort”});<br>        this.sortlist.setValue(“1.BubbleSort”);<br>    }</p>
+<p>3.2.2 显示数据模块<br>public void showData(ActionEvent event) throws Exception {<br>        System.out.println(“input over Button Clicked!”);<br>        this.clear();<br>        String getdata &#x3D; this.myTextField.getText();<br>        System.out.println(getdata);<br>        if (getdata.equals(“”)) {<br>            (new Tips()).start(new Stage());<br>        } else {<br>            getdata.replaceAll(“ “, “,”);<br>            String[] var6;<br>            int var5 &#x3D; (var6 &#x3D; getdata.split(“,”)).length;</p>
+<pre><code>        int i;
+        for(i = 0; i &lt; var5; ++i) &#123;
+            String retval = var6[i];
+            dataArrayList.add(Integer.parseInt(retval));
+        &#125;
+
+        ImageView image = new ImageView(&quot;file:2.jpg&quot;);
+        image.setFitHeight(432.0D);
+        image.setFitWidth(777.0D);
+        this.sortPane.getChildren().add(image);
+        this.sortPane.setVisible(true);
+
+        for(i = 0; i &lt; dataArrayList.size(); ++i) &#123;
+            new Rectangle();
+            Rectangle rec = new Rectangle();
+            rec.setLayoutX((double)((i + 1) * 10));
+            rec.setLayoutY(0.0D);
+            rec.setWidth(5.0D);
+            rec.setFill(Color.BLUE);
+            rec.setHeight((double)((Integer)dataArrayList.get(i) * 5));
+            this.sortPane.getChildren().add(rec);
+            this.rectangle.add(rec);
+        &#125;
+    &#125;
+
+&#125;
+</code></pre>
+<p>3.2.3待排序的数据保存到文件模块<br>    &#x2F;&#x2F;保存数据<br>      public void savedata(ActionEvent event) throws IOException {<br>        String getdata &#x3D; this.myTextField.getText();<br>        getdata.replaceAll(“ “, “,”);<br>        String file &#x3D; “Data.txt”;</p>
+<pre><code>    try &#123;
+        FileOutputStream inputFileOutputStream = new FileOutputStream(file, true);
+        Iterator var6 = dataArrayList.iterator();
+
+        while(var6.hasNext()) &#123;
+            Integer integer = (Integer)var6.next();
+            String str = integer.toString();
+            str = str + &quot; &quot;;
+            byte[] b = str.getBytes();
+            inputFileOutputStream.write(b);
+        &#125;
+
+        inputFileOutputStream.close();
+    &#125; catch (FileNotFoundException var9) &#123;
+        var9.printStackTrace();
+    &#125;
+
+&#125;
+</code></pre>
+<p>3.2.4 程序自动随机生成数据模块<br>&#x2F;&#x2F; 每次按钮按后随机生成50个数据<br>public void randomdata(ActionEvent event) {<br>        System.out.println(“Random Button Clicked!”);<br>        this.clear();<br>        this.sortPane.setVisible(true);<br>        int random &#x3D; 50;<br>        boolean var3 &#x3D; false;</p>
+<pre><code>    while(random &gt; 0) &#123;
+        int k = (int)(Math.random() * 100.0D);
+        if (k &gt; 0 &amp;&amp; k &lt; 85) &#123;
+            dataArrayList.add(k);
+            --random;
+        &#125;
+    &#125;
+
+    for(int i = 0; i &lt; dataArrayList.size(); ++i) &#123;
+        new Rectangle();
+        Rectangle rec = new Rectangle();
+        rec.setLayoutX((double)((i + 1) * 10));
+        rec.setLayoutY(0.0D);
+        rec.setWidth(5.0D);
+        rec.setFill(Color.BLUE);
+        rec.setHeight((double)((Integer)dataArrayList.get(i) * 5));
+        this.sortPane.getChildren().add(rec);
+        this.rectangle.add(rec);
+    &#125;
+
+&#125;
+</code></pre>
+<p>3.2.5 排序算法开始模块<br>&#x2F;&#x2F;点击开始按钮<br>        public void start(ActionEvent event) {<br>        System.out.println(“RUN Button Clicked!”);<br>        String var2;<br>        switch((var2 &#x3D; (String)this.sortlist.getValue()).hashCode()) {<br>        case -1163486649:<br>            if (var2.equals(“1.BubbleSort”)) {<br>                (new BubbleSort()).algorithm(dataArrayList, sTransition, this.rectangle);<br>                return;<br>            }<br>            break;<br>        case -1093194161:<br>            if (var2.equals(“2.QuickSort”)) {<br>                (new QuickSort()).algorithm(dataArrayList, sTransition, this.rectangle);<br>                return;<br>            }<br>            break;<br>        case -102493006:<br>            if (var2.equals(“3.InsertSort”)) {<br>                (new InsertSort()).algorithm(dataArrayList, sTransition, this.rectangle);<br>                return;<br>            }<br>        }</p>
+<pre><code>    (new BubbleSort()).algorithm(dataArrayList, sTransition, this.rectangle);
+&#125;
+</code></pre>
+<p>3.2.6 排序算法演示单步控制模块<br>    &#x2F;&#x2F;点击单步的控制模块<br>    public void Step(ActionEvent event) {<br>        System.out.println(“Step Button Clicked!  “);<br>        String var2;<br>        switch((var2 &#x3D; (String)this.sortlist.getValue()).hashCode()) {<br>        case -1163486649:<br>            if (var2.equals(“1.BubbleSort”)) {<br>                (new BubbleSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);<br>                ++count;<br>                return;<br>            }<br>            break;<br>        case -1093194161:<br>            if (var2.equals(“2.QuickSort”)) {<br>                (new QuickSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);<br>                ++count;<br>                return;<br>            }<br>            break;<br>        case -102493006:<br>            if (var2.equals(“3.InsertSort”)) {<br>                (new InsertSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);<br>                ++count;<br>                return;<br>            }<br>        }</p>
+<pre><code>    (new BubbleSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);
+    ++count;
+&#125;
+</code></pre>
+<p>3.3提示显示模块<br>    import java.net.URL;<br>import java.util.ResourceBundle;<br>import javafx.event.ActionEvent;<br>import javafx.fxml.FXML;<br>import javafx.fxml.Initializable;<br>import javafx.scene.Node;<br>import javafx.scene.control.Button;<br>import javafx.scene.image.ImageView;<br>import javafx.scene.layout.AnchorPane;</p>
+<p>public class TipsController implements Initializable {<br>    @FXML<br>    private AnchorPane tip;<br>    @FXML<br>    private Button tips;</p>
+<pre><code>public TipsController() &#123;
+&#125;
+
+public void initialize(URL location, ResourceBundle resources) &#123;
+&#125;
+
+public void show() &#123;
+    ImageView image = new ImageView(&quot;file:12.jpg&quot;);
+    image.setFitHeight(285.0D);
+    image.setFitWidth(351.0D);
+    this.tip.getChildren().add(image);
+    this.tip.setVisible(true);
+&#125;
+
+public void ok(ActionEvent event) &#123;
+    ((Node)event.getSource()).getScene().getWindow().hide();
+&#125;
+</code></pre>
+<p>3.4 提示界面显示控制模块<br>    public void start(Stage primaryStage) throws Exception {<br>        try {<br>            AnchorPane tipAnchorPane &#x3D; (AnchorPane)FXMLLoader.load(this.getClass().getResource(“&#x2F;application&#x2F;Tips.fxml”));<br>            primaryStage.setResizable(false);<br>            primaryStage.setTitle(“Tip”);<br>            primaryStage.setScene(new Scene(tipAnchorPane));<br>            primaryStage.initStyle(StageStyle.TRANSPARENT);<br>            primaryStage.show();<br>        } catch (Exception var3) {<br>            var3.printStackTrace();<br>        }</p>
+<pre><code>&#125;
+</code></pre>
+<p>3.5 界面显示配置模块</p>
+<pre><code>    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</code></pre>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane fx:id="mainpane" maxHeight="634.0" maxWidth="892.0" minHeight="634.0" minWidth="892.0" prefHeight="634.0" prefWidth="892.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/200216/180448-158184748877c2.jpg');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyController">
+   <children>
+      <Button fx:id="Intput_over_Button" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showData" prefHeight="24.0" prefWidth="102.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" text="Input over" textFill="WHITE" underline="true" wrapText="true" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="13.0" />
+         </font></Button>
+      <TextField fx:id="myTextField" blendMode="MULTIPLY" layoutX="182.0" layoutY="14.0" prefHeight="30.0" prefWidth="551.0" promptText="请输入待排序的数据" style="-fx-border-color: white; -fx-blend-mode: Bold;">
+         <font>
+            <Font name="叶根友毛笔行书2.0版" size="14.0" />
+         </font></TextField>
+      <Button fx:id="RunButton" layoutX="182.0" layoutY="560.0" mnemonicParsing="false" onAction="#start" prefHeight="30.0" prefWidth="50.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/170609/123945-14969831856c4d.jpg');" text="RUN" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="StepButton" layoutX="714.0" layoutY="560.0" mnemonicParsing="false" onAction="#Step" prefHeight="30.0" prefWidth="50.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/170609/123945-14969831856c4d.jpg');" text="STEP" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="sortlist" depthTest="ENABLE" layoutX="14.0" layoutY="55.0" prefWidth="150.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" />
+      <Pane fx:id="sortPane" layoutX="69.0" layoutY="91.0" prefHeight="432.0" prefWidth="777.0" style="-fx-background-image: url('https://s2.ax1x.com/2020/02/29/3yPH4f.jpg');" visible="false" />
+      <Button fx:id="PauseButton" layoutX="420.0" layoutY="560.0" mnemonicParsing="false" onAction="#Pause" prefHeight="30.0" prefWidth="61.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/170609/123945-14969831856c4d.jpg');" text="Pause" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="randomButton" layoutX="777.0" layoutY="18.0" mnemonicParsing="false" onAction="#randomdata" prefHeight="27.0" prefWidth="91.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" text="Random" textFill="WHITE" underline="true" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <VBox fx:id="explain" layoutX="303.0" layoutY="217.0" mouseTransparent="true" prefHeight="200.0" prefWidth="330.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/190824/223002-15666570026906.jpg');">
+         <children>
+            <Label mouseTransparent="true" prefHeight="29.0" prefWidth="330.0" text="                     用者须知" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label mouseTransparent="true" prefHeight="18.0" prefWidth="330.0" text="1.每一次输入数据点击RUN后不能使用STEP功能。" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Label>
+            <Label mouseTransparent="true" prefHeight="18.0" prefWidth="330.0" text="2.每一次排序开始后中间不能再次点击Random或者" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="330.0" text=" Input over，否则点击RUN等，不会有动画显示，" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Label>
+            <Label mouseTransparent="true" prefHeight="18.0" prefWidth="330.0" text="  动画结束后可以进行上诉操作。" textFill="RED">
+               <font>
+                  <Font name="Cambria Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="GetButton" layoutX="417.0" layoutY="423.0" mnemonicParsing="false" onAction="#Hideknow" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/190824/223002-15666570026906.jpg');" text="Get it" textFill="#ee0606" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveButton" layoutX="777.0" layoutY="55.0" mnemonicParsing="false" onAction="#savedata" prefHeight="23.0" prefWidth="91.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" text="Save" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
+3.6 提示界面配置模块
+    <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="tip" prefHeight="285.0" prefWidth="351.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/200223/225803-1582469883cd04.jpg');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TipsController">
+   <children>
+      <Button fx:id="tips" layoutX="141.0" layoutY="226.0" mnemonicParsing="false" onAction="#ok" prefHeight="23.0" prefWidth="70.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/190316/202152-1552738912b440.jpg');" text="OK" textFill="#2bd7b7b8" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Text fill="#0000ffe3" fontSmoothingType="LCD" layoutX="127.0" layoutY="83.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入数据" wrappingWidth="168.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
+3.7程序流程
+
+
+
+
+
+
+
+
+
+
+<p>3.8 系统界面</p>
+<p>图 数据显示界面</p>
+<p>提示输入数据<br>四．调试分析<br>4.1 调试过程中所遇到的问题及解决方法<br>1）在刚开始接到课程设计题目的时候，想了很久，一开始的时候不知该往哪里着手。上网查阅了一些资料，查看了一些人的源码，随后自己根据别人的思路有了自己的清晰的想法。然后通过自己写的类设计并逐步加以完善，才将程序慢慢设计出来。自己也增加了一个功能单步的功能。</p>
+<p>2）在写排序算法打过程出现了一些问题。比如，交换两个矩形坐标位置只是交换了形参，实际的位置并没有交换，导致我的实现的过程中很迷，后来我只能通过去写静态的属性去传参数才解决这个问题，但是这样也会产生一个问题就是无法实际一步一部控制程序，所以只能事先运行完整个程序后存放在一个数组里面，然后演示通过调用数组里面的参数去演示。<br>4.2 经验与体会<br>通过本次的课程设计，让我完整体验了一把自己一个单独完成一个小项目的整体的过程与流程。虽然自己写的程序并不是很好，但是可以给今后的自己的增加经验，为将来自己一个很好的历史教训，而且我通过本次的课程设计再次明白写程序不应该盲目下手，得完整理解自己到底想做成什么样子的，不能盲人过河，这样对整体的设计与开发都是有利的。<br>五．用户使用说明<br>（1）这次程序的编译环境是MyEclipse 8.x工具，java版本是jdk1.8执行的主文件是Main. java，同时还有包含7个文件：BubbleSort.java，InsertSort.java，QuickSort.java，Tips.java，TipsController.java，Myscene.fxml，Tips.xml<br>（2）程序可以选择输入自己的待排序的数据和由程序随机生成待排序的数据<br>（3）用户可以选择排序的算法。有冒泡排序，快排排序和插入排序。<br>（4）当点击RUN按钮后，可以点击STOP，但是点击STEP并没有用，点击STOP按钮后再次点击RUN按钮后可以继续演示。<br>(5) 当点击STEP按钮后不能再点击RUN和STEP按钮<br>(6) 当用户点击Inputover但是输入框里面并没有数据输入会提示用户输入数据。<br>六．测试结果</p>
+<p>运行程序。然后弹出一个窗口如下图。<br>在输入框中输入数字。 </p>
+<p>点击“Ramdom”按扭，会显示数据。</p>
+<p>七．参考文献</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mouday/article/details/100186537">https://blog.csdn.net/mouday/article/details/100186537</a><br>八．附录<br>package application;</li>
+</ol>
+<p>import javafx.application.Application;<br>import javafx.fxml.FXMLLoader;<br>import javafx.scene.Parent;<br>import javafx.scene.Scene;<br>import javafx.stage.Stage;</p>
+<p>public class Main extends Application {<br>    public Main() {<br>    }</p>
+<pre><code>public void start(Stage primaryStage) &#123;
+    try &#123;
+        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource(&quot;/application/Myscene.fxml&quot;));
+        primaryStage.setResizable(false);
+        primaryStage.setTitle(&quot;My Application&quot;);
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    &#125; catch (Exception var3) &#123;
+        var3.printStackTrace();
+    &#125;
+
+&#125;
+
+public static void main(String[] args) &#123;
+    launch(args);
+&#125;
+</code></pre>
+<p>}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F; Source code recreated from a .class file by IntelliJ IDEA<br>&#x2F;&#x2F; (powered by Fernflower decompiler)<br>&#x2F;&#x2F;</p>
+<p>package application;</p>
+<p>import algorithm.BubbleSort;<br>import algorithm.InsertSort;<br>import algorithm.QuickSort;<br>import java.io.FileNotFoundException;<br>import java.io.FileOutputStream;<br>import java.io.IOException;<br>import java.net.URL;<br>import java.util.ArrayList;<br>import java.util.Iterator;<br>import java.util.ResourceBundle;<br>import javafx.animation.SequentialTransition;<br>import javafx.animation.Timeline;<br>import javafx.event.ActionEvent;<br>import javafx.fxml.FXML;<br>import javafx.fxml.Initializable;<br>import javafx.scene.control.Button;<br>import javafx.scene.control.ComboBox;<br>import javafx.scene.control.TextField;<br>import javafx.scene.image.ImageView;<br>import javafx.scene.layout.AnchorPane;<br>import javafx.scene.layout.Pane;<br>import javafx.scene.layout.VBox;<br>import javafx.scene.paint.Color;<br>import javafx.scene.shape.Rectangle;<br>import javafx.stage.Stage;</p>
+<p>public class MyController implements Initializable {<br>    @FXML<br>    private AnchorPane mainpane;<br>    @FXML<br>    private ComboBox<String> sortlist;<br>    @FXML<br>    private Pane sortPane;<br>    @FXML<br>    private Button randomButton;<br>    @FXML<br>    private Button saveButton;<br>    @FXML<br>    private Button GetButton;<br>    @FXML<br>    private Button Intput_over_Button;<br>    @FXML<br>    private Button RunButton;<br>    @FXML<br>    private Button PauseButton;<br>    @FXML<br>    private Button StepButton;<br>    @FXML<br>    private TextField myTextField;<br>    @FXML<br>    private VBox explain;<br>    static ArrayList<Integer> dataArrayList &#x3D; new ArrayList();<br>    static SequentialTransition sTransition &#x3D; new SequentialTransition();<br>    ArrayList<Rectangle> rectangle &#x3D; new ArrayList();<br>    ArrayList<Timeline> timeline &#x3D; new ArrayList();<br>    static int count &#x3D; 0;</p>
+<pre><code>public MyController() &#123;
+&#125;
+
+public void initialize(URL location, ResourceBundle resources) &#123;
+    this.initchoice();
+&#125;
+
+private void initchoice() &#123;
+    this.sortlist.getItems().addAll(new String[]&#123;&quot;1.BubbleSort&quot;, &quot;2.QuickSort&quot;, &quot;3.InsertSort&quot;&#125;);
+    this.sortlist.setValue(&quot;1.BubbleSort&quot;);
+&#125;
+
+public void showData(ActionEvent event) throws Exception &#123;
+    System.out.println(&quot;input over Button Clicked!&quot;);
+    this.clear();
+    String getdata = this.myTextField.getText();
+    System.out.println(getdata);
+    if (getdata.equals(&quot;&quot;)) &#123;
+        (new Tips()).start(new Stage());
+    &#125; else &#123;
+        getdata.replaceAll(&quot; &quot;, &quot;,&quot;);
+        String[] var6;
+        int var5 = (var6 = getdata.split(&quot;,&quot;)).length;
+
+        int i;
+        for(i = 0; i &lt; var5; ++i) &#123;
+            String retval = var6[i];
+            dataArrayList.add(Integer.parseInt(retval));
+        &#125;
+
+        ImageView image = new ImageView(&quot;file:2.jpg&quot;);
+        image.setFitHeight(432.0D);
+        image.setFitWidth(777.0D);
+        this.sortPane.getChildren().add(image);
+        this.sortPane.setVisible(true);
+
+        for(i = 0; i &lt; dataArrayList.size(); ++i) &#123;
+            new Rectangle();
+            Rectangle rec = new Rectangle();
+            rec.setLayoutX((double)((i + 1) * 10));
+            rec.setLayoutY(0.0D);
+            rec.setWidth(5.0D);
+            rec.setFill(Color.BLUE);
+            rec.setHeight((double)((Integer)dataArrayList.get(i) * 5));
+            this.sortPane.getChildren().add(rec);
+            this.rectangle.add(rec);
+        &#125;
+    &#125;
+
+&#125;
+
+public void savedata(ActionEvent event) throws IOException &#123;
+    String getdata = this.myTextField.getText();
+    getdata.replaceAll(&quot; &quot;, &quot;,&quot;);
+    String file = &quot;Data.txt&quot;;
+
+    try &#123;
+        FileOutputStream inputFileOutputStream = new FileOutputStream(file, true);
+        Iterator var6 = dataArrayList.iterator();
+
+        while(var6.hasNext()) &#123;
+            Integer integer = (Integer)var6.next();
+            String str = integer.toString();
+            str = str + &quot; &quot;;
+            byte[] b = str.getBytes();
+            inputFileOutputStream.write(b);
+        &#125;
+
+        inputFileOutputStream.close();
+    &#125; catch (FileNotFoundException var9) &#123;
+        var9.printStackTrace();
+    &#125;
+
+&#125;
+
+public void randomdata(ActionEvent event) &#123;
+    System.out.println(&quot;Random Button Clicked!&quot;);
+    this.clear();
+    this.sortPane.setVisible(true);
+    int random = 50;
+    boolean var3 = false;
+
+    while(random &gt; 0) &#123;
+        int k = (int)(Math.random() * 100.0D);
+        if (k &gt; 0 &amp;&amp; k &lt; 85) &#123;
+            dataArrayList.add(k);
+            --random;
+        &#125;
+    &#125;
+
+    for(int i = 0; i &lt; dataArrayList.size(); ++i) &#123;
+        new Rectangle();
+        Rectangle rec = new Rectangle();
+        rec.setLayoutX((double)((i + 1) * 10));
+        rec.setLayoutY(0.0D);
+        rec.setWidth(5.0D);
+        rec.setFill(Color.BLUE);
+        rec.setHeight((double)((Integer)dataArrayList.get(i) * 5));
+        this.sortPane.getChildren().add(rec);
+        this.rectangle.add(rec);
+    &#125;
+
+&#125;
+
+public void start(ActionEvent event) &#123;
+    System.out.println(&quot;RUN Button Clicked!&quot;);
+    String var2;
+    switch((var2 = (String)this.sortlist.getValue()).hashCode()) &#123;
+    case -1163486649:
+        if (var2.equals(&quot;1.BubbleSort&quot;)) &#123;
+            (new BubbleSort()).algorithm(dataArrayList, sTransition, this.rectangle);
+            return;
+        &#125;
+        break;
+    case -1093194161:
+        if (var2.equals(&quot;2.QuickSort&quot;)) &#123;
+            (new QuickSort()).algorithm(dataArrayList, sTransition, this.rectangle);
+            return;
+        &#125;
+        break;
+    case -102493006:
+        if (var2.equals(&quot;3.InsertSort&quot;)) &#123;
+            (new InsertSort()).algorithm(dataArrayList, sTransition, this.rectangle);
+            return;
+        &#125;
+    &#125;
+
+    (new BubbleSort()).algorithm(dataArrayList, sTransition, this.rectangle);
+&#125;
+
+public void Step(ActionEvent event) &#123;
+    System.out.println(&quot;Step Button Clicked!  &quot;);
+    String var2;
+    switch((var2 = (String)this.sortlist.getValue()).hashCode()) &#123;
+    case -1163486649:
+        if (var2.equals(&quot;1.BubbleSort&quot;)) &#123;
+            (new BubbleSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);
+            ++count;
+            return;
+        &#125;
+        break;
+    case -1093194161:
+        if (var2.equals(&quot;2.QuickSort&quot;)) &#123;
+            (new QuickSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);
+            ++count;
+            return;
+        &#125;
+        break;
+    case -102493006:
+        if (var2.equals(&quot;3.InsertSort&quot;)) &#123;
+            (new InsertSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);
+            ++count;
+            return;
+        &#125;
+    &#125;
+
+    (new BubbleSort()).algorithmstep(dataArrayList, this.rectangle, count, this.timeline);
+    ++count;
+&#125;
+
+public void clear() &#123;
+    dataArrayList.clear();
+    this.rectangle.clear();
+    sTransition.getChildren().clear();
+    count = 0;
+&#125;
+
+public void Hideknow(ActionEvent event) &#123;
+    this.sortPane.setMouseTransparent(true);
+    this.explain.setVisible(false);
+    this.GetButton.setVisible(false);
+&#125;
+
+public void Pause(ActionEvent event) &#123;
+    sTransition.pause();
+&#125;
+</code></pre>
+<p>}<br><?xml version="1.0" encoding="UTF-8"?></p>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane fx:id="mainpane" maxHeight="634.0" maxWidth="892.0" minHeight="634.0" minWidth="892.0" prefHeight="634.0" prefWidth="892.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/200216/180448-158184748877c2.jpg');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyController">
+   <children>
+      <Button fx:id="Intput_over_Button" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showData" prefHeight="24.0" prefWidth="102.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" text="Input over" textFill="WHITE" underline="true" wrapText="true" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="13.0" />
+         </font></Button>
+      <TextField fx:id="myTextField" blendMode="MULTIPLY" layoutX="182.0" layoutY="14.0" prefHeight="30.0" prefWidth="551.0" promptText="请输入待排序的数据" style="-fx-border-color: white; -fx-blend-mode: Bold;">
+         <font>
+            <Font name="叶根友毛笔行书2.0版" size="14.0" />
+         </font></TextField>
+      <Button fx:id="RunButton" layoutX="182.0" layoutY="560.0" mnemonicParsing="false" onAction="#start" prefHeight="30.0" prefWidth="50.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/170609/123945-14969831856c4d.jpg');" text="RUN" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="StepButton" layoutX="714.0" layoutY="560.0" mnemonicParsing="false" onAction="#Step" prefHeight="30.0" prefWidth="50.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/170609/123945-14969831856c4d.jpg');" text="STEP" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="sortlist" depthTest="ENABLE" layoutX="14.0" layoutY="55.0" prefWidth="150.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" />
+      <Pane fx:id="sortPane" layoutX="69.0" layoutY="91.0" prefHeight="432.0" prefWidth="777.0" style="-fx-background-image: url('https://s2.ax1x.com/2020/02/29/3yPH4f.jpg');" visible="false" />
+      <Button fx:id="PauseButton" layoutX="420.0" layoutY="560.0" mnemonicParsing="false" onAction="#Pause" prefHeight="30.0" prefWidth="61.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/170609/123945-14969831856c4d.jpg');" text="Pause" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="randomButton" layoutX="777.0" layoutY="18.0" mnemonicParsing="false" onAction="#randomdata" prefHeight="27.0" prefWidth="91.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" text="Random" textFill="WHITE" underline="true" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <VBox fx:id="explain" layoutX="303.0" layoutY="217.0" mouseTransparent="true" prefHeight="200.0" prefWidth="330.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/190824/223002-15666570026906.jpg');">
+         <children>
+            <Label mouseTransparent="true" prefHeight="29.0" prefWidth="330.0" text="                     用者须知" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label mouseTransparent="true" prefHeight="18.0" prefWidth="330.0" text="1.每一次输入数据点击RUN后不能使用STEP功能。" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Label>
+            <Label mouseTransparent="true" prefHeight="18.0" prefWidth="330.0" text="2.每一次排序开始后中间不能再次点击Random或者" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="330.0" text=" Input over，否则点击RUN等，不会有动画显示，" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label>
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Label>
+            <Label mouseTransparent="true" prefHeight="18.0" prefWidth="330.0" text="  动画结束后可以进行上诉操作。" textFill="RED">
+               <font>
+                  <Font name="Cambria Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="GetButton" layoutX="417.0" layoutY="423.0" mnemonicParsing="false" onAction="#Hideknow" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/190824/223002-15666570026906.jpg');" text="Get it" textFill="#ee0606" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveButton" layoutX="777.0" layoutY="55.0" mnemonicParsing="false" onAction="#savedata" prefHeight="23.0" prefWidth="91.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/180822/094020-1534902020b339.jpg');" text="Save" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
+
+<p>package application;</p>
+<p>import javafx.application.Application;<br>import javafx.fxml.FXMLLoader;<br>import javafx.scene.Scene;<br>import javafx.scene.layout.AnchorPane;<br>import javafx.stage.Stage;<br>import javafx.stage.StageStyle;</p>
+<p>public class Tips extends Application {<br>    public Tips() {<br>    }</p>
+<pre><code>public void start(Stage primaryStage) throws Exception &#123;
+    try &#123;
+        AnchorPane tipAnchorPane = (AnchorPane)FXMLLoader.load(this.getClass().getResource(&quot;/application/Tips.fxml&quot;));
+        primaryStage.setResizable(false);
+        primaryStage.setTitle(&quot;Tip&quot;);
+        primaryStage.setScene(new Scene(tipAnchorPane));
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.show();
+    &#125; catch (Exception var3) &#123;
+        var3.printStackTrace();
+    &#125;
+
+&#125;
+</code></pre>
+<p>}<?xml version="1.0" encoding="UTF-8"?></p>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="tip" prefHeight="285.0" prefWidth="351.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/200223/225803-1582469883cd04.jpg');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TipsController">
+   <children>
+      <Button fx:id="tips" layoutX="141.0" layoutY="226.0" mnemonicParsing="false" onAction="#ok" prefHeight="23.0" prefWidth="70.0" style="-fx-background-image: url('http://pic.netbian.com/uploads/allimg/190316/202152-1552738912b440.jpg');" text="OK" textFill="#2bd7b7b8" underline="true">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Text fill="#0000ffe3" fontSmoothingType="LCD" layoutX="127.0" layoutY="83.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入数据" wrappingWidth="168.0">
+         <font>
+            <Font name="Cambria Bold Italic" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+<p>package application;</p>
+<p>import java.net.URL;<br>import java.util.ResourceBundle;<br>import javafx.event.ActionEvent;<br>import javafx.fxml.FXML;<br>import javafx.fxml.Initializable;<br>import javafx.scene.Node;<br>import javafx.scene.control.Button;<br>import javafx.scene.image.ImageView;<br>import javafx.scene.layout.AnchorPane;</p>
+<p>public class TipsController implements Initializable {<br>    @FXML<br>    private AnchorPane tip;<br>    @FXML<br>    private Button tips;</p>
+<pre><code>public TipsController() &#123;
+&#125;
+
+public void initialize(URL location, ResourceBundle resources) &#123;
+&#125;
+
+public void show() &#123;
+    ImageView image = new ImageView(&quot;file:12.jpg&quot;);
+    image.setFitHeight(285.0D);
+    image.setFitWidth(351.0D);
+    this.tip.getChildren().add(image);
+    this.tip.setVisible(true);
+&#125;
+
+public void ok(ActionEvent event) &#123;
+    ((Node)event.getSource()).getScene().getWindow().hide();
+&#125;
+</code></pre>
+<p>}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F; Source code recreated from a .class file by IntelliJ IDEA<br>&#x2F;&#x2F; (powered by Fernflower decompiler)<br>&#x2F;&#x2F;</p>
+<p>package application;</p>
+<p>import java.net.URL;<br>import java.util.ResourceBundle;<br>import javafx.event.ActionEvent;<br>import javafx.fxml.FXML;<br>import javafx.fxml.Initializable;<br>import javafx.scene.Node;<br>import javafx.scene.control.Button;<br>import javafx.scene.image.ImageView;<br>import javafx.scene.layout.AnchorPane;</p>
+<p>public class TipsController implements Initializable {<br>    @FXML<br>    private AnchorPane tip;<br>    @FXML<br>    private Button tips;</p>
+<pre><code>public TipsController() &#123;
+&#125;
+
+public void initialize(URL location, ResourceBundle resources) &#123;
+&#125;
+
+public void show() &#123;
+    ImageView image = new ImageView(&quot;file:12.jpg&quot;);
+    image.setFitHeight(285.0D);
+    image.setFitWidth(351.0D);
+    this.tip.getChildren().add(image);
+    this.tip.setVisible(true);
+&#125;
+
+public void ok(ActionEvent event) &#123;
+    ((Node)event.getSource()).getScene().getWindow().hide();
+&#125;
+</code></pre>
+<p>}</p>
+<p>package algorithm;</p>
+<p>import java.util.ArrayList;<br>import javafx.animation.Animation;<br>import javafx.animation.Interpolator;<br>import javafx.animation.KeyFrame;<br>import javafx.animation.KeyValue;<br>import javafx.animation.SequentialTransition;<br>import javafx.animation.Timeline;<br>import javafx.scene.shape.Rectangle;<br>import javafx.util.Duration;</p>
+<p>public class QuickSort extends Sort {<br>    public QuickSort() {<br>    }</p>
+<pre><code>public void algorithm(ArrayList&lt;Integer&gt; list, SequentialTransition sTransition, ArrayList&lt;Rectangle&gt; rectangle) &#123;
+    ArrayList&lt;Timeline&gt; timeline = new ArrayList();
+    int[] data = new int[list.size()];
+
+    int i;
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        data[i] = 0;
+    &#125;
+
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        int min = i;
+
+        for(int j = i + 1; j &lt; list.size(); ++j) &#123;
+            if ((Integer)list.get(min) &gt; (Integer)list.get(j)) &#123;
+                min = j;
+            &#125;
+        &#125;
+
+        if (i != min) &#123;
+            Timeline start = new Timeline();
+            start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min])&#125;), new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i])&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min] + (i - min) * 10)&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i] - (i - min) * 10)&#125;)&#125;);
+            timeline.add(start);
+            data[min] += (i - min) * 10;
+            data[i] -= (i - min) * 10;
+            int temp = (Integer)list.get(i);
+            list.set(i, (Integer)list.get(min));
+            list.set(min, temp);
+            Rectangle temp2 = (Rectangle)rectangle.get(i);
+            rectangle.set(i, (Rectangle)rectangle.get(min));
+            rectangle.set(min, temp2);
+            int temp3 = data[min];
+            data[min] = data[i];
+            data[i] = temp3;
+        &#125;
+    &#125;
+
+    for(i = 0; i &lt; timeline.size(); ++i) &#123;
+        sTransition.getChildren().add((Animation)timeline.get(i));
+    &#125;
+
+    sTransition.setCycleCount(0);
+    sTransition.setInterpolator(Interpolator.EASE_IN);
+    sTransition.play();
+&#125;
+
+public void algorithmstep(ArrayList&lt;Integer&gt; list, ArrayList&lt;Rectangle&gt; rectangle, int count, ArrayList&lt;Timeline&gt; timeline) &#123;
+    int[] data = new int[list.size()];
+
+    int i;
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        data[i] = 0;
+    &#125;
+
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        int min = i;
+
+        for(int j = i + 1; j &lt; list.size(); ++j) &#123;
+            if ((Integer)list.get(min) &gt; (Integer)list.get(j)) &#123;
+                min = j;
+            &#125;
+        &#125;
+
+        if (i != min) &#123;
+            Timeline start = new Timeline();
+            start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min])&#125;), new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i])&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min] + (i - min) * 10)&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i] - (i - min) * 10)&#125;)&#125;);
+            timeline.add(start);
+            data[min] += (i - min) * 10;
+            data[i] -= (i - min) * 10;
+            int temp = (Integer)list.get(i);
+            list.set(i, (Integer)list.get(min));
+            list.set(min, temp);
+            Rectangle temp2 = (Rectangle)rectangle.get(i);
+            rectangle.set(i, (Rectangle)rectangle.get(min));
+            rectangle.set(min, temp2);
+            int temp3 = data[min];
+            data[min] = data[i];
+            data[i] = temp3;
+        &#125;
+    &#125;
+
+    ((Timeline)timeline.get(count)).play();
+&#125;
+</code></pre>
+<p>}</p>
+<p>package algorithm;</p>
+<p>import java.util.ArrayList;<br>import javafx.animation.Animation;<br>import javafx.animation.KeyFrame;<br>import javafx.animation.KeyValue;<br>import javafx.animation.SequentialTransition;<br>import javafx.animation.Timeline;<br>import javafx.scene.shape.Rectangle;<br>import javafx.util.Duration;</p>
+<p>public class InsertSort extends Sort {<br>    public InsertSort() {<br>    }</p>
+<pre><code>public void algorithm(ArrayList&lt;Integer&gt; list, SequentialTransition sTransition, ArrayList&lt;Rectangle&gt; rectangle) &#123;
+    ArrayList&lt;Timeline&gt; timeline = new ArrayList();
+    ArrayList&lt;Integer&gt; displacement = new ArrayList();
+
+    int current;
+    for(current = 0; current &lt; list.size(); ++current) &#123;
+        displacement.add(0);
+    &#125;
+
+    int j;
+    for(j = 0; j &lt; list.size() - 1; ++j) &#123;
+        Rectangle temp = (Rectangle)rectangle.get(j + 1);
+        current = (Integer)list.get(j + 1);
+        int preIndex = j;
+        Timeline start = new Timeline();
+
+        boolean is;
+        for(is = false; preIndex &gt;= 0 &amp;&amp; current &lt; (Integer)list.get(preIndex); is = true) &#123;
+            start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(preIndex)).translateXProperty(), (Number)displacement.get(preIndex))&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(preIndex)).translateXProperty(), (Integer)displacement.get(preIndex) + 10)&#125;)&#125;);
+            displacement.set(preIndex, (Integer)displacement.get(preIndex) + 10);
+            --preIndex;
+        &#125;
+
+        timeline.add(start);
+        if (is) &#123;
+            int t1 = j - preIndex;
+            start = new Timeline();
+            start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(j + 1)).translateXProperty(), (Number)displacement.get(j + 1))&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(j + 1)).translateXProperty(), (Integer)displacement.get(j + 1) - t1 * 10)&#125;)&#125;);
+            displacement.set(j + 1, (Integer)displacement.get(j + 1) - t1 * 10);
+            list.remove(j + 1);
+            list.add(preIndex + 1, current);
+            rectangle.remove(j + 1);
+            rectangle.add(preIndex + 1, temp);
+            timeline.add(start);
+            int tem3 = (Integer)displacement.get(j + 1);
+            displacement.remove(j + 1);
+            displacement.add(preIndex + 1, tem3);
+        &#125;
+    &#125;
+
+    for(j = 0; j &lt; timeline.size(); ++j) &#123;
+        sTransition.getChildren().add((Animation)timeline.get(j));
+    &#125;
+
+    sTransition.play();
+&#125;
+
+public void algorithmstep(ArrayList&lt;Integer&gt; list, ArrayList&lt;Rectangle&gt; rectangle, int count, ArrayList&lt;Timeline&gt; timeline) &#123;
+    if (count == 0) &#123;
+        ArrayList&lt;Integer&gt; displacement = new ArrayList();
+
+        int current;
+        for(current = 0; current &lt; list.size(); ++current) &#123;
+            displacement.add(0);
+        &#125;
+
+        for(int j = 0; j &lt; list.size() - 1; ++j) &#123;
+            Rectangle temp = (Rectangle)rectangle.get(j + 1);
+            current = (Integer)list.get(j + 1);
+            int preIndex = j;
+            Timeline start = new Timeline();
+
+            boolean is;
+            for(is = false; preIndex &gt;= 0 &amp;&amp; current &lt; (Integer)list.get(preIndex); is = true) &#123;
+                start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(preIndex)).translateXProperty(), (Number)displacement.get(preIndex))&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(preIndex)).translateXProperty(), (Integer)displacement.get(preIndex) + 10)&#125;)&#125;);
+                displacement.set(preIndex, (Integer)displacement.get(preIndex) + 10);
+                --preIndex;
+            &#125;
+
+            timeline.add(start);
+            if (is) &#123;
+                int t1 = j - preIndex;
+                start = new Timeline();
+                start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(j + 1)).translateXProperty(), (Number)displacement.get(j + 1))&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(j + 1)).translateXProperty(), (Integer)displacement.get(j + 1) - t1 * 5)&#125;)&#125;);
+                displacement.set(j + 1, (Integer)displacement.get(j + 1) - t1 * 10);
+                list.remove(j + 1);
+                list.add(preIndex + 1, current);
+                rectangle.remove(j + 1);
+                rectangle.add(preIndex + 1, temp);
+                timeline.add(start);
+                int tem3 = (Integer)displacement.get(j + 1);
+                displacement.remove(j + 1);
+                displacement.add(preIndex + 1, tem3);
+            &#125;
+        &#125;
+    &#125;
+
+    ((Timeline)timeline.get(count)).play();
+&#125;
+</code></pre>
+<p>}<br>package algorithm;</p>
+<p>import java.util.ArrayList;<br>import javafx.animation.Animation;<br>import javafx.animation.Interpolator;<br>import javafx.animation.KeyFrame;<br>import javafx.animation.KeyValue;<br>import javafx.animation.SequentialTransition;<br>import javafx.animation.Timeline;<br>import javafx.scene.shape.Rectangle;<br>import javafx.util.Duration;</p>
+<p>public class QuickSort extends Sort {<br>    public QuickSort() {<br>    }</p>
+<pre><code>public void algorithm(ArrayList&lt;Integer&gt; list, SequentialTransition sTransition, ArrayList&lt;Rectangle&gt; rectangle) &#123;
+    ArrayList&lt;Timeline&gt; timeline = new ArrayList();
+    int[] data = new int[list.size()];
+
+    int i;
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        data[i] = 0;
+    &#125;
+
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        int min = i;
+
+        for(int j = i + 1; j &lt; list.size(); ++j) &#123;
+            if ((Integer)list.get(min) &gt; (Integer)list.get(j)) &#123;
+                min = j;
+            &#125;
+        &#125;
+
+        if (i != min) &#123;
+            Timeline start = new Timeline();
+            start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min])&#125;), new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i])&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min] + (i - min) * 10)&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i] - (i - min) * 10)&#125;)&#125;);
+            timeline.add(start);
+            data[min] += (i - min) * 10;
+            data[i] -= (i - min) * 10;
+            int temp = (Integer)list.get(i);
+            list.set(i, (Integer)list.get(min));
+            list.set(min, temp);
+            Rectangle temp2 = (Rectangle)rectangle.get(i);
+            rectangle.set(i, (Rectangle)rectangle.get(min));
+            rectangle.set(min, temp2);
+            int temp3 = data[min];
+            data[min] = data[i];
+            data[i] = temp3;
+        &#125;
+    &#125;
+
+    for(i = 0; i &lt; timeline.size(); ++i) &#123;
+        sTransition.getChildren().add((Animation)timeline.get(i));
+    &#125;
+
+    sTransition.setCycleCount(0);
+    sTransition.setInterpolator(Interpolator.EASE_IN);
+    sTransition.play();
+&#125;
+
+public void algorithmstep(ArrayList&lt;Integer&gt; list, ArrayList&lt;Rectangle&gt; rectangle, int count, ArrayList&lt;Timeline&gt; timeline) &#123;
+    int[] data = new int[list.size()];
+
+    int i;
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        data[i] = 0;
+    &#125;
+
+    for(i = 0; i &lt; list.size(); ++i) &#123;
+        int min = i;
+
+        for(int j = i + 1; j &lt; list.size(); ++j) &#123;
+            if ((Integer)list.get(min) &gt; (Integer)list.get(j)) &#123;
+                min = j;
+            &#125;
+        &#125;
+
+        if (i != min) &#123;
+            Timeline start = new Timeline();
+            start.getKeyFrames().addAll(new KeyFrame[]&#123;new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min])&#125;), new KeyFrame(Duration.ZERO, new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i])&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(min)).translateXProperty(), data[min] + (i - min) * 10)&#125;), new KeyFrame(Duration.seconds(0.1D), new KeyValue[]&#123;new KeyValue(((Rectangle)rectangle.get(i)).translateXProperty(), data[i] - (i - min) * 10)&#125;)&#125;);
+            timeline.add(start);
+            data[min] += (i - min) * 10;
+            data[i] -= (i - min) * 10;
+            int temp = (Integer)list.get(i);
+            list.set(i, (Integer)list.get(min));
+            list.set(min, temp);
+            Rectangle temp2 = (Rectangle)rectangle.get(i);
+            rectangle.set(i, (Rectangle)rectangle.get(min));
+            rectangle.set(min, temp2);
+            int temp3 = data[min];
+            data[min] = data[i];
+            data[i] = temp3;
+        &#125;
+    &#125;
+
+    ((Timeline)timeline.get(count)).play();
+&#125;
+</code></pre>
+<p>}</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Barry</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://barry04.github.io/2020/04/06/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">http://barry04.github.io/2020/04/06/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://barry04.github.io" target="_blank">Barry</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%A5%E5%91%8A/">报告</a></div><div class="post_share"><div class="social-share" data-image="/my/img/11.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2020/04/06/%E7%9B%AE%E4%B9%8B%E6%89%80%E5%8F%8A%EF%BC%8C%E7%9A%86%E6%98%AFJava%E3%80%82%E5%BF%83%E4%B9%8B%E6%89%80%E6%83%B3%EF%BC%8C%E7%9A%86%E6%98%AFexe%E7%9A%84%E5%9D%91/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">目之所及，皆是Java。心之所想，皆是exe的坑</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Barry</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/my/img/weixi.jpg" target="_blank" title=""><i class="iconfont icon-weixin"></i></a><a class="social-icon" href="https://wpa.qq.com/msgrd?v=3&amp;uin=1289733914&amp;site=qq&amp;menu=yes" target="_blank" title=""><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://github.com/Barry04" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1289733914@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/02/18/XmlUtil/" title="XmlUtil.readObjectFromXml的坑及解决方法"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="XmlUtil.readObjectFromXml的坑及解决方法"/></a><div class="content"><a class="title" href="/2022/02/18/XmlUtil/" title="XmlUtil.readObjectFromXml的坑及解决方法">XmlUtil.readObjectFromXml的坑及解决方法</a><time datetime="2022-02-18T05:17:45.000Z" title="发表于 2022-02-18 13:17:45">2022-02-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/18/%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97/" title="DelayingQueue"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DelayingQueue"/></a><div class="content"><a class="title" href="/2022/02/18/%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97/" title="DelayingQueue">DelayingQueue</a><time datetime="2022-02-18T04:57:45.000Z" title="发表于 2022-02-18 12:57:45">2022-02-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/20/%E4%B8%80%E6%96%87%E6%95%99%E4%BD%A0%E5%85%A8%E8%87%AA%E5%8A%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E5%8D%A1%EF%BC%8C%E6%B1%9F%E8%A5%BF%E5%AD%A6%E5%AD%90%E6%9C%89%E7%A6%8F%EF%BC%81/" title="一文教你全自动打卡，解放你的双手！！！"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/11.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一文教你全自动打卡，解放你的双手！！！"/></a><div class="content"><a class="title" href="/2021/05/20/%E4%B8%80%E6%96%87%E6%95%99%E4%BD%A0%E5%85%A8%E8%87%AA%E5%8A%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E5%8D%A1%EF%BC%8C%E6%B1%9F%E8%A5%BF%E5%AD%A6%E5%AD%90%E6%9C%89%E7%A6%8F%EF%BC%81/" title="一文教你全自动打卡，解放你的双手！！！">一文教你全自动打卡，解放你的双手！！！</a><time datetime="2021-05-20T15:19:55.000Z" title="发表于 2021-05-20 23:19:55">2021-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/17/%E5%A4%8F%E6%97%A5%E7%A9%BA%E8%B0%83/" title="夏日空调"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="夏日空调"/></a><div class="content"><a class="title" href="/2021/05/17/%E5%A4%8F%E6%97%A5%E7%A9%BA%E8%B0%83/" title="夏日空调">夏日空调</a><time datetime="2021-05-17T04:57:15.000Z" title="发表于 2021-05-17 12:57:15">2021-05-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/03/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F-%E8%AE%BF%E9%97%AE-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" title="行为模式-访问-策略模式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/my/img/7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="行为模式-访问-策略模式"/></a><div class="content"><a class="title" href="/2021/05/03/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F-%E8%AE%BF%E9%97%AE-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" title="行为模式-访问-策略模式">行为模式-访问-策略模式</a><time datetime="2021-05-03T10:26:04.000Z" title="发表于 2021-05-03 18:26:04">2021-05-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/my/img/11.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Barry</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://barry04.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'b35144626e07ebbef8b6',
+      clientSecret: '61b81e2262722375f0cb9a51e5b7ebb5e6679f8d',
+      repo: 'Gitalk',
+      owner: 'Barry04',
+      admin: ['Barry04'],
+      id: '4531d2c250c8af2705ee134f468d2aeb',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script src="/my/js/mine.js"></script><div class="aplayer no-destroy" data-id="6708545689"  userid="503324987" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dwlib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dwassets/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":null,"log":false});</script></body></html>
