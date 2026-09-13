@@ -1,0 +1,52 @@
+url: "https://suncy.me"
+baseurl: ""
+title: Barry
+description: Barry · 闲情雅趣
+motto: 闲情雅趣
+title_separator: " · "
+repository: Barry04/Barry04.github.io
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-redirect-from
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+  - scope:
+      path: "README.md"
+    values:
+      title: ""
+  - scope:
+      path: "resources"
+    values:
+      comments: false
+
+exclude:
+  - AGENTS.md
+  - Gemfile
+  - Gemfile.lock
+  - docs
+  - skills
+  - vendor
+  - _extracted
+  - README.md.bak
+
+include:
+  - CNAME
+
+utterances:
+  repo: Barry04/Barry04.github.io
+  issue_term: pathname
+  theme: github-dark
+  label: blog-comments

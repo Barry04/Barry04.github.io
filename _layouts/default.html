@@ -1,0 +1,103 @@
+{% assign sep = site.title_separator | default: " · " %}
+{% assign brand = site.title | default: "Barry" %}
+{% assign motto = site.motto | default: "闲情雅趣" %}
+{% assign _root_path = site.baseurl | append: '/' %}
+{% assign page_is_home = false %}
+{% if page.path == 'README.md' or page.url == '/' or page.url == '/index.html' %}
+  {% assign page_is_home = true %}
+{% elsif page.url == _root_path %}
+  {% assign page_is_home = true %}
+{% endif %}
+
+{% assign page_is_article = false %}
+{% assign _page_src = page.path | default: '' %}
+{% assign _year_prefix = _page_src | slice: 0, 5 %}
+{% if _year_prefix == '2020/' or _year_prefix == '2021/' or _year_prefix == '2022/' or _year_prefix == '2023/' or _year_prefix == '2024/' or _year_prefix == '2025/' or _year_prefix == '2026/' or _year_prefix == '2027/' or _year_prefix == '2028/' or _year_prefix == '2029/' %}
+  {% assign page_is_article = true %}
+{% endif %}
+
+{% if page_is_home %}
+  {% assign doc_title = motto | append: sep | append: brand %}
+{% elsif page.title and page.title != '' %}
+  {% assign doc_title = page.title | append: sep | append: brand %}
+{% else %}
+  {% assign doc_title = brand %}
+{% endif %}
+
+{% assign asset_rev = site.github.build_revision | default: site.time | date: "%s" %}
+{% assign page_comments = page.comments | default: true %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description | xml_escape }}">
+  <meta name="theme-color" content="#f3efe7">
+  <meta name="color-scheme" content="light dark">
+  <title>{{ doc_title | xml_escape }}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" href="{{ '/resources/favicon.ico' | relative_url }}?v={{ asset_rev }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_rev }}">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('barry-theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0f1716');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="{% if page_is_home %}page-home{% endif %}{% if page_is_article %} page-article{% endif %}">
+  <a class="skip-link" href="#main-content">跳到正文</a>
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <img src="{{ '/resources/avatar.png' | relative_url }}?v={{ asset_rev }}" alt="" width="32" height="32">
+        <span class="brand-title">{{ brand }}</span>
+        <span class="brand-sub">{{ motto }}</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="{{ '/' | relative_url }}">首页</a>
+        <a href="{{ '/resources/Archives.html' | relative_url }}">归档</a>
+        <a href="{{ '/resources/AboutMe.html' | relative_url }}">关于</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换深浅色">深浅色</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="site-main">
+    {% if page_is_article and page.title %}
+      <header class="article-head">
+        <p class="article-kicker">{{ page.path | slice: 0, 4 }}</p>
+        <h1>{{ page.title }}</h1>
+      </header>
+    {% endif %}
+    <div class="prose">
+      {{ content }}
+    </div>
+    {% if page_is_article and page_comments %}
+      <section class="comments" aria-label="评论">
+        <h2>评论</h2>
+        <script src="https://utteranc.es/client.js"
+                repo="{{ site.utterances.repo }}"
+                issue-term="{{ site.utterances.issue_term }}"
+                theme="{{ site.utterances.theme }}"
+                label="{{ site.utterances.label }}"
+                crossorigin="anonymous"
+                async>
+        </script>
+      </section>
+    {% endif %}
+  </main>
+  <footer class="site-footer">
+    <p>© {{ site.time | date: "%Y" }} {{ brand }} · <a href="https://github.com/Barry04">GitHub</a> · <a href="{{ '/resources/AboutMe.html' | relative_url }}">关于</a></p>
+  </footer>
+  <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ asset_rev }}"></script>
+</body>
+</html>
