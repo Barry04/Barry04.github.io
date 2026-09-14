@@ -6,7 +6,7 @@
 
 | Time | Name | Tags |
 | --- | --- | --- |
-| 09/14 | [老项目里，别让模型自己审自己](./2026/vibe-coding-bottleneck.md) | AI/工程 |
+| 09/14 | [在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码](./2026/vibe-coding-bottleneck.md) | AI/工程 |
 | 09/13 | [重新开工](./2026/hello-again.md) | 站点/Jekyll |
 
 <div class="era-archive" markdown="1">

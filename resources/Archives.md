@@ -8,7 +8,7 @@ comments: false
 
 ## 现在
 
-- [老项目里，别让模型自己审自己](../2026/vibe-coding-bottleneck.md)
+- [在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码](../2026/vibe-coding-bottleneck.md)
 - [重新开工](../2026/hello-again.md)
 
 ---

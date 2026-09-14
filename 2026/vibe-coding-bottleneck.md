@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 老项目里，别让模型自己审自己
+title: 在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码
 ---
 
 AI 会不会写代码，这题可以收了。它写得很快。快到我读完 diff 之前，下一轮已经又改完了。
