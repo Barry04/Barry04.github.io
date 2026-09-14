@@ -6,7 +6,7 @@
 
 | Time | Name | Tags |
 | --- | --- | --- |
-| 09/14 | [Vibe Coding 卡住的不是写，是验](./2026/vibe-coding-bottleneck.md) | AI/工程 |
+| 09/14 | [老项目里，别让模型自己审自己](./2026/vibe-coding-bottleneck.md) | AI/工程 |
 | 09/13 | [重新开工](./2026/hello-again.md) | 站点/Jekyll |
 
 <div class="era-archive" markdown="1">

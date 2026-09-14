@@ -8,7 +8,7 @@ comments: false
 
 ## 现在
 
-- [Vibe Coding 卡住的不是写，是验](../2026/vibe-coding-bottleneck.md)
+- [老项目里，别让模型自己审自己](../2026/vibe-coding-bottleneck.md)
 - [重新开工](../2026/hello-again.md)
 
 ---
