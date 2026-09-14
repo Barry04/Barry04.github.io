@@ -6,17 +6,23 @@ comments: false
 
 # 归档
 
-## 2026
+## 现在
 
 - [Vibe Coding 卡住的不是写，是验](../2026/vibe-coding-bottleneck.md)
 - [重新开工](../2026/hello-again.md)
 
-## 2022
+---
+
+## 学生时代
+
+2022 年停更以前。只作存档。
+
+### 2022
 
 - [XmlUtil.readObjectFromXml 的坑](../2022/xmlutil.md)
 - [DelayingQueue](../2022/delaying-queue.md)
 
-## 2021
+### 2021
 
 - [行为模式：访问与策略](../2021/visitor-strategy.md)
 - [微信小游戏路径和成员](../2021/wechat-minigame-path.md)
