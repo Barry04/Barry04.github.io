@@ -8,6 +8,7 @@ comments: false
 
 ## 2026
 
+- [Vibe Coding 卡住的不是写，是验](../2026/vibe-coding-bottleneck.md)
 - [重新开工](../2026/hello-again.md)
 
 ## 2022
