@@ -2,13 +2,7 @@
 
 闲情雅趣。写一点技术，也写一点乱七八糟的想法。
 
-- GitHub：[Barry04](https://github.com/Barry04)
-- 邮箱：[1289733914@gmail.com](mailto:1289733914@gmail.com)
-- 关于：[resources/AboutMe.md](./resources/AboutMe.md)
-
 ### 现在
-
-#### 2026
 
 | Time | Name | Tags |
 | --- | --- | --- |
