@@ -387,6 +387,22 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 
 .prose pre code { background: none; padding: 0; font-size: 0.84rem; line-height: 1.55; }
 
+.prose .mermaid {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 0.75rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  text-align: center;
+  font-family: var(--font-ui);
+}
+
+.prose .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
 .era-archive {
   margin-top: 2.5rem;
   padding: 1.5rem 0 0;
