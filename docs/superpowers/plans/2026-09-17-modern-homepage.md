@@ -39,7 +39,7 @@ Run:
 rg -o "\]\([^)]+\)" README.md
 ```
 
-Expected: 输出 8 个文章链接，包含 2026、2022、2021 年现有文章。
+Expected: 输出 9 个文章链接，包含 2026、2022、2021 年现有文章。
 
 - [ ] **Step 2: 写入语义化 Bento 内容**
 
@@ -55,7 +55,22 @@ Expected: 输出 8 个文章链接，包含 2026、2022、2021 年现有文章�
       <p>当 Agent 开始积累经验，怎么避免 Skill 越来越多、越来越乱。</p>
       <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
     </a>
-    <!-- 次新文章、归档与关于卡片使用同样语义结构 -->
+    <a class="home-card home-card--secondary" href="./2026/vibe-coding-bottleneck.md">
+      <span class="card-kicker">09/14 · AI / 工程</span>
+      <h3>在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码</h3>
+      <p>生成已经便宜了，真正昂贵的是理解边界和拿出验证证据。</p>
+      <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="home-card home-card--compact" href="./resources/Archives.html">
+      <span class="card-kicker">ARCHIVE</span>
+      <h3>全部文章</h3>
+      <p>9 篇技术记录与旧日笔记。</p>
+    </a>
+    <a class="home-card home-card--compact" href="./resources/AboutMe.html">
+      <span class="card-kicker">ABOUT</span>
+      <h3>关于 Barry</h3>
+      <p>写技术，也写一点乱七八糟的想法。</p>
+    </a>
   </div>
 </section>
 ```
@@ -304,7 +319,11 @@ Expected: 两条命令 exit 0。
 
 - [ ] **Step 7: Commit**
 
+如果浏览器验收产生修复，执行：
+
 ```powershell
 git add README.md _layouts/default.html assets/css/style.scss
 git commit -m "fix: polish homepage responsive behavior"
 ```
+
+如果没有产生修复，记录“浏览器验收通过，无需额外提交”，不得创建空 commit。
