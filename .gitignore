@@ -8,5 +8,6 @@ _extracted/
 .tmp-preview/
 .workbuddy-ai/
 .claude/
+.superpowers/
 .DS_Store
 *.swp
