@@ -79,9 +79,9 @@ Codex 甚至给最初那张“工具目录”留了上下文预算。目录太�
 
 ## 先别把所有东西都叫 Skill
 
-我会先把它们分成三类。
+我会先把它们放到三层货架上。越往上，越稳定，也越有资格影响 Agent 的下一次决定。
 
-第一类是长期工程能力。比如：
+最上层是**稳定能力**。比如：
 
 ```text
 java-api/
@@ -93,9 +93,9 @@ testing/
 
 它们不是为了某一个 bug 才存在。项目每隔一阵就会碰到，规则也相对稳定。这种可以放进正式工具箱。
 
-第二类是项目自己的知识。比如一个告警系统的抑制规则、多站点部署顺序、某张表的历史包袱。它们看起来像 Skill，实际更接近“这个项目到底怎么运转”的说明。
+中间一层是**项目知识**。比如一个告警系统的抑制规则、多站点部署顺序、某张表的历史包袱。它们看起来像 Skill，实际更接近“这个项目到底怎么运转”的说明。换一个项目，往往就不适用了。
 
-第三类是临时记录：
+最下面是**临时记录**：
 
 ```text
 fix-xxx-bug
@@ -106,6 +106,126 @@ experiment-xxx
 ```
 
 它们可能只会用一次。写下来当然没问题，但不应该直接挤进正式库。否则以后每次检索，都得先穿过一层旧事故现场。
+
+<div class="diagram diagram-sumsec">
+<svg viewBox="0 0 960 500" role="img" aria-label="Skill 从临时记录经过项目验证，逐层演进为项目知识和稳定能力">
+  <text class="sd-cap" x="32" y="34">知识成熟度</text>
+  <text class="sd-small" x="32" y="62">越往上，适用范围越广，进入 Agent 默认上下文的资格越高</text>
+
+  <g>
+    <rect x="32" y="346" width="430" height="94" rx="12" class="sd-node-risk"/>
+    <text class="sd-label" x="58" y="375">临时记录</text>
+    <text class="sd-small" x="58" y="401">一次事故 · 调查笔记 · 实验结果</text>
+    <text class="sd-small" x="58" y="423">默认不参与 Skill 路由</text>
+
+    <rect x="112" y="218" width="350" height="94" rx="12" class="sd-node"/>
+    <text class="sd-label" x="138" y="247">项目知识</text>
+    <text class="sd-small" x="138" y="273">项目专属规则 · 操作方法 · 历史约束</text>
+    <text class="sd-small" x="138" y="295">在项目范围内优先使用</text>
+
+    <rect x="192" y="90" width="270" height="94" rx="12" class="sd-node-pass"/>
+    <text class="sd-on-fill" x="218" y="119">稳定能力</text>
+    <text class="sd-on-fill" x="218" y="145" font-size="11">跨项目验证 · 长期复用</text>
+    <text class="sd-on-fill" x="218" y="167" font-size="11">进入正式 Skill 库</text>
+  </g>
+
+  <path class="sd-arrow" d="M247 346V320" marker-end="url(#sdArrowLevel)"/>
+  <text class="sd-small" x="265" y="334">同类问题再次命中 + 验证通过</text>
+
+  <path class="sd-arrow" d="M327 218V192" marker-end="url(#sdArrowLevel)"/>
+  <text class="sd-small" x="345" y="206">去掉项目偶然细节 + 跨项目验证</text>
+
+  <line class="sd-divider" x1="510" y1="80" x2="510" y2="452"/>
+
+  <text class="sd-label" x="554" y="110">Elasticsearch 超时示例</text>
+
+  <rect x="554" y="140" width="348" height="66" rx="10" class="sd-node-pass"/>
+  <text class="sd-on-fill" x="578" y="166">elasticsearch-timeout-troubleshooting</text>
+  <text class="sd-on-fill" x="578" y="188" font-size="11">跨项目可复用的排错与验证方法</text>
+
+  <rect x="554" y="244" width="348" height="66" rx="10" class="sd-node"/>
+  <text class="sd-label" x="578" y="270">alarm-es-timeout</text>
+  <text class="sd-small" x="578" y="292">告警服务专属查询链路与阈值</text>
+
+  <rect x="554" y="348" width="348" height="66" rx="10" class="sd-node-risk"/>
+  <text class="sd-label" x="578" y="374">es-timeout-20260917</text>
+  <text class="sd-small" x="578" y="396">某次故障的日志、证据与临时推测</text>
+
+  <path class="sd-arrow" d="M728 348V318" marker-end="url(#sdArrowLevel)"/>
+  <path class="sd-arrow" d="M728 244V214" marker-end="url(#sdArrowLevel)"/>
+
+  <line class="sd-divider" x1="32" y1="466" x2="928" y2="466"/>
+  <text class="sd-small" x="32" y="488">升级不是改目录名，而是删掉偶然细节、补齐验证证据、扩大适用范围。</text>
+
+  <defs>
+    <marker id="sdArrowLevel" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="var(--diagram-flow)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+三层之间不是永久隔开的。一次排错记录如果后来反复命中，可以整理成项目知识；在多个项目里都验证有效，才有机会再往上变成稳定能力。
+
+### 一个完整的实践样例
+
+假设某次告警服务出现 Elasticsearch 查询超时。第一次处理时，只留下调查材料：
+
+```text
+skills/candidate/es-timeout-20260917/
+├── notes.md              # 当时看过哪些日志
+├── evidence/             # 慢查询与调用链证据
+└── proposed-skill.md     # 暂时推测出的处理办法
+```
+
+这时它仍是临时记录。不能因为问题修好了，就直接宣布“所有 Elasticsearch 超时都这样处理”。
+
+后来同类问题再次出现，旧记录确实帮 Agent 找到了根因，而且修复经过查询回放和压测验证。再把它整理成项目级 Skill：
+
+```text
+skills/active/domain/alarm-es-timeout/
+├── SKILL.md
+├── references/
+│   ├── query-path.md
+│   └── known-failures.md
+└── scripts/
+    └── replay-query.py
+```
+
+`SKILL.md` 不保存那次事故的全部日志，只留下以后还成立的部分：
+
+```yaml
+---
+name: alarm-es-timeout
+description: 告警服务出现 Elasticsearch 查询超时、慢查询或批量检索积压时使用
+---
+
+when:
+  - 告警查询超时
+  - 批量检索积压
+
+procedure:
+  - 确认超时发生在哪一段调用链
+  - 对照已知失败模式
+  - 使用历史查询样本回放
+
+validation:
+  - 回放结果一致
+  - P95 延迟回到阈值内
+  - 无新增错误日志
+```
+
+如果这套方法以后在别的服务、别的项目里也成立，再去掉告警系统专属内容，提炼成更通用的 `elasticsearch-timeout-troubleshooting`。
+
+```text
+一次事故记录
+    ↓ 同类问题再次命中
+项目级 alarm-es-timeout
+    ↓ 跨项目验证仍然成立
+通用 elasticsearch-timeout-troubleshooting
+```
+
+这就是我理解的“演进”：不是把临时文件换个名字塞进 `active/`，而是每升一层，都删掉偶然细节，补上验证证据，再扩大适用范围。
 
 ## 给新经验留一个试用盒
 
