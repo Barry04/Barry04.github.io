@@ -100,6 +100,9 @@ a:hover { color: var(--signal); }
   left: var(--gutter);
   top: -4rem;
   z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   background: var(--accent);
   color: #fff;
   padding: 0.4rem 0.8rem;
@@ -146,8 +149,9 @@ a:hover { color: var(--signal); }
 }
 
 .brand {
-  display: flex;
-  align-items: baseline;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   gap: 0.55rem;
   color: inherit;
   text-decoration: none;
@@ -933,7 +937,13 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 }
 
 .site-footer p { margin: 0.2rem 0; }
-.site-footer a { color: inherit; }
+.site-footer a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  vertical-align: middle;
+}
 
 .highlight { background: transparent; }
 
