@@ -6,7 +6,7 @@
 
 | Time | Name | Tags |
 | --- | --- | --- |
-| 09/17 | [Skill 也会腐化：Vibe Coding 的第二个治理问题](./2026/skill-lifecycle.md) | AI/工程 |
+| 09/17 | [Skill 生命周期：Vibe Coding 下的管理与演进](./2026/skill-lifecycle.md) | AI/工程 |
 | 09/14 | [在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码](./2026/vibe-coding-bottleneck.md) | AI/工程 |
 | 09/13 | [重新开工](./2026/hello-again.md) | 站点/Jekyll |
 
