@@ -9,5 +9,6 @@ _extracted/
 .workbuddy-ai/
 .claude/
 .superpowers/
+.worktrees/
 .DS_Store
 *.swp
