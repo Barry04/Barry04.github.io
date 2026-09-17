@@ -5,13 +5,13 @@
 <section class="home-bento" aria-labelledby="latest-writing">
   <h2 id="latest-writing" class="section-label">最新写作</h2>
   <div class="bento-grid">
-    <a class="home-card home-card--featured" href="./2026/skill-lifecycle.md">
+    <a class="home-card home-card--featured" href="./2026/skill-lifecycle.html">
       <span class="card-kicker">LATEST · 09/17 · AI / 工程</span>
       <h3>Skill 生命周期：Vibe Coding 下的管理与演进</h3>
       <p>当 Agent 开始积累经验，怎么避免 Skill 越来越多、越来越乱。</p>
       <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
     </a>
-    <a class="home-card home-card--secondary" href="./2026/vibe-coding-bottleneck.md">
+    <a class="home-card home-card--secondary" href="./2026/vibe-coding-bottleneck.html">
       <span class="card-kicker">09/14 · AI / 工程</span>
       <h3>在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码</h3>
       <p>生成已经便宜了，真正昂贵的是理解边界和拿出验证证据。</p>
@@ -35,17 +35,17 @@
 
   <h3>现在</h3>
   <div class="home-index__group">
-    <a class="home-index__row" href="./2026/skill-lifecycle.md">
+    <a class="home-index__row" href="./2026/skill-lifecycle.html">
       <span class="home-index__date">09/17</span>
       <span class="home-index__title">Skill 生命周期：Vibe Coding 下的管理与演进</span>
       <span class="home-index__tags">AI/工程</span>
     </a>
-    <a class="home-index__row" href="./2026/vibe-coding-bottleneck.md">
+    <a class="home-index__row" href="./2026/vibe-coding-bottleneck.html">
       <span class="home-index__date">09/14</span>
       <span class="home-index__title">在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码</span>
       <span class="home-index__tags">AI/工程</span>
     </a>
-    <a class="home-index__row" href="./2026/hello-again.md">
+    <a class="home-index__row" href="./2026/hello-again.html">
       <span class="home-index__date">09/13</span>
       <span class="home-index__title">重新开工</span>
       <span class="home-index__tags">站点/Jekyll</span>
@@ -58,12 +58,12 @@
 
     <h4>2022</h4>
     <div class="home-index__group">
-      <a class="home-index__row" href="./2022/xmlutil.md">
+      <a class="home-index__row" href="./2022/xmlutil.html">
         <span class="home-index__date">02/18</span>
         <span class="home-index__title">XmlUtil.readObjectFromXml 的坑</span>
         <span class="home-index__tags">Java/Hutool</span>
       </a>
-      <a class="home-index__row" href="./2022/delaying-queue.md">
+      <a class="home-index__row" href="./2022/delaying-queue.html">
         <span class="home-index__date">02/18</span>
         <span class="home-index__title">DelayingQueue</span>
         <span class="home-index__tags">Java/Redis</span>
@@ -72,22 +72,22 @@
 
     <h4>2021</h4>
     <div class="home-index__group">
-      <a class="home-index__row" href="./2021/visitor-strategy.md">
+      <a class="home-index__row" href="./2021/visitor-strategy.html">
         <span class="home-index__date">05/03</span>
         <span class="home-index__title">行为模式：访问与策略</span>
         <span class="home-index__tags">设计模式</span>
       </a>
-      <a class="home-index__row" href="./2021/wechat-minigame-path.md">
+      <a class="home-index__row" href="./2021/wechat-minigame-path.html">
         <span class="home-index__date">04/07</span>
         <span class="home-index__title">微信小游戏路径和成员</span>
         <span class="home-index__tags">微信</span>
       </a>
-      <a class="home-index__row" href="./2021/wechat-miniprogram-undefined.md">
+      <a class="home-index__row" href="./2021/wechat-miniprogram-undefined.html">
         <span class="home-index__date">04/06</span>
         <span class="home-index__title">微信小程序 undefined</span>
         <span class="home-index__tags">微信</span>
       </a>
-      <a class="home-index__row" href="./2021/idea-output-directory.md">
+      <a class="home-index__row" href="./2021/idea-output-directory.html">
         <span class="home-index__date">04/06</span>
         <span class="home-index__title">IDEA Output directory is not specified</span>
         <span class="home-index__tags">IDEA</span>

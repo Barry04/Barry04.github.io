@@ -11,6 +11,7 @@
   --accent-ink: #ffffff;
   --accent-soft: rgba(30, 107, 82, 0.12);
   --signal: #2bb39a;
+  --focus-ring: #0f766e;
   --signal-warm: #d96c37;
   --signal-warm-ink: #241006;
   --code-bg: #eef2f0;
@@ -38,6 +39,7 @@
   --accent-ink: #06201b;
   --accent-soft: rgba(97, 228, 202, 0.14);
   --signal: #25c2a0;
+  --focus-ring: #5eead4;
   --signal-warm: #ff9a63;
   --signal-warm-ink: #241006;
   --code-bg: #1a2124;
@@ -89,7 +91,7 @@ a {
 a:hover { color: var(--signal); }
 
 :focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -187,6 +189,7 @@ a:hover { color: var(--signal); }
 }
 
 .site-nav a {
+  position: relative;
   color: var(--ink);
   text-decoration: none;
   padding: 0.55rem 0.75rem;
@@ -200,6 +203,10 @@ a:hover { color: var(--signal); }
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
   color: var(--accent);
+}
+
+.site-nav a[aria-current="page"] {
+  box-shadow: inset 0 -2px 0 var(--focus-ring);
 }
 
 .theme-toggle {
@@ -230,53 +237,6 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 }
 
 .page-home .site-main { max-width: var(--wide); }
-
-.hero {
-  padding: 2.5rem 0 3rem;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 2.5rem;
-}
-
-.hero-kicker {
-  margin: 0 0 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.18em;
-  text-transform: lowercase;
-  font-size: 0.78rem;
-  font-family: var(--font-mono);
-}
-
-.hero-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: #{'clamp(3.4rem, 8vw, 5.6rem)'};
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-}
-
-.hero-motto {
-  margin: 1rem 0 0;
-  font-family: var(--font-serif);
-  font-size: #{'clamp(1.15rem, 2vw, 1.45rem)'};
-  color: var(--muted);
-}
-
-.hero-links {
-  display: flex;
-  gap: 1.25rem;
-  margin: 1.5rem 0 0;
-  font-size: 0.92rem;
-}
-
-.hero-links a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 0.1rem;
-}
-
-.hero-links a:hover { border-color: var(--signal); color: var(--accent); }
 
 .article-head { margin-bottom: 2rem; }
 
@@ -378,7 +338,7 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 .home-button:active { transform: translateY(0); }
 
 .home-button:focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 4px;
 }
 
@@ -509,7 +469,7 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 .page-home .home-card:active { transform: translateY(-1px); }
 
 .page-home .home-card:focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 4px;
 }
 
@@ -591,7 +551,7 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 }
 
 .page-home .home-index__row:focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--focus-ring);
   outline-offset: -4px;
 }
 
@@ -676,43 +636,6 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
   border: 0;
   border-top: 1px solid var(--line);
   margin: 2.4rem 0;
-}
-
-.page-home .prose table { width: 100%; border-collapse: collapse; }
-.page-home .prose thead { display: none; }
-.page-home .prose table,
-.page-home .prose tbody,
-.page-home .prose tr {
-  display: block;
-}
-.page-home .prose tr {
-  display: grid;
-  grid-template-columns: 4.2rem 1fr auto;
-  gap: 0.75rem;
-  align-items: baseline;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--line);
-}
-.page-home .prose td {
-  border: 0;
-  padding: 0;
-  white-space: normal;
-}
-.page-home .prose td:first-child {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-.page-home .prose td:nth-child(2) a {
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 600;
-}
-.page-home .prose td:nth-child(2) a:hover { color: var(--accent); }
-.page-home .prose td:nth-child(3) {
-  font-size: 0.78rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
 }
 
 .prose table {
@@ -1008,13 +931,6 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 
 @media (max-width: 720px) {
   .brand-sub { display: none; }
-  .page-home .prose tr {
-    grid-template-columns: 3.6rem 1fr;
-  }
-  .page-home .prose td:nth-child(3) {
-    grid-column: 2;
-    margin-top: -0.35rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
