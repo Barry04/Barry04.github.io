@@ -8,6 +8,7 @@ comments: false
 
 ## 现在
 
+- [Skill 也会腐化：Vibe Coding 的第二个治理问题](../2026/skill-lifecycle.md)
 - [在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码](../2026/vibe-coding-bottleneck.md)
 - [重新开工](../2026/hello-again.md)
 
