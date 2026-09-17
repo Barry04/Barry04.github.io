@@ -8,9 +8,11 @@
   --muted: #5d6b67;
   --line: rgba(20, 33, 29, 0.12);
   --accent: #1e6b52;
+  --accent-ink: #ffffff;
   --accent-soft: rgba(30, 107, 82, 0.12);
   --signal: #2bb39a;
   --signal-warm: #d96c37;
+  --signal-warm-ink: #241006;
   --code-bg: #eef2f0;
   --surface-strong: #ffffff;
   --surface-soft: #edf2ef;
@@ -33,9 +35,11 @@
   --muted: rgba(230, 236, 233, 0.62);
   --line: rgba(230, 236, 233, 0.12);
   --accent: #61e4ca;
+  --accent-ink: #06201b;
   --accent-soft: rgba(97, 228, 202, 0.14);
   --signal: #25c2a0;
   --signal-warm: #ff9a63;
+  --signal-warm-ink: #241006;
   --code-bg: #1a2124;
   --surface-strong: #181f22;
   --surface-soft: #12181b;
@@ -377,13 +381,13 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 .home-button--primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
 }
 
 .home-button--primary:hover {
   background: var(--signal-warm);
   border-color: var(--signal-warm);
-  color: #fff;
+  color: var(--signal-warm-ink);
 }
 
 .home-status {
@@ -939,10 +943,10 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
     min-height: auto;
   }
 
-  .home-card--featured { grid-column: span 12; }
+  .page-home .home-card--featured { grid-column: span 12; }
 
-  .home-card--secondary,
-  .home-card--compact { grid-column: span 6; }
+  .page-home .home-card--secondary,
+  .page-home .home-card--compact { grid-column: span 6; }
 }
 
 @media (max-width: 767px) {
@@ -955,15 +959,15 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 
   .home-status { grid-template-columns: 1fr; }
 
-  .home-card--secondary,
-  .home-card--compact { grid-column: span 12; }
+  .page-home .home-card--secondary,
+  .page-home .home-card--compact { grid-column: span 12; }
 
-  .home-index__row {
+  .page-home .home-index__row {
     grid-template-columns: 4rem minmax(0, 1fr);
     gap: 0.25rem 0.85rem;
   }
 
-  .home-index__tags {
+  .page-home .home-index__tags {
     grid-column: 2;
   }
 }
@@ -981,14 +985,14 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .home-card,
+  .page-home .home-card,
   .home-button {
     transform: none;
     transition: none;
   }
 
-  .home-card:hover,
-  .home-card:active,
+  .page-home .home-card:hover,
+  .page-home .home-card:active,
   .home-button:hover,
   .home-button:active {
     transform: none;
