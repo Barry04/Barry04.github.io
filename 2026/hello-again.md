@@ -13,7 +13,7 @@ title: 重新开工
 
 1. 按**当前年份**新建 `YYYY/slug.md`（现在是 `2026/`）。
 2. 需要旧链接时，在 front matter 里写 `redirect_from`。
-3. 在根目录 `README.md` 对应年份表格加一行。
+3. 维护根目录 `README.md` 的 Bento 与完整文章索引。
 
 本地预览：
 
