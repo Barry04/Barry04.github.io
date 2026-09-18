@@ -77,15 +77,21 @@
   </header>
   <main id="main-content" class="site-main">
     {% if page_is_home %}
-      <section class="hero">
-        <p class="hero-kicker">suncy.me</p>
-        <h1 class="hero-title">{{ brand }}</h1>
-        <p class="hero-motto">{{ motto }}</p>
-        <p class="hero-links">
-          <a href="https://github.com/Barry04">GitHub</a>
-          <a href="mailto:1289733914@gmail.com">邮箱</a>
-          <a href="{{ '/resources/AboutMe.html' | relative_url }}">关于</a>
-        </p>
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero__copy">
+          <p class="home-eyebrow">PERSONAL LOG / AI ENGINEERING</p>
+          <h1 id="home-title" class="home-title">构建、验证，<br>然后写下来。</h1>
+          <p class="home-intro">记录存量系统、Agent 工程，以及那些值得长期留下的实践。</p>
+          <p class="home-actions">
+            <a class="home-button home-button--primary" href="#latest-writing">查看最新文章</a>
+            <a class="home-button" href="https://github.com/Barry04">GitHub</a>
+          </p>
+        </div>
+        <dl class="home-status" aria-label="站点信息">
+          <div><dt>DOMAIN</dt><dd>suncy.me</dd></div>
+          <div><dt>ARCHIVE</dt><dd>9 ARTICLES</dd></div>
+          <div><dt>FOCUS</dt><dd>AI · ENGINEERING</dd></div>
+        </dl>
       </section>
     {% endif %}
     {% if page_is_article and page.title %}
