@@ -41,6 +41,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_rev }}">
+  {% if page_is_home %}<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}?v={{ asset_rev }}">{% endif %}
   <script>
     (function () {
       try {
@@ -77,16 +78,7 @@
   </header>
   <main id="main-content" class="site-main">
     {% if page_is_home %}
-      <section class="hero">
-        <p class="hero-kicker">suncy.me</p>
-        <h1 class="hero-title">{{ brand }}</h1>
-        <p class="hero-motto">{{ motto }}</p>
-        <p class="hero-links">
-          <a href="https://github.com/Barry04">GitHub</a>
-          <a href="mailto:1289733914@gmail.com">邮箱</a>
-          <a href="{{ '/resources/AboutMe.html' | relative_url }}">关于</a>
-        </p>
-      </section>
+      {% include home.html %}
     {% endif %}
     {% if page_is_article and page.title %}
       <header class="article-head">
@@ -94,9 +86,9 @@
         <h1>{{ page.title }}</h1>
       </header>
     {% endif %}
-    <div class="prose">
+    {% unless page_is_home %}<div class="prose">
       {{ content }}
-    </div>
+    </div>{% endunless %}
     {% if page_is_article and page_comments %}
       <section class="comments" aria-label="评论">
         <h2>评论</h2>

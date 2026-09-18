@@ -1,0 +1,104 @@
+{% assign article_count = 0 %}
+{% for entry in site.pages %}
+  {% assign entry_year = entry.path | slice: 0, 4 | plus: 0 %}
+  {% assign entry_slash = entry.path | slice: 4, 1 %}
+  {% assign entry_extension = entry.path | split: '.' | last %}
+  {% if entry_year >= 2020 and entry_slash == '/' and entry_extension == 'md' %}
+    {% assign article_count = article_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<section class="home-intro" aria-labelledby="home-title">
+  <div class="home-intro__copy">
+    <p class="home-eyebrow"><span class="home-dot" aria-hidden="true"></span> BARRY / 开发者的个人记录</p>
+    <h1 id="home-title">构建、验证，<br>然后<span>写下来。</span></h1>
+    <p class="home-description">在代码里解决问题，在文字里整理思路。<br>记录 Agent 工程、后端实践，也留一点闲情雅趣。</p>
+    <div class="home-actions">
+      <a class="home-button home-button--primary" href="#selected-writing">读最近的文章 <span aria-hidden="true">↗</span></a>
+      <a class="home-button home-button--quiet" href="https://github.com/Barry04">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="home-intro__footnote"><span>01 / 探索</span><span>02 / 实践</span><span>03 / 记录</span></p>
+  </div>
+
+  <div class="home-blueprint" role="img" aria-label="从问题出发，理解上下文、构建方案、验证结果，再沉淀为可复用的经验。">
+    <div class="home-blueprint__bar"><span><i aria-hidden="true"></i> 从问题到经验</span><span aria-hidden="true">⌘</span></div>
+    <div class="home-blueprint__map" aria-hidden="true">
+      <svg class="home-blueprint__wires" viewBox="0 0 400 284" fill="none" preserveAspectRatio="none">
+        <path class="map-orbit" d="M200 25 L364 142 L200 259 L36 142 Z"/>
+        <path class="map-wire" d="M200 59V142M322 142H200M200 225V142M78 142H200"/>
+        <circle class="map-ring" cx="200" cy="142" r="58"/>
+        <circle class="map-ring map-ring--outer" cx="200" cy="142" r="75"/>
+        <circle class="map-point" cx="200" cy="75" r="3"/>
+        <circle class="map-point" cx="284" cy="142" r="3"/>
+        <circle class="map-point map-point--warm" cx="200" cy="210" r="3"/>
+        <path class="map-cross" d="M20 25h10m-5-5v10M370 259h10m-5-5v10"/>
+      </svg>
+      <div class="map-core"><span>经验</span><small>可复用的积累</small></div>
+      <div class="map-node map-node--top"><small>01 / CONTEXT</small><span>理解上下文</span></div>
+      <div class="map-node map-node--right"><small>02 / BUILD</small><span>构建方案</span></div>
+      <div class="map-node map-node--bottom"><small>03 / VERIFY</small><span>验证结果</span></div>
+      <div class="map-node map-node--left"><small>04 / NOTES</small><span>写成记录</span></div>
+    </div>
+    <div class="home-blueprint__footer"><span>想法 → 实践 → 文字</span><span class="home-blueprint__signal" aria-hidden="true">▁▃▂▅▃▆</span></div>
+  </div>
+</section>
+
+<div class="home-divider" aria-hidden="true"><span>FIELD NOTES</span><span>持续学习 / 持续记录</span></div>
+
+<div class="home-content">
+  <div class="home-journal">
+    <section id="selected-writing" class="home-selected" aria-labelledby="selected-title">
+      <div class="home-section-head"><h2 id="selected-title"><span class="home-section-number">01</span>最近在写</h2><span class="home-section-note">从真实问题出发</span></div>
+      <div class="home-features">
+        <a class="home-feature" href="{{ '/2026/skill-lifecycle.html' | relative_url }}">
+          <div class="home-feature__image"><img src="{{ '/assets/skill-lifecycle-illustrations/01-skill-toolbox-chaos.png' | relative_url }}" alt="" width="1280" height="720" loading="lazy"><span class="home-feature__badge">最新文章</span></div>
+          <div class="home-feature__body">
+            <p class="home-meta"><time datetime="2026-09-17">2026.09.17</time><span>AI / 工程</span></p>
+            <h3>Skill 生命周期：Vibe Coding 下的管理与演进</h3>
+            <p class="home-feature__summary">经验越积越多，怎样避免工具箱越来越乱？从候选、验证到归档，给 Skill 一条完整的生长路径。</p>
+            <span class="home-feature__read">阅读全文 <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+        <a class="home-feature" href="{{ '/2026/vibe-coding-bottleneck.html' | relative_url }}">
+          <div class="home-feature__image"><img src="{{ '/assets/vibe-coding-bottleneck-illustrations/01-hidden-rules.png' | relative_url }}" alt="" width="1280" height="720" loading="lazy"><span class="home-feature__badge">工程实践</span></div>
+          <div class="home-feature__body">
+            <p class="home-meta"><time datetime="2026-09-14">2026.09.14</time><span>AI / 工程</span></p>
+            <h3>在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码</h3>
+            <p class="home-feature__summary">旧代码之下，还有没写下来的规矩。让 Agent 理解边界，再用真实证据验证每一次改动。</p>
+            <span class="home-feature__read">阅读全文 <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="home-index" id="writing-index" aria-labelledby="index-title">
+      <div class="home-section-head"><h2 id="index-title"><span class="home-section-number">02</span>全部记录</h2><a href="{{ '/resources/Archives.html' | relative_url }}">{{ article_count }} 篇文章 <span aria-hidden="true">↗</span></a></div>
+      <div class="prose home-index__entries">{{ content }}</div>
+    </section>
+  </div>
+
+  <aside class="home-aside" aria-label="作者与开源实践">
+    <section class="home-profile" aria-labelledby="profile-title">
+      <p class="home-aside__label">ABOUT / 关于这里</p>
+      <div class="home-profile__identity"><img src="{{ '/resources/avatar.png' | relative_url }}" alt="" width="56" height="56" loading="lazy"><div><h2 id="profile-title">你好，我是 {{ brand }}。</h2><span>{{ motto }}</span></div></div>
+      <p>写技术，也写一点乱七八糟的想法。把踩过的坑、试过的方法，留在这里。</p>
+      <a class="home-text-link" href="{{ '/resources/AboutMe.html' | relative_url }}">多了解一点 <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="home-project" aria-labelledby="project-title">
+      <p class="home-aside__label">OPEN SOURCE / 开源实践</p>
+      <span class="home-project__icon" aria-hidden="true">[↗]</span>
+      <h2 id="project-title">把经验做成<br>可复用的 Skill。</h2>
+      <p>项目理解、跨仓定位、验证与经验沉淀。文章里的想法，也在仓库里继续实践。</p>
+      <a class="home-text-link" href="https://github.com/Barry04/ai-skill-repository">ai-skill-repository <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="home-topics" aria-labelledby="topics-title">
+      <h2 id="topics-title" class="home-aside__label">EXPLORE / 顺着主题读</h2>
+      <a href="{{ '/2026/skill-lifecycle.html' | relative_url }}"><span>Agent &amp; Skill</span><span aria-hidden="true">↗</span></a>
+      <a href="{{ '/2022/delaying-queue.html' | relative_url }}"><span>Java &amp; 后端</span><span aria-hidden="true">↗</span></a>
+      <a href="{{ '/resources/Archives.html' | relative_url }}"><span>旧日笔记</span><span aria-hidden="true">↗</span></a>
+      <p class="home-aside__end">保持好奇，慢慢积累。<span aria-hidden="true">_</span></p>
+    </section>
+  </aside>
+</div>
