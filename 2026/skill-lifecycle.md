@@ -62,9 +62,9 @@ Codex 甚至给最初那张“工具目录”留了上下文预算。目录太�
 
 我的仓库也按这个思路工作。`AGENTS.md` 是一张短地图：任务开始时，Agent 从索引里挑最多两个相关 Skill；细节放进各自的 `SKILL.md`、`references/` 和脚本里，真需要才读。这样“项目理解”和“Linux 验证”不会在每次任务一开始就占满上下文。
 
-## 但后半题还在空着
+## 后半题要项目自己补齐
 
-这些方案主要解决的是：Skill 如何定义、如何被发现、如何按需加载、如何跟着仓库版本管理。
+这些方案主要解决的是：Skill 如何定义、如何被发现、如何按需加载、如何跟着仓库版本管理。Anthropic 也已经在用试用区、PR 和使用量统计来管理一部分 Skill。
 
 它们不会替项目判断：
 
@@ -73,15 +73,15 @@ Codex 甚至给最初那张“工具目录”留了上下文预算。目录太�
 - 里面的规则有没有过期？
 - 两条相反的建议，该听谁的？
 
-前半题是“怎么找到说明书”。后半题是“说明书该不该留在工具箱里”。
+前半题是“怎么找到说明书”。我更关心的后半题是：项目怎样用证据判断说明书该不该留在默认工具箱里。
 
-我把后半题叫 **Skill Lifecycle**。不是什么新名词，和代码的生命周期差不多：新东西先别急着当规范；用久了、验证过，才留下；被替代或没人再用，就收起来。
+我把后半题叫 **Skill Lifecycle**。不是什么新名词，和代码的生命周期差不多：新东西先别急着当规范；用久了、验证过，才留下；被替代或长期不用，先复核再收起来。
 
 ## 先别把所有东西都叫 Skill
 
-我会先把它们放到三层货架上。越往上，越稳定，也越有资格影响 Agent 的下一次决定。
+我会先把它们放到三类货架上，再分别判断生命周期状态和适用范围。状态决定是否进入正式路由；范围决定它在哪个项目或技术域内生效。项目专属的 Skill 也可以很成熟，不必为了“升级”而强行抽象成通用能力。
 
-最上层是**稳定能力**。比如：
+一类是**稳定能力**。比如：
 
 ```text
 java-api/
@@ -93,9 +93,9 @@ testing/
 
 它们不是为了某一个 bug 才存在。项目每隔一阵就会碰到，规则也相对稳定。这种可以放进正式工具箱。
 
-中间一层是**项目知识**。比如一个告警系统的抑制规则、多站点部署顺序、某张表的历史包袱。它们看起来像 Skill，实际更接近“这个项目到底怎么运转”的说明。换一个项目，往往就不适用了。
+另一类是**项目知识**。比如一个告警系统的抑制规则、多站点部署顺序、某张表的历史包袱。它们看起来像 Skill，实际更接近“这个项目到底怎么运转”的说明。换一个项目，往往不适用，但这不妨碍它在本项目里成为稳定、正式的能力。
 
-最下面是**临时记录**：
+还有一类是**临时记录**：
 
 ```text
 fix-xxx-bug
@@ -108,9 +108,9 @@ experiment-xxx
 它们可能只会用一次。写下来当然没问题，但不应该直接挤进正式库。否则以后每次检索，都得先穿过一层旧事故现场。
 
 <div class="diagram diagram-sumsec">
-<svg viewBox="0 0 960 500" role="img" aria-label="Skill 从临时记录经过项目验证，逐层演进为项目知识和稳定能力">
-  <text class="sd-cap" x="32" y="34">知识成熟度</text>
-  <text class="sd-small" x="32" y="62">越往上，适用范围越广，进入 Agent 默认上下文的资格越高</text>
+<svg viewBox="0 0 960 500" role="img" aria-label="Skill 从临时记录经过验证，按需成为项目 Skill 或通用能力">
+  <text class="sd-cap" x="32" y="34">经验演进</text>
+  <text class="sd-small" x="32" y="62">生命周期状态与适用范围分别判断，默认路由只纳入已批准内容</text>
 
   <g>
     <rect x="32" y="346" width="430" height="94" rx="12" class="sd-node-risk"/>
@@ -119,21 +119,21 @@ experiment-xxx
     <text class="sd-small" x="58" y="423">默认不参与 Skill 路由</text>
 
     <rect x="112" y="218" width="350" height="94" rx="12" class="sd-node"/>
-    <text class="sd-label" x="138" y="247">项目知识</text>
+    <text class="sd-label" x="138" y="247">项目 Skill</text>
     <text class="sd-small" x="138" y="273">项目专属规则 · 操作方法 · 历史约束</text>
     <text class="sd-small" x="138" y="295">在项目范围内优先使用</text>
 
     <rect x="192" y="90" width="270" height="94" rx="12" class="sd-node-pass"/>
-    <text class="sd-on-fill" x="218" y="119">稳定能力</text>
-    <text class="sd-on-fill" x="218" y="145" font-size="11">跨项目验证 · 长期复用</text>
-    <text class="sd-on-fill" x="218" y="167" font-size="11">进入正式 Skill 库</text>
+    <text class="sd-on-fill" x="218" y="119">通用能力（可选）</text>
+    <text class="sd-on-fill" x="218" y="145" font-size="11">跨项目验证 · 保留边界</text>
+    <text class="sd-on-fill" x="218" y="167" font-size="11">进入共享 Skill 库</text>
   </g>
 
   <path class="sd-arrow" d="M247 346V320" marker-end="url(#sdArrowLevel)"/>
   <text class="sd-small" x="265" y="334">同类问题再次命中 + 验证通过</text>
 
   <path class="sd-arrow" d="M327 218V192" marker-end="url(#sdArrowLevel)"/>
-  <text class="sd-small" x="345" y="206">去掉项目偶然细节 + 跨项目验证</text>
+  <text class="sd-small" x="345" y="206">必要时提炼通用部分 + 跨项目验证</text>
 
   <line class="sd-divider" x1="510" y1="80" x2="510" y2="452"/>
 
@@ -155,7 +155,7 @@ experiment-xxx
   <path class="sd-arrow" d="M728 244V214" marker-end="url(#sdArrowLevel)"/>
 
   <line class="sd-divider" x1="32" y1="466" x2="928" y2="466"/>
-  <text class="sd-small" x="32" y="488">升级不是改目录名，而是删掉偶然细节、补齐验证证据、扩大适用范围。</text>
+  <text class="sd-small" x="32" y="488">升级不是改目录名，而是补齐证据，并分别确认状态与适用范围。</text>
 
   <defs>
     <marker id="sdArrowLevel" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -165,7 +165,7 @@ experiment-xxx
 </svg>
 </div>
 
-三层之间不是永久隔开的。一次排错记录如果后来反复命中，可以整理成项目知识；在多个项目里都验证有效，才有机会再往上变成稳定能力。
+这三类不是固定的上下级。一次排错记录如果后来反复命中，可以整理成项目 Skill；只有在其他项目也验证有效、且没有丢掉原有边界时，才有必要再提炼成通用 Skill。有些项目知识会长期保持项目级，同样可以是稳定能力。
 
 ### 一个完整的实践样例
 
@@ -179,6 +179,8 @@ skills/candidate/es-timeout-20260917/
 ```
 
 这时它仍是临时记录。不能因为问题修好了，就直接宣布“所有 Elasticsearch 超时都这样处理”。
+
+这里的 `candidate/` 和 `active/` 是仓库的管理约定；只有安装器或路由配置明确纳入的目录，才会被 Agent 当作可用 Skill 发现。
 
 后来同类问题再次出现，旧记录确实帮 Agent 找到了根因，而且修复经过查询回放和压测验证。再把它整理成项目级 Skill：
 
@@ -244,7 +246,7 @@ Agent 做完任务，发现一个看起来能复用的办法，可以先放到 `
 
 ![新经验先放进试用盒，验证过才进入常用工具架。](../assets/skill-lifecycle-illustrations/02-skill-candidate-box.png)
 
-之后真的遇到类似问题，再让它按这份说明做一次。如果结果稳定、验证也过得去，才把它移到 `active/`。如果后来发现只是当时环境碰巧如此，或者有更好的办法，就归档，甚至删掉。
+之后真的遇到类似问题，再让它按这份说明做一次。如果结果稳定、验证也过得去，才把它移到 `active/`。如果后来发现只是当时环境碰巧如此，或者有更好的办法，就先触发复核，确认不再需要后再归档或删除。
 
 这比“每修一次就新建一个正式 Skill”慢一点，但工具箱会干净得多。
 
@@ -334,7 +336,7 @@ validation:
 
 重点不在 YAML。重点是最后的 `validation`。
 
-如果一份 Skill 没有“怎么验”，它往往只是某个人当时的偏好。反过来，一条能被测试、回滚或核对结果的经验，才有资格慢慢变成项目规则。
+如果一份 Skill 没有“怎么验”，它往往只是某个人当时的偏好。反过来，一条能被测试、回滚或核对结果的经验，才有资格慢慢变成项目规则。性能阈值还要写清来源、负载和对照条件；“P95 回到阈值内”不能脱离这些条件单独成立。
 
 Anthropic 特别提到过 Verification Skill：不是让 Agent “认真检查一下”，而是让它真的跑一遍注册、结算或命令行操作，再对关键状态做断言。菜谱写得再漂亮，也得尝一口。
 
@@ -366,7 +368,7 @@ Skill B：Redis 修改禁止事务
 通用规则 → 项目规则 → 模块规则 → 当前任务规则
 ```
 
-越靠右，越具体，优先级越高。要是两条同层规则冲突，宁可停下来问人，也别悄悄选一条。
+在允许局部覆盖的配置层里，越靠右通常越具体，优先级越高；安全、合规和明确标记为不可覆盖的约束仍然优先。要是两条同层规则冲突，宁可停下来问人，也别悄悄选一条。
 
 ## 给工具箱做一张索引卡
 
@@ -390,15 +392,16 @@ skills:
     priority: 30
 ```
 
-这张索引卡不是把所有内容再抄一遍。它只负责告诉 Agent：有哪些工具、放在哪里、现在能不能优先用。
+这张索引卡不是把所有内容再抄一遍。它只负责告诉 Agent：有哪些工具、放在哪里、现在能不能优先用。`priority` 是索引器的自定义字段；如果路由器没有实现排序，不能假设 Agent 会自动理解这个数字。
 
 目录也别全平铺：
 
 ```text
 skills/
-├── core/          # 编码、测试、Git、Review
-├── domain/        # 告警、集群、部署
-├── technology/    # Redis、MySQL、Elasticsearch
+├── active/
+│   ├── core/          # 编码、测试、Git、Review
+│   ├── domain/        # 告警、集群、部署
+│   └── technology/    # Redis、MySQL、Elasticsearch
 └── candidate/
 ```
 
@@ -428,7 +431,7 @@ skills/
 产生，不等于进入常用库。
 用过，不等于有效。
 多次成功，并且有验证证据，才升级。
-长期不用或被替代，就归档。
+长期不用或被替代，先复核，再归档。
 内容重复或互相打架，就合并或说清优先级。
 ```
 
