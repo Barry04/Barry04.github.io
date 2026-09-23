@@ -5,22 +5,22 @@
 <section class="home-bento" aria-labelledby="latest-writing">
   <h2 id="latest-writing" class="section-label">最新写作</h2>
   <div class="bento-grid">
-    <a class="home-card home-card--featured" href="./2026/skill-lifecycle.html">
-      <span class="card-kicker">LATEST · 09/17 · AI / 工程</span>
-      <h3>Skill 生命周期：Vibe Coding 下的管理与演进</h3>
-      <p>当 Agent 开始积累经验，怎么避免 Skill 越来越多、越来越乱。</p>
+    <a class="home-card home-card--featured" href="./2026/jev-model-thinking.html">
+      <span class="card-kicker">LATEST · 09/22 · AI / 工程</span>
+      <h3>JEV 与上下文工程：同一条路的两段</h3>
+      <p>从 prompt 到 harness、skill，再到决策运行时，可能在回答同一个问题。</p>
       <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
     </a>
-    <a class="home-card home-card--secondary" href="./2026/vibe-coding-bottleneck.html">
-      <span class="card-kicker">09/14 · AI / 工程</span>
-      <h3>在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码</h3>
-      <p>生成已经便宜了，真正昂贵的是理解边界和拿出验证证据。</p>
+    <a class="home-card home-card--secondary" href="./2026/skill-lifecycle.html">
+      <span class="card-kicker">09/17 · AI / 工程</span>
+      <h3>Skill 生命周期：Vibe Coding 下的管理与演进</h3>
+      <p>当 Agent 开始积累经验，怎么避免 Skill 越来越多、越来越乱。</p>
       <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
     </a>
     <a class="home-card home-card--compact" href="./resources/Archives.html">
       <span class="card-kicker">ARCHIVE</span>
       <h3>全部文章</h3>
-      <p>9 篇技术记录与旧日笔记。</p>
+      <p>10 篇技术记录与旧日笔记。</p>
     </a>
     <a class="home-card home-card--compact" href="./resources/AboutMe.html">
       <span class="card-kicker">ABOUT</span>
@@ -35,6 +35,11 @@
 
   <h3>现在</h3>
   <div class="home-index__group">
+    <a class="home-index__row" href="./2026/jev-model-thinking.html">
+      <span class="home-index__date">09/22</span>
+      <span class="home-index__title">JEV 与上下文工程：同一条路的两段</span>
+      <span class="home-index__tags">AI/工程</span>
+    </a>
     <a class="home-index__row" href="./2026/skill-lifecycle.html">
       <span class="home-index__date">09/17</span>
       <span class="home-index__title">Skill 生命周期：Vibe Coding 下的管理与演进</span>
