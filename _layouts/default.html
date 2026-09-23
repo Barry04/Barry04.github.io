@@ -58,6 +58,14 @@
 <body class="wiki-theme{% if page_is_home %} page-home{% endif %}{% if page_is_article %} page-article{% endif %}">
   <a class="skip-link" href="#main-content">跳到正文</a>
   <div id="read-progress" aria-hidden="true"></div>
+  {% if page_is_home %}
+  <div class="home-backdrop" aria-hidden="true">
+    <div class="home-backdrop__grid"></div>
+    <div class="home-backdrop__aurora"><span></span><span></span><span></span></div>
+    <canvas class="home-backdrop__canvas" id="home-bg-canvas"></canvas>
+    <div class="home-backdrop__veil"></div>
+  </div>
+  {% endif %}
   <header class="site-header">
     <div class="navbar">
       <a class="brand" href="{{ '/' | relative_url }}">
@@ -108,5 +116,6 @@
     <p><a href="https://github.com/Barry04">GitHub</a> · <a href="{{ '/resources/AboutMe.html' | relative_url }}">关于</a></p>
   </footer>
   <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ asset_rev }}"></script>
+  {% if page_is_home %}<script src="{{ '/assets/js/home-bg.js' | relative_url }}?v={{ asset_rev }}"></script>{% endif %}
 </body>
 </html>

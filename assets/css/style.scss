@@ -295,14 +295,11 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
   color: var(--ink);
 }
 
-.home-intro {
-  max-width: 34rem;
-  margin: 1.5rem 0 0;
-  color: var(--muted);
-  font-family: var(--font-serif);
-  font-size: #{'clamp(1.08rem, 1.5vw, 1.35rem)'};
-  line-height: 1.8;
-}
+/* NOTE: `.home-intro` / `.home-actions` / `.home-eyebrow` / `.home-button` /
+   `.home-index__entries` are owned by assets/css/home.scss (loaded after this
+   file on the homepage). The previous homepage design also used `.home-intro`
+   for its description paragraph; that rule was removed because the name now
+   belongs to the hero <section> and its `max-width` squashed the hero grid. */
 
 .home-actions {
   display: flex;
@@ -896,12 +893,6 @@ html:not([data-theme="dark"]) .icon-moon { display: none; }
     font-size: #{'clamp(2.35rem, 11vw, 2.75rem)'};
     line-height: 1.08;
     letter-spacing: -0.08em;
-  }
-
-  .home-intro {
-    margin-top: 1rem;
-    font-size: 1rem;
-    line-height: 1.7;
   }
 
   .home-actions { margin-top: 1.2rem; }
