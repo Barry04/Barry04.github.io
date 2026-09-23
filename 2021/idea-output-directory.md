@@ -1,6 +1,8 @@
 ---
 layout: default
 title: 解决IDEA Error:Output directory is not specified
+date: 2021-04-06
+tag: IDEA
 redirect_from:
   - /2021/04/06/解决IDEA-Error-Output-directory-is-not-specified/
 ---

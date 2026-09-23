@@ -1,6 +1,10 @@
 ---
 layout: default
 title: 在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码
+date: 2026-09-14
+tag: AI / 工程
+summary: 旧代码之下，还有没写下来的规矩。让 Agent 理解边界，再用真实证据验证每一次改动。
+image: /assets/vibe-coding-bottleneck-illustrations/01-hidden-rules.png
 ---
 
 AI 会不会写代码，这题可以收了。它写得很快。快到我读完 diff 之前，下一轮已经又改完了。

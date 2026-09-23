@@ -1,6 +1,9 @@
 ---
 layout: default
 title: 重新开工
+date: 2026-09-13
+tag: 站点 / Jekyll
+summary: 旧站是 2022 年停更的 Hexo 产物，源码不在仓库里。现在换成 Jekyll：仓库即源码。
 ---
 
 旧站是 2022 年停更的 Hexo 产物，源码不在仓库里。现在换成 Jekyll：仓库即源码，GitHub Pages 从 `master` 根目录构建。

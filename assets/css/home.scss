@@ -214,6 +214,12 @@
 [data-theme="dark"] .home-feature__image { background: #d5dcd6; }
 [data-theme="dark"] .home-feature__image img { mix-blend-mode: multiply; }
 .home-feature__badge { position: absolute; top: 0.8rem; left: 0.8rem; padding: 0.2rem 0.5rem; color: #174d42; background: #f2f8f3; border: 1px solid #c8d8ce; font-size: 0.6rem; border-radius: 3px; }
+/* Article without an illustration: the card renders text-only, so the badge
+   moves inline and a quiet accent bar keeps it looking deliberate. */
+.home-feature--text { position: relative; }
+.home-feature--text::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--home-accent), var(--home-soft)); }
+.home-feature--text .home-feature__body { padding: 1.6rem 1.45rem; }
+.home-feature__badge--inline { position: static; align-self: flex-start; margin: 0 0 0.9rem; }
 .home-feature__body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 1.25rem; }
 .home-meta { display: flex; flex-wrap: wrap; gap: 0.65rem; color: var(--home-muted); margin: 0 0 0.85rem; font-size: 0.62rem; }
 .home-meta > span { color: var(--home-accent); }

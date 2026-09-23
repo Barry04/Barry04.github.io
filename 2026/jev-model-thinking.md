@@ -1,6 +1,9 @@
 ---
 layout: default
 title: JEV：让决策从对话里走出来
+date: 2026-09-22
+tag: AI / 工程
+summary: 从 Prompt、Harness、Skill 到决策运行时，模型开始拥有可追踪的决策路径。
 ---
 
 前两篇都在讲同一件事：[存量项目里怎么让 Agent 别改散](./vibe-coding-bottleneck.md)、[Skill 攒多了怎么管](./skill-lifecycle.md)。写的时候我一直有个说不清的别扭感：这些做法像是被问题逼出来的补丁，一个接一个，看不见边。

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: DelayingQueue
+date: 2022-02-18
+tag: Java / Redis
 redirect_from:
   - /2022/02/18/延时队列/
 ---

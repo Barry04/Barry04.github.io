@@ -2,33 +2,8 @@
 
 闲情雅趣。写一点技术，也写一点乱七八糟的想法。
 
-<section class="home-bento" aria-labelledby="latest-writing">
-  <h2 id="latest-writing" class="section-label">最新写作</h2>
-  <div class="bento-grid">
-    <a class="home-card home-card--featured" href="./2026/jev-model-thinking.html">
-      <span class="card-kicker">LATEST · 09/22 · AI / 工程</span>
-      <h3>JEV：让决策从对话里走出来</h3>
-      <p>从 Prompt、Harness、Skill 到决策运行时，模型开始拥有可追踪的决策路径。</p>
-      <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="home-card home-card--secondary" href="./2026/skill-lifecycle.html">
-      <span class="card-kicker">09/17 · AI / 工程</span>
-      <h3>Skill 生命周期：Vibe Coding 下的管理与演进</h3>
-      <p>当 Agent 开始积累经验，怎么避免 Skill 越来越多、越来越乱。</p>
-      <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="home-card home-card--compact" href="./resources/Archives.html">
-      <span class="card-kicker">ARCHIVE</span>
-      <h3>全部文章</h3>
-      <p>10 篇技术记录与旧日笔记。</p>
-    </a>
-    <a class="home-card home-card--compact" href="./resources/AboutMe.html">
-      <span class="card-kicker">ABOUT</span>
-      <h3>关于 Barry</h3>
-      <p>写技术，也写一点乱七八糟的想法。</p>
-    </a>
-  </div>
-</section>
+<!-- 首页首屏、精选文章与侧栏由 _includes/home.html 渲染，其中"最近在写"按文章
+     front matter 的 date 自动取最新两篇。这里只保留完整的文章索引。 -->
 
 <section class="home-index" aria-labelledby="all-articles">
   <h2 id="all-articles" class="section-label">全部文章</h2>

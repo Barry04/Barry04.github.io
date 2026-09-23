@@ -1,12 +1,21 @@
+{% comment %}
+  收集全部文章 = 路径形如 `YYYY/slug.md` 的 Markdown 页面。
+  按每篇 front matter 里的 `date` 倒序排列，首页自动取最新的若干篇 ——
+  发新文章时只需要写好 front matter，这里不用动。
+{% endcomment %}
 {% assign article_count = 0 %}
+{% assign all_articles = "" | split: "," %}
 {% for entry in site.pages %}
   {% assign entry_year = entry.path | slice: 0, 4 | plus: 0 %}
   {% assign entry_slash = entry.path | slice: 4, 1 %}
   {% assign entry_extension = entry.path | split: '.' | last %}
   {% if entry_year >= 2020 and entry_slash == '/' and entry_extension == 'md' %}
     {% assign article_count = article_count | plus: 1 %}
+    {% assign all_articles = all_articles | push: entry %}
   {% endif %}
 {% endfor %}
+{% assign recent_articles = all_articles | sort: "date" | reverse %}
+{% assign home_featured_limit = 2 %}
 
 <section class="home-intro" aria-labelledby="home-title">
   <div class="home-intro__copy">
@@ -50,24 +59,22 @@
     <section id="selected-writing" class="home-selected" aria-labelledby="selected-title">
       <div class="home-section-head"><h2 id="selected-title"><span class="home-section-number">01</span>最近在写</h2><span class="home-section-note">从真实问题出发</span></div>
       <div class="home-features">
-        <a class="home-feature" href="{{ '/2026/skill-lifecycle.html' | relative_url }}">
-          <div class="home-feature__image"><img src="{{ '/assets/skill-lifecycle-illustrations/01-skill-toolbox-chaos.png' | relative_url }}" alt="" width="1280" height="720" loading="lazy"><span class="home-feature__badge">最新文章</span></div>
+        {% for article in recent_articles limit: home_featured_limit %}
+        {% assign card_badge = article.badge %}
+        {% unless card_badge %}{% if forloop.first %}{% assign card_badge = "最新文章" %}{% endif %}{% endunless %}
+        <a class="home-feature{% unless article.image %} home-feature--text{% endunless %}" href="{{ article.url | relative_url }}">
+          {% if article.image %}
+          <div class="home-feature__image"><img src="{{ article.image | relative_url }}" alt="" width="1280" height="720" loading="lazy">{% if card_badge %}<span class="home-feature__badge">{{ card_badge }}</span>{% endif %}</div>
+          {% endif %}
           <div class="home-feature__body">
-            <p class="home-meta"><time datetime="2026-09-17">2026.09.17</time><span>AI / 工程</span></p>
-            <h3>Skill 生命周期：Vibe Coding 下的管理与演进</h3>
-            <p class="home-feature__summary">经验越积越多，怎样避免工具箱越来越乱？从候选、验证到归档，给 Skill 一条完整的生长路径。</p>
+            {% unless article.image %}{% if card_badge %}<span class="home-feature__badge home-feature__badge--inline">{{ card_badge }}</span>{% endif %}{% endunless %}
+            <p class="home-meta"><time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: '%Y.%m.%d' }}</time>{% if article.tag %}<span>{{ article.tag }}</span>{% endif %}</p>
+            <h3>{{ article.title }}</h3>
+            {% if article.summary %}<p class="home-feature__summary">{{ article.summary }}</p>{% endif %}
             <span class="home-feature__read">阅读全文 <span aria-hidden="true">↗</span></span>
           </div>
         </a>
-        <a class="home-feature" href="{{ '/2026/vibe-coding-bottleneck.html' | relative_url }}">
-          <div class="home-feature__image"><img src="{{ '/assets/vibe-coding-bottleneck-illustrations/01-hidden-rules.png' | relative_url }}" alt="" width="1280" height="720" loading="lazy"><span class="home-feature__badge">工程实践</span></div>
-          <div class="home-feature__body">
-            <p class="home-meta"><time datetime="2026-09-14">2026.09.14</time><span>AI / 工程</span></p>
-            <h3>在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码</h3>
-            <p class="home-feature__summary">旧代码之下，还有没写下来的规矩。让 Agent 理解边界，再用真实证据验证每一次改动。</p>
-            <span class="home-feature__read">阅读全文 <span aria-hidden="true">↗</span></span>
-          </div>
-        </a>
+        {% endfor %}
       </div>
     </section>
 

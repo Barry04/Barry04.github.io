@@ -1,6 +1,10 @@
 ---
 layout: default
 title: Skill 生命周期：Vibe Coding 下的管理与演进
+date: 2026-09-17
+tag: AI / 工程
+summary: 经验越积越多，怎样避免工具箱越来越乱？从候选、验证到归档，给 Skill 一条完整的生长路径。
+image: /assets/skill-lifecycle-illustrations/01-skill-toolbox-chaos.png
 ---
 
 上一篇写存量项目里的 Agent 怎么改代码。[上下文、验证、Harness](./vibe-coding-bottleneck.md) 解决的是「这一次别改散」。

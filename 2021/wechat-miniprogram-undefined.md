@@ -1,6 +1,8 @@
 ---
 layout: default
 title: 微信小程序 Cannot read property 'xxx' of undefined
+date: 2021-04-06
+tag: 微信
 redirect_from:
   - /2021/04/06/Cannot read property ‘xxx‘ of undefined/
 ---

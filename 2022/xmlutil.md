@@ -1,6 +1,8 @@
 ---
 layout: default
 title: XmlUtil.readObjectFromXml的坑及解决方法
+date: 2022-02-18
+tag: Java / Hutool
 redirect_from:
   - /2022/02/18/XmlUtil/
 ---

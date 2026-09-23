@@ -1,6 +1,8 @@
 ---
 layout: default
 title: 行为模式-访问-策略模式
+date: 2021-05-03
+tag: 设计模式
 redirect_from:
   - /2021/05/03/行为模式-访问-策略模式/
 ---
