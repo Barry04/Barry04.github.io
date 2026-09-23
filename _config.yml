@@ -39,8 +39,7 @@ exclude:
   - docs
   - skills
   - vendor
-  - _extracted
-  - README.md.bak
+  - vercel.json
 
 include:
   - CNAME

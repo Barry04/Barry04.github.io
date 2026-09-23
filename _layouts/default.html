@@ -9,10 +9,16 @@
   {% assign page_is_home = true %}
 {% endif %}
 
+{% comment %}
+  文章 = 路径形如 `YYYY/slug.md` 的页面。用数值比较判定年份，而不是把
+  2020…2029 逐个枚举 —— 后者会在 2030 年静默失效（文章页丢掉标题头与评论）。
+  `_includes/home.html` 用的是同一套判定。
+{% endcomment %}
 {% assign page_is_article = false %}
 {% assign _page_src = page.path | default: '' %}
-{% assign _year_prefix = _page_src | slice: 0, 5 %}
-{% if _year_prefix == '2020/' or _year_prefix == '2021/' or _year_prefix == '2022/' or _year_prefix == '2023/' or _year_prefix == '2024/' or _year_prefix == '2025/' or _year_prefix == '2026/' or _year_prefix == '2027/' or _year_prefix == '2028/' or _year_prefix == '2029/' %}
+{% assign _src_year = _page_src | slice: 0, 4 | plus: 0 %}
+{% assign _src_slash = _page_src | slice: 4, 1 %}
+{% if _src_year >= 2020 and _src_slash == '/' %}
   {% assign page_is_article = true %}
 {% endif %}
 
