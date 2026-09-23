@@ -8,7 +8,7 @@ comments: false
 
 ## 现在
 
-- [JEV 与上下文工程：同一条路的两段](../2026/jev-model-thinking.md)
+- [JEV：让决策从对话里走出来](../2026/jev-model-thinking.md)
 - [Skill 生命周期：Vibe Coding 下的管理与演进](../2026/skill-lifecycle.md)
 - [在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码](../2026/vibe-coding-bottleneck.md)
 - [重新开工](../2026/hello-again.md)

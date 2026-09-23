@@ -7,8 +7,8 @@
   <div class="bento-grid">
     <a class="home-card home-card--featured" href="./2026/jev-model-thinking.html">
       <span class="card-kicker">LATEST · 09/22 · AI / 工程</span>
-      <h3>JEV 与上下文工程：同一条路的两段</h3>
-      <p>从 prompt 到 harness、skill，再到决策运行时，可能在回答同一个问题。</p>
+      <h3>JEV：让决策从对话里走出来</h3>
+      <p>从 Prompt、Harness、Skill 到决策运行时，模型开始拥有可追踪的决策路径。</p>
       <span class="card-action">阅读文章 <span aria-hidden="true">→</span></span>
     </a>
     <a class="home-card home-card--secondary" href="./2026/skill-lifecycle.html">
@@ -37,7 +37,7 @@
   <div class="home-index__group">
     <a class="home-index__row" href="./2026/jev-model-thinking.html">
       <span class="home-index__date">09/22</span>
-      <span class="home-index__title">JEV 与上下文工程：同一条路的两段</span>
+      <span class="home-index__title">JEV：让决策从对话里走出来</span>
       <span class="home-index__tags">AI/工程</span>
     </a>
     <a class="home-index__row" href="./2026/skill-lifecycle.html">
