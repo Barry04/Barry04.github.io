@@ -2,6 +2,10 @@
 
 - `_config.yml`：站点名 Barry、域 https://suncy.me、白名单插件
 - `_layouts/default.html`：顶栏、正文、文章页 utterances
+  - 文章页正文包在 `.article-layout` > `.article-body` 里。Liquid 先数一遍渲染后的 `<h2>`：
+    ≥3 节时给 `<main>` 加 `site-main--article-toc`，并把目录渲染成 `<details class="article-toc">`
+  - 目录在 ≥1080px 由 `style.scss` 变成右侧常驻栏（`position: sticky`），窄屏退回正文上方的可折叠块；
+    折叠状态与当前章节高亮由 `theme.js` 管（`matchMedia('(min-width: 1080px)')` 断点必须与 CSS 一致）
 - `_includes/home.html`：首页首屏图解、精选文章、作者和开源项目；完整索引仍来自 `README.md`
   - **"最近在写"是自动的**：收集路径形如 `YYYY/slug.md` 的页面，按 front matter 的 `date` 倒序取最新 `home_featured_limit`（当前 2）篇。发新文章只需写好 front matter，这里不用改
   - 文章无 `image` 时卡片加 `.home-feature--text`（纯文字 + 顶部强调条），角标改为内联 `.home-feature__badge--inline`

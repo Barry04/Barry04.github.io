@@ -228,7 +228,7 @@
 .home-feature__read { margin-top: auto; padding-top: 0.75rem; width: 100%; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; color: var(--home-accent); }
 
 .home-index { margin-top: 3rem; }
-.home-index__entries > h1, .home-index__entries > p:first-of-type { display: none; }
+.home-index__entries > h1, .home-index__entries > h2:first-of-type, .home-index__entries > p:first-of-type { display: none; }
 .home-index__entries h3 { margin: 1.25rem 0 0.25rem; font-family: var(--font-ui); font-size: 0.83rem; letter-spacing: 0.02em; color: var(--home-muted); }
 .home-index__entries h4 { margin: 1.5rem 0 0.25rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--home-accent); }
 .page-home .home-index__entries table { margin: 0; }
@@ -256,9 +256,13 @@
 .home-project h2 { font-size: 1.15rem; font-weight: 600; line-height: 1.6; margin: 0.65rem 0; }
 .home-project .home-text-link { margin-top: 0.65rem; padding-top: 0.7rem; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.65rem; }
 .home-topics { margin-top: 2rem; }
-.home-topics > a { display: flex; align-items: center; justify-content: space-between; min-height: 46px; border-bottom: 1px solid var(--line); font-size: 0.78rem; text-decoration: none; color: var(--ink); }
-.home-topics > a:hover { color: var(--home-accent); }
-.home-topics > a > span:last-child { color: var(--home-muted); }
+.home-topics__intro { margin: -0.65rem 0 0.9rem; color: var(--home-muted); font-size: 0.8rem; line-height: 1.8; }
+.home-topics__path { margin: 0 0 1.35rem; padding: 0; list-style: none; counter-reset: reading-path; border-top: 1px solid var(--line); }
+.home-topics__path li { counter-increment: reading-path; }
+.home-topics__path a, .home-topics > a { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; min-height: 46px; border-bottom: 1px solid var(--line); font-size: 0.78rem; text-decoration: none; color: var(--ink); }
+.home-topics__path a::before { content: counter(reading-path, decimal-leading-zero); flex: none; color: var(--home-accent); font-family: var(--font-mono); font-size: 0.66rem; }
+.home-topics__path a:hover, .home-topics > a:hover { color: var(--home-accent); }
+.home-topics__path a > span:last-child, .home-topics > a > span:last-child { margin-left: auto; color: var(--home-muted); }
 .home-aside__end { margin: 1.8rem 0 0; color: var(--home-muted); font-size: 0.7rem; }
 .home-aside__end span { color: var(--home-accent); padding-left: 0.4rem; }
 
@@ -312,6 +316,7 @@
   .home-profile > p:not(.home-aside__label), .home-project > p:not(.home-aside__label) { font-size: 1rem; }
   /* Keep the backdrop lighter on phones: motion is costlier and text is denser. */
   .home-backdrop { --home-backdrop-opacity: 0.72; }
+  .home-backdrop__aurora span { animation: none; }
   .home-backdrop__veil { background: radial-gradient(ellipse 96% 46% at 50% 14%, var(--home-veil) 0%, transparent 72%); }
 }
 

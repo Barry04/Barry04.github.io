@@ -1,7 +1,7 @@
 /* Homepage-only animated tech backdrop.
    Particle constellation rendered to <canvas id="home-bg-canvas">.
    - Colours are read from CSS custom properties, so theme switching stays in sync.
-   - Honours prefers-reduced-motion (draws one static frame, no rAF loop).
+   - Draws a static frame on phones or when reduced motion is requested.
    - Pauses while the tab is hidden; caps device pixel ratio at 2. */
 (function () {
   'use strict';
@@ -14,6 +14,7 @@
 
   var root = document.documentElement;
   var reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var phoneQuery = window.matchMedia('(max-width: 640px)');
 
   var state = {
     w: 0,
@@ -24,7 +25,7 @@
     pointer: { x: -1e4, y: -1e4, active: false },
     colors: { node: '43,179,154', warm: '217,108,55' },
     raf: null,
-    reduced: reduceQuery.matches
+    static: reduceQuery.matches || phoneQuery.matches
   };
 
   /* ---- colour helpers ---- */
@@ -197,11 +198,11 @@
     state.raf = null;
     step();
     render();
-    if (!state.reduced) state.raf = window.requestAnimationFrame(frame);
+    if (!state.static) state.raf = window.requestAnimationFrame(frame);
   }
 
   function start() {
-    if (state.reduced) {
+    if (state.static) {
       render();
       return;
     }
@@ -218,7 +219,7 @@
 
   function restart() {
     stop();
-    state.reduced = reduceQuery.matches;
+    state.static = reduceQuery.matches || phoneQuery.matches;
     readColors();
     resize();
     start();
@@ -240,10 +241,7 @@
 
   function onResize() {
     if (resizeTimer) window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(function () {
-      resize();
-      if (state.reduced) render();
-    }, 160);
+    resizeTimer = window.setTimeout(restart, 160);
   }
 
   restart();
@@ -259,11 +257,11 @@
   if (window.MutationObserver) {
     new MutationObserver(function () {
       readColors();
-      if (state.reduced) render();
+      if (state.static) render();
     }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   }
 
-  if (!state.reduced && window.matchMedia('(pointer: fine)').matches) {
+  if (!state.static && window.matchMedia('(pointer: fine)').matches) {
     window.addEventListener('pointermove', onPointerMove, { passive: true });
     document.addEventListener('mouseleave', onPointerLeave);
   }

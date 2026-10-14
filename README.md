@@ -5,8 +5,7 @@
 <!-- 首页首屏、精选文章与侧栏由 _includes/home.html 渲染，其中"最近在写"按文章
      front matter 的 date 自动取最新两篇。这里只保留完整的文章索引。 -->
 
-<section class="home-index" aria-labelledby="all-articles">
-  <h2 id="all-articles" class="section-label">全部文章</h2>
+<h2 id="all-articles" class="section-label">全部文章</h2>
 
   <h3>现在</h3>
   <div class="home-index__group">
@@ -74,4 +73,3 @@
       </a>
     </div>
   </div>
-</section>

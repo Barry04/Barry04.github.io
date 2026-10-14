@@ -32,12 +32,20 @@
 
 {% assign asset_rev = site.github.build_revision | default: site.time | date: "%s" %}
 {% assign page_comments = page.comments | default: true %}
+
+{% comment %}
+  长文（≥3 个 h2）在宽屏上把目录挪到右侧栏，正文列相应收窄。
+  这里先数一遍渲染后的章节，好让容器宽度在 JS 到位前就是对的，避免布局跳动。
+{% endcomment %}
+{% assign article_sections = content | split: '<h2' | size | minus: 1 %}
+{% assign article_has_toc = false %}
+{% if page_is_article and article_sections >= 3 %}{% assign article_has_toc = true %}{% endif %}
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ page.description | default: site.description | xml_escape }}">
+  <meta name="description" content="{{ page.description | default: page.summary | default: site.description | xml_escape }}">
   <meta name="theme-color" content="#f4f6f5">
   <meta name="color-scheme" content="light dark">
   <title>{{ doc_title | xml_escape }}</title>
@@ -90,19 +98,44 @@
       </nav>
     </div>
   </header>
-  <main id="main-content" class="site-main">
+  <main id="main-content" class="site-main{% if article_has_toc %} site-main--article-toc{% endif %}">
     {% if page_is_home %}
       {% include home.html %}
     {% endif %}
     {% if page_is_article and page.title %}
       <header class="article-head">
-        <p class="article-kicker">{{ page.path | slice: 0, 4 }}</p>
+        <p class="article-kicker">FIELD NOTES / {{ page.path | slice: 0, 4 }}</p>
         <h1>{{ page.title }}</h1>
+        {% if page.summary %}<p class="article-summary">{{ page.summary | escape }}</p>{% endif %}
+        {% if page.date or page.tag %}
+        <p class="article-meta">
+          {% if page.date %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y 年 %m 月 %d 日' }}</time>{% endif %}
+          {% if page.tag %}<span>{{ page.tag | escape }}</span>{% endif %}
+        </p>
+        {% endif %}
       </header>
     {% endif %}
-    {% unless page_is_home %}<div class="prose">
+    {% if page_is_article %}
+    <div class="article-layout">
+      {% if article_has_toc %}
+      <details class="article-toc" hidden>
+        <summary><span>本文目录</span><span class="article-toc__count" data-article-toc-count></span></summary>
+        <nav aria-label="文章章节"><ol data-article-toc-list></ol></nav>
+      </details>
+      {% endif %}
+      <div class="article-body">
+        <div class="prose">
+          {{ content }}
+        </div>
+        <nav class="article-outro" aria-label="阅读更多">
+          <span>读到这里，接着看看。</span>
+          <div><a href="{{ '/' | relative_url }}#writing-index">全部文章 <span aria-hidden="true">↗</span></a><a href="{{ '/resources/Archives.html' | relative_url }}">按年份归档 <span aria-hidden="true">↗</span></a></div>
+        </nav>
+      </div>
+    </div>
+    {% else %}{% unless page_is_home %}<div class="prose">
       {{ content }}
-    </div>{% endunless %}
+    </div>{% endunless %}{% endif %}
     {% if page_is_article and page_comments %}
       <section class="comments" aria-label="评论">
         <h2>评论</h2>
