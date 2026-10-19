@@ -4,6 +4,7 @@ title: 代码还没上线，Agent 已经开始兼容了
 date: 2026-10-19
 tag: AI / 工程
 summary: 自测时明明可以直接修改的字段和逻辑，Agent 却留下了一层兼容。让需求从对话里自动留下记录，修复时才有依据判断哪些代码该删。
+image: /assets/agent-unreleased-code-compatibility-illustrations/01-unnecessary-compatibility.png
 ---
 
 自测时让 Agent 修 bug，有一种改法让我很别扭。
@@ -34,6 +35,10 @@ const category = payload.category ?? payload.type;
 
 一个本来可以直接改名的字段，多出了一组需要长期解释的行为。
 
+![仍在自测的 type 字段被兼容层包裹，旁边放着准备替换它的 category；研究员正在核对谁还依赖旧字段。](../assets/agent-unreleased-code-compatibility-illustrations/01-unnecessary-compatibility.png)
+
+*旧实现需要保留的理由，要落实到具体使用者。*
+
 我更愿意给兼容加一个具体要求：写之前，先说明依赖对象。哪个客户端、哪个服务、哪批必须保留的数据，还在使用旧行为？代码提交过、合并过、部署过，都不能单独回答这个问题。
 
 ## 实现完成以后，需求还在继续
@@ -50,6 +55,10 @@ Agent 说“开发完成”，通常是在结束当前这轮任务：实现已�
 
 要判断的范围，是这次准备修改的字段、接口和逻辑。一个老项目里的新需求，当然仍然要照顾原来已经发布的行为。
 
+![开发进度表停在待自测，发布事实卡单独记录自测环境和生产状态未知；研究员用部署记录逐项核对。](../assets/agent-unreleased-code-compatibility-illustrations/02-progress-and-release-facts.png)
+
+*开发进度和发布事实分别记录，缺少依据的状态先留作未知。*
+
 ## 先解决记录从哪里来
 
 讨论时，一个很自然的方案是：给每个需求建一份状态文件，Agent 每次修复前先读它。
@@ -61,6 +70,10 @@ Agent 说“开发完成”，通常是在结束当前这轮任务：实现已�
 因此，记录应该成为 Agent 开始开发时自动做的一件小事。接到需求后，先找有没有对应的记录；没有，就从当前对话里提取必要内容。等方案确定、实现调整或收到自测反馈，再维护同一份记录。
 
 不需要把聊天全文搬进仓库。留下目标、修改范围、开发起点，以及目前知道的发布和依赖情况，就够开始了。
+
+![研究员只需向终端提出增加订单分类的需求，终端就自动输出含目标、范围、阶段和发布情况的需求记录。](../assets/agent-unreleased-code-compatibility-illustrations/03-automatic-change-record.png)
+
+*需求进入开发流程时自动留下记录，后续修复继续更新这一份。*
 
 比如，一个新需求刚进入开发时，可以先留下这样的记录：
 
