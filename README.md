@@ -14,6 +14,11 @@
       <span class="home-index__title">代码还没上线，Agent 已经开始兼容了</span>
       <span class="home-index__tags">AI/工程</span>
     </a>
+    <a class="home-index__row" href="./2026/agent-skill-memory-governance.html">
+      <span class="home-index__date">10/19</span>
+      <span class="home-index__title">Agent 全生命周期治理：项目 Skill 与记忆</span>
+      <span class="home-index__tags">AI/工程</span>
+    </a>
     <a class="home-index__row" href="./2026/jev-model-thinking.html">
       <span class="home-index__date">09/22</span>
       <span class="home-index__title">JEV：让决策从对话里走出来</span>
