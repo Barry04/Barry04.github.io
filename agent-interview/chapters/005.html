@@ -1,0 +1,393 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agent Loop 设计：循环控制、终止条件与错误恢复 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link active" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">Agent 架构 · 第 006 题</div><h1>Agent Loop 设计：循环控制、终止条件与错误恢复</h1><blockquote>
+<p>难度：中级
+分类：Agent 架构</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Agent Loop 是 Agent 与普通 LLM 调用的核心区别——Agent 通过&quot;推理→行动→观察&quot;的循环迭代完成任务。完整的 Agent Loop 设计包含两大关键维度：<strong>正常流程的循环终止控制</strong>和<strong>异常情况的错误恢复机制</strong>。</p>
+<p>循环终止设计的核心原则是<strong>外部强制（External Enforcement）</strong>：由系统而非 Agent 自身保证终止。常用策略包括最大迭代次数限制、语义完成检测、重复输出检测、资源预算监控，以及达到上限后的优雅降级。</p>
+<p>容错设计采用四层防御模型：带指数退避的重试机制（应对瞬态错误）→ 模型降级链（应对服务商故障）→ 错误分类路由（匹配正确的处理策略）→ 检查点恢复（应对崩溃）。正常终止与异常恢复共同构成生产级 Agent 的完整闭环。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">一、Agent Loop 的本质</h3>
+<p>Agent 的定义特征就是循环（Loop）。它使用 LLM 推理、执行工具、观察结果，然后重复，直到目标达成。这与单次 LLM 调用有本质区别：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 单次 LLM 调用
+response = llm.generate(prompt)
+
+# Agent Loop
+while not done:
+    thought = llm.reason(state)        # 推理
+    action_result = execute(thought)    # 行动
+    state = observe(action_result)      # 观察
+    done = check_termination(state)     # 终止检查
+</code></pre></details>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    T[&quot;目标&quot;] --&gt; R[&quot;推理&lt;br/&gt;LLM 思考&quot;]
+    R --&gt; A[&quot;行动&lt;br/&gt;工具调用&quot;]
+    A --&gt; O[&quot;观察&lt;br/&gt;执行结果&quot;]
+    O --&gt; Q1{&quot;目标达成?&quot;}
+    Q1 -- &quot;是&quot; --&gt; F[&quot;最终答案&quot;]
+    Q1 -- &quot;否&quot; --&gt; Q2{&quot;达迭代上限?&quot;}
+    Q2 -- &quot;否&quot; --&gt; R
+    Q2 -- &quot;是&quot; --&gt; D[&quot;优雅降级&lt;br/&gt;总结进度后返回&quot;]
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef err fill:#ffebee,stroke:#c62828,color:#b71c1c
+    class T,R,A,O,F proc
+    class Q1,Q2 decision
+    class D err
+</div></figure>
+<p><em>Agent Loop = 推理→行动→观察循环，终止由系统保证：目标达成即返回，达上限则优雅降级。</em></p>
+<h3 id="section-4">二、为什么需要终止控制？</h3>
+<p>与传统代码中显而易见的死循环不同，Agent 的循环陷阱更加微妙：</p>
+<ul>
+<li>LLM 的概率性本质可能导致它<strong>误解终止信号</strong></li>
+<li>模糊的目标（如&quot;研究 X&quot;）没有明确的完成定义，会引发&quot;无限好奇心&quot;</li>
+<li>工具调用失败后反复重试同一操作</li>
+<li>工具过多或描述模糊导致选择混乱</li>
+</ul>
+<h3 id="section-5">三、五种终止策略</h3>
+<h4 id="section-6">1. 最大迭代次数（最基础也最关键）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class AgentLoop:
+    def __init__(self, max_iterations: int = 15):
+        self.max_iterations = max_iterations
+
+    def run(self, task: str) -&gt; str:
+        for i in range(self.max_iterations):
+            result = self.step(task)
+            if result.is_final:
+                return result.answer
+        # 达到上限：优雅降级
+        return self.graceful_degradation()
+</code></pre></details>
+<p>不同框架的默认值：LangChain <code>AgentExecutor</code> 默认 15 次，Google ADK <code>LoopAgent</code> 可自定义上限。</p>
+<h4 id="section-7">2. 语义完成检测</h4>
+<p>让 Agent 输出明确的终止标记：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>&quot;当你确信已回答问题时，以 &#39;FINAL_ANSWER: ...&#39; 结尾&quot;
+</code></pre></details>
+<p>或通过结构化输出：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class AgentResponse(BaseModel):
+    thought: str
+    action: Optional[ToolCall]
+    final_answer: Optional[str]  # 非 None 时表示完成
+</code></pre></details>
+<h4 id="section-8">3. 重复输出检测</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">def detect_loop(history: list[str], window: int = 3) -&gt; bool:
+    &quot;&quot;&quot;检测 Agent 是否在重复相同的操作&quot;&quot;&quot;
+    recent = history[-window:]
+    return len(set(recent)) &lt; len(recent)  # 有重复则判定为循环
+</code></pre></details>
+<h4 id="section-9">4. 资源预算监控</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class ResourceBudget:
+    def __init__(self, max_tokens: int = 100_000, max_cost: float = 1.0):
+        self.max_tokens = max_tokens
+        self.max_cost = max_cost
+        self.used_tokens = 0
+        self.used_cost = 0.0
+
+    def check(self) -&gt; bool:
+        return self.used_tokens &lt; self.max_tokens and self.used_cost &lt; self.max_cost
+</code></pre></details>
+<h4 id="section-10">5. 子 Agent 信号终止</h4>
+<p>在多 Agent 系统中，子 Agent 可以通过事件、标志或特定返回值向 Orchestrator 发出终止信号。</p>
+<h3 id="section-11">四、不同架构的终止机制对比</h3>
+<table>
+<thead>
+<tr>
+<th>架构</th>
+<th>终止方式</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ReAct</strong></td>
+<td>LLM 在 response 中生成终止 token（如 &quot;Final Answer:&quot;）</td>
+<td>默认继续，主动终止</td>
+</tr>
+<tr>
+<td><strong>MemGPT</strong></td>
+<td><code>request_heartbeat</code> 默认为 False</td>
+<td>默认终止，主动继续</td>
+</tr>
+<tr>
+<td><strong>Plan-and-Execute</strong></td>
+<td>计划中的所有步骤执行完毕</td>
+<td>确定性终止</td>
+</tr>
+<tr>
+<td><strong>现代 Agent</strong></td>
+<td>多步工具调用 + 自导向终止条件</td>
+<td>混合策略</td>
+</tr>
+</tbody></table>
+<p>&quot;默认终止 vs 默认继续&quot;是一个关键的设计决策。MemGPT 的设计哲学是默认终止更安全——Agent 必须显式请求继续执行，而非依赖 LLM 判断何时停止。</p>
+<h3 id="section-12">五、达到上限后的优雅降级</h3>
+<p>当 Agent 达到迭代上限时，不应简单地崩溃或返回空结果：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">def graceful_degradation(self):
+    &quot;&quot;&quot;优雅降级：总结已有进度，而非直接失败&quot;&quot;&quot;
+    return self.llm.generate(
+        f&quot;你已达到最大步数限制。基于以下已完成的工作，&quot;
+        f&quot;给出你目前能提供的最佳答案：\n{self.state.summary()}&quot;
+    )
+</code></pre></details>
+<p>关键策略：</p>
+<ul>
+<li><strong>进度总结</strong>：汇报已完成和未完成的部分</li>
+<li><strong>状态检查点</strong>：保存当前状态以便后续恢复</li>
+<li><strong>模型降级</strong>：切换到更便宜的模型完成剩余工作</li>
+<li><strong>人工升级</strong>：通知人类介入处理</li>
+</ul>
+<h3 id="section-13">六、根因分析：为什么反复达到上限？</h3>
+<p>迭代上限是<strong>症状检测器，不是疾病本身</strong>。如果 Agent 反复触及上限，真正的问题通常是：</p>
+<ol>
+<li><strong>目标模糊</strong>：缺少明确的完成标准</li>
+<li><strong>工具签名不清</strong>：工具描述有歧义，LLM 不知道选哪个</li>
+<li><strong>停止条件弱</strong>：没有教会 LLM 识别&quot;已完成&quot;</li>
+<li><strong>Prompt 设计差</strong>：没有在 System Prompt 中定义终止规则</li>
+</ol>
+<h3 id="section-14">七、完成判定也要外部化：verification-gated（2026-08）</h3>
+<p>终止控制回答&quot;什么时候该停&quot;，但外部强制还有第二个落点常被忽略：Agent 停下来之后声称&quot;做完了&quot;，这个&quot;做完了&quot;本身由谁裁定？多数实现默认 Agent 自评——输出 <code>FINAL_ANSWER</code> 就算任务完成，等于把终止权外部化了，<strong>验收权</strong>却还留在 Agent 手里。而语义错误（代码能编译、能跑、却干错事）恰恰在这一步无法自查。</p>
+<p>SemaPLC（2026-08）在工业 PLC 代码生成（可编程逻辑控制器，改错会造成物理后果）这类高风险场景把它做成硬门禁——<strong>verification-gated</strong>（以验证为闸门）：Agent 不能自判完成，&quot;我做完了&quot;只是一个待验证的声明；必须由<strong>日志化的外部检查</strong>全通过才算完成——规格核对、编译、实机运行时行为，任一不过就回到循环继续修。检查是分层的，越往后越接近真实：前两层停留在静态与语法层面，第三层才触及语义正确性，只做前两层正好漏掉最危险的那类错误。</p>
+<p>和第五节的优雅降级放在一起看，终止控制的完整形态是三段而非一段：</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>谁说了算</th>
+<th>对应机制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>什么时候必须停</td>
+<td>系统</td>
+<td>迭代上限、资源预算、重复检测</td>
+</tr>
+<tr>
+<td><strong>算不算做完</strong></td>
+<td><strong>外部验证</strong></td>
+<td><strong>规格核对 + 编译 + 运行时行为，全程日志化</strong></td>
+</tr>
+<tr>
+<td>没做完怎么收场</td>
+<td>系统</td>
+<td>优雅降级、检查点、人工升级</td>
+</tr>
+</tbody></table>
+<p>中间这一格空着的系统，前后两格做得再好也只是&quot;按时停下来了&quot;，不代表&quot;做对了&quot;。任务风险越高（改生产代码、控制物理设备、动钱），越该把这一格补成硬门禁。</p>
+<h3 id="section-15">八、Agent 错误的特殊性</h3>
+<p>Agent 的错误比传统应用更难处理，因为：</p>
+<ul>
+<li><strong>级联放大</strong>：一次工具调用失败会影响后续所有决策</li>
+<li><strong>语义错误</strong>：LLM 生成的代码可能通过编译但执行错误操作（如删除而非更新）</li>
+<li><strong>状态失同步</strong>：Agent 对环境的内部认知与实际状态不一致</li>
+<li><strong>概率性</strong>：同样的输入可能产生不同的错误</li>
+</ul>
+<h3 id="section-16">九、四层容错模型</h3>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    E0[&quot;错误发生&quot;] --- S1
+    subgraph S1[&quot;第一层 —— 重试 + 指数退避 + 抖动&quot;]
+        L1[&quot;应对网络超时 / 限流等&lt;br/&gt;瞬态错误，成本最低&quot;]
+    end
+    subgraph S2[&quot;第二层 —— 模型降级链&quot;]
+        L2[&quot;主模型 → 备用模型&lt;br/&gt;→ 跨供应商回退&quot;]
+    end
+    subgraph S3[&quot;第三层 —— 错误分类路由&quot;]
+        L3[&quot;瞬态→重试 语义→换法&lt;br/&gt;权限→人工 致命→终止&quot;]
+    end
+    subgraph S4[&quot;第四层 —— 检查点恢复&quot;]
+        L4[&quot;定期保存状态&lt;br/&gt;崩溃后从检查点重启&quot;]
+    end
+    S1 --- S2 --- S3 --- S4
+    classDef err fill:#ffebee,stroke:#c62828,color:#b71c1c
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    class E0 err
+    class L1,L2,L3,L4 proc
+</div></figure>
+<p><em>容错四层防线由廉到贵：重试退避 → 模型降级链 → 错误分类路由 → 检查点恢复，逐层兜底。</em></p>
+<h4 id="section-17">第一层：重试 + 指数退避 + 抖动</h4>
+<p>处理最常见的瞬态错误（网络超时、API 限流）：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">import random
+import time
+
+class RetryWithBackoff:
+    def __init__(self, max_retries=3, base_delay=1.0, max_delay=60.0):
+        self.max_retries = max_retries
+        self.base_delay = base_delay
+        self.max_delay = max_delay
+
+    def execute(self, func, *args):
+        for attempt in range(self.max_retries):
+            try:
+                return func(*args)
+            except TransientError as e:
+                if attempt == self.max_retries - 1:
+                    raise
+                delay = min(
+                    self.base_delay * (2 ** attempt) + random.uniform(0, 1),
+                    self.max_delay
+                )
+                time.sleep(delay)
+</code></pre></details>
+<p><strong>关键设计决策</strong>：重试中间件应放在降级中间件<strong>之前</strong>。先重试主模型几次，再降级到备用模型，避免主模型短暂不可用就过早降级。</p>
+<h4 id="section-18">第二层：模型降级链</h4>
+<p>当主模型持续不可用时，切换到备用模型：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class ModelFallbackChain:
+    def __init__(self):
+        self.chain = [
+            {&quot;provider&quot;: &quot;anthropic&quot;, &quot;model&quot;: &quot;claude-sonnet-4-5-20250929&quot;},
+            {&quot;provider&quot;: &quot;anthropic&quot;, &quot;model&quot;: &quot;claude-haiku-4-5-20251001&quot;},
+            {&quot;provider&quot;: &quot;openai&quot;, &quot;model&quot;: &quot;gpt-4o-mini&quot;},  # 跨供应商降级
+        ]
+
+    def call(self, prompt: str) -&gt; str:
+        for model_config in self.chain:
+            try:
+                return self._call_model(model_config, prompt)
+            except (RateLimitError, ServiceUnavailableError):
+                continue
+        raise AllModelsFailedError(&quot;所有模型均不可用&quot;)
+</code></pre></details>
+<p>最佳实践：每个供应商至少定义一个备选模型，并设置跨供应商降级（如 Anthropic → OpenAI）。</p>
+<h4 id="section-19">第三层：错误分类与路由</h4>
+<p><strong>不是所有错误都应该重试。</strong> 正确分类错误是高效容错的关键：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class ErrorClassifier:
+    def classify(self, error: Exception) -&gt; ErrorType:
+        if isinstance(error, (TimeoutError, RateLimitError)):
+            return ErrorType.TRANSIENT      # → 重试
+        elif isinstance(error, ToolOutputError):
+            return ErrorType.LLM_RECOVERABLE  # → 让 LLM 换个方式调用
+        elif isinstance(error, AuthorizationError):
+            return ErrorType.HUMAN_REQUIRED   # → 通知人类
+        elif isinstance(error, InvalidToolInput):
+            return ErrorType.PROMPT_FIXABLE   # → 重新格式化输入
+        else:
+            return ErrorType.FATAL            # → 终止并报告
+
+class ErrorHandler:
+    def handle(self, error: Exception, context: AgentState):
+        error_type = self.classifier.classify(error)
+
+        if error_type == ErrorType.TRANSIENT:
+            return self.retry_with_backoff(context)
+        elif error_type == ErrorType.LLM_RECOVERABLE:
+            return self.ask_llm_to_reformulate(context)
+        elif error_type == ErrorType.HUMAN_REQUIRED:
+            return self.escalate_to_human(context)
+        elif error_type == ErrorType.PROMPT_FIXABLE:
+            return self.fix_and_retry(context)
+        else:
+            return self.abort_with_summary(context)
+</code></pre></details>
+<h4 id="section-20">第四层：检查点与状态恢复</h4>
+<p>对于长时间运行的 Agent 任务，定期保存状态：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class CheckpointManager:
+    def __init__(self, storage):
+        self.storage = storage
+
+    def save(self, thread_id: str, state: AgentState):
+        &quot;&quot;&quot;在每步完成后保存检查点&quot;&quot;&quot;
+        self.storage.save({
+            &quot;thread_id&quot;: thread_id,
+            &quot;step&quot;: state.current_step,
+            &quot;completed_actions&quot;: state.history,
+            &quot;partial_results&quot;: state.results,
+            &quot;timestamp&quot;: time.time()
+        })
+
+    def restore(self, thread_id: str) -&gt; AgentState:
+        &quot;&quot;&quot;从最近的检查点恢复&quot;&quot;&quot;
+        checkpoint = self.storage.load(thread_id)
+        return AgentState.from_checkpoint(checkpoint)
+</code></pre></details>
+<h3 id="section-21">十、级联失败预防</h3>
+<p>Agent 系统中的单点故障不只影响一个功能——它会在每次工具调用、每次重试、每个 token 中放大。防止级联失败的核心原则：<strong>假设 LLM、Agent 组件和外部数据源都可能不可用。</strong></p>
+<p><strong>断路器模式（Circuit Breaker）</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class CircuitBreaker:
+    def __init__(self, failure_threshold=5, recovery_timeout=60):
+        self.failures = 0
+        self.threshold = failure_threshold
+        self.recovery_timeout = recovery_timeout
+        self.state = &quot;CLOSED&quot;  # CLOSED → OPEN → HALF_OPEN
+        self.last_failure_time = None
+
+    def call(self, func, *args):
+        if self.state == &quot;OPEN&quot;:
+            if time.time() - self.last_failure_time &gt; self.recovery_timeout:
+                self.state = &quot;HALF_OPEN&quot;
+            else:
+                raise CircuitOpenError(&quot;服务不可用，快速失败&quot;)
+
+        try:
+            result = func(*args)
+            self._on_success()
+            return result
+        except Exception as e:
+            self._on_failure()
+            raise
+
+    def _on_failure(self):
+        self.failures += 1
+        self.last_failure_time = time.time()
+        if self.failures &gt;= self.threshold:
+            self.state = &quot;OPEN&quot;
+
+    def _on_success(self):
+        self.failures = 0
+        self.state = &quot;CLOSED&quot;
+</code></pre></details>
+<h3 id="section-22">十一、容错机制的推荐实施顺序</h3>
+<ol>
+<li><strong>重试策略先行</strong>：用最少代码处理最常见的故障</li>
+<li><strong>模型降级其次</strong>：定义备选模型和跨供应商回退</li>
+<li><strong>错误分类第三</strong>：区分瞬态错误、LLM 可恢复错误、需人工错误</li>
+<li><strong>检查点最后</strong>：生产环境用持久化存储，通过 thread_id 支持恢复</li>
+</ol>
+<h2 id="section-23">常见误区 / 面试追问</h2>
+<h3 id="section-24">循环终止相关</h3>
+<ol>
+<li><p><strong>误区：&quot;设大一点的 max_iterations 就行&quot;</strong> — 盲目增大上限只会增加成本和延迟。应该先分析为什么达到上限，修复根因（目标不清、工具不当、Prompt 不佳）。</p>
+</li>
+<li><p><strong>误区：&quot;让 LLM 自己决定什么时候停&quot;</strong> — LLM 可能无法可靠判断任务完成。必须在系统层面设置硬性终止条件作为兜底。</p>
+</li>
+<li><p><strong>追问：&quot;如何设定合理的 max_iterations？&quot;</strong> — 根据任务类型估算：简单问答 3-5 步，多步研究 10-15 步，复杂分析 20-30 步。建议从小值开始，通过观测实际使用情况逐步调整。</p>
+</li>
+<li><p><strong>追问：&quot;Agent 的两个循环（Inner Loop / Outer Loop）是什么？&quot;</strong> — Inner Loop 是单次任务内的&quot;思考-行动-观察&quot;循环。Outer Loop 是跨任务的&quot;执行-评估-改进&quot;循环（如 Reflexion 的自我反思机制）。</p>
+</li>
+<li><p><strong>追问：&quot;终止条件外部化了，为什么还需要外部验证完成？&quot;</strong> — 这是两件事：终止控制管&quot;什么时候必须停&quot;，完成判定管&quot;算不算做完&quot;。多数实现让 Agent 输出 <code>FINAL_ANSWER</code> 就自动认定完成，验收权还在 Agent 手里，而语义错误（代码能编译但干错事）恰恰无法自查。SemaPLC（2026-08）在工业 PLC 代码生成场景做成硬门禁：Agent 不能自判完成，必须由日志化的外部检查（规格核对、编译、实机运行时行为）全通过才算完成。风险越高的场景越该补上这道门禁。</p>
+</li>
+</ol>
+<h3 id="section-25">错误恢复相关</h3>
+<ol start="6">
+<li><p><strong>误区：&quot;所有错误都重试就行&quot;</strong> — 限流需要重试，但工具返回垃圾数据需要让 LLM 重新构造查询，权限错误需要人工介入。错误分类是高效容错的前提。</p>
+</li>
+<li><p><strong>误区：&quot;Agent 自己能处理所有错误&quot;</strong> — 语义错误（生成的代码逻辑错误）和状态失同步（Agent 的认知与实际不符）需要外部验证机制。不能完全依赖 Agent 自我纠错。</p>
+</li>
+<li><p><strong>追问：&quot;如何处理 Agent 的&#39;幻觉式修复&#39;？&quot;</strong> — Agent 可能声称修复了问题但实际没有。解决方案：(1) 工具调用结果做独立验证；(2) 关键操作后检查状态一致性；(3) Human-in-the-Loop 审核关键修复。</p>
+</li>
+<li><p><strong>追问：&quot;容错机制本身的成本如何控制？&quot;</strong> — 重试和降级会增加延迟和费用。设置总预算（token 上限 + 金额上限 + 时间上限），达到任一上限就优雅终止。</p>
+</li>
+</ol>
+<h3 id="section-26">场景追问</h3>
+<ol start="10">
+<li><p><strong>&quot;你的 Agent 在调用工具时陷入无限循环，反复调用同一个工具参数略有不同但总是失败。如何修复？&quot;</strong> — 这是最危险的 Agent 故障模式。修复路径：(1) 立即设置 <code>max_tool_retries</code> 限制单工具重试次数；(2) 工具返回明确错误信息，说明为什么失败（而非模糊的&quot;失败&quot;）；(3) 错误分类：识别这是 TRANSIENT 错误还是需要 LLM 调整策略的错误；(4) 检查工具 Schema 是否清晰，LLM 是否理解了参数约束；(5) 加入重复检测模式，当检测到连续 N 次调用同一工具时强制停止或请求人类干预。</p>
+</li>
+<li><p><strong>&quot;你的多 Agent 系统中 Agent A 和 Agent B 陷入死循环，反复互相传递任务而无法进展。如何修复？&quot;</strong> — 这是多 Agent 系统特有的故障。修复路径：(1) 限制 Handoff 次数，超过阈值强制终止或转给 Supervisor Agent；(2) 每次传递时要求携带&quot;进展状态&quot;，如果状态无变化则中断；(3) 加入超时机制，单次任务总时长超过限制则终止；(4) 在 Handoff 点记录完整 Trace，复现时检查是哪个 Agent 的决策导致死循环；(5) 设计&quot;逃生路由&quot;：遇到异常情况转给兜底 Agent 或直接返回用户友好错误。</p>
+</li>
+<li><p><strong>&quot;你的 Agent 在生产环境突然开始频繁产生幻觉，输出中包含不存在的引用和数据。如何快速定位和修复？&quot;</strong> — 这是 prompt 漂移或模型更新的典型症状。修复路径：(1) 立即检查是否有模型/ prompt 版本最近更新 → 如有，紧急回滚；(2) 对比最近 24 小时和正常时期的 Trace，找出变化的模式（如新增了某类查询导致 prompt 触发不同分支）；(3) 检查检索系统的输出质量，可能是检索失效导致 Agent 只能依赖自身知识；(4) 加入幻觉检测护栏，对引用来源进行验证；(5) 启用人工审核通道，高风险输出转人工确认。</p>
+</li>
+<li><p><strong>&quot;你的 RAG 系统检索结果与用户查询完全无关，检索指标显示 Recall 接近 0。如何修复？&quot;</strong> — 这是检索系统失效的典型场景。修复路径：(1) 检查 embedding 模型是否匹配语料语言（如用英文模型检索中文文档）→ 重新选择/训练适配的 embedding 模型；(2) 检查分块策略是否破坏了语义完整性（如按固定字符切分导致上下文丢失）→ 调整为语义分块或重叠分块；(3) 检查向量数据库索引是否损坏 → 重建索引；(4) 检查查询是否包含领域术语未在语料中出现 → 加入查询扩展或同义词映射；(5) 加入混合检索（BM25 + 向量）兜底。</p>
+</li>
+</ol>
+<h2 id="section-27">参考资料</h2>
+<ul>
+<li><a href="https://planoai.dev/blog/the-two-agentic-loops-how-to-design-and-scale-agentic-apps">The Two Agentic Loops: How to Design and Scale Agentic Apps (Plano)</a></li>
+<li><a href="https://www.glean.com/ai-glossary/agent-loop">Agent Loop Definition: How AI Agents Use Iterative Processes (Glean)</a></li>
+<li><a href="https://python.langchain.com/v0.1/docs/modules/agents/how_to/max_iterations/">Cap the Max Number of Iterations (LangChain)</a></li>
+<li><a href="https://www.letta.com/blog/letta-v1-agent">Rearchitecting Letta&#39;s Agent Loop: Lessons from ReAct, MemGPT, &amp; Claude Code (Letta)</a></li>
+<li><a href="https://google.github.io/adk-docs/agents/workflow-agents/loop-agents/">Loop Agents (Google ADK)</a></li>
+<li><a href="https://dev.to/klement_gunndu/4-fault-tolerance-patterns-every-ai-agent-needs-in-production-jih">4 Fault Tolerance Patterns Every AI Agent Needs in Production (DEV Community)</a></li>
+<li><a href="https://www.gocodeo.com/post/error-recovery-and-fallback-strategies-in-ai-agent-development">Error Recovery and Fallback Strategies in AI Agent Development (GoCodeo)</a></li>
+<li><a href="https://www.willvelida.com/posts/preventing-cascading-failures-ai-agents">Preventing Cascading Failures in AI Agents (Will Velida)</a></li>
+<li><a href="https://sparkco.ai/blog/mastering-retry-logic-agents-a-deep-dive-into-2025-best-practices">Mastering Retry Logic Agents: 2025 Best Practices (SparkCo)</a></li>
+<li><a href="https://temporal.io/blog/error-handling-in-distributed-systems">Error Handling in Distributed Systems (Temporal)</a></li>
+<li><a href="https://arxiv.org/abs/2608.18565">SemaPLC: Project-Grounded, Verification-Gated Agent Harness for PLC Code (arXiv)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">一、Agent Loop 的本质</a></li><li class="toc-level-3"><a href="#section-4">二、为什么需要终止控制？</a></li><li class="toc-level-3"><a href="#section-5">三、五种终止策略</a></li><li class="toc-level-4"><a href="#section-6">1. 最大迭代次数（最基础也最关键）</a></li><li class="toc-level-4"><a href="#section-7">2. 语义完成检测</a></li><li class="toc-level-4"><a href="#section-8">3. 重复输出检测</a></li><li class="toc-level-4"><a href="#section-9">4. 资源预算监控</a></li><li class="toc-level-4"><a href="#section-10">5. 子 Agent 信号终止</a></li><li class="toc-level-3"><a href="#section-11">四、不同架构的终止机制对比</a></li><li class="toc-level-3"><a href="#section-12">五、达到上限后的优雅降级</a></li><li class="toc-level-3"><a href="#section-13">六、根因分析：为什么反复达到上限？</a></li><li class="toc-level-3"><a href="#section-14">七、完成判定也要外部化：verification-gated（2026-08）</a></li><li class="toc-level-3"><a href="#section-15">八、Agent 错误的特殊性</a></li><li class="toc-level-3"><a href="#section-16">九、四层容错模型</a></li><li class="toc-level-4"><a href="#section-17">第一层：重试 + 指数退避 + 抖动</a></li><li class="toc-level-4"><a href="#section-18">第二层：模型降级链</a></li><li class="toc-level-4"><a href="#section-19">第三层：错误分类与路由</a></li><li class="toc-level-4"><a href="#section-20">第四层：检查点与状态恢复</a></li><li class="toc-level-3"><a href="#section-21">十、级联失败预防</a></li><li class="toc-level-3"><a href="#section-22">十一、容错机制的推荐实施顺序</a></li><li class="toc-level-2"><a href="#section-23">常见误区 / 面试追问</a></li><li class="toc-level-3"><a href="#section-24">循环终止相关</a></li><li class="toc-level-3"><a href="#section-25">错误恢复相关</a></li><li class="toc-level-3"><a href="#section-26">场景追问</a></li><li class="toc-level-2"><a href="#section-27">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="004.html" class="nav-card"><span>上一章</span><strong>← 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</strong></a><a href="006.html" class="nav-card next"><span>下一章</span><strong>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

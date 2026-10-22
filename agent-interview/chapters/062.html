@@ -1,0 +1,221 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>LLM-as-Judge：使用 LLM 评估 LLM 输出 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link active" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">评估 · 第 071 题</div><h1>LLM-as-Judge：使用 LLM 评估 LLM 输出</h1><blockquote>
+<p>难度：中级
+分类：Evaluation</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>LLM-as-Judge 是用一个强大的 LLM（如 GPT-4）自动评估另一个 LLM 输出质量的技术，在成本和质量之间取得了最佳平衡。两种核心模式：<strong>Pointwise 评分</strong>（对单个输出按维度打分，如 1-5 分）和 <strong>Pairwise 对比</strong>（比较两个输出哪个更好）。<strong>衡量 Judge 可靠性的正确指标是 Cohen&#39;s Kappa（κ）</strong>——顶级 Judge（GPT-4o / Claude Opus）的 κ ≈ 0.78-0.84，逼近人类-人类一致性（κ ≈ 0.80）。⚠️ <strong>常见误区</strong>：很多文章引用&quot;Judge 与人类一致率 80%+&quot;看似很高，但 raw percent agreement 容易虚高（κ=0.62 也能 &gt;80% 一致率），学术界（&quot;Judging the Judges&quot; arXiv:2406.12624）明确指出应优先报告 Kappa。已知系统性偏差：<strong>位置偏差</strong>（倾向于给排在前面的答案更高分）、<strong>冗长偏差</strong>（偏好更长的回答）、<strong>自我偏好</strong>（GPT-4 Judge 偏好 GPT-4 的输出）。缓解策略包括：交换位置多次评估、提供详细的评分 Rubric、使用多个 Judge 投票、定期用人工标注校准。2025 年的新趋势是 <strong>Agent-as-Judge</strong>——用 Agent 代替单纯的 LLM 做评估，Agent 可以执行代码验证、搜索事实等操作来辅助判断。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">两种核心评估模式</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 模式 1：Pointwise 评分（直接打分）
+async def pointwise_judge(question, answer, rubric=None):
+    prompt = f&quot;&quot;&quot;
+    请评估以下回答的质量。
+
+    问题：{question}
+    回答：{answer}
+
+    评分标准（Rubric）：
+    {rubric or &#39;&#39;&#39;
+    5分：完全正确、完整、清晰
+    4分：基本正确，有小瑕疵
+    3分：部分正确，有明显遗漏
+    2分：大部分不正确或不相关
+    1分：完全错误或无关
+    &#39;&#39;&#39;}
+
+    请先分析回答的优缺点，然后给出分数。
+    输出 JSON：{{&quot;analysis&quot;: &quot;...&quot;, &quot;score&quot;: 1-5}}
+    &quot;&quot;&quot;
+    return await judge_llm.invoke(prompt)
+
+# 模式 2：Pairwise 对比（两两比较）
+async def pairwise_judge(question, answer_a, answer_b):
+    prompt = f&quot;&quot;&quot;
+    比较以下两个回答，判断哪个更好。
+
+    问题：{question}
+    回答 A：{answer_a}
+    回答 B：{answer_b}
+
+    比较维度：准确性、完整性、清晰度、实用性。
+    输出：A更好 / B更好 / 差不多，并说明理由。
+    &quot;&quot;&quot;
+    return await judge_llm.invoke(prompt)
+</code></pre></details>
+<h3 id="section-4">LLM Judge 的已知偏差</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">known_biases = {
+    &quot;位置偏差 (Position Bias)&quot;: {
+        &quot;现象&quot;: &quot;Pairwise 中倾向于给排在前面的答案更高分&quot;,
+        &quot;缓解&quot;: &quot;交换 A/B 位置做两次评估，取平均或一致性结果&quot;,
+    },
+    &quot;冗长偏差 (Verbosity Bias)&quot;: {
+        &quot;现象&quot;: &quot;倾向于给更长、更详细的回答更高分&quot;,
+        &quot;缓解&quot;: &quot;在 Rubric 中明确&#39;简洁也是优点&#39;&quot;,
+    },
+    &quot;自我偏好 (Self-Preference)&quot;: {
+        &quot;现象&quot;: &quot;GPT-4 做 Judge 时偏好 GPT-4 生成的内容&quot;,
+        &quot;缓解&quot;: &quot;用与被评估模型不同家族的模型做 Judge&quot;,
+    },
+    &quot;格式偏差 (Format Bias)&quot;: {
+        &quot;现象&quot;: &quot;偏好格式更好（如有列表、标题）的回答&quot;,
+        &quot;缓解&quot;: &quot;在评估时统一格式，或在 Rubric 中降低格式权重&quot;,
+    },
+    &quot;锚定效应 (Anchoring)&quot;: {
+        &quot;现象&quot;: &quot;提供参考答案时 Judge 被参考答案锚定&quot;,
+        &quot;缓解&quot;: &quot;不提供参考答案做 reference-free 评估&quot;,
+    },
+    &quot;修辞偏差 (Rhetoric Bias)&quot;: {
+        &quot;现象&quot;: &quot;内容不变、只改修辞表达即可系统性抬高 Judge 打分（可被对手主动利用）&quot;,
+        &quot;缓解&quot;: &quot;对同一内容做多版修辞改写做稳健性测试；Rubric 锚定可核验的实质断言而非表达力&quot;,
+        &quot;出处&quot;: &quot;How Can Rhetoric Reward-Hack AI Reviewers? arXiv:2608.08975（2026-08-14）&quot;,
+    },
+}
+</code></pre></details>
+<p><strong>关于修辞偏差的补充说明。</strong> 这一条与前面几条的性质不同，值得单独展开。arXiv:2608.08975《How Can Rhetoric Reward-Hack AI Reviewers?》（2026-08-14 登上 HuggingFace Daily Papers，48 upvote）用 4200 篇改写稿（源自 120 篇 ICLR 2026 投稿）做实验，<strong>该文报告</strong>：在科学内容完全不变的前提下，纯修辞维度的改写可以系统性地操纵 AI 审稿的打分。</p>
+<p>差别在攻击者的位置：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>位置 / 冗长 / 格式偏差</th>
+<th>修辞偏差</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>层次</td>
+<td><strong>格式层</strong>——排序、长度、排版这类表层特征</td>
+<td><strong>修辞层</strong>——论证语气、确定性措辞、框架叙述</td>
+</tr>
+<tr>
+<td>性质</td>
+<td>被动干扰，方向大体固定，接近<strong>随机噪声</strong></td>
+<td>主动攻击，攻击者可<strong>定向优化</strong>（reward hacking，即针对评分机制本身刷分而非真正提升质量）</td>
+</tr>
+<tr>
+<td>缓解</td>
+<td>交换位置、统一格式等<strong>机械手段</strong>基本可消除</td>
+<td>机械手段无效——改写本身合法合规，没有可对齐的「正确格式」</td>
+</tr>
+</tbody></table>
+<p>含义是：**只要打分会带来收益（论文录用、模型排行榜位次、RLAIF 奖励信号），Judge 面对的就不是随机噪声，而是有动机的对手。**据其实验，被评估方无需改动任何实质内容即可拿到更高分，这直接威胁到把 LLM Judge 用作奖励模型或准入门槛的场景。</p>
+<p>需要说明的是，这是社区的单次实验结果，截至本文更新时尚未见独立复现，实际影响幅度和跨 Judge 模型的普适性仍待验证——引用时应作为「需要防范的风险面」而非已确立的定量结论。</p>
+<h3 id="section-5">构建可靠的 LLM Judge 系统</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class ReliableLLMJudge:
+    &quot;&quot;&quot;带偏差缓解的 LLM 评估系统&quot;&quot;&quot;
+
+    async def evaluate(self, question, answer, rubric):
+        scores = []
+
+        # 策略 1：多次评估取平均（减少随机性）
+        for _ in range(3):
+            score = await self.pointwise_judge(question, answer, rubric)
+            scores.append(score)
+        avg_score = np.mean(scores)
+
+        # 策略 2：多 Judge 投票（减少单模型偏差）
+        judges = [&quot;gpt-4o&quot;, &quot;claude-sonnet-4-5&quot;, &quot;gemini-pro&quot;]
+        multi_scores = []
+        for judge in judges:
+            s = await self.judge_with_model(judge, question, answer, rubric)
+            multi_scores.append(s)
+        consensus = np.median(multi_scores)
+
+        return {
+            &quot;single_judge_avg&quot;: avg_score,
+            &quot;multi_judge_consensus&quot;: consensus,
+            &quot;agreement&quot;: self.compute_agreement(multi_scores),
+        }
+
+    async def pairwise_debiased(self, question, answer_a, answer_b):
+        &quot;&quot;&quot;消除位置偏差的 Pairwise 评估&quot;&quot;&quot;
+        # 正序评估
+        result_1 = await self.pairwise_judge(question, answer_a, answer_b)
+        # 交换位置再评估
+        result_2 = await self.pairwise_judge(question, answer_b, answer_a)
+
+        if result_1 == &quot;A&quot; and result_2 == &quot;B&quot;:
+            return &quot;A更好&quot;  # 两次都选了同一个答案
+        elif result_1 == &quot;B&quot; and result_2 == &quot;A&quot;:
+            return &quot;B更好&quot;
+        else:
+            return &quot;不确定&quot;  # 结果不一致，可能真的差不多
+</code></pre></details>
+<h3 id="section-6">评分 Rubric 的设计</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 好的 Rubric 是 LLM Judge 可靠性的关键
+rubric_example = &quot;&quot;&quot;
+评估维度及标准：
+
+1. 事实准确性 (0-3分)
+   3: 所有事实完全正确
+   2: 大部分正确，有 1-2 处小错误
+   1: 有多处事实错误
+   0: 大部分内容不准确
+
+2. 完整性 (0-3分)
+   3: 全面覆盖问题的所有方面
+   2: 覆盖了主要方面，遗漏了次要点
+   1: 只回答了部分问题
+   0: 严重遗漏关键内容
+
+3. 清晰度 (0-2分)
+   2: 结构清晰，逻辑连贯
+   1: 基本可读但组织可改进
+   0: 混乱难懂
+
+4. 实用性 (0-2分)
+   2: 包含可操作的建议或代码
+   1: 提供了方向但缺少细节
+   0: 纯理论无实用价值
+
+总分 = 准确性 + 完整性 + 清晰度 + 实用性（满分 10）
+&quot;&quot;&quot;
+
+# 具体的 Rubric 比模糊的&quot;评估质量&quot;可靠得多
+</code></pre></details>
+<h3 id="section-7">Agent-as-Judge（前沿趋势）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class AgentJudge:
+    &quot;&quot;&quot;用 Agent 替代纯 LLM 做评估——可以调用工具验证&quot;&quot;&quot;
+
+    async def evaluate(self, question, answer):
+        # Agent 不仅用推理评判，还可以执行验证动作
+
+        # 1. 事实核查：搜索验证关键声明
+        claims = await self.extract_claims(answer)
+        fact_checks = []
+        for claim in claims:
+            evidence = await self.web_search(claim)
+            is_true = await self.verify(claim, evidence)
+            fact_checks.append({&quot;claim&quot;: claim, &quot;verified&quot;: is_true})
+
+        # 2. 代码验证：运行代码检查正确性
+        code_blocks = self.extract_code(answer)
+        for code in code_blocks:
+            result = await self.execute_code(code)
+            # 检查是否能运行、输出是否正确
+
+        # 3. 综合评分
+        return await self.synthesize_score(fact_checks, code_results)
+</code></pre></details>
+<h2 id="section-8">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;LLM Judge 的评分就是客观事实&quot;</strong> — LLM Judge 的评分包含系统性偏差，不应被视为绝对真理。它是&quot;有偏差的专家意见&quot;，需要用人工标注定期校准。<strong>衡量 Judge 可靠性必须用 Cohen&#39;s Kappa</strong>（消除随机一致性），而非 raw percent agreement——后者非常容易虚高（κ=0.62 即可对应 &gt;80% percent agreement，但实际可靠性远低于看起来）。基准参考：人类-人类 κ ≈ 0.80，顶级 LLM Judge κ ≈ 0.78-0.84（&quot;Judging the Judges&quot;, arXiv:2406.12624）。</p>
+</li>
+<li><p><strong>误区：&quot;Pairwise 比 Pointwise 总是更好&quot;</strong> — Pairwise 在主观评估（风格、偏好）上更稳定，但对于有明确标准的评估（事实正确性），Pointwise + 详细 Rubric 更高效。且 ACL 2025 研究表明 Pairwise 实际上会放大偏差。</p>
+</li>
+<li><p><strong>追问：&quot;如何选择 Judge 模型？&quot;</strong> — 原则：(1) Judge 应比被评估模型更强；(2) Judge 应与被评估模型来自不同家族（减少自我偏好）；(3) 对于关键评估用多个 Judge 投票。常见选择：GPT-4o 评估 Claude 输出，反之亦然。</p>
+</li>
+<li><p><strong>追问：&quot;LLM Judge 的成本如何控制？&quot;</strong> — (1) 对大规模评估采样而非全量评估；(2) 先用便宜模型做初筛，只对边界案例用强 Judge；(3) 缓存相同输入的评估结果。通常 LLM Judge 成本是人工评估的 1/10。</p>
+</li>
+<li><p><strong>追问：&quot;缓解了位置偏差和冗长偏差，Judge 就可信了吗？&quot;</strong> — 不够。位置/冗长/格式属于<strong>格式层</strong>的被动干扰，交换位置、统一排版这类机械手段基本可以消除；但 arXiv:2608.08975（2026-08-14）指出还存在<strong>修辞层</strong>的主动攻击面——<strong>该文报告</strong>用 4200 篇改写稿（源自 120 篇 ICLR 2026 投稿）验证，在科学内容完全不变的前提下，纯修辞改写可以系统性操纵 AI 审稿打分。区别在于前者接近随机噪声、可用固定流程抵消，后者是有动机的对手针对评分机制做的定向优化（reward hacking），改写本身合法合规，没有可对齐的「正确格式」可言。<strong>实践含义</strong>：凡是打分会带来实际收益的场景（排行榜、准入门槛、RLAIF 奖励信号），都必须假设被评估方会针对 Judge 优化，评估设计要包含对抗性改写的稳健性测试，并保留人工抽检。<strong>需注意</strong>该结论来自社区单次实验、尚未见独立复现，应作为风险面对待而非定量事实。</p>
+</li>
+</ol>
+<h2 id="section-9">参考资料</h2>
+<ul>
+<li><a href="https://www.confident-ai.com/blog/why-llm-as-a-judge-is-the-best-llm-evaluation-method">LLM-as-a-Judge Simply Explained (Confident AI)</a></li>
+<li><a href="https://www.evidentlyai.com/llm-guide/llm-as-a-judge">LLM-as-a-Judge: A Complete Guide (Evidently AI)</a></li>
+<li><a href="https://galileo.ai/blog/llm-as-a-judge-guide-evaluation">Comprehensive Guide to LLM-as-a-Judge Evaluation (Galileo AI)</a></li>
+<li><a href="https://arxiv.org/html/2508.02994v1">The Rise of Agent-as-a-Judge Evaluation for LLMs (arXiv)</a></li>
+<li><a href="https://www.patronus.ai/llm-testing/llm-as-a-judge">LLM As a Judge: Tutorial and Best Practices (Patronus AI)</a></li>
+<li><a href="https://arxiv.org/abs/2608.08975">How Can Rhetoric Reward-Hack AI Reviewers? (arXiv:2608.08975，2026-08-14；社区单次实验，未见独立复现)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">两种核心评估模式</a></li><li class="toc-level-3"><a href="#section-4">LLM Judge 的已知偏差</a></li><li class="toc-level-3"><a href="#section-5">构建可靠的 LLM Judge 系统</a></li><li class="toc-level-3"><a href="#section-6">评分 Rubric 的设计</a></li><li class="toc-level-3"><a href="#section-7">Agent-as-Judge（前沿趋势）</a></li><li class="toc-level-2"><a href="#section-8">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-9">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="061.html" class="nav-card"><span>上一章</span><strong>← 评估方法论：从 LLM 评估到 Agent 评估</strong></a><a href="063.html" class="nav-card next"><span>下一章</span><strong>Agent Benchmark：如何设计端到端的 Agent 测试？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/reader.js"></script></body></html>

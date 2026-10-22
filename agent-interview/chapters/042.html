@@ -1,0 +1,619 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>长期记忆存储介质选型：向量 / 结构化 / 图谱 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link active" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">记忆与状态 · 第 046 题</div><h1>长期记忆存储介质选型：向量 / 结构化 / 图谱</h1><blockquote>
+<p>难度：中级
+分类：Memory &amp; State</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Agent 长期记忆有三种主要存储介质，各擅其长：(1) <strong>向量记忆</strong>（Embedding + 向量数据库）擅长<strong>语义相似度检索</strong>，基于&quot;意思相近&quot;找到相关记忆，适合非结构化文本和模糊查询；(2) <strong>结构化记忆</strong>（SQL / NoSQL）擅长<strong>精确属性查询</strong>，适合用户画像、偏好、配置等键值化数据；(3) <strong>知识图谱</strong>（Neo4j + Graphiti 等）擅长<strong>关系推理与时间推理</strong>——支持多跳推理（A→B→C）、时间有效性追踪（事实何时变更）、实体关系网络，回答&quot;A 的上级是谁？&quot;&quot;这个信息何时变化？&quot;等结构化问题。代表性的 <strong>Graphiti</strong>（Zep 出品）采用<strong>双时间线模型</strong>（事件时间 + 入库时间）+ <strong>混合检索</strong>（语义 Embedding + 关键词 BM25 + 图遍历）。生产系统推荐<strong>混合架构</strong>——向量存对话历史和非结构化内容，图谱存事实、实体和关系，结构化存属性配置。Mem0 的混合方案实现了 26% 准确率提升和 90%+ token 成本降低。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">三种介质的核心区别</h3>
+<table>
+<thead>
+<tr>
+<th>介质</th>
+<th>数据结构</th>
+<th>查询能力</th>
+<th>典型场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>向量</strong></td>
+<td>高维浮点向量</td>
+<td>语义相似度</td>
+<td>对话历史、文档检索</td>
+</tr>
+<tr>
+<td><strong>结构化（SQL/NoSQL）</strong></td>
+<td>表/键值/文档</td>
+<td>精确字段查询</td>
+<td>用户画像、偏好、配置</td>
+</tr>
+<tr>
+<td><strong>知识图谱</strong></td>
+<td>节点 + 边 + 属性</td>
+<td>多跳推理 + 时间推理</td>
+<td>实体关系、事实追踪</td>
+</tr>
+</tbody></table>
+<h3 id="section-4">向量记忆（Vector / Embedding-based）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 向量记忆的工作原理
+class VectorMemory:
+    def store(self, text: str):
+        embedding = embed_model.encode(text)  # 文本 → 向量
+        self.index.add(embedding, metadata={&quot;text&quot;: text})
+
+    def retrieve(self, query: str, top_k=5):
+        query_vec = embed_model.encode(query)
+        # 基于余弦相似度找最近邻
+        results = self.index.search(query_vec, top_k)
+        return results
+
+# 示例
+memory.store(&quot;用户是 Python 开发者，偏好 FastAPI&quot;)
+memory.store(&quot;上次讨论了数据库优化，使用了 PostgreSQL&quot;)
+results = memory.retrieve(&quot;推荐一个 Web 框架&quot;)
+# → 返回语义相似的记忆条目
+</code></pre></details>
+<p><strong>优势：</strong></p>
+<ul>
+<li>语义理解：基于含义而非关键词匹配</li>
+<li>灵活性：不需要预定义 Schema</li>
+<li>对数级延迟：HNSW 索引在百万级数据上仍保持毫秒级检索</li>
+</ul>
+<p><strong>劣势：</strong></p>
+<ul>
+<li>基于相似度而非真正理解——语义相近但含义不同的内容可能被错误检索</li>
+<li>不支持关系推理（&quot;A 的上级是 B，B 的上级是谁？&quot;）</li>
+<li>不支持时间推理（&quot;上周和这周的偏好有什么变化？&quot;）</li>
+</ul>
+<h3 id="section-5">结构化记忆（SQL / NoSQL）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 结构化记忆：直接用关系数据库或键值存储
+class StructuredMemory:
+    &quot;&quot;&quot;适合用户画像、偏好等键值化数据&quot;&quot;&quot;
+
+    def __init__(self, db):
+        self.db = db  # PostgreSQL / DynamoDB / Redis
+
+    def update_profile(self, user_id, updates: dict):
+        # 例如：{&quot;language&quot;: &quot;Python&quot;, &quot;framework&quot;: &quot;FastAPI&quot;}
+        self.db.upsert(&quot;user_profile&quot;, user_id, updates)
+
+    def get_profile(self, user_id):
+        return self.db.get(&quot;user_profile&quot;, user_id)
+
+    def query_by_attribute(self, attr, value):
+        # 精确字段查询
+        return self.db.query(f&quot;SELECT * FROM users WHERE {attr} = ?&quot;, value)
+</code></pre></details>
+<p><strong>优势：</strong></p>
+<ul>
+<li>精确查询：按字段名直接获取</li>
+<li>强一致性：ACID 事务支持</li>
+<li>低延迟：主键查询 ms 级</li>
+<li>易于审计和迁移</li>
+</ul>
+<p><strong>劣势：</strong></p>
+<ul>
+<li>不支持模糊匹配（&quot;偏好类似 FastAPI 的框架&quot; 无法用 SQL 直接表达）</li>
+<li>Schema 演化成本高</li>
+<li>不擅长关系推理</li>
+</ul>
+<h3 id="section-6">知识图谱记忆（Knowledge Graph）</h3>
+<h4 id="section-7">为什么用知识图谱做记忆？</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>向量记忆的局限：
+  &quot;张三在公司A工作&quot; → embedding → 存入向量数据库
+  &quot;张三跳槽到公司B&quot; → embedding → 存入向量数据库
+  查询&quot;张三在哪工作？&quot; → 两条记忆都被检索出来，LLM 无法判断哪个是最新的
+
+知识图谱的优势：
+  (张三) --[works_at, valid: 2024-01 ~ 2025-05]--&gt; (公司A)
+  (张三) --[works_at, valid: 2025-06 ~ now]-------&gt; (公司B)
+  查询&quot;张三现在在哪？&quot; → 图遍历直接找到当前有效的边 → 公司B
+</code></pre></details>
+<h4 id="section-8">知识图谱记忆架构</h4>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    I[&quot;用户交互&quot;] --&gt; L[&quot;LLM 提取&lt;br/&gt;实体与关系&quot;]
+    L --&gt; K[&quot;知识图谱&lt;br/&gt;节点 / 边 / 双时间线&quot;]
+    K --&gt; T1[&quot;图遍历&quot;]
+    K --&gt; T2[&quot;语义向量&quot;]
+    K --&gt; T3[&quot;BM25 关键词&quot;]
+    T1 --&gt; F[&quot;RRF 融合排序&quot;]
+    T2 --&gt; F
+    T3 --&gt; F
+    F --&gt; C[&quot;注入 LLM 上下文&quot;]
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    class L,C agent
+    class K store
+    class T1,T2,T3,F proc
+</div></figure>
+<p><em>图谱记忆：交互抽取入图（节点/边/双时间线），查询走图遍历 + 语义 + BM25 三路合流回灌上下文。</em></p>
+<h4 id="section-9">基础三元组接口</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 知识图谱记忆
+class GraphMemory:
+    def store(self, subject, predicate, object, valid_from=None, valid_to=None):
+        # 存储三元组 + 时间有效性
+        self.graph.add_edge(
+            subject, object,
+            relation=predicate,
+            valid_from=valid_from or datetime.now(),
+            valid_to=valid_to  # None = 当前有效
+        )
+
+    def query(self, query: str):
+        # 支持图遍历和多跳查询
+        return self.graph.traverse(query)
+
+# 示例
+graph.store(&quot;张三&quot;, &quot;works_at&quot;, &quot;公司A&quot;, valid_from=&quot;2024-01&quot;)
+graph.store(&quot;张三&quot;, &quot;works_at&quot;, &quot;公司B&quot;, valid_from=&quot;2025-06&quot;)
+# 可以查询：&quot;张三现在在哪家公司？&quot; → 公司B
+# 可以查询：&quot;张三之前在哪？&quot; → 公司A（已过期但保留历史）
+</code></pre></details>
+<h4 id="section-10">Graphiti 框架详解</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from graphiti_core import Graphiti
+from graphiti_core.nodes import EpisodeType
+
+# 初始化 Graphiti（连接 Neo4j）
+graphiti = Graphiti(
+    neo4j_uri=&quot;bolt://localhost:7687&quot;,
+    neo4j_user=&quot;neo4j&quot;,
+    neo4j_password=&quot;password&quot;
+)
+
+# 1. 摄入信息（自动提取实体和关系）
+await graphiti.add_episode(
+    name=&quot;用户对话&quot;,
+    episode_body=&quot;张三说他刚从公司A跳槽到公司B，担任技术总监&quot;,
+    source=EpisodeType.message,
+    reference_time=datetime.now()
+)
+# Graphiti 自动：
+# - 提取实体：张三、公司A、公司B
+# - 提取关系：works_at、role_is
+# - 设置旧关系(张三→公司A)的 valid_to = now
+# - 创建新关系(张三→公司B)的 valid_from = now
+
+# 2. 查询（混合检索）
+results = await graphiti.search(
+    query=&quot;张三现在在哪家公司？&quot;,
+    num_results=5
+)
+# 返回当前有效的事实：张三 → works_at → 公司B（技术总监）
+</code></pre></details>
+<h4 id="section-11">双时间线模型（Bi-temporal）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 时间线 T：事件实际发生的时间
+# 时间线 T&#39;：数据被系统记录的时间
+
+class BiTemporalFact:
+    subject: str        # 主体
+    predicate: str      # 关系
+    object: str         # 客体
+    event_time: datetime      # T: 事件发生时间
+    ingestion_time: datetime  # T&#39;: 系统记录时间
+    valid_from: datetime      # 生效时间
+    valid_to: datetime | None # 失效时间（None=当前有效）
+
+# 示例
+fact1 = BiTemporalFact(
+    subject=&quot;张三&quot;, predicate=&quot;works_at&quot;, object=&quot;公司A&quot;,
+    event_time=&quot;2024-01-15&quot;,   # 实际入职时间
+    ingestion_time=&quot;2024-03-01&quot;,  # 我们获知这个信息的时间
+    valid_from=&quot;2024-01-15&quot;, valid_to=&quot;2025-05-31&quot;
+)
+
+# 支持的查询：
+# &quot;张三 2024 年 6 月在哪工作？&quot; → 时间旅行查询
+# &quot;我们什么时候得知张三跳槽的？&quot; → 数据溯源
+</code></pre></details>
+<h4 id="section-12">混合检索（Hybrid Retrieval）</h4>
+<p>Graphiti 的检索结合三路信号：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class HybridRetriever:
+    &quot;&quot;&quot;三路混合检索&quot;&quot;&quot;
+
+    async def search(self, query: str, top_k: int = 10):
+        # 路径 1：语义向量搜索
+        semantic_results = await self.vector_index.search(
+            embed(query), top_k=top_k
+        )
+
+        # 路径 2：关键词 BM25 搜索
+        keyword_results = await self.bm25_index.search(
+            query, top_k=top_k
+        )
+
+        # 路径 3：图遍历（实体 → 相关节点）
+        entities = extract_entities(query)
+        graph_results = []
+        for entity in entities:
+            neighbors = await self.graph.get_neighbors(
+                entity, max_hops=2
+            )
+            graph_results.extend(neighbors)
+
+        # 融合排序（RRF - Reciprocal Rank Fusion）
+        return self.reciprocal_rank_fusion(
+            semantic_results, keyword_results, graph_results
+        )
+</code></pre></details>
+<blockquote>
+<p>⚠️ <strong>延迟实测</strong>：Graphiti 检索阶段不调用 LLM，但实测<strong>中位数延迟 2-3 秒</strong>（受图查询深度、Neo4j 网络开销影响），并非常被引用的 &quot;300ms&quot; 数字。生产中需要做延迟测试并设置 SLA。</p>
+</blockquote>
+<h4 id="section-13">多 Agent 共享图谱</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 知识图谱作为多 Agent 的共享记忆
+class SharedKGMemory:
+    &quot;&quot;&quot;多 Agent 共享的知识图谱&quot;&quot;&quot;
+
+    def __init__(self, graph_db):
+        self.graph = graph_db
+
+    async def agent_update(self, agent_id, fact):
+        &quot;&quot;&quot;任何 Agent 的更新对所有 Agent 可见&quot;&quot;&quot;
+        fact[&quot;updated_by&quot;] = agent_id
+        fact[&quot;updated_at&quot;] = datetime.now()
+
+        # 检查冲突
+        existing = await self.graph.find_conflicting(fact)
+        if existing:
+            # 标记旧事实失效
+            await self.graph.invalidate(existing, reason=f&quot;被 {agent_id} 更新&quot;)
+
+        await self.graph.add(fact)
+        # 所有 Agent 下次查询时自动看到最新事实
+</code></pre></details>
+<h3 id="section-14">何时选择哪种？</h3>
+<table>
+<thead>
+<tr>
+<th>需求场景</th>
+<th>推荐方案</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语义搜索非结构化文本</td>
+<td>向量</td>
+<td>模糊匹配是强项</td>
+</tr>
+<tr>
+<td>简单事实召回</td>
+<td>向量</td>
+<td>够用且简单</td>
+</tr>
+<tr>
+<td>RAG / 知识检索</td>
+<td>向量</td>
+<td>标准方案</td>
+</tr>
+<tr>
+<td>用户偏好/属性</td>
+<td>结构化</td>
+<td>精确字段查询</td>
+</tr>
+<tr>
+<td>实体关系追踪</td>
+<td>知识图谱</td>
+<td>关系推理是强项</td>
+</tr>
+<tr>
+<td>时间推理</td>
+<td>知识图谱</td>
+<td>支持时间有效性</td>
+</tr>
+<tr>
+<td>多跳推理</td>
+<td>知识图谱</td>
+<td>图遍历天然支持</td>
+</tr>
+<tr>
+<td>用户画像 + 偏好</td>
+<td>混合</td>
+<td>结构化属性 + 语义历史</td>
+</tr>
+<tr>
+<td>生产级个性化</td>
+<td>混合</td>
+<td>三者互补</td>
+</tr>
+</tbody></table>
+<h3 id="section-15">混合架构（推荐）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class HybridMemory:
+    def __init__(self):
+        self.vector_store = ChromaDB()       # 语义检索
+        self.knowledge_graph = Neo4j()       # 关系推理
+        self.profile_store = PostgreSQL()    # 结构化属性
+
+    async def store(self, interaction):
+        # 1. 对话历史 → 向量存储
+        self.vector_store.add(interaction[&quot;text&quot;])
+
+        # 2. 提取实体和关系 → 知识图谱
+        entities = extract_entities(interaction[&quot;text&quot;])
+        for entity in entities:
+            self.knowledge_graph.upsert(entity)
+
+        # 3. 用户属性 → 结构化存储
+        profile_updates = extract_profile(interaction[&quot;text&quot;])
+        self.profile_store.update(interaction[&quot;user_id&quot;], profile_updates)
+
+    async def retrieve(self, query, user_id):
+        # 三路检索 + 合并
+        # 路径 1：语义检索
+        semantic_results = self.vector_store.search(query, top_k=5)
+
+        # 路径 2：图谱查询
+        entities = extract_entities(query)
+        graph_results = self.knowledge_graph.query(entities)
+
+        # 路径 3：用户属性
+        profile = self.profile_store.get(user_id)
+
+        return merge(semantic_results, graph_results, profile)
+</code></pre></details>
+<p>Mem0 的混合方案正是这个思路：用向量存储做语义记忆，用图数据库做关系追踪，统一的 API 对上层透明。</p>
+<h3 id="section-16">性能对比数据</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Mem0 混合方案 vs 纯全上下文方案：
+- 准确率：+26%
+- P95 延迟：-91%
+- Token 成本：-90%+
+</code></pre></details>
+<h3 id="section-17">Agent Memory 框架横评（2026）</h3>
+<p>上文讨论的向量 / 结构化 / 图谱是<strong>存储介质</strong>层面的选型。到了 2026 年——业界称之为&quot;Agent Memory 元年&quot;——记忆从一个&quot;附属功能&quot;升级为<strong>独立的工程学科</strong>，涌现出专门做记忆管理的框架层产品。理解这些框架的本质，是把上文介质选型&quot;产品化封装&quot;的结果。四大主流框架：<strong>Mem0 / Zep / LangMem / Letta</strong>。</p>
+<h4 id="section-18">四大框架速览</h4>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>出身</th>
+<th>核心思路</th>
+<th>记忆底座</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Mem0</strong></td>
+<td>独立记忆层产品</td>
+<td>LLM 抽取原子事实 → 混合存储</td>
+<td>向量库 + 图数据库</td>
+</tr>
+<tr>
+<td><strong>Zep</strong></td>
+<td>Graphiti 作者团队</td>
+<td>时序知识图谱（双时间线）</td>
+<td>Neo4j + 混合检索（Graphiti 引擎）</td>
+</tr>
+<tr>
+<td><strong>LangMem</strong></td>
+<td>LangChain 官方</td>
+<td>LangGraph 之上的记忆原语</td>
+<td>可插拔 Store（后端无关）</td>
+</tr>
+<tr>
+<td><strong>Letta</strong></td>
+<td>基于 MemGPT 研究</td>
+<td>类 OS 的分页式自管理记忆</td>
+<td>块存储（core）+ 向量（archival）</td>
+</tr>
+</tbody></table>
+<h4 id="section-19">记忆抽象：类型与结构</h4>
+<p>四个框架对&quot;记忆是什么&quot;有截然不同的抽象——这是理解它们差异的钥匙：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Mem0：扁平事实卡片（最细粒度，最易上手）
+  {user_id, memory: &quot;用户偏好 FastAPI&quot;} → 向量 + 图
+
+Zep：时序知识图谱（最强时间/关系推理）
+  (实体) --[关系, valid_from, valid_to]--&gt; (实体)  → 双时间线
+
+LangMem：认知科学三分类（强调分类走不同策略）
+  · semantic    事实/知识（&quot;用户用 Python&quot;）
+  · episodic    事件/对话（&quot;上周聊过部署&quot;）
+  · procedural  规则/技能（&quot;回复用中文&quot;）
+
+Letta：类 OS 的三级记忆（MemGPT 范式，Agent 自主翻页）
+  · core memory     常驻上下文（人设 + 关键事实）
+  · recall memory   近期对话日志（可检索）
+  · archival memory 长期归档（向量检索）
+</code></pre></details>
+<p><strong>一句话区分</strong>：</p>
+<ul>
+<li><strong>Mem0</strong> 把记忆抽象成&quot;原子事实&quot;，粒度最细，接入最快</li>
+<li><strong>Zep</strong> 把记忆抽象成&quot;带时间戳的图结构&quot;，最强于关系推理与时间推理（见上文 Graphiti 详解）</li>
+<li><strong>LangMem</strong> 借鉴认知科学的三分类，强调&quot;不同类型的记忆走不同的写入/检索策略&quot;</li>
+<li><strong>Letta</strong> 把记忆抽象成&quot;计算机内存层级&quot;，核心是 <strong>Agent 自己通过 function call 翻页（page in/out）管理记忆</strong></li>
+</ul>
+<h4 id="section-20">抽取 - 更新 - 检索：机制横评</h4>
+<p>记忆系统有三个核心环节，四个框架做法迥异。</p>
+<p><strong>1. 写入时抽取（Extract）</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Mem0：LLM 驱动的事实抽取（用户无感）
+m.add(&quot;我之前用 Django，最近切到 FastAPI 了&quot;, user_id=&quot;alice&quot;)
+# 内部：LLM 提取&quot;用户从 Django 切到 FastAPI&quot;
+#       → 与旧记忆比对 → 判定为冲突 → 覆盖旧事实
+
+# Zep：LLM 驱动的实体/关系抽取 + 双时间线
+await graphiti.add_episode(episode_body=&quot;张三跳槽到公司B&quot;, ...)
+# 内部：提取实体(张三/公司B) + 关系(works_at)
+#       → 旧边(张三→公司A) valid_to=now → 新边 valid_from=now
+
+# LangMem：抽取策略由开发者在 LangGraph 节点里定义（最灵活）
+# Letta：Agent 自主抽取（self-edit）
+#   Agent 调用 core_memory_append / core_memory_replace 工具自己维护
+</code></pre></details>
+<p><strong>2. 冲突与更新（Update）</strong></p>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>更新机制</th>
+<th>冲突处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mem0</td>
+<td>LLM 判定新事实与旧事实的关系</td>
+<td>四态决策：ADD / UPDATE / DELETE / NOOP</td>
+</tr>
+<tr>
+<td>Zep</td>
+<td>双时间线：旧边自动失效，新边生效</td>
+<td>保留全部历史，按 valid_from/to 过滤</td>
+</tr>
+<tr>
+<td>LangMem</td>
+<td>由开发者在 graph 节点定义更新逻辑</td>
+<td>灵活但需自建</td>
+</tr>
+<tr>
+<td>Letta</td>
+<td>Agent 调用 replace 工具改写 core memory</td>
+<td>Agent 自决，需 guardrail 兜底</td>
+</tr>
+</tbody></table>
+<p><strong>3. 检索（Retrieve）</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Mem0：   向量相似度 + 图遍历（混合） → 返回扁平事实列表
+Zep：    向量 + BM25 + 图遍历 → RRF 融合 → 返回带时间的事实
+LangMem：可插拔 Store，检索策略由开发者定（语义/关键词/元数据过滤）
+Letta：  core memory 常驻 → 需要时 Agent 主动调 archival_memory_search 拉取
+</code></pre></details>
+<blockquote>
+<p>💡 <strong>最重要的范式差异</strong>：Mem0 / Zep / LangMem 都是<strong>系统在用户无感的情况下自动管理记忆</strong>（更像数据库）；而 Letta 走 <strong>Agent 自主管理（self-editing memory）</strong> 路线——记忆操作本身是 Agent 可调用的工具，Agent 像人一样&quot;决定记什么、忘什么&quot;（更像大脑）。关于记忆的遗忘与更新机制，详见 <a href="043.html">#048 — 记忆的遗忘与更新机制</a>。</p>
+</blockquote>
+<h4 id="section-21">自研 vs 框架：取舍清单</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>用框架</th>
+<th>自研</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>冷启动速度</strong></td>
+<td>几行代码接入，立即可用</td>
+<td>从头实现抽取/冲突/检索</td>
+</tr>
+<tr>
+<td><strong>数据主权 / 隐私</strong></td>
+<td>托管版数据出域；自托管需运维</td>
+<td>数据全部留在自家基础设施</td>
+</tr>
+<tr>
+<td><strong>定制灵活性</strong></td>
+<td>受框架抽象约束（如 Mem0 的事实粒度）</td>
+<td>记忆类型、更新策略完全可控</td>
+</tr>
+<tr>
+<td><strong>生产成熟度</strong></td>
+<td>框架已踩过冲突/一致性/延迟的坑</td>
+<td>需自己踩坑（双时间线、实体消歧、图谱膨胀）</td>
+</tr>
+<tr>
+<td><strong>依赖耦合</strong></td>
+<td>引入一个依赖（及它的后端如 Neo4j）</td>
+<td>栈更轻，但代码量更大</td>
+</tr>
+</tbody></table>
+<p>经验法则：</p>
+<ul>
+<li><strong>MVP / 中小流量</strong> → 直接上框架（Mem0 最快，Zep 最强推理，LangMem 最贴合 LangGraph 栈，Letta 适合需要 Agent 自治的场景）</li>
+<li><strong>大流量 / 强数据主权 / 特殊记忆结构</strong> → 自研，借鉴框架的设计（双时间线、三分类、self-edit）；框架可用来做原型验证</li>
+</ul>
+<blockquote>
+<p>这一取舍逻辑与框架选型的通用判断一致，参见 <a href="039.html">#043 — 持久化记忆</a> 中&quot;何时该上专用记忆层&quot;的讨论。</p>
+</blockquote>
+<h4 id="section-22">对接生产级记忆系统的选型建议</h4>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    Q{&quot;你的记忆需求是什么？&quot;}
+    Q -- &quot;偏好/事实召回&quot; --&gt; M1[&quot;Mem0（最快落地）&lt;br/&gt;或 LangMem（已在 LangGraph 栈内）&quot;]
+    Q -- &quot;关系推理 + 时间推理&quot; --&gt; M2[&quot;Zep / Graphiti&lt;br/&gt;双时间线 + 图遍历是刚需&quot;]
+    Q -- &quot;Agent 自主决定记什么&quot; --&gt; M3[&quot;Letta&lt;br/&gt;self-editing memory 范式&quot;]
+    Q -- &quot;多 Agent 共享记忆&quot; --&gt; M4[&quot;Zep（图天然共享）&lt;br/&gt;或自建带权限的记忆服务&quot;]
+    Q -- &quot;大规模生产（QPS/成本/合规严苛）&quot; --&gt; M5[&quot;自研混合架构&lt;br/&gt;+ 框架做原型验证&quot;]
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef neutral fill:#eceff1,stroke:#546e7a,color:#37474f
+    class Q decision
+    class M1,M2,M3,M4,M5 neutral
+</div></figure>
+<p><em>记忆框架按需求五路选型：召回选 Mem0，关系/时间推理选 Zep，Agent 自治选 Letta，共享选 Zep，严苛生产自研。</em></p>
+<blockquote>
+<p>🔗 <strong>与本文存储介质选型的关系</strong>：本节的框架，本质是把上文&quot;向量 + 结构化 + 图谱&quot;的混合架构<strong>产品化封装</strong>——Mem0 = 向量 + 图；Zep = 图谱 + 混合检索；LangMem = 可插拔后端；Letta = 块存储 + 向量。选框架 = 选一套预先组装好的存储介质组合 + 抽取/检索策略。理解了上文的介质取舍（参见 <a href="037.html">记忆类型总览 #040</a>），框架选型就是&quot;买现成组装车还是自己攒&quot;的问题。</p>
+</blockquote>
+<h3 id="section-23">A-MEM：Zettelkasten 方法的记忆系统</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># A-MEM 将 Zettelkasten 卡片笔记法应用于 Agent 记忆
+class AMemNote:
+    &quot;&quot;&quot;结构化记忆笔记&quot;&quot;&quot;
+    content: str           # 原子化的知识点
+    context: str           # 上下文描述
+    keywords: list[str]    # 关键词标签
+    links: list[str]       # 与其他笔记的关联
+    created_at: datetime
+    access_count: int
+
+# 记忆笔记之间形成互联的知识网络
+# 类似人脑的联想记忆——从一个记忆可以&quot;联想&quot;到相关记忆
+</code></pre></details>
+<h3 id="section-24">设计挑战与解决方案</h3>
+<table>
+<thead>
+<tr>
+<th>挑战</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实体消歧（同名不同人）</td>
+<td>上下文感知的实体链接 + 唯一 ID</td>
+</tr>
+<tr>
+<td>Schema 进化</td>
+<td>Graphiti 支持 prescribed + learned ontology</td>
+</tr>
+<tr>
+<td>图谱膨胀</td>
+<td>时间失效 + 定期清理低价值节点</td>
+</tr>
+<tr>
+<td>提取质量</td>
+<td>LLM 提取 + 人工审核关键事实</td>
+</tr>
+<tr>
+<td>查询延迟</td>
+<td>混合索引（向量 + BM25 + 图遍历） + 缓存</td>
+</tr>
+<tr>
+<td>混合架构一致性</td>
+<td>事务性写入 / 最终一致性 + 删除同步</td>
+</tr>
+</tbody></table>
+<h2 id="section-25">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;向量数据库能解决所有记忆需求&quot;</strong> — 向量检索基于相似度，不是真正的&quot;理解&quot;。它无法回答&quot;A 和 B 是什么关系？&quot;或&quot;这个信息是什么时候变的？&quot;等需要结构化推理的问题。</p>
+</li>
+<li><p><strong>误区：&quot;知识图谱太复杂，不值得用&quot;</strong> — 对于简单应用确实如此。但当 Agent 需要追踪实体间关系、处理矛盾信息、或做时间推理时，知识图谱的价值会迅速超过构建成本。Graphiti 等框架已大幅降低了使用门槛。</p>
+</li>
+<li><p><strong>误区：&quot;知识图谱就是把所有信息都存成三元组&quot;</strong> — 不是所有信息都适合图谱。对话历史、非结构化文档适合向量存储；用户属性配置适合结构化存储。图谱应该只存储实体、关系和关键事实。混合架构是最佳实践。</p>
+</li>
+<li><p><strong>误区：&quot;构建知识图谱必须预定义完整 Schema&quot;</strong> — Graphiti 等现代框架支持 learned ontology——从数据中自动学习 Schema，同时支持预定义的 prescribed ontology 约束关键关系。</p>
+</li>
+<li><p><strong>追问：&quot;向量检索返回了语义相似但实际无关的内容怎么办？&quot;</strong> — 两层解决：(1) 加 Reranker 对检索结果做精排；(2) 结合结构化元数据过滤（如按用户 ID、时间范围、类别筛选后再做语义检索）。</p>
+</li>
+<li><p><strong>追问：&quot;混合架构的一致性如何保证？&quot;</strong> — 同一条信息在向量存储和图谱中需要同步更新。实践中用事务性写入或最终一致性。删除操作尤其要注意——向量存储和图谱中都要清理。</p>
+</li>
+<li><p><strong>追问：&quot;图谱记忆的实体提取准确率不够怎么办？&quot;</strong> — 三层保障：(1) 用专门的 NER 模型做初步提取；(2) LLM 做上下文理解和关系推理；(3) 对关键事实做人工审核或交叉验证。</p>
+</li>
+<li><p><strong>追问：&quot;图谱和 RAG 的关系是什么？&quot;</strong> — GraphRAG 是两者的结合——用知识图谱增强 RAG 检索。传统 RAG 只做文档级语义检索，GraphRAG 可以在检索后利用图结构做关系推理和多跳问答，提供更准确和完整的答案。</p>
+</li>
+</ol>
+<h2 id="section-26">参考资料</h2>
+<ul>
+<li><a href="https://www.marktechpost.com/2025/11/10/comparing-memory-systems-for-llm-agents-vector-graph-and-event-logs/">Comparing Memory Systems for LLM Agents: Vector, Graph, and Event Logs (MarkTechPost)</a></li>
+<li><a href="https://mem0.ai/research">Mem0 Research: 26% Accuracy Boost for LLMs</a></li>
+<li><a href="https://www.freecodecamp.org/news/how-ai-agents-remember-things-vector-stores-in-llm-memory/">How AI Agents Remember Things: Vector Stores in LLM Memory (freeCodeCamp)</a></li>
+<li><a href="https://arxiv.org/pdf/2502.12110">A-MEM: Agentic Memory for LLM Agents (arXiv)</a></li>
+<li><a href="https://machinelearningmastery.com/beyond-short-term-memory-the-3-types-of-long-term-memory-ai-agents-need/">Beyond Short-term Memory: 3 Types of Long-term Memory (ML Mastery)</a></li>
+<li><a href="https://github.com/getzep/graphiti">Graphiti: Build Real-Time Knowledge Graphs for AI Agents (GitHub)</a></li>
+<li><a href="https://neo4j.com/blog/developer/graphiti-knowledge-graph-memory/">Graphiti: Knowledge Graph Memory for an Agentic World (Neo4j Blog)</a></li>
+<li><a href="https://blog.getzep.com/content/files/2025/01/ZEP__USING_KNOWLEDGE_GRAPHS_TO_POWER_LLM_AGENT_MEMORY_2025011700.pdf">Zep: Temporal Knowledge Graph Architecture for Agent Memory</a></li>
+</ul>
+<hr>
+<blockquote>
+<p>📎 本题由原 #046（向量 vs 结构化记忆）与 #047（知识图谱记忆）合并而来（2026-05-23 重构）</p>
+</blockquote>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">三种介质的核心区别</a></li><li class="toc-level-3"><a href="#section-4">向量记忆（Vector / Embedding-based）</a></li><li class="toc-level-3"><a href="#section-5">结构化记忆（SQL / NoSQL）</a></li><li class="toc-level-3"><a href="#section-6">知识图谱记忆（Knowledge Graph）</a></li><li class="toc-level-4"><a href="#section-7">为什么用知识图谱做记忆？</a></li><li class="toc-level-4"><a href="#section-8">知识图谱记忆架构</a></li><li class="toc-level-4"><a href="#section-9">基础三元组接口</a></li><li class="toc-level-4"><a href="#section-10">Graphiti 框架详解</a></li><li class="toc-level-4"><a href="#section-11">双时间线模型（Bi-temporal）</a></li><li class="toc-level-4"><a href="#section-12">混合检索（Hybrid Retrieval）</a></li><li class="toc-level-4"><a href="#section-13">多 Agent 共享图谱</a></li><li class="toc-level-3"><a href="#section-14">何时选择哪种？</a></li><li class="toc-level-3"><a href="#section-15">混合架构（推荐）</a></li><li class="toc-level-3"><a href="#section-16">性能对比数据</a></li><li class="toc-level-3"><a href="#section-17">Agent Memory 框架横评（2026）</a></li><li class="toc-level-4"><a href="#section-18">四大框架速览</a></li><li class="toc-level-4"><a href="#section-19">记忆抽象：类型与结构</a></li><li class="toc-level-4"><a href="#section-20">抽取 - 更新 - 检索：机制横评</a></li><li class="toc-level-4"><a href="#section-21">自研 vs 框架：取舍清单</a></li><li class="toc-level-4"><a href="#section-22">对接生产级记忆系统的选型建议</a></li><li class="toc-level-3"><a href="#section-23">A-MEM：Zettelkasten 方法的记忆系统</a></li><li class="toc-level-3"><a href="#section-24">设计挑战与解决方案</a></li><li class="toc-level-2"><a href="#section-25">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-26">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="041.html" class="nav-card"><span>上一章</span><strong>← 如何实现跨会话的用户偏好学习？</strong></a><a href="043.html" class="nav-card next"><span>下一章</span><strong>记忆的遗忘与更新机制：如何处理过时信息？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

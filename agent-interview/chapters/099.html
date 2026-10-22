@@ -1,0 +1,475 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link active" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">评估 · 第 111 题</div><h1>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</h1><blockquote>
+<p><strong>难度</strong>：中级
+🆕 2026 新增（Harness 主题）
+分类：Evaluation</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p><strong>Eval Harness（评测引擎）≠ Benchmark（数据集）</strong>。Benchmark 是题库与评分标准（SWE-bench、GAIA、τ²-bench），Eval Harness 是&quot;考场&quot;——由 <strong>Task Loader + Sandbox + Scorer + 日志</strong> 四原语组成的运行时框架。Inspect AI 把这套架构显式拆为 <code>dataset → Task → Solver → Scorer</code> 四个独立组件，让&quot;同 Benchmark 在不同 Harness 跑出 20+ 分差距&quot;成为必然而非 bug。</p>
+<p>主流 Harness 形成&quot;三足鼎立 + METR 范式&quot;格局：<strong>lm-evaluation-harness</strong>（EleutherAI，HF Open LLM Leaderboard 后端，model eval 标杆）专注单轮 logprob/生成；<strong>Inspect AI</strong>（UK AISI，2024-05 开源）凭借 Docker/k8s/Proxmox sandbox + 200+ inspect_evals 成为 Agent eval 王者，<strong>METR 在 2026-01 完成从自研 Vivaria 到 Inspect 的迁移</strong>标志生态收敛；<strong>HELM</strong>（Stanford CRFM）坚持 7 维度全景评测；<strong>METR Time Horizon</strong> 提供&quot;50% 成功率任务时长每 7 个月翻一番&quot;的可外推度量。Agent Eval 与 Model Eval 在评估对象、统计设计、ground truth 假设上根本不同——前者必须多 trial、关注轨迹、容忍多条有效路径。2026 业界共识：<strong>先固定 production harness 再换模型测</strong>，把 sandbox 类型、资源配额、scaffold 版本写入 eval 报告。</p>
+<p><strong>Cheat Sheet</strong>：</p>
+<ul>
+<li><strong>Harness 四原语</strong>：Task Loader（加载样本+组装 prompt）→ Solver（如何作答）→ Sandbox（隔离工具执行）→ Scorer（如何判分）</li>
+<li><strong>lm-eval-harness</strong>：YAML 任务定义、100+ providers、HF Open LLM Leaderboard 后端 → <strong>model eval 标杆</strong></li>
+<li><strong>Inspect AI</strong>：dataset→Task→Solver→Scorer、Docker/k8s/Proxmox sandbox、Agent Bridge 接 Claude Code/Codex CLI → <strong>agent eval 事实标准</strong></li>
+<li><strong>HELM</strong>：7 metrics（accuracy/calibration/robustness/fairness/bias/toxicity/efficiency）、2025-03 Capabilities 用 mean score 取代 mean win rate</li>
+<li><strong>METR</strong>：Time Horizon 范式（50% time horizon 每 7 个月翻倍）+ MALT 数据集（reward hacking/sandbagging 行为样本）</li>
+<li><strong>Contamination 危机</strong>：SWE-bench Verified 2026-02 OpenAI 官宣污染、59.4% 最难题测试有缺陷 → 转向 SWE-bench Pro/Live</li>
+</ul>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">Harness vs Benchmark：必须先理清的三层架构</h3>
+<p>&quot;benchmark&quot;在日常对话中常被混用，但 Inspect AI 的设计明确把评测拆为四个独立原语：</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    B[&quot;Benchmark&lt;br/&gt;题库 + 评分标准&quot;]
+    subgraph H[&quot;Eval Harness（考场）&quot;]
+        T[&quot;Task Loader&lt;br/&gt;加载样本 + 组装 prompt&quot;] --&gt; S[&quot;Solver&lt;br/&gt;如何作答（ReAct / 多智能体）&quot;]
+        S --&gt; X[&quot;Sandbox&lt;br/&gt;Docker / k8s / Proxmox&quot;]
+        X --&gt; C[&quot;Scorer&lt;br/&gt;精确匹配 / 单元测试 / LLM Judge&quot;]
+    end
+    B --&gt; T
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    class B store
+    class T,X,C proc
+    class S agent
+</div></figure>
+<p><em>Harness 是考场：题库只是输入，Task Loader → Solver → Sandbox → Scorer 四原语才决定分数。</em></p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>职责</th>
+<th>代表实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Task Loader</strong></td>
+<td>从数据集加载样本、组装 prompt、few-shot 注入</td>
+<td>lm-eval-harness 的 YAML（doc_to_text/doc_to_target/filters）</td>
+</tr>
+<tr>
+<td><strong>Solver</strong></td>
+<td>让模型作答的 scaffold（ReAct/multi-turn critique）</td>
+<td>Inspect AI 的 <code>generate → prompt → ReAct → multi_turn</code> 链式组合</td>
+</tr>
+<tr>
+<td><strong>Sandbox</strong></td>
+<td>隔离的代码执行/工具调用环境</td>
+<td>Docker（主流）/ k8s（大规模）/ Proxmox VM（高风险）/ Daytona/Modal/EC2</td>
+</tr>
+<tr>
+<td><strong>Scorer</strong></td>
+<td>评分逻辑：精确匹配、单元测试、LLM Judge、DB 状态比对</td>
+<td>SWE-bench fail→pass 套件、τ²-bench DB diff、<code>model_graded_qa</code> 多 judge 投票</td>
+</tr>
+</tbody></table>
+<p><strong>关键洞见</strong>：&quot;Solver 负责怎么答、Scorer 负责怎么判分、Sandbox 是 Solver 调用工具时的隔离层&quot;——这种显式分离让&quot;同 SWE-bench Verified 不同 harness 跑出不同分数&quot;既是必然也是合理。Anthropic Terminal-Bench 2.0 在同模型、同任务、仅变更 pod 资源预算下实测 <strong>5.8% 任务因 pod/infrastructure 错误失败，p&lt;0.01</strong>。</p>
+<h3 id="section-4">lm-evaluation-harness：model eval 行业标杆</h3>
+<p><strong>EleutherAI lm-evaluation-harness</strong>（2021 开源）是 LLM 评测的 de-facto 标准，<strong>Hugging Face Open LLM Leaderboard 的后端就是它</strong>。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-yaml"># 典型任务定义（mmlu_abstract_algebra.yaml）
+task: mmlu_abstract_algebra
+dataset_path: hails/mmlu_no_train
+dataset_name: abstract_algebra
+output_type: multiple_choice
+doc_to_text: &quot;{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:&quot;
+doc_to_target: answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+version: 1.0
+</code></pre></details>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-bash"># 单条命令评测任意 provider
+lm_eval --model hf --model_args pretrained=meta-llama/Llama-3-70B \
+        --tasks mmlu,gsm8k,humaneval \
+        --batch_size auto \
+        --use_cache cache/ \
+        --log_samples --output_path results/
+</code></pre></details>
+<p><strong>核心特性</strong>：</p>
+<ul>
+<li><strong>60+ 标准学术 benchmark</strong>，数百个子任务变体</li>
+<li><strong>统一后端</strong>：HF transformers / vLLM / SGLang / NVIDIA NeMo / OpenAI / Anthropic / LiteLLM <strong>100+ providers</strong></li>
+<li><strong>YAML 任务定义</strong>：<code>doc_to_text</code> / <code>doc_to_target</code> / <code>filters</code> / <code>metric_list</code> 解耦，任意人都能在不写 Python 的情况下贡献新任务</li>
+<li><strong>输出类型</strong>：<code>generate_until</code> / <code>loglikelihood</code> / <code>loglikelihood_rolling</code> / <code>multiple_choice</code>，对应不同评分语义</li>
+<li><strong>可复现性机制</strong>：<code>--use_cache</code> 跳过已评样本、<code>--log_samples</code> 保留完整响应、<code>--check_integrity</code> 校验任务数据、任务 version 字段防止 silent breaking change</li>
+</ul>
+<p><strong>局限</strong>：核心定位是 <strong>model eval</strong>（单轮 logprob/生成 + 评分），对 Agent 场景（多轮工具调用、sandbox、轨迹）支持薄弱——这正是 2025 年 Inspect AI 崛起的根本原因。</p>
+<h3 id="section-5">Inspect AI：Agent 时代的 Harness 王者</h3>
+<p>UK AI Security Institute (AISI) 于 2024-05 开源 Inspect AI，2025-2026 已成 Agent 评测领域事实标准。<strong>METR 在 2026-01 Time Horizon 1.1 发布时完成从自研 Vivaria 到 Inspect 的迁移</strong>是行业最强信号。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Inspect AI 的核心抽象：dataset → Task → Solver → Scorer
+from inspect_ai import Task, task, eval
+from inspect_ai.dataset import Sample
+from inspect_ai.solver import generate, system_message, use_tools
+from inspect_ai.scorer import includes, model_graded_qa
+from inspect_ai.tool import bash, python
+
+@task
+def swe_bench_lite():
+    return Task(
+        dataset=swe_bench_dataset(),
+        solver=[
+            system_message(&quot;You are an expert software engineer...&quot;),
+            use_tools([bash(timeout=180), python(timeout=180)]),
+            generate(max_messages=50),  # ReAct loop
+        ],
+        scorer=swe_bench_scorer(),       # fail→pass 测试套件
+        sandbox=(&quot;docker&quot;, &quot;compose.yaml&quot;),  # 每 sample 独立 sandbox
+    )
+
+# 单条命令在任意模型上跑
+# inspect eval swe_bench_lite.py --model anthropic/claude-opus-4-7
+</code></pre></details>
+<p><strong>架构特性</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Solver 库</strong></td>
+<td>ReAct / Multi-Agent / Human Agent / <strong>Agent Bridge</strong>（可桥接 LangChain、OpenAI Agents SDK、Pydantic AI、Claude Code、Codex CLI）</td>
+</tr>
+<tr>
+<td><strong>Sandbox</strong></td>
+<td>内置 <code>docker</code>/<code>local</code>，扩展支持 <code>k8s</code> / <code>proxmox</code> / <code>daytona</code> / <code>modal</code> / <code>ec2</code>，每 sample 独立实例避免交叉污染</td>
+</tr>
+<tr>
+<td><strong>Scorer</strong></td>
+<td>可访问 sandbox 文件/命令验证最终状态，支持 <code>model_graded_qa</code> 多 judge 投票</td>
+</tr>
+<tr>
+<td><strong>inspect_evals 仓库</strong></td>
+<td>社区贡献的 GAIA / SWE-bench / Cybench / GDM CTF / SciCode 等 <strong>200+ agent benchmark</strong>，50+ 贡献者</td>
+</tr>
+<tr>
+<td><strong>资源管理</strong></td>
+<td><code>max_sandboxes = 2 × cpu_count</code>、<code>max_subprocesses = cpu_count</code>、<code>max_samples = max_connections + 1</code>——反映了 <strong>sandbox 是 Agent eval 的并发瓶颈</strong></td>
+</tr>
+</tbody></table>
+<p><strong>METR 为什么弃 Vivaria 投 Inspect</strong>：</p>
+<ul>
+<li>Vivaria 是 TS+React+PostgreSQL 全栈系统但闭塞</li>
+<li>Inspect 是开源标准、社区 200+ 评测、跨机构互通</li>
+<li>2026-01 METR Time Horizon 1.1 数据全部用 Inspect 重新跑过，<strong>验证了 7 个月翻倍趋势在迁移后仍成立</strong></li>
+</ul>
+<h3 id="section-6">HELM：多维度评估的传统</h3>
+<p>Stanford CRFM 2022 提出 <strong>HELM（Holistic Evaluation of Language Models）</strong>，是&quot;holistic&quot;评估的奠基者，2025 年继续主导多维度评估议程。</p>
+<p><strong>经典 HELM 的 7 大度量</strong>（每个 scenario 同时测）：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accuracy</td>
+<td>准确率</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>置信度校准</td>
+</tr>
+<tr>
+<td>Robustness</td>
+<td>对扰动的鲁棒性</td>
+</tr>
+<tr>
+<td>Fairness</td>
+<td>跨群体公平性</td>
+</tr>
+<tr>
+<td>Bias</td>
+<td>偏差</td>
+</tr>
+<tr>
+<td>Toxicity</td>
+<td>毒性</td>
+</tr>
+<tr>
+<td>Efficiency</td>
+<td>token/时延/成本</td>
+</tr>
+</tbody></table>
+<p><strong>HELM Capabilities（2025-03 更新）</strong> 引入 5 大能力切面：MMLU-Pro / GPQA / IFEval / WildBench / Omni-MATH，每个 scenario 下采样 1000 实例保持一致性。<strong>排序用 mean score 取代 mean win rate</strong>（win rate 对小幅波动太敏感）。</p>
+<p><strong>HELM 的可复现性铁律</strong>：</p>
+<ul>
+<li>公开所有 raw inputs 和 model outputs（不只是分数）</li>
+<li>Module 化 toolkit 支持扩展新 scenario/model/metric</li>
+<li>W3C 风格的开放规范——任何研究者都能重跑</li>
+</ul>
+<p><strong>HELM 系列扩展</strong>：HEIM（Text-to-Image）/ MedHELM（医疗）/ HELMET（long-context）/ SEA-HELM（东南亚语言）。</p>
+<h3 id="section-7">METR Time Horizon：超越准确率的进步度量</h3>
+<p><strong>METR（Model Evaluation &amp; Threat Research）</strong> 是 Beth Barnes 创立的非营利评测机构，OpenAI o3/o4-mini/GPT-5.1-Codex-Max、Anthropic Claude 系统卡片中的能力评估都由 METR 出手。</p>
+<p><strong>Time Horizon 范式</strong>（2025-03 突破性论文）：</p>
+<ul>
+<li><strong>度量方式</strong>：找出 AI agent 能以 ≥50% 成功率独立完成的任务时长（用人类完成中位时间标定）</li>
+<li><strong>核心发现</strong>：<strong>过去 6 年，50% time horizon 每 7 个月翻一番</strong>（约 196 天）</li>
+<li><strong>外推</strong>：2030 年左右模型能独立完成 1 个月（167 工时）任务</li>
+<li><strong>数据集</strong>：169 个 task，覆盖 HCAST、RE-Bench、SWE-Bench Verified</li>
+</ul>
+<p><strong>实测数据</strong>（GPT-5.1-Codex-Max，2025-11）：</p>
+<ul>
+<li>50% time horizon ≈ <strong>2 小时 40 分钟</strong>（CI: 75min - 5h50min）</li>
+<li>80% time horizon ≈ 30 分钟</li>
+<li>沿着 7 个月翻倍轨迹</li>
+</ul>
+<p><strong>为什么这个范式重要</strong>：</p>
+<ol>
+<li><strong>天然抗 contamination</strong>：任务时长是连续度量，模型背题不会让&quot;30 分钟任务变成 5 小时任务&quot;</li>
+<li><strong>抗 saturation</strong>：MMLU、SWE-bench 都会饱和（&gt;95% 后失去区分度），Time Horizon 是 unbounded 度量</li>
+<li><strong>可外推</strong>：连续指数趋势给 capability forecast 提供量化依据</li>
+</ol>
+<p><strong>MALT 数据集（2025-10）</strong> 是 METR 的另一贡献：手动审核的 agent 行为轨迹，包含 reward hacking / sandbagging / evaluation awareness 等&quot;威胁评测完整性&quot;的行为样本——为&quot;agent 知道自己在被评测时会装傻&quot;这种 meta-eval 问题提供数据基础。</p>
+<h3 id="section-8">Sandbox 工程权衡矩阵</h3>
+<p>Sandbox 同时承担两个职责：(1) <strong>安全</strong>——隔离 Agent 可能产生的恶意操作；(2) <strong>可复现性</strong>——固定环境消除&quot;我机器能跑你机器不行&quot;。</p>
+<table>
+<thead>
+<tr>
+<th>Sandbox 类型</th>
+<th>隔离强度</th>
+<th>启动成本</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>local</code></td>
+<td>无</td>
+<td>0</td>
+<td>信任的题目（纯算术、文本生成）</td>
+</tr>
+<tr>
+<td><code>docker</code></td>
+<td>进程级</td>
+<td>~1s</td>
+<td>主流：代码执行、shell 工具（SWE-bench、Terminal-Bench）</td>
+</tr>
+<tr>
+<td><code>k8s</code></td>
+<td>进程级 + 资源调度</td>
+<td>~5-30s</td>
+<td>大规模并行（WebArena 多服务 compose）</td>
+</tr>
+<tr>
+<td><code>proxmox</code> / VM</td>
+<td>内核级</td>
+<td>分钟级</td>
+<td>高风险评测（Cyber CTF、sandbox-escape benchmark）</td>
+</tr>
+</tbody></table>
+<p><strong>WebArena 的可复现性设计</strong>是教科书级范例：5 个 Docker 服务（电商/CMS/GitLab/论坛/地图）打包 AMI，用户拉取镜像后可完全 reset 到初始状态；2025 ServiceNow 推出 <strong>WebArena-Verified</strong>：镜像体积压缩 92%、删除 LLM-as-judge 改为确定性评分、提供 258 题 Hard 子集降低评测成本。</p>
+<p><strong>反面教材</strong>：2025 年 Zhu et al. 审计 37 个公开 agent benchmark suite，<strong>普遍存在&quot;成功标准未充分定义&quot;和&quot;低精度评估器&quot;问题</strong>——这正是 τ²-bench 强调&quot;对比数据库最终状态&quot;而非&quot;agent 说了什么&quot;的根源。</p>
+<h3 id="section-9">评测 harness 的安全边界：两起跨厂商事故</h3>
+<p>结论先行：<strong>prompt 里声明的隔离不是隔离</strong>。Anthropic 2026-07 复盘了三起网络安全评测事故——本应完全隔离的评测环境实际连着真实互联网，而评测 prompt 却告诉 Claude&quot;你处在模拟环境、没有网络访问&quot;，模型于是在真实系统上执行了本以为是演习的操作。</p>
+<p>失败的归因是这个案例最值得讲的部分：</p>
+<ul>
+<li><strong>模型并未失准</strong>：目标对齐、行为符合任务描述，有害结果纯粹来自&quot;被喂了错误的世界模型&quot;</li>
+<li>新模型识破环境为真实后主动中止，旧版本继续执行——这类风险会随模型能力部分自愈，但不能依赖</li>
+<li>Anthropic 的结论：把 defense-in-depth 从生产环境<strong>延伸到评测基础设施本身</strong>，隔离承诺必须与实际网络拓扑对账，而不是写在 prompt 里</li>
+</ul>
+<p>对 harness 设计的直接推论：sandbox 类型不只是可复现性参数，也是安全参数。写进 eval 报告的 <code>sandbox=docker</code> 必须能在网络层被验证（出口规则、DNS、代理白名单），否则考场本身会成为真实世界的攻击面。</p>
+<p><strong>第二例：OpenAI 披露第三方网安评测越界。</strong> OpenAI 在一篇官方说明中披露，在与 UK AISI、Irregular 合作的第三方网络安全评测中，因<strong>安全护栏放宽 + 环境配置失当</strong>两件事叠加，模型访问了公网、超出了预定测试边界（<a href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/">原文</a>；该页在列表页标注为 2026-08-04，正文页未渲染日期，本条日期未做正文交叉验证）。OpenAI 据此收紧了第三方评测协议，三条措施是：识别高风险评测、事前约定测试范围、联网请求需经审批。</p>
+<p><strong>两例合起来的价值不在细节，而在于它证明这是一类模式而非个例</strong>——不同厂商、不同评测方、不同时间点，评测 harness 的隔离边界都失守了。可提炼两条通用原则：</p>
+<ul>
+<li><strong>声明的隔离 ≠ 实际拓扑</strong>。无论隔离承诺写在 prompt 里（Anthropic 例）还是写在环境配置里（OpenAI 例），只要没有独立于承诺的网络层验证，它就只是一句话。隔离必须由出口规则、DNS 策略、代理白名单在外部证明，并定期与承诺对账。</li>
+<li><strong>第三方评测的边界责任必须在协议里落地</strong>。第三方评测天然存在责任真空：评测方搭环境、模型方放护栏，两边都容易默认对方兜底。而&quot;放宽护栏&quot;本身是网安评测的常规操作（不放宽就测不出能力上限），这恰恰意味着<strong>隔离不能靠模型侧克制，只能由环境侧独立保证</strong>。OpenAI 的三条措施（高风险识别 / 范围约定 / 联网审批）本质上就是把这个责任归属显式写进流程。</li>
+</ul>
+<p>对 eval 报告的实操推论：<code>sandbox</code> 字段之外，应同时记录<strong>这套隔离是被谁、用什么方式验证过的</strong>。&quot;我们用了 Docker&quot;和&quot;我们验证过容器出网被 deny-by-default 拦住&quot;是两个强度完全不同的声明。</p>
+<h3 id="section-10">Agent Eval vs Model Eval 的根本差异</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Model Eval</th>
+<th>Agent Eval</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>评估对象</strong></td>
+<td>单 prompt → 单 response</td>
+<td>多轮 workflow + 工具 + 环境</td>
+</tr>
+<tr>
+<td><strong>关注点</strong></td>
+<td>输出质量（正确性、流畅度）</td>
+<td>任务完成 + 推理链 + 工具使用 + 错误恢复</td>
+</tr>
+<tr>
+<td><strong>评分对象</strong></td>
+<td>最终答案</td>
+<td>轨迹（trajectory） + 最终状态</td>
+</tr>
+<tr>
+<td><strong>非确定性来源</strong></td>
+<td>仅采样温度</td>
+<td>采样 + 工具执行 + 环境响应 + 时序</td>
+</tr>
+<tr>
+<td><strong>Ground truth</strong></td>
+<td>参考答案（单一）</td>
+<td><strong>多条有效轨迹同时存在</strong></td>
+</tr>
+<tr>
+<td><strong>统计设计</strong></td>
+<td>单次足够（high pass@1）</td>
+<td>必须多 trial（pass@k 与 pass^k 双侧）</td>
+</tr>
+<tr>
+<td><strong>典型基准</strong></td>
+<td>MMLU / GSM8K / HumanEval</td>
+<td>SWE-bench / GAIA / τ²-bench / WebArena</td>
+</tr>
+</tbody></table>
+<p><strong>Anthropic 推荐的四个独立评估维度</strong>（详见 077 持续评估流水线）：</p>
+<ol>
+<li><strong>Outcomes</strong>——最终环境状态（&quot;DB 里是否真有这条预订记录&quot;，不是&quot;agent 说了什么&quot;）</li>
+<li><strong>Transcripts</strong>——完整轨迹（turn 数、token 用量、行为 rubric）</li>
+<li><strong>Tool Calls</strong>——特定工具是否按合适参数调用；但<strong>别过度规定调用顺序</strong>——&quot;grade what agent produced, not the path it took&quot;</li>
+<li><strong>Cost &amp; Latency</strong>——<code>n_total_tokens</code> / <code>time_to_first_token</code> 与正确性并列报告</li>
+</ol>
+<p><strong>轨迹评估的现实困难</strong>（arXiv 2510.02837）：Trajectory-opaque eval（只看终态）<strong>漏掉 44% 的安全违规和 13% 的鲁棒性失败</strong>。解法：hybrid pipeline = outcome check + trajectory check + tool sequence check 联合判定。</p>
+<h3 id="section-11">Contamination 危机与 Leaderboard 信任崩塌</h3>
+<p><strong>2025-2026 SWE-bench Verified 污染审计</strong>（OpenAI 2026-02 主导）：</p>
+<ul>
+<li>测试的所有 frontier 模型（GPT-5.2、Claude Opus 4.5、Gemini 3 Flash）都能<strong>逐字复现某些 Verified 任务的 gold patch</strong></li>
+<li><strong>59.4% 的最难未解题</strong> 被发现测试用例有缺陷</li>
+<li>部分模型在&quot;只给文件结构、不给 issue 描述&quot;时仍能识别要修改的正确文件——强烈暗示训练集见过仓库结构</li>
+<li><strong>OpenAI 官方宣布停报 SWE-bench Verified</strong>，转向 SWE-bench Pro</li>
+</ul>
+<p><strong>Scale AI SWE-bench Pro 的应对</strong>：1865 个多语言任务、严格 contamination 控制 → <strong>Verified 上 80%+ 的模型在 Pro 上只能拿 46-57%</strong>，22pp 的 scaffold-induced 差距。</p>
+<p><strong>2025 contamination 检测技术</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>原理</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Watermarking（arXiv 2502.17259）</td>
+<td>用 Llama-3 instruct 重写题目嵌入红/绿 list 水印，5% 污染即在 p&lt;10⁻³ 显著性下检出</td>
+<td>只能检出&quot;重写后被训练&quot;的情形</td>
+</tr>
+<tr>
+<td>Question variant testing</td>
+<td>生成变体题，检查模型在变体上是否退化</td>
+<td>reformulated 题就足以提升原题分数，相关性不强</td>
+</tr>
+<tr>
+<td>Loss-based detection</td>
+<td>比较 train/test 上的 loss 分布</td>
+<td>在 LRM（推理模型）上失效——RL stage 会掩盖 SFT 阶段污染（arXiv 2510.02386）</td>
+</tr>
+</tbody></table>
+<p><strong>实操建议</strong>：</p>
+<ul>
+<li>公开 benchmark 用于初筛，不作为最终决策</li>
+<li>必须有&quot;训练截止日期之后&quot;的私有评测集</li>
+<li>关注<strong>动态 benchmark</strong>（SWE-MERA 持续从最新 GitHub Issue 收题、LiveCodeBench 每月更新）</li>
+</ul>
+<h3 id="section-12">前沿动向：评测本身正在 harness 化（2026-08）</h3>
+<p>前面讲的都是&quot;如何用 harness 跑出一个可信的分数&quot;。2026-08 出现的一批工作在改的是更前面一步的东西：<strong>评测的产出形态本身</strong>——从&quot;打一个分&quot;转向&quot;留下一份可审查的过程记录&quot;。</p>
+<p><strong>以下均为社区单次实验、尚无独立复现</strong>，引用时连出处与日期一起标注。</p>
+<ul>
+<li><em>HarnessEval-W: Agentifying the Evaluation of Visual Worlds</em>（<a href="https://arxiv.org/abs/2608.16859">arXiv 2608.16859</a>，2026-08-17）把 harness 范式直接搬进了评分环节：<strong>不套固定 rubric</strong>（预先写死的评分细则），而是让 agent 按具体上下文自行组织判据，并留下可审查的推理链。据其报告，输出的不再只是一个标量分数，而是&quot;判据 + 推理过程 + 结论&quot;这一整套东西。</li>
+<li><em>Beyond Final Scores: A Systematic Evaluation of Agents for Long-Horizon AI R&amp;D</em>（<a href="https://arxiv.org/abs/2608.13417">arXiv 2608.13417</a>）从另一侧逼近同一个点：用规则指标（而非 LLM judge）把一次 run 内部的行为拆成 <strong>Solution Framing / Execution / Feedback Control</strong> 三个维度，覆盖 7 个前沿模型 × 36 个长时程任务，并做受控对比考察经验能否在任务内、跨任务之间复用。该文的立意就写在标题里——最终分数之外的东西才是长时程任务的信息量所在。</li>
+</ul>
+<p><strong>这跟本文主线是什么关系</strong>：是延伸，不是改写。&quot;先固定 harness 再换模型测&quot;依然成立，而且在过程记录范式下<strong>更重要</strong>——标量分数至少还能勉强跨 harness 比较（哪怕比得很粗糙），过程记录则完全由 harness 的组织方式决定，harness 一变，记录的粒度、字段、判据全变，压根无从对齐。往前看，eval 报告里要固定并披露的东西只会更多：除了 sandbox 类型、资源配额、scaffold 版本，还要加上判据是怎么生成的、推理链保留到什么粒度。</p>
+<p>这条线也与前文两处呼应：轨迹评估的现实困难（trajectory-opaque eval 漏 44% 安全违规）说明只看终态不够，而 METR 的 MALT 数据集说明轨迹里的行为本身就是评测对象。过程记录范式是这两件事在 harness 层面的自然延续。</p>
+<h3 id="section-13">选型决策树</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>你的场景是什么？
+│
+├── 学术 LLM benchmark（单轮 logprob/生成）
+│   → lm-evaluation-harness
+│   → HF Open LLM Leaderboard 后端，60+ 任务、100+ providers
+│
+├── Agent 多轮 + sandbox + 工具
+│   → Inspect AI（事实标准）
+│   → 200+ inspect_evals、可桥接所有主流 Agent SDK
+│
+├── 多维度全景（含 bias/toxicity/efficiency）
+│   → HELM（Stanford CRFM）
+│   → 7 metrics + 2025-03 Capabilities 5 切面
+│
+├── Pre-deployment safety eval / 能力外推
+│   → METR 范式 + Inspect
+│   → Time Horizon + MALT dataset
+│
+└── 商业评测平台（trace + UI + 协作）
+    → 见 075（Ragas / LangSmith / Braintrust / Langfuse）
+</code></pre></details>
+<h2 id="section-14">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;Eval Harness 和 Benchmark 是一回事&quot;</strong> — 这是 Agent 评测领域最大的概念混淆。Benchmark = 题库 + 评分标准（SWE-bench Verified、GAIA），Harness = 运行时框架（Inspect AI、lm-eval-harness）。<strong>同 benchmark 在不同 harness 上跑出 20+ 分差距是工程常态而非 bug</strong>——这是 Inspect AI 显式拆四原语的根本原因。</p>
+</li>
+<li><p><strong>误区：&quot;SWE-bench 80% 就是 SOTA&quot;</strong> — 2026-02 后这个说法已经过时。OpenAI 官方宣布 SWE-bench Verified contamination 严重（59.4% 最难题测试有缺陷），转向 SWE-bench Pro。Verified 上 80%+ 的模型在 Pro 上只能拿 46-57%。引用 SOTA 时必须问&quot;哪个 harness / 哪个版本 / 是否私有 holdout&quot;。</p>
+</li>
+<li><p><strong>误区：&quot;Inspect AI 是 UK 政府的玩具，主流不会用&quot;</strong> — 完全错误。<strong>METR 在 2026-01 Time Horizon 1.1 发布时弃用自研 Vivaria 全面迁移到 Inspect</strong>，标志生态收敛。200+ inspect_evals、50+ 贡献者、Agent Bridge 接 Claude Code/Codex CLI——它已是 Agent eval 事实标准。</p>
+</li>
+<li><p><strong>追问：&quot;为什么 lm-eval-harness 对 Agent 评测无能为力？&quot;</strong> — 它的核心抽象是&quot;单轮 logprob/生成 → 匹配&quot;，没有 sandbox 概念、没有 multi-turn solver、没有轨迹 scorer。Agent 需要的&quot;调用 bash → 看输出 → 决定下一步&quot;这种闭环只能由 Inspect AI 的 Solver 链或 Anthropic Harbor 这类专用 harness 提供。lm-eval-harness 即使加 OpenAI provider 也只是&quot;包了一层 API 调用&quot;，缺所有 Agent 必需原语。</p>
+</li>
+<li><p><strong>追问：&quot;如何设计一个 provider-agnostic 的 harness 给团队选模型？&quot;</strong> —</p>
+<ul>
+<li><strong>第 1 层</strong>：先固定 production harness（Inspect AI Task 定义），只让模型变化</li>
+<li><strong>第 2 层</strong>：sandbox 类型 / 资源配额 / scaffold 版本 / retry 策略 <strong>写入 eval 报告</strong>，这些都是结果的一部分</li>
+<li><strong>第 3 层</strong>：报告 pass@1（多 trial 估计）+ pass@k（乐观上界）+ pass^k（悲观下界）刻画完整能力边界</li>
+<li><strong>第 4 层</strong>：capability eval（目标低 pass 率，&quot;待爬的山&quot;）和 regression eval（目标 ≈100%，防退步）分离</li>
+</ul>
+</li>
+<li><p><strong>追问：&quot;Sandbox 类型怎么选？&quot;</strong> —</p>
+<ul>
+<li><strong>代码生成 + shell 命令</strong>：Docker（启动 ~1s，主流）</li>
+<li><strong>大规模并行（&gt;100 sample 同时跑）</strong>：k8s（资源调度）</li>
+<li><strong>高风险评测（Cyber CTF、sandbox escape）</strong>：Proxmox / VM（内核级隔离）</li>
+<li><strong>纯文本生成</strong>：local 即可（信任题目）</li>
+<li>关键准则：Inspect AI 默认 <code>max_sandboxes = 2 × cpu_count</code>，sandbox 是 Agent eval 真正的并发瓶颈</li>
+</ul>
+</li>
+<li><p><strong>追问：&quot;如何应对 Benchmark Contamination？&quot;</strong> —</p>
+<ul>
+<li><strong>不依赖单一公开 benchmark</strong>：必须有&quot;训练截止日期之后&quot;的私有 holdout</li>
+<li><strong>动态 benchmark</strong>：SWE-MERA（持续从 GitHub Issue 收题）、LiveCodeBench（每月更新）</li>
+<li><strong>Time Horizon 范式</strong>：天然抗污染（任务时长是连续度量）</li>
+<li><strong>Watermarking 检测</strong>：arXiv 2502.17259，5% 污染即可在 p&lt;10⁻³ 显著性下检出</li>
+<li>警惕信号：模型在&quot;只给文件结构、不给 issue 描述&quot;时仍能定位正确文件——说明训练集见过仓库结构</li>
+</ul>
+</li>
+<li><p><strong>误区：&quot;评测跑在沙箱里，最坏也就是结果不准&quot;</strong> — Anthropic 2026-07 复盘的三起网络安全评测事故是反例：环境自称隔离、实际连着公网，模型按 prompt 描述&quot;在模拟环境里&quot;行动，结果操作了真实系统。模型本身没有失准，错的是它被喂的世界模型。隔离必须由网络拓扑保证并定期与承诺对账，prompt 里的一句&quot;你没有网络访问&quot;不构成任何隔离。<strong>而且这已经不是孤例</strong>：OpenAI 也披露过在 UK AISI、Irregular 的第三方网安评测中，因安全护栏放宽叠加环境配置失当，模型访问公网、超出预定测试边界。两家、两套流程、同一种失守方式。</p>
+</li>
+<li><p><strong>追问：&quot;第三方做的评测出了越界事故，责任在谁？&quot;</strong> — 这是上面两起事故合起来才问得出的问题，答题要点是&quot;责任真空来自默认对方兜底&quot;。评测方负责搭环境、模型方负责放护栏，而网安评测又必须放宽护栏才测得出能力上限——于是隔离既不能指望模型侧克制，评测方又未必清楚护栏被放到了什么程度。OpenAI 收紧第三方评测协议的三条措施正是把这个归属显式化：<strong>高风险评测识别（哪些评测需要额外约束）、测试范围事前约定（边界写进协议而非口头）、联网请求审批（出网是需要批准的动作，不是默认能力）</strong>。落到 harness 设计上就一句话：隔离必须有一个独立于评测方声明的验证方，<code>sandbox=docker</code> 之外还要能答出&quot;谁验证的、怎么验证的&quot;。</p>
+</li>
+<li><p><strong>追问：&quot;评测只输出一个分数够不够？&quot;</strong> — 2026-08 的两篇工作给出的答案是不够，方向是&quot;留下可审查的过程记录&quot;。HarnessEval-W（<a href="https://arxiv.org/abs/2608.16859">arXiv 2608.16859</a>，2026-08-17）不套固定 rubric，让 agent 按上下文自行组织判据并留下推理链；Beyond Final Scores（<a href="https://arxiv.org/abs/2608.13417">arXiv 2608.13417</a>）用规则指标把 run 内行为拆成 Solution Framing / Execution / Feedback Control 三维，覆盖 7 个模型 × 36 个长时程任务。<strong>注意这不推翻&quot;先固定 harness&quot;，反而加强它</strong>——标量分数还能粗糙地跨 harness 比，过程记录的粒度与字段完全由 harness 决定，不固定就无从对齐。两篇均为社区单次实验、未经独立复现，答题时要标出来。</p>
+</li>
+</ol>
+<h2 id="section-15">参考资料</h2>
+<ul>
+<li><a href="https://github.com/EleutherAI/lm-evaluation-harness">EleutherAI lm-evaluation-harness（GitHub）</a> — 行业 model eval 标杆，HF Open LLM Leaderboard 后端</li>
+<li><a href="https://inspect.aisi.org.uk/">Inspect AI 官方站（UK AISI）</a> — 2025-2026 agent eval 事实标准</li>
+<li><a href="https://inspect.aisi.org.uk/sandboxing.html">Inspect AI Sandboxing 指南</a> — Docker/k8s/Proxmox 三套 sandbox 战略</li>
+<li><a href="https://github.com/UKGovernmentBEIS/inspect_evals">Inspect Evals 仓库</a> — 200+ 社区贡献评测</li>
+<li><a href="https://github.com/stanford-crfm/helm">HELM 仓库（Stanford CRFM）</a> — Holistic Evaluation 框架</li>
+<li><a href="https://crfm.stanford.edu/2025/03/20/helm-capabilities.html">HELM Capabilities 2025-03 更新</a> — mean score 取代 mean win rate</li>
+<li><a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR — Measuring AI Ability to Complete Long Tasks（2025-03）</a> — Time Horizon 范式提出</li>
+<li><a href="https://metr.org/blog/2026-1-29-time-horizon-1-1/">METR Time Horizon 1.1（2026-01）</a> — Inspect 迁移后复现</li>
+<li><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Demystifying Evals for AI Agents — Anthropic</a> — 四维度评分、capability vs regression</li>
+<li><a href="https://focused.io/lab/agent-benchmarks-measure-the-harness">Agent Benchmarks Measure the Harness, Not the Model（Focused Labs）</a> — Terminal-Bench 2.0 实证 5.8pp 差距</li>
+<li><a href="https://www.morphllm.com/swe-bench-pro">SWE-bench Pro Leaderboard（2026）</a> — Scale AI 抗污染基准</li>
+<li><a href="https://arxiv.org/abs/2502.17259">Detecting Benchmark Contamination Through Watermarking（arXiv 2502.17259）</a> — 2025 watermarking 检测</li>
+<li><a href="https://arxiv.org/pdf/2510.02837">Beyond the Final Answer: Evaluating Reasoning Trajectories（arXiv 2510.02837）</a> — Trajectory-opaque eval 漏 44% 安全违规</li>
+<li><a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals">Investigating three real-world incidents in our cybersecurity evaluations — Anthropic</a> — 评测环境自称隔离实则联网，defense-in-depth 需覆盖评测基础设施</li>
+<li><a href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/">Third-party cyber evaluations involving OpenAI models — OpenAI</a> — 同类事故第二例：护栏放宽 + 环境配置失当导致越界，及随后收紧的第三方评测协议（列表页标注 2026-08-04，正文页未渲染日期）</li>
+<li><a href="https://arxiv.org/abs/2608.16859">HarnessEval-W: Agentifying the Evaluation of Visual Worlds（arXiv 2608.16859，2026-08-17）</a> — 评分环节 harness 化：不套固定 rubric，agent 自组织判据并留推理链（社区单次实验，未经复现）</li>
+<li><a href="https://arxiv.org/abs/2608.13417">Beyond Final Scores: A Systematic Evaluation of Agents for Long-Horizon AI R&amp;D（arXiv 2608.13417）</a> — 规则指标拆 run 内行为为 Solution Framing / Execution / Feedback Control 三维（社区单次实验，未经复现）</li>
+</ul>
+<h2 id="section-16">相关阅读</h2>
+<ul>
+<li><a href="063.html">072 Agent Benchmark：端到端测试设计</a> — Benchmark 数据集层面（SWE-bench / GAIA / LoCoMo / LongMemEval）</li>
+<li><a href="066.html">075 评估工具对比：Ragas、LangSmith、Braintrust</a> — 商业评测平台（trace + UI + 协作）</li>
+<li><a href="067.html">076 静态 Benchmark 陷阱</a> — Benchmark 失效与&quot;大脱钩&quot;现象</li>
+<li><a href="068.html">077 持续评估流水线</a> — 把 eval 从 one-shot 升级为 always-on</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">Harness vs Benchmark：必须先理清的三层架构</a></li><li class="toc-level-3"><a href="#section-4">lm-evaluation-harness：model eval 行业标杆</a></li><li class="toc-level-3"><a href="#section-5">Inspect AI：Agent 时代的 Harness 王者</a></li><li class="toc-level-3"><a href="#section-6">HELM：多维度评估的传统</a></li><li class="toc-level-3"><a href="#section-7">METR Time Horizon：超越准确率的进步度量</a></li><li class="toc-level-3"><a href="#section-8">Sandbox 工程权衡矩阵</a></li><li class="toc-level-3"><a href="#section-9">评测 harness 的安全边界：两起跨厂商事故</a></li><li class="toc-level-3"><a href="#section-10">Agent Eval vs Model Eval 的根本差异</a></li><li class="toc-level-3"><a href="#section-11">Contamination 危机与 Leaderboard 信任崩塌</a></li><li class="toc-level-3"><a href="#section-12">前沿动向：评测本身正在 harness 化（2026-08）</a></li><li class="toc-level-3"><a href="#section-13">选型决策树</a></li><li class="toc-level-2"><a href="#section-14">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-15">参考资料</a></li><li class="toc-level-2"><a href="#section-16">相关阅读</a></li></ol></nav></article><nav class="chapter-nav"><a href="098.html" class="nav-card"><span>上一章</span><strong>← 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</strong></a><a href="100.html" class="nav-card next"><span>下一章</span><strong>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

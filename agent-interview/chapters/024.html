@@ -1,0 +1,523 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MCP（Model Context Protocol）是什么？它如何标准化工具集成？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link active" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">工具使用 · 第 027 题</div><h1>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</h1><blockquote>
+<p>难度：中级
+分类：Tool Use</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>MCP（Model Context Protocol）是 Anthropic 于 2024 年 11 月推出的开放标准，用于标准化 AI 系统与外部工具、数据源的集成方式。类比&quot;AI 界的 USB-C&quot;——过去每个工具集成都需要定制连接器（N×M 问题），MCP 提供统一协议，让任何工具只需实现一次 MCP Server，就能被任何支持 MCP 的 AI 应用使用。协议基于 JSON-RPC 2.0，包含三个核心角色（Host、Client、Server）和三种核心能力（Tools、Resources、Prompts），支持动态工具发现和实时通知。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">MCP 解决什么问题？</h3>
+<p>在 MCP 之前，每个 AI 应用与每个外部工具之间都需要定制集成：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>没有 MCP（N×M 问题）：
+Claude Desktop ──定制代码──→ GitHub API
+Claude Desktop ──定制代码──→ Slack API
+Claude Desktop ──定制代码──→ 数据库
+Cursor         ──定制代码──→ GitHub API（又写一遍）
+Cursor         ──定制代码──→ Slack API（又写一遍）
+
+有了 MCP（N+M 方案）：
+Claude Desktop ─┐              ┌─→ GitHub MCP Server
+Cursor         ─┤── MCP 协议 ──┤─→ Slack MCP Server
+VS Code        ─┘              └─→ 数据库 MCP Server
+</code></pre></details>
+<p>每个 AI 应用只需实现 MCP Client，每个工具只需实现 MCP Server。新增一个工具不需要修改任何 AI 应用。</p>
+<h3 id="section-4">MCP 的三层架构</h3>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    subgraph H[&quot;Host（宿主）：Claude Desktop / Cursor 等 AI 应用&quot;]
+        C1[&quot;Client 1&quot;]
+        C2[&quot;Client 2&quot;]
+    end
+    S1[&quot;MCP Server&lt;br/&gt;(GitHub)&quot;]
+    S2[&quot;MCP Server&lt;br/&gt;(Postgres)&quot;]
+    C1 ---|&quot;JSON-RPC 2.0&quot;| S1
+    C2 ---|&quot;JSON-RPC 2.0&quot;| S2
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef neutral fill:#eceff1,stroke:#546e7a,color:#37474f
+    class C1,C2 proc
+    class S1,S2 neutral
+</div></figure>
+<p><em>Host 内嵌多个 Client，每个 Client 与一个 Server 一对一连接，JSON-RPC 2.0 是唯一通用语。</em></p>
+<p><strong>三个角色：</strong></p>
+<ul>
+<li><strong>Host</strong>：AI 应用（如 Claude Desktop、Cursor IDE），接收用户请求</li>
+<li><strong>Client</strong>：在 Host 内运行，将请求转换为 MCP 协议格式。每个 Client 与一个 Server 建立 1:1 连接</li>
+<li><strong>Server</strong>：暴露外部系统的能力，将原生接口翻译为 MCP 标准协议</li>
+</ul>
+<h3 id="section-5">三种核心能力</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 1. Tools（工具）—— 可执行的函数
+# 客户端通过 tools/list 发现，通过 tools/call 调用
+{
+    &quot;name&quot;: &quot;create_issue&quot;,
+    &quot;description&quot;: &quot;在 GitHub 仓库中创建 Issue&quot;,
+    &quot;inputSchema&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+            &quot;repo&quot;: {&quot;type&quot;: &quot;string&quot;},
+            &quot;title&quot;: {&quot;type&quot;: &quot;string&quot;},
+            &quot;body&quot;: {&quot;type&quot;: &quot;string&quot;}
+        },
+        &quot;required&quot;: [&quot;repo&quot;, &quot;title&quot;]
+    }
+}
+
+# 2. Resources（资源）—— 数据访问
+# 类似 REST 的 GET，提供只读数据访问
+# URI 格式：file:///path/to/file, postgres://db/table
+{
+    &quot;uri&quot;: &quot;file:///project/README.md&quot;,
+    &quot;name&quot;: &quot;项目 README&quot;,
+    &quot;mimeType&quot;: &quot;text/markdown&quot;
+}
+
+# 3. Prompts（提示模板）—— 预定义的工作流
+# 封装特定任务的最佳实践 prompt
+{
+    &quot;name&quot;: &quot;code_review&quot;,
+    &quot;description&quot;: &quot;对代码进行审查&quot;,
+    &quot;arguments&quot;: [
+        {&quot;name&quot;: &quot;code&quot;, &quot;required&quot;: true}
+    ]
+}
+</code></pre></details>
+<h3 id="section-6">通信协议</h3>
+<p>MCP 基于 JSON-RPC 2.0，支持两种传输方式：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 1. stdio（本地进程通信）—— 适合本地工具
+# Host 启动 Server 进程，通过 stdin/stdout 通信
+
+# 2. Streamable HTTP（远程通信）—— 适合远程服务
+# MCP 2025-03-26 规范引入，使用单一 HTTP 端点（按 HTTP method 区分请求/通知/SSE 流）
+# 可选择性使用 SSE 进行流式响应，也支持普通 HTTP 响应
+# 注意：它取代了早期规范中&quot;独立 HTTP POST + 单独 SSE GET 端点&quot;的传输设计
+</code></pre></details>
+<p><strong>连接生命周期：</strong></p>
+<figure class="mermaid-figure"><div class="mermaid">sequenceDiagram
+    participant C as MCP Client
+    participant S as MCP Server
+    C-&gt;&gt;S: initialize（协议版本 + 能力）
+    S--&gt;&gt;C: initialize 响应（返回支持的能力）
+    C-&gt;&gt;S: initialized 通知（确认初始化完成）
+    C-&gt;&gt;S: tools/list（发现可用工具）
+    S--&gt;&gt;C: 工具列表（含 inputSchema）
+    C-&gt;&gt;S: tools/call（调用工具）
+    S--&gt;&gt;C: 执行结果
+</div></figure>
+<p><em>initialize 握手、tools/list 发现、tools/call 调用——工具是运行时发现的，不是启动时写死的。</em></p>
+<h3 id="section-7">动态工具发现</h3>
+<p>MCP 的一个关键优势——工具可以在运行时动态变化：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Server 端：工具列表变更时发送通知
+server.send_notification(&quot;notifications/tools/list_changed&quot;)
+
+# Client 端：收到通知后重新获取工具列表
+async def on_tools_changed():
+    updated_tools = await client.call(&quot;tools/list&quot;)
+    agent.update_available_tools(updated_tools)
+</code></pre></details>
+<p>这使得工具可以根据用户认证状态、权限级别或会话阶段动态暴露不同的工具集。</p>
+<h3 id="section-8">MCP vs Function Calling</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Function Calling</th>
+<th>MCP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义方式</td>
+<td>每次 API 调用传入工具定义</td>
+<td>标准化协议，Server 独立定义</td>
+</tr>
+<tr>
+<td>集成成本</td>
+<td>每个工具 × 每个应用 = N×M</td>
+<td>每个工具一次，每个应用一次 = N+M</td>
+</tr>
+<tr>
+<td>工具发现</td>
+<td>静态（开发时定义）</td>
+<td>动态（运行时发现）</td>
+</tr>
+<tr>
+<td>生态复用</td>
+<td>无标准化，各自实现</td>
+<td>社区共享 MCP Server</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>少量工具（&lt;10）的简单应用</td>
+<td>多工具、多应用的生态系统</td>
+</tr>
+</tbody></table>
+<h3 id="section-9">实际使用示例</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Python SDK 创建 MCP Server
+from mcp.server import Server
+from mcp.types import Tool, TextContent
+
+server = Server(&quot;weather-server&quot;)
+
+@server.list_tools()
+async def list_tools():
+    return [
+        Tool(
+            name=&quot;get_weather&quot;,
+            description=&quot;获取指定城市的天气&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;city&quot;: {&quot;type&quot;: &quot;string&quot;}
+                },
+                &quot;required&quot;: [&quot;city&quot;]
+            }
+        )
+    ]
+
+@server.call_tool()
+async def call_tool(name: str, arguments: dict):
+    if name == &quot;get_weather&quot;:
+        weather = await fetch_weather(arguments[&quot;city&quot;])
+        return [TextContent(type=&quot;text&quot;, text=f&quot;温度: {weather.temp}°C&quot;)]
+</code></pre></details>
+<h3 id="section-10">生态现状</h3>
+<p>MCP 已被主要 AI 平台采纳：OpenAI、Google DeepMind、Microsoft 均已支持。该协议由 Anthropic 主导，OpenAI / Google DeepMind / Microsoft 共同参与的 MCP Steering Committee 治理，规范文档在 <a href="https://modelcontextprotocol.io/">modelcontextprotocol.io</a> 上维护。官方 SDK 覆盖 TypeScript、Python、C#、Kotlin、Go、Ruby 等语言，社区已有数千个开源 MCP Server 可直接使用。</p>
+<h3 id="section-11">MCP 生产化：从协议到生产级工具生态</h3>
+<p>MCP 在 2025-2026 年完成了从&quot;Anthropic 提议的开放标准&quot;到&quot;事实上的 AI-工具集成协议&quot;的跃迁。这一节聚焦把 MCP 带入生产环境时必须回答的六个问题：生态规模、部署模式、认证授权、版本管理、安全沙箱、Server 选型。</p>
+<h4 id="section-12">生态规模与采用</h4>
+<p>截至 2026 年初，PulseMCP 已收录超 <strong>5500 个 MCP Server</strong>，覆盖数据库、SaaS API、IDE、Git、文件系统等主流场景。据 Stacklok《State of MCP 2026》报告，约 <strong>80% 的 Fortune 500 企业</strong>已开始参与 MCP 生态（评估试点或内部部署）。官方 Roadmap 于 <strong>2026-03-05 更新</strong>，明确了下一阶段重点：认证增强、Elicitation（Server 向 Client 主动请求补充信息）、Registry（统一的 Server 注册与发现机制）。</p>
+<p>但生态爆发也带来工程挑战。ACM 2026 学术研究（对开发者痛点的实证分析）揭示：<strong>文件系统操作问题占开发者反馈的 21.32%</strong>，居首位；其次是数据验证和类型问题。这说明社区 MCP Server 的工程质量参差不齐，选型时不能只看功能列表——后文「Server 选型清单」展开。</p>
+<h4 id="section-13">生产部署模式：从本地 stdio 到远程托管</h4>
+<p>MCP 的两种传输方式对应两种部署形态，生产环境的选择直接影响安全边界与运维成本：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>三种部署模式对比：
+
+① 本地 stdio（开发 / 个人场景）
+   Host ──stdin/stdout──→ 本地 MCP Server 进程
+   优势：零网络开销，无需认证
+   劣势：Server 跑在用户机器上，无集中管控，版本碎片化
+
+② 远程 Streamable HTTP（生产 / 企业场景）
+   Host ──HTTPS──→ 远程 MCP Server（自建 / 云托管）
+   优势：集中管控、可观测、可弹性伸缩、统一认证
+   劣势：引入网络延迟与认证开销
+
+③ MCP Gateway / 托管平台（2026 趋势）
+   Host ──→ MCP Gateway ──→ ┌─ Server A（GitHub）
+                             ├─ Server B（Postgres）
+                             └─ Server C（内部 API）
+   优势：统一路由、认证、计费、限流、审计；Server 可动态挂载
+   典型平台：Cloudflare、Smithery 等已提供 MCP Server 托管
+</code></pre></details>
+<p>生产环境推荐远程 Streamable HTTP 部署（参见上文「通信协议」中 2025-03-26 规范引入的传输方式）：Server 集中托管，通过 Gateway 统一管理。这避免了在每个用户机器上部署 Server 带来的版本碎片化和安全风险，也是 <a href="021.html">Tool Gateway 模式</a>（<code>#024</code>）在 MCP 语境下的自然延伸。</p>
+<h4 id="section-14">认证授权：OAuth 2.1</h4>
+<p>早期 MCP 协议不在传输层定义认证——认证完全由 Server 内部处理（Server 持有 API 密钥，Agent 不接触凭证）。这在本地 stdio 场景可行，但远程部署时暴露了核心问题：Server 如何安全地验证调用者身份、如何将工具操作绑定到具体用户？</p>
+<p>MCP 规范为 HTTP 传输引入了基于 <strong>OAuth 2.1</strong> 的授权框架，将 MCP Server 定位为 OAuth 中的 Resource Server：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>MCP OAuth 授权流程（远程 Server）：
+
+Agent (Host/Client)
+  │
+  │ 1. 首次访问 MCP Server（无 Token）
+  │──→ 401 Unauthorized + WWW-Authenticate: Bearer
+  │
+  │ 2. 重定向到 Authorization Server（可由 Server 自托管或委托给 IdP）
+  │──→ 用户登录 + 授权同意
+  │←── Authorization Code
+  │
+  │ 3. 用 Code 换 Access Token
+  │──→ Token Endpoint（含 PKCE 校验）
+  │←── Access Token + Refresh Token
+  │
+  │ 4. 携带 Bearer Token 调用 MCP
+  │──→ Authorization: Bearer &lt;token&gt;
+  │←── 工具调用结果（权限受 Token scope 约束）
+</code></pre></details>
+<p>关键设计点：</p>
+<ul>
+<li><strong>PKCE 强制</strong>：OAuth 2.1 要求所有授权码流程使用 PKCE（Proof Key for Code Exchange），防止授权码被中间人截获</li>
+<li><strong>动态客户端注册</strong>：MCP 规范要求 Server 支持 RFC 7591 动态客户端注册，Client 无需预先硬编码 <code>client_id</code>，降低了首次连接的集成成本</li>
+<li><strong>Token 作用域</strong>：Access Token 携带 scope 声明，Server 据此决定暴露哪些工具——例如只读 Token 看不到 <code>delete_repo</code> 工具</li>
+<li><strong>Server 身份验证</strong>：规范引入资源标识（Resource Indicator）机制，Token 绑定到特定 Server，防止 Token 从一个 Server 窃取后在另一个 Server 重放</li>
+</ul>
+<blockquote>
+<p>注意：MCP 的 OAuth 框架解决的是「Client ↔ Server」的身份与授权问题。Server 背后的外部系统（如 GitHub API、数据库）的认证仍由 Server 自行管理——Server 是凭证的唯一持有者。</p>
+</blockquote>
+<h4 id="section-15">版本管理</h4>
+<p>MCP 的版本管理分三层，理解这三层是保障生产稳定性的前提：</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>机制</th>
+<th>变更影响</th>
+<th>生产建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>协议版本</strong></td>
+<td><code>initialize</code> 握手时协商</td>
+<td>不兼容版本会连接失败</td>
+<td>升级 Server 前确认 Client 支持的目标版本</td>
+</tr>
+<tr>
+<td><strong>能力声明</strong></td>
+<td>Server 的 <code>capabilities</code> 字段</td>
+<td>Client 依赖的能力可能消失</td>
+<td>下线能力前发 deprecation 通知</td>
+</tr>
+<tr>
+<td><strong>工具 Schema</strong></td>
+<td><code>tools/list</code> 返回的 <code>inputSchema</code></td>
+<td>Agent 调用时参数不匹配</td>
+<td><strong>最常见破坏源</strong>，需版本化处理</td>
+</tr>
+</tbody></table>
+<p>工具 Schema 变更是线上事故的高频来源。推荐做法：给工具加版本后缀（如 <code>create_issue_v2</code>），旧工具保留过渡期后再下线。<strong>避免直接修改已有工具的参数结构</strong>——Agent 在长会话中可能已&quot;记住&quot;旧签名，Schema 突变会导致调用失败或参数幻觉。Server 端可通过 <code>notifications/tools/list_changed</code> 通知 Client 重新拉取，但 Client 是否及时刷新取决于实现。</p>
+<h4 id="section-16">安全沙箱与治理</h4>
+<p>MCP 的开放性——任何人都能发布 Server——使得 Server 治理成为生产化的核心议题。这与 <a href="027.html">工具使用安全</a>（<code>#030</code>）和 <a href="072.html">权限最小化与沙箱执行</a>（<code>#081</code>）讨论的原则一脉相承，MCP 场景下的具体风险与对策如下：</p>
+<p><strong>MCP Server 生产安全风险全景：</strong></p>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>对策</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tool Poisoning（恶意 Server 注册伪装工具）</td>
+<td>Server 签名验证 + 来源白名单；只从可信 Registry 或内部仓库加载</td>
+</tr>
+<tr>
+<td>Confused Deputy（被 Prompt Injection 诱导越权）</td>
+<td>最小权限 + 高危操作 HITL 确认；删除/转账等操作需二次人工确认</td>
+</tr>
+<tr>
+<td>凭证泄露（API Key 随 Server 分发流转）</td>
+<td>OAuth 替代静态 API Key；Token 有 scope + 过期 + 可撤销</td>
+</tr>
+<tr>
+<td>数据外泄（Server 偷偷外传敏感数据）</td>
+<td>出口网络白名单 + 审计日志；每个 Server 只允许访问必要域名</td>
+</tr>
+</tbody></table>
+<p>生产级部署应将每个 MCP Server 运行在独立沙箱中（容器或微 VM），限制其文件系统访问范围、网络出口和资源配额。沙箱选型可参考 <a href="100.html">Agent Sandbox / Runtime 选型</a>（<code>#112</code>）中的隔离强度对比。</p>
+<p>对于企业级治理，官方 Roadmap 中的 <strong>MCP Registry</strong> 将提供 Server 的可信发布与签名验证，类似 npm / PyPI 的包管理机制。在 Registry 成熟前，企业应维护内部 Server 白名单并定期审计其权限范围。</p>
+<h4 id="section-17">Server 选型清单</h4>
+<p>面对 5500+ Server，选型时建议逐项评估以下维度：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>关键问题</th>
+<th>红旗信号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>来源可信度</strong></td>
+<td>是否来自官方或知名组织？有无代码签名？</td>
+<td>个人匿名仓库、无文档、无测试</td>
+</tr>
+<tr>
+<td><strong>权限范围</strong></td>
+<td>请求了哪些权限？是否遵循最小化原则？</td>
+<td>要求全盘文件系统访问、全局 admin token</td>
+</tr>
+<tr>
+<td><strong>维护活跃度</strong></td>
+<td>最后更新时间？Issue 响应速度？</td>
+<td>超 6 个月未更新、大量 Issue 无人回应</td>
+</tr>
+<tr>
+<td><strong>Token 成本</strong></td>
+<td>暴露多少工具？Schema 总体积多大？</td>
+<td>单 Server &gt;15 个工具（参见上文 Token 膨胀数据）</td>
+</tr>
+<tr>
+<td><strong>传输安全</strong></td>
+<td>远程 Server 是否启用 TLS？有无认证？</td>
+<td>明文 HTTP、无 OAuth、静态 Key 明传</td>
+</tr>
+<tr>
+<td><strong>可观测性</strong></td>
+<td>是否记录调用日志？是否支持 trace？</td>
+<td>无日志、无可观测接口、黑盒运行</td>
+</tr>
+</tbody></table>
+<p><strong>选型原则</strong>：优先选择官方维护或社区高信誉的 Server；涉及内部数据的场景应自建 Server 而非依赖第三方；同时连接的 Server 数量控制在 2-3 个以内——超过后工具选择准确率显著下降（参见上文「问题 3：工具选择混乱」）。动态工具发现（<code>#029</code>）和 MCP 的 <code>tools/list</code> 协议让运行时挂载变得容易，但&quot;能挂&quot;不等于&quot;该挂&quot;。</p>
+<h3 id="section-18">MCP vs Claude Skills：连接性 vs 方法论</h3>
+<p>Anthropic 在 2025 年 10 月推出了 <strong>Claude Skills</strong>——这是一种与 MCP 互补但<strong>架构哲学完全不同</strong>的扩展机制。理解两者关系是 2025-2026 年 Agent 工程师的高频面试点。</p>
+<p><strong>核心区别：what vs how</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>厨师类比：
+  MCP   = 食材 + 高端厨具（提供能力）
+  Skill = 菜谱（教如何使用这些能力）
+
+技术定义：
+  MCP   = 连接层（Connectivity）—— 让 Claude 能访问外部工具/数据
+  Skill = 程序性知识层（Procedural Knowledge）—— 教 Claude 如何完成特定任务
+</code></pre></details>
+<p><strong>Skill 的形态</strong>：一个文件夹，包含 <code>SKILL.md</code>（指令）、可选脚本和资源。例如：</p>
+<ul>
+<li>团队的 Git commit message 规范</li>
+<li>公司品牌的 PPT 生成流程</li>
+<li>一套数据校验工作流</li>
+</ul>
+<p><strong>Progressive Disclosure：Skill 的关键创新</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Skill 三层加载（按需）：
+  Level 1：metadata（~100 tokens）—— 启动时仅加载 name + description
+  Level 2：SKILL.md 完整指令（&lt;5k tokens）—— 判定相关时才加载
+  Level 3：脚本/资源文件 —— 执行时才加载
+
+MCP 的加载模式（启动即加载）：
+  所有工具的完整 schema 在 initialize 时就进入 context
+  → 实测：连接 2-3 个 MCP Server 后，工具调用准确率显著下降
+  → 大型企业 MCP Server 经常占用整个 context window，导致 hallucination
+</code></pre></details>
+<p><strong>对比表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>MCP</th>
+<th>Claude Skills</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>解决的问题</td>
+<td>跨应用的工具集成（连接）</td>
+<td>同一任务的一致性执行（方法）</td>
+</tr>
+<tr>
+<td>加载策略</td>
+<td>启动时全量加载</td>
+<td>渐进式按需加载</td>
+</tr>
+<tr>
+<td>Token 成本</td>
+<td>每个会话固定开销</td>
+<td>用多少付多少</td>
+</tr>
+<tr>
+<td>分发方式</td>
+<td>远程 MCP Server（网络可达）</td>
+<td>本地 zip 包（占用本地空间）</td>
+</tr>
+<tr>
+<td>工具发现</td>
+<td>运行时 <code>tools/list</code> 协议</td>
+<td>文件系统扫描 metadata</td>
+</tr>
+<tr>
+<td>跨平台</td>
+<td>标准开放，OpenAI/Google 都支持</td>
+<td>Anthropic 特有</td>
+</tr>
+<tr>
+<td>适合场景</td>
+<td>数据库、SaaS、IDE、Git 等外部系统</td>
+<td>团队规范、文档模板、固定工作流</td>
+</tr>
+</tbody></table>
+<p><strong>两者协同（Anthropic 官方推荐模式）：</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 真实场景：用 Claude 处理客户工单
+# MCP 提供连接：从 Zendesk 拉工单、写回 Salesforce
+mcp_servers = [&quot;zendesk-mcp&quot;, &quot;salesforce-mcp&quot;]
+
+# Skill 提供方法：教 Claude 如何分类工单、如何措辞回复
+skills = [
+    &quot;ticket-triage-workflow.skill&quot;,   # 分类规则 + 优先级标准
+    &quot;customer-reply-template.skill&quot;,  # 公司标准措辞模板
+]
+# MCP 给 Claude &quot;做什么的能力&quot;，Skill 给 Claude &quot;怎么做的指南&quot;
+</code></pre></details>
+<p><strong>为什么 Skills 不能用 MCP 实现？</strong> 把 Skill 包装成 MCP Server 在技术上可行，但会<strong>破坏 Skill 的核心价值</strong>——progressive disclosion 失效（MCP 协议要求 schema 全量返回），并引入额外的 RPC 开销，还原回了 MCP 的 token 浪费问题。两者是<strong>正交</strong>的设计，不应合并。</p>
+<h3 id="section-19">MCP 实际使用中的问题与解决</h3>
+<p>MCP 在生产环境中面临一系列实际挑战，以下是高频问题和对应的解决思路。</p>
+<h4 id="section-20">问题 1：Token 膨胀</h4>
+<p>这是 MCP 最突出的问题。工具定义本身会消耗大量 context 空间：</p>
+<p><strong>实际 Token 消耗：</strong></p>
+<table>
+<thead>
+<tr>
+<th>MCP Server</th>
+<th>工具数量</th>
+<th>Token 消耗</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Linear</td>
+<td>23</td>
+<td>~12,935</td>
+</tr>
+<tr>
+<td>JetBrains</td>
+<td>20</td>
+<td>~12,252</td>
+</tr>
+<tr>
+<td>Playwright</td>
+<td>21</td>
+<td>~9,804</td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td>15</td>
+<td>~8,500</td>
+</tr>
+<tr>
+<td><strong>总计（4个Server）</strong></td>
+<td>~79</td>
+<td>~43,991 tokens</td>
+</tr>
+</tbody></table>
+<p>→ 占 Claude 200k context 的 ~22%！</p>
+<p><strong>Code Execution 模式</strong>是最有效的解决方案——将工具暴露为代码 API 而非独立 tool schema，token 消耗可从 ~150k 降至 ~2k（节省 98%+）。此外还有<strong>渐进式披露</strong>（根据当前任务只加载最相关的工具）和<strong>最小化 Schema</strong>（去掉冗余描述，只保留核心信息）。</p>
+<h4 id="section-21">问题 2：中间结果消耗 Context</h4>
+<p>工具调用的中间结果全部通过 model context，可能产生巨大开销：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>场景：从 Google Drive 取会议记录后更新 Salesforce
+传统模式：50,000 tokens 的会议记录 → 全部进入 context
+Code Execution 模式：中间结果在执行环境内处理 → LLM 只看执行日志 ~500 tokens
+节省：99%
+</code></pre></details>
+<p><strong>官方侧的补丁方向（2026-09）</strong>：Claude Agent SDK（TypeScript）v0.3.257 新增 MCP 文件引用通道——工具结果可携带 <code>resourceLinks</code> 结构化资源引用（<code>task_notification.resource_links</code> 按 <code>tool_use_id</code> 关联），文件类产物不再以文本形式灌进 context，宿主按需取用。与 Code Execution 模式是同一问题的两条解法路线：一个把处理移出 context，一个把大结果替换成引用。</p>
+<h4 id="section-22">问题 3：工具选择混乱</h4>
+<p>工具超过 10-15 个时，LLM 选对工具的概率急剧下降。解决方案：使用<strong>语义路由</strong>（根据意图动态注入相关工具）、<strong>子代理分工</strong>（每个子代理只访问特定领域工具）、以及<strong>工具层次结构</strong>（先选类别再选具体工具）。</p>
+<h4 id="section-23">问题 4：MCP Server 设计反模式</h4>
+<p>最常见的错误是直接将 REST API 1:1 包装为工具，未针对 Agent 工作流优化。正确做法是<strong>意图驱动</strong>设计：每个工具对应一个 Agent 常见意图，将多步 API 调用隐藏在单个工具后。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 反模式：直接包装 API
+{&quot;name&quot;: &quot;api_get&quot;, &quot;description&quot;: &quot;Call REST API&quot;}  # 太宽泛
+
+# 正确：意图驱动
+{&quot;name&quot;: &quot;find_active_users&quot;, &quot;description&quot;: &quot;查找活跃用户，可按部门筛选&quot;}
+</code></pre></details>
+<h4 id="section-24">问题 5：调试困难</h4>
+<p>MCP 的 JSON-RPC over stdio 是黑盒。可以使用 <code>npx @modelcontextprotocol/inspector</code> 查看工具列表和测试调用，或自建 token 追踪中间件监控每次 tools/list 和 tools/call 的开销。</p>
+<h4 id="section-25">问题 6：安全隐患</h4>
+<p>三大风险：(1) <strong>敏感数据泄露</strong>——中间结果默认进入 context，需要数据脱敏；(2) <strong>Tool Poisoning</strong>——恶意 MCP Server 注册伪装工具，需要 Server 签名验证和工具白名单；(3) <strong>权限控制不足</strong>——MCP 协议不强制权限验证，需要服务端自行实现访问控制和沙箱隔离。</p>
+<h2 id="section-26">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;MCP 是 Anthropic 的私有协议&quot;</strong> — MCP 是完全开源的标准，由 Anthropic 主导，OpenAI / Google DeepMind / Microsoft 共同参与治理（MCP Steering Committee）。它不绑定任何特定模型或平台。</p>
+</li>
+<li><p><strong>误区：&quot;MCP 替代了 Function Calling&quot;</strong> — 两者互补而非替代。MCP 标准化了工具的定义和发现方式，Function Calling 是 LLM 调用工具的底层机制。MCP Server 暴露工具，LLM 通过 Function Calling 机制调用它们。</p>
+</li>
+<li><p><strong>追问：&quot;MCP 的安全隐患是什么？&quot;</strong> — 主要风险包括：Tool Poisoning（恶意 Server 注册伪装工具）、Prompt Injection 通过工具结果注入、凭证通过 MCP 通道泄露。防御方法包括 Server 签名验证、工具白名单、输出清洗。</p>
+</li>
+<li><p><strong>追问：&quot;MCP 如何处理认证？&quot;</strong> — 协议规范层不强制定义认证（它是传输层协议），认证通常在 MCP Server 内部处理——Server 持有 API 密钥并负责与外部服务的认证，Agent 不直接接触凭证。但生产级远程实现普遍采用 OAuth 2.1（见上文『MCP 生产化』小节的认证授权部分）。</p>
+</li>
+<li><p><strong>追问：&quot;MCP 的 Token 膨胀问题如何解决？&quot;</strong> — 三种策略：最有效的是 Code Execution 模式（将工具暴露为代码 API，token 从 ~150k 降至 ~2k）；其次是渐进式披露（按需加载相关工具）和最小化 Schema（精简描述）。</p>
+</li>
+<li><p><strong>追问：&quot;MCP 最大的安全风险是什么？&quot;</strong> — Tool Poisoning：恶意 MCP Server 注册看似有用但实际执行恶意操作的工具。防御手段：Server 签名验证（只加载可信来源）、工具白名单（限制可调用工具集）、沙箱隔离（Server 运行在受限容器中）。</p>
+</li>
+<li><p><strong>追问：&quot;Skill 和 MCP 是什么关系？什么时候用哪个？&quot;</strong> — 一句话区分：<strong>MCP 是连接（what），Skill 是方法（how）</strong>。需要 Claude <strong>访问外部系统</strong>（数据库、Slack、GitHub、内部 API）→ MCP；需要 Claude <strong>以特定方式完成某项任务</strong>（团队代码规范、文档模板、固定工作流）→ Skill。两者最强的组合是协同使用：MCP 提供原始能力，Skill 提供使用这些能力的标准操作流程。Skill 的 progressive disclosure（按需加载）解决了 MCP 启动即全量加载导致的 context 膨胀和工具调用准确率下降问题——实测连接 2-3 个 MCP Server 后准确率就开始明显下降，而 Skills 可以挂载几十个而几乎不占 context。</p>
+</li>
+<li><p><strong>追问：&quot;Subagent 和 Skill 又有什么区别？&quot;</strong> — Subagent 是<strong>独立的 Agent 进程</strong>（有自己的 context、工具、模型），主 Agent 通过任务委派调用它，常用于隔离 context 或并行任务；Skill 是<strong>注入主 Agent 的程序性指令</strong>，不开新进程，只是按需加载到当前 context。简单说：Subagent = 派一个新员工去办，Skill = 给当前员工看一份操作手册。</p>
+</li>
+</ol>
+<h2 id="section-27">参考资料</h2>
+<ul>
+<li><a href="https://modelcontextprotocol.io/specification/2025-11-25">Model Context Protocol Specification</a></li>
+<li><a href="https://www.ibm.com/think/topics/model-context-protocol">What is Model Context Protocol (MCP)? (IBM)</a></li>
+<li><a href="https://www.anthropic.com/news/model-context-protocol">Introducing the Model Context Protocol (Anthropic)</a></li>
+<li><a href="https://stytch.com/blog/model-context-protocol-introduction/">Model Context Protocol Introduction for Developers (Stytch)</a></li>
+<li><a href="https://www.itential.com/blog/company/itential-mcp/mcp-101-understanding-the-model-context-protocol/">MCP 101: Understanding the Model Context Protocol (Itential)</a></li>
+<li><a href="https://intuitionlabs.ai/articles/claude-skills-vs-mcp">Claude Skills vs. MCP: A Technical Comparison (IntuitionLabs)</a></li>
+<li><a href="https://subramanya.ai/2025/10/30/claude-skills-vs-mcp-a-tale-of-two-ai-customization-philosophies/">Claude Skills vs. MCP: Two AI Customization Philosophies (Subramanya N, 2025-10)</a></li>
+<li><a href="https://claude.com/blog/skills-explained">Skills explained: How Skills compares to prompts, Projects, MCP, and subagents (Anthropic)</a></li>
+<li><a href="https://www.mcpjam.com/blog/claude-agent-skills">Progressive Disclosure Might Replace MCP (MCPJam)</a></li>
+<li><a href="https://github.com/anthropics/claude-agent-sdk-typescript/releases">Claude Agent SDK (TypeScript) Releases</a> — v0.3.257 MCP 文件引用通道（<code>tool_use_result.resourceLinks</code>）</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">MCP 解决什么问题？</a></li><li class="toc-level-3"><a href="#section-4">MCP 的三层架构</a></li><li class="toc-level-3"><a href="#section-5">三种核心能力</a></li><li class="toc-level-3"><a href="#section-6">通信协议</a></li><li class="toc-level-3"><a href="#section-7">动态工具发现</a></li><li class="toc-level-3"><a href="#section-8">MCP vs Function Calling</a></li><li class="toc-level-3"><a href="#section-9">实际使用示例</a></li><li class="toc-level-3"><a href="#section-10">生态现状</a></li><li class="toc-level-3"><a href="#section-11">MCP 生产化：从协议到生产级工具生态</a></li><li class="toc-level-4"><a href="#section-12">生态规模与采用</a></li><li class="toc-level-4"><a href="#section-13">生产部署模式：从本地 stdio 到远程托管</a></li><li class="toc-level-4"><a href="#section-14">认证授权：OAuth 2.1</a></li><li class="toc-level-4"><a href="#section-15">版本管理</a></li><li class="toc-level-4"><a href="#section-16">安全沙箱与治理</a></li><li class="toc-level-4"><a href="#section-17">Server 选型清单</a></li><li class="toc-level-3"><a href="#section-18">MCP vs Claude Skills：连接性 vs 方法论</a></li><li class="toc-level-3"><a href="#section-19">MCP 实际使用中的问题与解决</a></li><li class="toc-level-4"><a href="#section-20">问题 1：Token 膨胀</a></li><li class="toc-level-4"><a href="#section-21">问题 2：中间结果消耗 Context</a></li><li class="toc-level-4"><a href="#section-22">问题 3：工具选择混乱</a></li><li class="toc-level-4"><a href="#section-23">问题 4：MCP Server 设计反模式</a></li><li class="toc-level-4"><a href="#section-24">问题 5：调试困难</a></li><li class="toc-level-4"><a href="#section-25">问题 6：安全隐患</a></li><li class="toc-level-2"><a href="#section-26">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-27">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="023.html" class="nav-card"><span>上一章</span><strong>← 如何处理工具调用失败和超时？</strong></a><a href="025.html" class="nav-card next"><span>下一章</span><strong>并行工具调用 vs 顺序工具调用的设计考量 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

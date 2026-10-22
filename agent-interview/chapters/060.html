@@ -1,0 +1,232 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link active" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">提示工程 · 第 068 题</div><h1>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</h1><blockquote>
+<p>难度：高级
+分类：Prompt Engineering</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>跨模型 Prompt 迁移（Cross-Model Prompt Portability）是指让同一个 Prompt 在不同 LLM（GPT-4、Claude、Gemini、Llama 等）上都能有效工作的能力。现实中 Prompt 高度模型特异——为 GPT-4 精心调优的 Prompt 迁移到 Claude 可能效果骤降。核心挑战包括：(1) <strong>Tokenization 差异</strong>——不同模型的分词方式不同；(2) <strong>指令偏好差异</strong>——有的模型偏好详细指令，有的偏好简洁指令；(3) <strong>格式偏好差异</strong>——有的偏好 JSON，有的偏好 XML；(4) <strong>能力边界差异</strong>——推理能力、上下文长度、多语言能力不同。解决方案包括：编写<strong>模型无关的核心 Prompt</strong> + <strong>模型特定的适配层</strong>，或使用 <strong>PromptBridge</strong> 等自动化迁移工具。<strong>PromptBridge</strong>（arXiv:2512.01420，2025）提出 Model-Adaptive Reflective Prompt Evolution + 跨模型映射的训练自由（training-free）迁移框架——无需对源/目标模型做参数微调，只用反思式 Prompt 演化在多 Agent 场景中自动完成跨模型适配。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">为什么 Prompt 不可移植？</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 同一个 Prompt，不同模型的表现差异
+portability_challenges = {
+    &quot;格式偏好&quot;: {
+        &quot;GPT-4&quot;: &quot;偏好 JSON 格式的工具参数&quot;,
+        &quot;Claude&quot;: &quot;偏好 XML 标签分隔结构&quot;,
+        &quot;Gemini&quot;: &quot;对 Markdown 结构响应最好&quot;,
+        &quot;Llama&quot;: &quot;对简洁直接的指令响应最好&quot;,
+    },
+    &quot;指令理解&quot;: {
+        &quot;问题&quot;: &quot;同一句指令，不同模型的理解方式不同&quot;,
+        &quot;示例&quot;: &quot;&#39;简洁回答&#39; → GPT-4 输出 2-3 句话，&quot;
+                &quot;Claude 输出 1 段话，Llama 可能输出 1 个词&quot;,
+    },
+    &quot;CoT 行为&quot;: {
+        &quot;问题&quot;: &quot;有的模型自带 CoT，有的需要显式提示&quot;,
+        &quot;示例&quot;: &quot;o1/o3 自动思考，GPT-4 需要 &#39;Let&#39;s think step by step&#39;&quot;,
+    },
+    &quot;安全边界&quot;: {
+        &quot;问题&quot;: &quot;不同模型的安全过滤阈值不同&quot;,
+        &quot;示例&quot;: &quot;Claude 拒绝的请求 GPT-4 可能回答（反之亦然）&quot;,
+    },
+}
+</code></pre></details>
+<h3 id="section-4">模型无关的 Prompt 设计原则</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">model_agnostic_principles = {
+    &quot;使用清晰的自然语言&quot;: {
+        &quot;原则&quot;: &quot;避免依赖特定模型的&#39;魔法短语&#39;&quot;,
+        &quot;❌&quot;: &quot;Let&#39;s think step by step（只对特定模型有效）&quot;,
+        &quot;✓&quot;: &quot;请分步骤分析这个问题，每步列出推理过程&quot;,
+    },
+    &quot;显式化所有期望&quot;: {
+        &quot;原则&quot;: &quot;不依赖模型的默认行为&quot;,
+        &quot;❌&quot;: &quot;回答这个问题（依赖模型自己决定格式和长度）&quot;,
+        &quot;✓&quot;: &quot;用 2-3 句话回答这个问题，使用中文，不加标题&quot;,
+    },
+    &quot;结构化分隔&quot;: {
+        &quot;原则&quot;: &quot;用通用分隔符而非模型特定标签&quot;,
+        &quot;✓ 通用&quot;: &quot;--- 分隔线、Markdown 标题、编号列表&quot;,
+        &quot;⚠ 特定&quot;: &quot;&lt;thinking&gt; 标签（Claude 特有）&quot;,
+    },
+    &quot;避免极端依赖&quot;: {
+        &quot;原则&quot;: &quot;不依赖最大上下文长度或特定能力&quot;,
+        &quot;✓&quot;: &quot;Prompt 长度控制在 2000 token 以内（所有模型都支持）&quot;,
+    },
+}
+</code></pre></details>
+<h3 id="section-5">适配层架构</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class PromptAdapter:
+    &quot;&quot;&quot;核心 Prompt + 模型特定适配层&quot;&quot;&quot;
+
+    def __init__(self):
+        # 核心 Prompt（模型无关）
+        self.core_prompts = {
+            &quot;customer_service&quot;: &quot;&quot;&quot;
+            你是客服助手。
+            职责：回答产品问题、处理退款、查询订单。
+            规则：
+            1. 使用友好专业的语言
+            2. 不确定时建议联系人工
+            3. 退款超过 500 元转人工
+
+            用户消息：{user_input}
+            &quot;&quot;&quot;,
+        }
+
+        # 模型特定适配
+        self.model_adapters = {
+            &quot;gpt-4&quot;: {
+                &quot;wrapper&quot;: &quot;以 JSON 格式输出你的回复：\n&quot;
+                           &#39;{{&quot;response&quot;: &quot;...&quot;, &quot;action&quot;: &quot;...&quot;}}\n&#39;,
+                &quot;system_role&quot;: &quot;system&quot;,
+                &quot;temperature&quot;: 0.7,
+            },
+            &quot;claude&quot;: {
+                &quot;wrapper&quot;: &quot;请在 &lt;response&gt; 标签中输出回复，&quot;
+                           &quot;在 &lt;action&gt; 标签中输出操作。\n&quot;,
+                &quot;system_role&quot;: &quot;system&quot;,  # Claude 也支持 system
+                &quot;temperature&quot;: 0.7,
+            },
+            &quot;llama&quot;: {
+                &quot;wrapper&quot;: &quot;回复格式：\n回复：...\n操作：...\n&quot;,
+                &quot;system_role&quot;: &quot;system&quot;,
+                &quot;temperature&quot;: 0.6,  # 开源模型可能需要更低温度
+            },
+        }
+
+    def get_prompt(self, prompt_id, model, **kwargs):
+        core = self.core_prompts[prompt_id]
+        adapter = self.model_adapters.get(model, self.model_adapters[&quot;gpt-4&quot;])
+
+        # 组合核心 Prompt 和适配层
+        full_prompt = core.format(**kwargs) + &quot;\n&quot; + adapter[&quot;wrapper&quot;]
+        return full_prompt, adapter
+</code></pre></details>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    C[&quot;核心 Prompt（模型无关）&lt;br/&gt;任务 / 规则 / 风格&quot;]
+    subgraph ADP[&quot;模型适配层：新增模型只需加一个适配器&quot;]
+        A1[&quot;GPT-4 适配&lt;br/&gt;JSON 输出 wrapper&quot;]
+        A2[&quot;Claude 适配&lt;br/&gt;XML 标签 wrapper&quot;]
+        A3[&quot;Llama 适配&lt;br/&gt;简洁格式 / 低温度&quot;]
+    end
+    C --&gt; A1
+    C --&gt; A2
+    C --&gt; A3
+    A1 --&gt; M1[&quot;GPT-4&quot;]
+    A2 --&gt; M2[&quot;Claude&quot;]
+    A3 --&gt; M3[&quot;Llama&quot;]
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef neutral fill:#eceff1,stroke:#546e7a,color:#37474f
+    class C,A1,A2,A3 proc
+    class M1,M2,M3 neutral
+</div></figure>
+<p><em>可移植 Prompt = 模型无关的核心层 + 每模型一个适配层，换模型只加适配器不动核心。</em></p>
+<h3 id="section-6">PromptBridge：自动化迁移</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class PromptBridge:
+    &quot;&quot;&quot;自动将 Prompt 从一个模型迁移到另一个模型&quot;&quot;&quot;
+
+    async def migrate(self, prompt, source_model, target_model, eval_set):
+        # Step 1: 分析源 Prompt 的意图和结构
+        analysis = await self.analyze_prompt(prompt, source_model)
+
+        # Step 2: 生成目标模型的候选适配
+        candidates = await self.generate_adaptations(
+            prompt=prompt,
+            analysis=analysis,
+            target_model=target_model,
+            k=5
+        )
+
+        # Step 3: 在验证集上评估
+        best_candidate = None
+        best_score = 0
+        for candidate in candidates:
+            score = await self.evaluate(candidate, target_model, eval_set)
+            if score &gt; best_score:
+                best_score = score
+                best_candidate = candidate
+
+        return best_candidate
+
+    async def analyze_prompt(self, prompt, model):
+        &quot;&quot;&quot;分析 Prompt 的核心意图（模型无关的表达）&quot;&quot;&quot;
+        return await self.analyzer_llm.invoke(f&quot;&quot;&quot;
+        分析以下针对 {model} 的 Prompt：
+        {prompt}
+
+        提取：
+        1. 核心任务意图
+        2. 输出格式要求
+        3. 约束和规则
+        4. 模型特定的技巧（如果有）
+        5. 可以通用化的部分
+        &quot;&quot;&quot;)
+</code></pre></details>
+<h3 id="section-7">迁移清单</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">migration_checklist = {
+    &quot;格式迁移&quot;: [
+        &quot;JSON ↔ XML ↔ Markdown 格式转换&quot;,
+        &quot;特定标签替换（&lt;thinking&gt; → 通用的&#39;推理过程&#39;）&quot;,
+        &quot;函数调用格式适配&quot;,
+    ],
+    &quot;指令迁移&quot;: [
+        &quot;调整详细程度（有的模型需要更详细/简洁的指令）&quot;,
+        &quot;添加/移除 CoT 提示&quot;,
+        &quot;调整 Few-shot 示例的数量和格式&quot;,
+    ],
+    &quot;参数迁移&quot;: [
+        &quot;Temperature 调整&quot;,
+        &quot;Max tokens 适配&quot;,
+        &quot;Stop sequences 更新&quot;,
+    ],
+    &quot;验证&quot;: [
+        &quot;在标准测试集上对比新旧模型的表现&quot;,
+        &quot;检查边界情况（极长输入、特殊字符、多语言）&quot;,
+        &quot;安全测试（Prompt Injection 防御是否有效）&quot;,
+    ],
+}
+</code></pre></details>
+<h3 id="section-8">多模型 Agent 系统</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class MultiModelAgent:
+    &quot;&quot;&quot;支持多模型的 Agent 系统&quot;&quot;&quot;
+
+    def __init__(self):
+        self.models = {
+            &quot;planning&quot;: &quot;claude-opus-4-5&quot;,       # 规划用强模型
+            &quot;execution&quot;: &quot;gpt-4o-mini&quot;,          # 执行用快模型
+            &quot;evaluation&quot;: &quot;claude-sonnet-4-5&quot;,   # 评估用中等模型
+        }
+        self.adapter = PromptAdapter()
+
+    async def run(self, task):
+        # 每个阶段使用不同模型，Prompt 自动适配
+        plan_prompt = self.adapter.get_prompt(
+            &quot;planning&quot;, model=self.models[&quot;planning&quot;], task=task
+        )
+        plan = await self.call(self.models[&quot;planning&quot;], plan_prompt)
+
+        exec_prompt = self.adapter.get_prompt(
+            &quot;execution&quot;, model=self.models[&quot;execution&quot;], plan=plan
+        )
+        result = await self.call(self.models[&quot;execution&quot;], exec_prompt)
+
+        return result
+</code></pre></details>
+<h2 id="section-9">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;好的 Prompt 在所有模型上都好用&quot;</strong> — 研究表明，为一个模型优化的 Prompt 迁移到另一个模型时，性能平均下降 10-30%。尤其是利用了模型特定行为的 Prompt（如 Claude 的 XML 标签、GPT 的 JSON mode），迁移后几乎必然失效。</p>
+</li>
+<li><p><strong>误区：&quot;只需要换 API endpoint 就能切换模型&quot;</strong> — API 格式只是表层差异。深层差异包括：模型对指令的理解方式、默认行为、安全边界、以及推理风格。真正的模型切换需要 Prompt 适配 + 验证测试。</p>
+</li>
+<li><p><strong>追问：&quot;为什么企业需要多模型支持？&quot;</strong> — 三个原因：(1) 避免供应商锁定——单一供应商的 API 中断会导致业务停滞；(2) 成本优化——不同任务用不同价位的模型；(3) 性能优化——某些任务在特定模型上效果更好。</p>
+</li>
+<li><p><strong>追问：&quot;如何在不手动迁移的情况下支持新模型？&quot;</strong> — 核心 Prompt + 适配层架构。核心 Prompt 用模型无关的自然语言编写，适配层处理格式和参数差异。新模型只需添加新的适配层。PromptBridge 等工具可以自动化这个过程。</p>
+</li>
+</ol>
+<h2 id="section-10">参考资料</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2512.01420">PromptBridge: Cross-Model Prompt Transfer for LLMs (arXiv)</a></li>
+<li><a href="https://medium.com/@connect.hashblock/model-agnostic-prompts-port-without-rewrites-fb1144267bb6">Model-Agnostic Prompts: Port Without Rewrites (Medium)</a></li>
+<li><a href="https://blog.promptlayer.com/model-agnostic/">Model Agnostic Prompts: Future-Proof AI Applications (PromptLayer)</a></li>
+<li><a href="https://blog.qolaba.ai/prompt-engineering-by-qolaba/cross-model-prompting-adapting-techniques-for-different-ai-systems/">Cross-Model Prompting: Adapting Techniques for Different AI Systems (Qolaba)</a></li>
+<li><a href="https://dzone.com/articles/key-considerations-in-cross-model-migration">Key Considerations in Cross-Model Migration (DZone)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">为什么 Prompt 不可移植？</a></li><li class="toc-level-3"><a href="#section-4">模型无关的 Prompt 设计原则</a></li><li class="toc-level-3"><a href="#section-5">适配层架构</a></li><li class="toc-level-3"><a href="#section-6">PromptBridge：自动化迁移</a></li><li class="toc-level-3"><a href="#section-7">迁移清单</a></li><li class="toc-level-3"><a href="#section-8">多模型 Agent 系统</a></li><li class="toc-level-2"><a href="#section-9">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-10">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="059.html" class="nav-card"><span>上一章</span><strong>← Prompt 版本管理与 A/B 测试</strong></a><a href="061.html" class="nav-card next"><span>下一章</span><strong>评估方法论：从 LLM 评估到 Agent 评估 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

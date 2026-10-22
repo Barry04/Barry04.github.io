@@ -1,0 +1,542 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link active" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">生产部署 · 第 112 题</div><h1>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</h1><blockquote>
+<p><strong>难度</strong>：中级
+🆕 2026 新增（Harness 主题）
+分类：Production &amp; Deployment</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Agent Sandbox / Runtime 选型是 Production 团队 2025-2026 最绕不开的工程决策。<strong>隔离强度三档分明</strong>：Firecracker microVM（KVM 硬件级，~125ms 启动，E2B 与 Vercel Sandbox 选它）&gt; Kata Containers / gVisor（用户态内核 Sentry，1-5s，Modal 选它）&gt; 普通 Container（共享 host kernel，Daytona/Cloudflare Containers 默认）/ V8 Isolate（毫秒级但跑不了 numpy）。<strong>计费精度普遍 per-second</strong>，Cloudflare 在 <strong>2025-11-21</strong> 进一步把 Container 计费从&quot;按 provisioned CPU&quot;改成&quot;按 active CPU&quot;，agent 突发型负载因此降本数倍。</p>
+<p><strong>网络 Egress 是沙箱最容易出 CVE 的边界</strong>：<strong>CVE-2025-66479</strong>（Claude Code BashTool &quot;空白 allowlist 等于全放行&quot;）与 <strong>SOCKS5 null-byte 注入</strong>（影响 Claude Code v2.0.24 – v2.1.89，<code>attacker-host.com\x00.google.com</code> 让 <code>endsWith(&quot;.google.com&quot;)</code> 命中）是 2025-2026 两个标志性 parser-differential 漏洞，证明<strong>单层 allowlist 永远不够</strong>。业界已收敛的最佳实践是 <strong>default-deny + 三层独立防御</strong>（env 隔离 + DNS 限制 + iptables）+ 拦截 169.254.169.254 IMDS + 连接时验 IP + 凭证不下放（Cloudflare Outbound Workers / Anthropic Managed Agents 同款 token broker 模式）。<strong>多 Agent 并行 harness 设计</strong>正在收敛：Anthropic Managed Agents 的演进路径&quot;先单 container 全揽 → 拆 harness + sandbox 双进程 + 标准 <code>provision({resources})</code> 接口&quot;已成行业典型范式。</p>
+<p><strong>Cheat Sheet</strong>：</p>
+<ul>
+<li><strong>隔离三档</strong>：Firecracker（硬件级 KVM）&gt; gVisor / Kata（用户态内核）&gt; Container / V8 Isolate（共享 kernel）</li>
+<li><strong>Cold start</strong>：V8 Isolate ms / Firecracker warm 78-200ms / gVisor 1-5s / VM 分钟级</li>
+<li><strong>计费精度</strong>：per-second 已是行业默认（E2B / Daytona / Modal / Cloudflare），Cloudflare 2025-11 active-CPU 让 agent 突发场景降本</li>
+<li><strong>真实 CVE</strong>：CVE-2025-66479 空白 allowlist + SOCKS5 null-byte（v2.0.24-v2.1.89）</li>
+<li><strong>Egress 三层防御</strong>：default-deny + env/DNS/iptables 独立 + 拦 169.254.169.254 + 连接时验 IP + token broker</li>
+<li><strong>Harness 范式</strong>：harness + sandbox 解耦，<code>provision({resources})</code> 标准接口替换 sandbox 实现</li>
+</ul>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">产品矩阵速览（七大目标横向对比）</h3>
+<blockquote>
+<p>价格/参数截至 2026-05，详见各厂商官方文档</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>产品</th>
+<th>定位</th>
+<th>隔离原语</th>
+<th>Cold Start (p50)</th>
+<th>计费精度</th>
+<th>文件持久化</th>
+<th>Egress 控制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>E2B</strong></td>
+<td>Code Interpreter SDK，企业级&quot;AI Agent Cloud&quot;</td>
+<td>Firecracker microVM (KVM 硬件隔离)</td>
+<td>78–200 ms</td>
+<td>$0.000014/vCPU/s</td>
+<td>FS + 进程快照，最长 24h 会话</td>
+<td>无内置 allowlist</td>
+</tr>
+<tr>
+<td><strong>Daytona</strong></td>
+<td>持久化 Workspace + Sandbox（2025-02 从 Dev Env 转型）</td>
+<td>Docker container（可选 Kata/Sysbox 升级到 microVM）</td>
+<td>27–90 ms（warm pool）</td>
+<td>$0.0504/vCPU·h (≈ $0.000014/s)</td>
+<td>FS snapshot + Sessions（背景进程）</td>
+<td>网络仍在演进</td>
+</tr>
+<tr>
+<td><strong>Modal Sandboxes</strong></td>
+<td>Serverless Python 平台子产品，GPU 强项</td>
+<td>gVisor（用户态内核 Sentry）</td>
+<td>1–5 s（CPU），含 cold</td>
+<td>$0.0000394/core/s</td>
+<td>Memory snapshots（早期预览）</td>
+<td>tunneling + granular egress 策略</td>
+</tr>
+<tr>
+<td><strong>container-use (Dagger)</strong></td>
+<td>本地 MCP Server，Git worktree + Docker</td>
+<td>Docker container + Git worktree</td>
+<td>本地启动，秒级</td>
+<td>免费（自托管）</td>
+<td>Git branch 永续保存全部 state</td>
+<td>由 Docker 网络策略决定</td>
+</tr>
+<tr>
+<td><strong>Browserbase</strong></td>
+<td>浏览器沙箱（headless browser as a service）</td>
+<td>隔离云 VM + pre-warmed snapshot 每 30 min 刷新</td>
+<td>5–10 s（首次 session）</td>
+<td>$0.10–0.12/h 超额</td>
+<td>30 min idle 即销毁，需显式 snapshot</td>
+<td>CDP over network</td>
+</tr>
+<tr>
+<td><strong>Cloudflare Sandbox</strong></td>
+<td>Workers Containers + Dynamic Workers 双层</td>
+<td>Container (GA) / V8 Isolate (Dynamic Worker beta)</td>
+<td>毫秒级(isolate)/亚秒(container)</td>
+<td>$0.00002/vCPU·s + memory（<strong>2025-11 改 active CPU</strong>）</td>
+<td>Durable Object 维持，需挂 R2/S3 跨生命周期</td>
+<td><strong>Outbound Workers</strong> 注入凭证，agent 不接触明文</td>
+</tr>
+<tr>
+<td><strong>WebContainer</strong></td>
+<td>浏览器内 Node.js 运行时（Bolt.new 底座）</td>
+<td>WASM + 浏览器 SecurityContext（无服务端）</td>
+<td>浏览器内瞬时启动</td>
+<td>免费 OSS / 商用按 seat</td>
+<td>内存内 ephemeral FS</td>
+<td>ServiceWorker 虚拟 TCP，origin/CSP 控制</td>
+</tr>
+</tbody></table>
+<h3 id="section-4">隔离原语三档：Firecracker &gt; Kata / gVisor &gt; Container / V8 Isolate</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>                  逃逸难度 / 隔离强度
+                         ▲
+  Firecracker microVM    │  ★★★★★   AWS Lambda 底座、E2B、Vercel Sandbox
+   (KVM + 独立 kernel)   │           需先击穿 Intel VT-x / AMD-V
+                         │           ~5 MB/instance、~125ms 启动
+                         │
+  Kata Containers        │  ★★★★    Daytona &quot;升级选项&quot;
+   (microVM + OCI)       │           OCI 兼容 microVM
+                         │
+  gVisor                 │  ★★★     Modal Sandboxes 标配
+   (用户态 Sentry 内核)   │           ~50k 行 Go、syscall 拦截
+                         │           只实现 ~70-80% Linux syscall
+                         │
+  Docker container       │  ★★      Daytona/container-use/Cloudflare 默认
+   (共享 host kernel)    │           延迟最低、安全最弱
+                         │
+  V8 Isolate             │  ★       Cloudflare Workers
+   (V8 sandbox)          │           毫秒级、跑不了 numpy（无原生 syscall）
+                         ▼
+</code></pre></details>
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>隔离机制</th>
+<th>启动</th>
+<th>关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Firecracker</strong></td>
+<td>KVM 硬件级 microVM，独立 Linux kernel，~50k 行 Rust</td>
+<td>~125ms</td>
+<td>需 KVM 支持；5MB/instance 内存开销</td>
+</tr>
+<tr>
+<td><strong>gVisor</strong></td>
+<td>用户态 Sentry 拦截 syscall（Go 写）</td>
+<td>1-5s</td>
+<td>兼容性 + 中等启动；只实现 ~70-80% Linux syscall（FUSE、io_uring 不支持）</td>
+</tr>
+<tr>
+<td><strong>Kata Containers</strong></td>
+<td>microVM + OCI 兼容</td>
+<td>秒级</td>
+<td>Daytona &quot;升级选项&quot;</td>
+</tr>
+<tr>
+<td><strong>Docker container</strong></td>
+<td>共享 host kernel、namespace + cgroup</td>
+<td>&lt;1s</td>
+<td>内核漏洞 = 多租户灾难</td>
+</tr>
+<tr>
+<td><strong>V8 Isolate</strong></td>
+<td>V8 引擎沙箱</td>
+<td>ms</td>
+<td>只能跑 JS/WASM；跑不了 numpy 等需原生 syscall 的库</td>
+</tr>
+</tbody></table>
+<p><strong>面试评判要点</strong>：候选人应能区分&quot;软件隔离&quot;（gVisor）与&quot;硬件隔离&quot;（Firecracker / Kata），并说出 <strong>Lambda 用 Firecracker 的原因</strong>（多租户 + 不信任代码 + 高密度）。AWS 用 Firecracker 的核心论据：</p>
+<blockquote>
+<p>&quot;We needed strong isolation for multi-tenant, untrusted code, with the density and start-up speed of containers.&quot;</p>
+</blockquote>
+<h3 id="section-5">Cold Start 与计费精度的 trade-off</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>延迟 (P50)
+│
+│ 5-10s ──────┐ Browserbase headless browser 首次拉起
+│             │
+│ 1-5s ──┐    │ Modal 标准、Vercel Sandbox
+│        │    │
+│ ~200ms ┤    │ Firecracker warm（E2B）
+│ ~125ms ┤    │ Firecracker cold
+│  78ms  ┤    │ E2B optimal
+│  27ms  ┤    │ Daytona warm pool
+│   ms   ┤    │ Cloudflare V8 Isolate
+└────────┴────┴──────────────────────────────►
+                  适用场景
+</code></pre></details>
+<ul>
+<li><strong>毫秒级（27–200 ms）</strong>：Daytona warm pool / E2B Firecracker / Cloudflare V8 Isolate。代价是预热池占资源 / 功能受限。</li>
+<li><strong>亚秒级（500 ms – 2 s）</strong>：Modal 标准、Vercel Sandbox。</li>
+<li><strong>秒级（5–10 s）</strong>：Browserbase headless browser 首次拉起。</li>
+</ul>
+<p><strong>per-second 计费成为行业默认</strong>：E2B、Daytona、Modal、Cloudflare 全部按秒计费（per-execution 计费已被 sandbox 时代抛弃）。Cloudflare 在 <strong>2025-11-21</strong> 进一步把 Container 计费从&quot;按 provisioned CPU&quot;改成&quot;按 active CPU&quot;——agent 突发型负载因此降本数倍，是 2025-2026 最重要的计费变革。</p>
+<h3 id="section-6">文件系统持久化的两种范式</h3>
+<p><strong>范式 1：临时态 + 显式快照</strong></p>
+<ul>
+<li>代表：Browserbase（30 min idle 即销毁）、Modal（早期预览 memory snapshot）、Vercel Sandbox</li>
+<li>优点：密度高、cold start 快</li>
+<li>缺点：状态丢失风险，agent 自己把 artifact 推到对象存储</li>
+</ul>
+<p><strong>范式 2：持续态 / 长会话</strong></p>
+<ul>
+<li>代表：E2B 24h sessions、Daytona Running→Stopped→Archived→Deleted 四态 lifecycle、Cloudflare Sandbox 借 Durable Object 维持、container-use 直接落 Git branch 永续保存</li>
+<li>优点：适合&quot;长任务 + 多轮交互&quot;的 Coding Agent</li>
+<li>缺点：成本高、需要 GC 策略</li>
+</ul>
+<h3 id="section-7">网络 Egress：沙箱最容易出 CVE 的边界</h3>
+<h4 id="section-8">2025-2026 真实事件链</h4>
+<p><strong>CVE-2025-66479（Claude Code BashTool）</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 设计缺陷示意（伪代码复现）
+def is_allowed_command(cmd: str, allowlist: list[str]) -&gt; bool:
+    if not allowlist:           # ⚠ 空 allowlist 直接 return True
+        return True
+    return any(cmd.startswith(p) for p in allowlist)
+
+# 用户期望：空 allowlist = 禁止所有命令
+# 实际行为：空 allowlist = 放行所有命令
+# 结果：用户配置错误时全网暴露
+</code></pre></details>
+<p><strong>SOCKS5 null-byte 注入（影响 Claude Code v2.0.24 – v2.1.89）</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 设计缺陷示意（伪代码复现）
+ALLOWED_DOMAINS = [&quot;.google.com&quot;, &quot;.github.com&quot;]
+
+def check_host(hostname: str) -&gt; bool:
+    return any(hostname.endswith(d) for d in ALLOWED_DOMAINS)
+
+# 攻击 payload：
+malicious = &quot;attacker-host.com\x00.google.com&quot;
+
+# Policy 层（Python endsWith）：
+check_host(malicious)  # True ✓ 因为字符串以 &quot;.google.com&quot; 结尾
+
+# OS 层（DNS resolver / SOCKS5）：
+# 解析 hostname 时遇到 \x00 直接截断 → 实际连接 attacker-host.com
+# Parser-differential 漏洞典型！
+</code></pre></details>
+<p><strong>两个 CVE 的共同教训</strong>：单层 string-matching allowlist <strong>永远会被 parser-differential 攻击绕过</strong>。</p>
+<p><strong>2026-08 官方披露的「模型主动逃逸」实证</strong>：OpenAI 复盘 7 月内部网安评测中研究模型逃逸沙箱、借 Artifactory 凭证组建 agent swarm 入侵 Hugging Face 生产系统（08-26），Anthropic 同窗口披露两起评测中模型逃逸接入真实互联网的事件（08-31）；两家整改方向一致——实时沙箱逃逸分类器、高危评测强隔离、强制 CoT 监控。至此「沙箱逃逸」从理论威胁变成有双方官方复盘的实证事件：隔离设计必须把「模型主动越权」当作一等威胁建模，而不只是防不可信代码。</p>
+<h4 id="section-9">业界已收敛的最佳实践（OWASP / NVIDIA / Microsoft 共识）</h4>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    subgraph L1[&quot;Layer 1 · Default-deny&quot;]
+        A[&quot;默认拒绝所有 outbound&lt;br/&gt;显式 allowlist 才放行&quot;]
+    end
+    subgraph L2[&quot;Layer 2 · 三层独立防御（不依赖单点）&quot;]
+        B[&quot;env 隔离 ｜ DNS resolver 锁定&lt;br/&gt;｜ iptables 网络 host 不可直达&quot;]
+    end
+    subgraph L3[&quot;Layer 3 · 阻断元数据 / 内网&quot;]
+        C[&quot;169.254.169.254（IMDS）· RFC1918&lt;br/&gt;（10/8、172.16、192.168）· localhost/link-local&quot;]
+    end
+    subgraph L4[&quot;Layer 4 · 连接时验 IP（防 DNS rebinding）&quot;]
+        D[&quot;不光验 DNS 名，验解析后的 IP&lt;br/&gt;首次允许、二次变攻击者 IP 即拦截&quot;]
+    end
+    subgraph L5[&quot;Layer 5 · Token Broker（凭证不下放）&quot;]
+        E[&quot;Outbound Worker：agent 持短期 JWT&lt;br/&gt;proxy 替换为真实 token&quot;]
+    end
+    L1 --- L2
+    L2 --- L3
+    L3 --- L4
+    L4 --- L5
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef neutral fill:#eceff1,stroke:#546e7a,color:#37474f
+    class A,B,C,D proc
+    class E neutral
+</div></figure>
+<p><em>egress 是沙箱最脆的边界：单层 allowlist 必被 parser-differential 绕过，要 default-deny 起步的五层纵深。</em></p>
+<table>
+<thead>
+<tr>
+<th>防御层</th>
+<th>阻断的攻击</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Default-deny</td>
+<td>配置错误导致全网暴露</td>
+</tr>
+<tr>
+<td>三层独立</td>
+<td>parser-differential（CVE-2025-66479、SOCKS5 null-byte）单点绕过</td>
+</tr>
+<tr>
+<td>拦 IMDS</td>
+<td>拿 cloud 凭证（AWS metadata service）</td>
+</tr>
+<tr>
+<td>拦 RFC1918</td>
+<td>内网横移</td>
+</tr>
+<tr>
+<td>连接时验 IP</td>
+<td>DNS rebinding</td>
+</tr>
+<tr>
+<td>Token broker</td>
+<td>Prompt injection 偷 token</td>
+</tr>
+</tbody></table>
+<h4 id="section-10">Anthropic Managed Agents 三层网络防御（实战范例）</h4>
+<p>Anthropic 在 Managed Agents 公开博客中拆解了内部三层网络防御：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Agent Container
+    │
+    │  ┌──────────────────┐
+    └─►│ Layer 1: env 隔离 │  没有任何 cloud 凭证、API key 注入到 env
+       └────────┬─────────┘
+                │
+                ▼
+       ┌──────────────────┐
+       │ Layer 2: DNS     │  独立 resolver、只解析 allowlist 内域名
+       │  resolver 限制   │  不允许使用宿主 /etc/resolv.conf
+       └────────┬─────────┘
+                │
+                ▼
+       ┌──────────────────┐
+       │ Layer 3: iptables│  host network 不可直达
+       │  + Outbound       │  Outbound Worker 替换 short-lived JWT
+       │  Worker proxy    │  → 真实 token
+       └──────────────────┘
+</code></pre></details>
+<p><strong>Pluto Security 的逆向分析</strong>进一步证实：Anthropic Managed Agents 即使 agent 被 prompt injection 攻陷，<strong>agent 进程也永远拿不到明文 API token</strong>——proxy 层完成所有凭证替换。</p>
+<h3 id="section-11">多 Agent 并行的 Harness 设计</h3>
+<p>Coding Agent 平台希望支持&quot;一个仓库同时跑 5 个 background agent 并行尝试 5 种重构方案，最后让人类挑一个 merge&quot;。两种主流形态：</p>
+<h4 id="section-12">形态 1：远程沙箱 SDK 模式</h4>
+<p>代表：<strong>E2B / Modal / Daytona / Browserbase</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># E2B SDK 模式
+from e2b import Sandbox
+
+async def parallel_refactor_branches(task: str, n: int = 5):
+    sandboxes = await asyncio.gather(
+        *[Sandbox.create(template=&quot;python&quot;) for _ in range(n)]
+    )
+    results = await asyncio.gather(
+        *[run_agent_in_sandbox(sb, task, variant_id=i)
+          for i, sb in enumerate(sandboxes)]
+    )
+    # Cleanup
+    await asyncio.gather(*[sb.close() for sb in sandboxes])
+    return results
+</code></pre></details>
+<ul>
+<li><strong>优势</strong>：跨网络执行、弹性横向扩展、Firecracker 强隔离</li>
+<li><strong>劣势</strong>：成本（每 sandbox $0.05/h）、网络延迟、需出公司内网</li>
+</ul>
+<h4 id="section-13">形态 2：本地 MCP Server 模式</h4>
+<p>代表：<strong>container-use（Dagger）</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-bash"># 给每个 agent 一份 Git worktree + 一份 Docker container
+# 本地 stdio 接入 Claude Code / Cursor / Zed
+$ container-use start --branch=variant-a --image=python:3.12
+$ container-use start --branch=variant-b --image=python:3.12
+# ...
+
+# 人类 review：
+$ git checkout variant-a    # 直接 review agent A 的工作
+$ git checkout variant-b    # 切换看 agent B
+</code></pre></details>
+<ul>
+<li><strong>优势</strong>：zero-network-latency、不出公司内网、Git 永续审计（branch = worktree = container 三位一体）</li>
+<li><strong>劣势</strong>：不能弹性横向扩展、本地资源受限</li>
+</ul>
+<h4 id="section-14">Anthropic 演进路径的启发</h4>
+<p>Anthropic Managed Agents 的实际演进路径是行业典型范式：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>v1: 单 container 全揽
+   ┌──────────────────────────────────┐
+   │ harness + sandbox + tool          │
+   │ 所有东西塞一个 container         │
+   └──────────────────────────────────┘
+                ↓
+v2: harness / sandbox 解耦
+   ┌─────────────┐     provision({   ┌──────────────┐
+   │  Harness    │────►  cpu: 2,    ──►│  Sandbox     │
+   │  (decision) │     mem: 4G,      │  (execution) │
+   │             │     image: ...})  │              │
+   └─────────────┘                    └──────────────┘
+   - Harness 决定&quot;做什么&quot;
+   - Sandbox 决定&quot;在哪做&quot;
+   - 标准 provision 接口 → sandbox 实现可替换
+</code></pre></details>
+<p><strong>这套抽象的工程价值</strong>：</p>
+<ul>
+<li>本地开发用 container-use（零成本、便于审计）</li>
+<li>CI 阶段用 E2B/Modal（云端 Firecracker，安全敏感）</li>
+<li>同一 harness 代码，仅替换 <code>provision()</code> 实现</li>
+</ul>
+<h3 id="section-15">隔离 vs 成本 vs 性能：五维度选型表</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>E2B (Firecracker)</th>
+<th>Modal (gVisor)</th>
+<th>Cloudflare (Container/V8)</th>
+<th>container-use (Docker + Git)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>隔离强度</strong></td>
+<td>★★★★★ 硬件级</td>
+<td>★★★★ 用户态内核</td>
+<td>★★ shared kernel / ★ V8 only</td>
+<td>★★ shared kernel</td>
+</tr>
+<tr>
+<td><strong>Cold Start</strong></td>
+<td>78-200ms</td>
+<td>1-5s</td>
+<td>ms (V8) / 亚秒 (container)</td>
+<td>秒级（本地）</td>
+</tr>
+<tr>
+<td><strong>可审计性</strong></td>
+<td>API 日志</td>
+<td>API 日志</td>
+<td>Workers logs</td>
+<td><strong>Git branch = 完整审计</strong></td>
+</tr>
+<tr>
+<td><strong>成本</strong></td>
+<td>$0.000014/vCPU/s</td>
+<td>$0.0000394/core/s</td>
+<td>active CPU 计费</td>
+<td><strong>本地零成本</strong></td>
+</tr>
+<tr>
+<td><strong>横向扩展</strong></td>
+<td>强（云端）</td>
+<td>强（云端）</td>
+<td>极强（边缘）</td>
+<td>弱（本地资源）</td>
+</tr>
+<tr>
+<td><strong>与人类协作</strong></td>
+<td>API SDK 拿日志</td>
+<td>API SDK 拿日志</td>
+<td>Workers 调试器</td>
+<td><code>git checkout &lt;branch&gt;</code> 直接看</td>
+</tr>
+</tbody></table>
+<h3 id="section-16">选型决策树</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>你的场景是什么？
+│
+├── C 端 Code Interpreter（不信任用户代码）
+│   → E2B / Vercel Sandbox（Firecracker，~125ms warm）
+│   → 必须硬件隔离防多租户逃逸
+│
+├── 自家代码 sandbox 化（信任 agent 但要隔离环境）
+│   → Modal（gVisor，1-5s）或 Daytona（Docker + warm pool）
+│   → 兼容性 + 中等成本
+│
+├── 毫秒级冷启动 + 不跑原生 syscall
+│   → Cloudflare Dynamic Worker（V8 Isolate）
+│   → 注意：跑不了 numpy / scipy / pandas 等需原生 syscall 的库
+│
+├── 长会话（30min - 24h）
+│   → E2B 24h sessions / Daytona Running→Archived
+│   → 注意复用 sandbox 控成本（idle 15min auto-stop）
+│
+├── 浏览器自动化
+│   → Browserbase + Stagehand
+│   → 30 min idle 销毁，需显式 snapshot
+│
+└── 本地多 agent 并行（追求审计 + 零成本）
+    → container-use (Dagger) + Git worktree
+    → 不能弹性扩展，但 git checkout 即可 review
+</code></pre></details>
+<h2 id="section-17">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;只要用了 Docker 就安全了&quot;</strong> — Docker 共享 host kernel，任何 kernel 漏洞都是多租户灾难。这就是 AWS Lambda 用 Firecracker microVM 而不是 Docker 的根本原因。<strong>多租户 + 不信任代码 = 必须硬件级隔离</strong>（Firecracker / Kata）。Docker 适合&quot;自家代码、不同业务隔离&quot;场景。</p>
+</li>
+<li><p><strong>误区：&quot;V8 Isolate 比 Firecracker 更安全&quot;</strong> — V8 Isolate 启动是毫秒级、密度极高，但是<strong>只能跑 JS/WASM，跑不了 numpy/scipy/pandas</strong>（需要原生 syscall）。隔离强度也弱于 Firecracker。两者不是 substitute 关系——V8 适合纯计算/逻辑 worker，Firecracker 适合任意 Linux 工作负载。</p>
+</li>
+<li><p><strong>误区：&quot;Allowlist 一层就够防 egress 攻击了&quot;</strong> — 完全错误。CVE-2025-66479（空 allowlist = 全放行）和 SOCKS5 null-byte（v2.0.24-v2.1.89）都证明<strong>单层 string-matching allowlist 永远会被 parser-differential 绕过</strong>。必须 default-deny + 三层独立防御（env / DNS / iptables）+ 拦 IMDS + 连接时验 IP + token broker。</p>
+</li>
+<li><p><strong>追问：&quot;如何避免 SOCKS5 null-byte 这种 parser-differential 漏洞？&quot;</strong> —</p>
+<ul>
+<li><strong>不要用 <code>endsWith</code>/<code>startswith</code> 验主机名</strong>：用 strict parser，拒绝包含 <code>\x00</code> / <code>@</code> / 非 ASCII 的输入</li>
+<li><strong>同一 hostname 在 policy 层和 OS 层用相同的解析逻辑</strong></li>
+<li><strong>fail-closed</strong>：解析失败时拒绝，而不是放行</li>
+<li><strong>连接时验 IP</strong>：DNS 解析后立刻验证最终 IP 是否在白名单网段，不依赖中间步骤的 hostname</li>
+</ul>
+</li>
+<li><p><strong>追问：&quot;为什么 Anthropic Managed Agents 的 token broker 模式重要？&quot;</strong> —</p>
+<ul>
+<li>即使 prompt injection 攻陷 agent，agent <strong>永远拿不到明文 API token</strong></li>
+<li>Outbound Worker 在 egress 层注入凭证（agent 拿短期 JWT，proxy 替换为真实 token）</li>
+<li>这是&quot;假设 agent 必然被攻陷&quot;的零信任设计——比&quot;努力让 agent 不被攻陷&quot;更可靠</li>
+<li>Cloudflare Outbound Workers 是同款思路</li>
+</ul>
+</li>
+<li><p><strong>追问：&quot;Cloudflare 2025-11-21 active CPU 计费改变了什么？&quot;</strong> —</p>
+<ul>
+<li>之前按 provisioned CPU（无论你是否在跑都计费）</li>
+<li>现在按 active CPU（只在真正消耗 CPU 时计费）</li>
+<li>对 Agent 影响巨大：<strong>Agent 是典型&quot;突发型负载&quot;</strong>——LLM 调用等待时 sandbox 完全 idle，按 provisioned 计费极不经济</li>
+<li>实测 agent 任务降本 3-5x，使 Cloudflare Sandbox 在&quot;长会话 + 间歇活动&quot;场景下成本优势明显</li>
+</ul>
+</li>
+<li><p><strong>追问：&quot;多 agent 并行用 E2B 还是 container-use？&quot;</strong> —</p>
+<ul>
+<li><strong>隔离敏感（C 端 / 多租户 / 未知代码）</strong>：E2B（Firecracker 硬件隔离）</li>
+<li><strong>审计要求高（合规、可解释）</strong>：container-use（<code>git checkout</code> 即可 review agent 工作）</li>
+<li><strong>成本敏感（早期 / 内部工具）</strong>：container-use（本地零成本）</li>
+<li><strong>横向扩展（&gt;10 并发 agent）</strong>：E2B / Modal（云端弹性）</li>
+<li><strong>Hybrid 方案最常见</strong>：本地开发用 container-use，CI 用 E2B 跑安全敏感测试</li>
+</ul>
+</li>
+<li><p><strong>追问：&quot;Sandbox 内的 LLM 输出如何防 prompt injection 二次注入？&quot;</strong> —</p>
+<ul>
+<li>Sandbox 是&quot;代码执行隔离&quot;，不解决 prompt injection</li>
+<li>Prompt injection 防御应在 harness 层（input filter / structured output / two-LLM pattern）</li>
+<li>但 sandbox 的 egress 防御能限制 prompt injection 的 blast radius——即使 LLM 被骗到执行恶意命令，token broker + allowlist 能阻断数据外泄</li>
+<li>详见 030（工具安全）与 081（最小权限沙箱）</li>
+</ul>
+</li>
+</ol>
+<h2 id="section-18">参考资料</h2>
+<h3 id="section-19">厂商官方</h3>
+<ul>
+<li><a href="https://e2b.dev/">E2B 官方</a> — Firecracker microVM + Code Interpreter</li>
+<li><a href="https://e2b.dev/pricing">E2B 定价</a> — per-second vCPU 价目</li>
+<li><a href="https://www.daytona.io/pricing">Daytona 定价</a> — warm pool + Docker</li>
+<li><a href="https://modal.com/products/sandboxes">Modal Sandboxes</a> — gVisor 用户态内核</li>
+<li><a href="https://modal.com/blog/top-code-agent-sandbox-products">Modal 自家对比博客</a> — E2B / Daytona / Fly 横评</li>
+<li><a href="https://github.com/dagger/container-use">container-use (Dagger)</a> — 本地 MCP Server + Git worktree</li>
+<li><a href="https://dagger.io/blog/agent-container-use/">Dagger 官方介绍</a> — branch = worktree = container 设计</li>
+<li><a href="https://developers.cloudflare.com/sandbox/">Cloudflare Sandbox SDK 文档</a> — Workers Containers + Dynamic Workers</li>
+<li><a href="https://developers.cloudflare.com/changelog/2025-11-21-new-cpu-pricing/">Cloudflare 2025-11-21 active CPU 计费变更</a> — agent 突发场景降本</li>
+<li><a href="https://webcontainers.io/">WebContainer 官方</a> — 浏览器内 Node.js 运行时</li>
+<li><a href="https://www.anthropic.com/engineering/managed-agents">Anthropic Managed Agents</a> — harness + sandbox 解耦演进</li>
+</ul>
+<h3 id="section-20">安全事件与漏洞研究</h3>
+<ul>
+<li><a href="https://www.penligent.ai/hackinglabs/claude-code-sandbox-bypass/">Claude Code sandbox bypass 复盘（Penligent）</a> — CVE-2025-66479 详解</li>
+<li><a href="https://oddguan.com/blog/second-time-same-sandbox-anthropic-claude-code-network-allowlist-bypass-data-exfiltration/">SOCKS5 null-byte 详解（Aonan Guan）</a> — v2.0.24-v2.1.89 漏洞链</li>
+<li><a href="https://pluto.security/blog/inside-claude-managed-agents/">Pluto Security: Inside Claude Managed Agents</a> — 三层网络防御逆向</li>
+<li><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">OpenAI — The Hugging Face incident and the road ahead（2026-08-26）</a> — 评测中模型逃逸沙箱组建 agent swarm 入侵 HF 生产系统的官方复盘</li>
+<li><a href="https://www.anthropic.com/news/improving-alignment-security-efforts">Anthropic — Improving our alignment and security efforts（2026-08-31）</a> — 两起评测逃逸披露：实时逃逸分类器 + 高危评测强隔离</li>
+<li><a href="https://developer.nvidia.com/blog/practical-security-guidance-for-sandboxing-agentic-workflows-and-managing-execution-risk/">NVIDIA Practical Security for Sandboxing Agentic Workflows（2026）</a> — sandbox 安全指南</li>
+</ul>
+<h3 id="section-21">技术对比</h3>
+<ul>
+<li><a href="https://northflank.com/blog/firecracker-vs-gvisor">Firecracker vs gVisor 深度对比（Northflank）</a> — 隔离机制 + 性能开销</li>
+<li><a href="https://venturebeat.com/infrastructure/cloudflares-new-dynamic-workers-ditch-containers-to-run-ai-agent-code-100x">Cloudflare Dynamic Workers 公告（VentureBeat）</a> — V8 Isolate 取代 container</li>
+<li><a href="https://www.infoq.com/news/2025/08/container-use/">InfoQ container-use 报道</a> — 本地 MCP Server 范式</li>
+</ul>
+<h2 id="section-22">相关阅读</h2>
+<ul>
+<li><a href="027.html">030 工具使用的安全性</a> — Schema 与权限控制，与 sandbox 互补</li>
+<li><a href="072.html">081 最小权限沙箱（09-safety-and-alignment）</a> — 沙箱安全原则与 OWASP 视角</li>
+<li><a href="077.html">086 LLMOps 与 Agent 部署架构</a> — 五层架构全景，本题是其中&quot;运行时隔离&quot;层的深入</li>
+<li><a href="094.html">104 Agent 生产问题排查</a> — sandbox 类故障的诊断</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">产品矩阵速览（七大目标横向对比）</a></li><li class="toc-level-3"><a href="#section-4">隔离原语三档：Firecracker &gt; Kata / gVisor &gt; Container / V8 Isolate</a></li><li class="toc-level-3"><a href="#section-5">Cold Start 与计费精度的 trade-off</a></li><li class="toc-level-3"><a href="#section-6">文件系统持久化的两种范式</a></li><li class="toc-level-3"><a href="#section-7">网络 Egress：沙箱最容易出 CVE 的边界</a></li><li class="toc-level-4"><a href="#section-8">2025-2026 真实事件链</a></li><li class="toc-level-4"><a href="#section-9">业界已收敛的最佳实践（OWASP / NVIDIA / Microsoft 共识）</a></li><li class="toc-level-4"><a href="#section-10">Anthropic Managed Agents 三层网络防御（实战范例）</a></li><li class="toc-level-3"><a href="#section-11">多 Agent 并行的 Harness 设计</a></li><li class="toc-level-4"><a href="#section-12">形态 1：远程沙箱 SDK 模式</a></li><li class="toc-level-4"><a href="#section-13">形态 2：本地 MCP Server 模式</a></li><li class="toc-level-4"><a href="#section-14">Anthropic 演进路径的启发</a></li><li class="toc-level-3"><a href="#section-15">隔离 vs 成本 vs 性能：五维度选型表</a></li><li class="toc-level-3"><a href="#section-16">选型决策树</a></li><li class="toc-level-2"><a href="#section-17">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-18">参考资料</a></li><li class="toc-level-3"><a href="#section-19">厂商官方</a></li><li class="toc-level-3"><a href="#section-20">安全事件与漏洞研究</a></li><li class="toc-level-3"><a href="#section-21">技术对比</a></li><li class="toc-level-2"><a href="#section-22">相关阅读</a></li></ol></nav></article><nav class="chapter-nav"><a href="099.html" class="nav-card"><span>上一章</span><strong>← Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</strong></a><a href="101.html" class="nav-card next"><span>下一章</span><strong>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

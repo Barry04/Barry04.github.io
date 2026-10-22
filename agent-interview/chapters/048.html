@@ -1,0 +1,381 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link active" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">规划与推理 · 第 055 题</div><h1>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</h1><blockquote>
+<p><strong>难度</strong>: 中级
+🔄 2026.7 升级重写（原题只覆盖 o1/o3/DeepSeek-R1，已压缩为「历史脉络」一小段）</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>2026 年模型版图最大的变化是：<strong>「推理模型」与「通用模型」的边界正在消失</strong>。2024-2025 年那种「o1 是专用推理模型、GPT-4o 是通用模型」的泾渭分明已经过时——如今三家旗舰通用模型都把推理能力做成<strong>内置可调的 thinking 模式</strong>：OpenAI 用显式 <code>thinking</code> 开关、Anthropic 用 <code>extended thinking</code> + <code>budget_tokens</code>、Google 用 Deep Think 与 Thought Signatures。选型问题从「该不该上推理模型」变成了「同一模型开不开 thinking、开多大预算」。</p>
+<p>当前（2026.10）旗舰格局：<strong>Anthropic</strong> 全梯队刷新——Claude 5.5 三连发（Opus 5.5，09-22，多数任务达 Fable 5.1 水平、运行成本比 Opus 5 低 40%；Sonnet 5.5，09-28，较 Sonnet 5 提速 30%、多数场景成本最多降 30%；Haiku 5.5，10-07，最快最便宜的小模型），另有 Fable / Mythos 5.1（09-01，同一模型配不同安全护栏，agentic 负载最高降价约 45%）；<strong>OpenAI</strong> GPT-6 家族成型（旗舰 Astra，09-03，computer use / 软工 / 网安方向 SOTA，$10/$50 per MTok；10-02 发布官方选型指南，覆盖选型与 reasoning effort 调节）；<strong>Google</strong> Gemini 3 / 3.1（3.1 解锁 Agent Mode，可自主编写/测试/部署桥接脚本，配合 Thought Signatures 让 agent 追踪自身推理，Google I/O 2026 把 Gemini 重新定位为「操作系统级 agent 平台」）。代际更替在加速，「推理能力是旗舰内置模式」的合流判断持续坐实。</p>
+<p><strong>Cheat sheet</strong>：</p>
+<ul>
+<li><strong>核心趋势</strong>：推理能力从「独立品类」扩散为「旗舰通用模型的内置模式」，三家都在合流</li>
+<li><strong>选型三维</strong>：agentic 能力（工具交错 / 长任务稳定性）× 成本 × harness 耦合度，不再只看推理分</li>
+<li><strong>Claude Sonnet 5</strong>：最 agentic 的 Sonnet，$2/$10 per MTok，drop-in 替换 4.6，interleaved thinking</li>
+<li><strong>GPT-5.6 Sol/Terra</strong>：NL→UI 生成 + 端到端工作流，thinking 显式开关，GPT-5.1 已于 2026.3 从 ChatGPT 退役</li>
+<li><strong>Gemini 3.1 + Agent Mode</strong>：自主写/测/部署脚本，Thought Signatures 自追踪推理，3.5 Flash 专为 agentic workflow 设计</li>
+<li><strong>关键警示</strong>：SWE-bench Verified 顶部已达 87-94% 但出现「gaming 信任危机」，高分≠生产可靠</li>
+</ul>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">一、为什么 2026 要重写这张版图：推理与通用正在合流</h3>
+<p>上一版本题目的核心框架是「Reasoning Model vs 标准 LLM」二分法——o1/o3 在模型内部先生成上千 token 的推理链，标准模型直接逐 token 输出。这个二分法在 2024-2025 之交是准确的，但到 2026 已经失效：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>2024-2025（旧版图）：
+  专用推理模型（o1/o3、DeepSeek-R1）  ←→  通用模型（GPT-4o、Claude Sonnet 3.5）
+  - 推理模型贵、慢、但难题强            - 通用模型快、便宜、但难题弱
+  - 二者是不同模型、不同 API
+
+2026（新图景）：推理能力成为「旗舰通用模型的内置模式」
+  ┌─────────────────────────────────────────────────────┐
+  │ 旗舰通用模型 = 通用能力 + 可调 thinking 模式          │
+  │  · OpenAI:   thinking 显式开关                       │
+  │  · Anthropic: extended thinking + budget_tokens      │
+  │  · Google:   Deep Think / Thought Signatures         │
+  │  简单任务 → 关 thinking（快、便宜）                   │
+  │  复杂推理 → 开 thinking（慢、准）                     │
+  └─────────────────────────────────────────────────────┘
+</code></pre></details>
+<p>驱动合流的两个力量：(1) <strong>Test-Time Compute Scaling 被验证有效</strong>——允许模型多想一会儿的收益，比单纯堆参数更划算，于是厂商都把这条做进通用旗舰；(2) <strong>Agent 场景要求&quot;会推理也会调工具&quot;</strong>——纯推理模型不擅工具交错，而 agent 需要思考→调工具→再思考的循环，迫使推理能力长到通用模型里。</p>
+<p>所以 2026 的选型问题变了：</p>
+<table>
+<thead>
+<tr>
+<th>旧问题（2024-2025）</th>
+<th>新问题（2026）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>该不该用推理模型？</td>
+<td>这个任务该不该开 thinking？开多大 budget？</td>
+</tr>
+<tr>
+<td>o1 vs GPT-4o 谁强？</td>
+<td>同一旗舰在 thinking on/off 下的性价比曲线？</td>
+</tr>
+<tr>
+<td>推理模型为什么这么贵？</td>
+<td>thinking token 怎么计费？怎么控预算？</td>
+</tr>
+</tbody></table>
+<h3 id="section-4">二、2026 三大旗舰 Agent 模型横评</h3>
+<blockquote>
+<p>以下事实均回查自项目调研来源（<code>.work/research/03-recent-advances.md</code>），发布日期/定价/代号以官方公告为准。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Claude Sonnet 5</th>
+<th>GPT-5.6</th>
+<th>Gemini 3 / 3.1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>发布方</strong></td>
+<td>Anthropic</td>
+<td>OpenAI</td>
+<td>Google</td>
+</tr>
+<tr>
+<td><strong>发布时间</strong></td>
+<td>2026-06-30</td>
+<td>2026（GA）</td>
+<td>2026（3.1 解锁 Agent Mode）</td>
+</tr>
+<tr>
+<td><strong>定位</strong></td>
+<td>「最 agentic 的 Sonnet」</td>
+<td>旗舰 &quot;Sol&quot; + 均衡 &quot;Terra&quot;</td>
+<td>「操作系统级 agent 平台」</td>
+</tr>
+<tr>
+<td><strong>思考机制</strong></td>
+<td>extended thinking + interleaved thinking（思考与工具交错）</td>
+<td>显式 <code>thinking</code> 开关</td>
+<td>Deep Think + Thought Signatures（自追踪推理）</td>
+</tr>
+<tr>
+<td><strong>agentic 特性</strong></td>
+<td>agentic coding、自主任务执行、drop-in 替换 Sonnet 4.6</td>
+<td>NL→前端 UI 生成、交互式可视化、端到端工作流</td>
+<td>Agent Mode：自主编写/测试/部署桥接脚本（如 iOS）；3.5 Flash 专为复杂 agentic workflow 设计</td>
+</tr>
+<tr>
+<td><strong>定价</strong></td>
+<td>$2 / $10 per MTok（输入/输出，约为同档旗舰一半）</td>
+<td>见 OpenAI 官方价目</td>
+<td>见 Google 官方价目</td>
+</tr>
+<tr>
+<td><strong>上游谱系</strong></td>
+<td>Sonnet 4.6（1M context + server-side compaction）</td>
+<td>GPT-5（2025.07）→ GPT-5.1（2025.11，2026.3 从 ChatGPT 退役）</td>
+<td>Gemini 2.5 Deep Think（2025.08，Google 首个公开多 agent 模型）</td>
+</tr>
+</tbody></table>
+<p><strong>一句话区分</strong>：</p>
+<ul>
+<li><strong>Claude Sonnet 5</strong> =「便宜的 agentic 工兵」，定位是把 agent 场景的性价比拉下来，coding 与自主执行是主战场；</li>
+<li><strong>GPT-5.6</strong> =「能生成可交互前端的通用旗舰」，差异化在 NL→UI 与端到端工作流自动化；</li>
+<li><strong>Gemini 3.1</strong> =「想做操作系统的 agent 平台」，靠 Agent Mode + Thought Signatures 把&quot;agent 追踪自己推理&quot;做成一等公民。</li>
+</ul>
+<h4 id="section-5">Claude Sonnet 5：最 agentic 的 Sonnet</h4>
+<p>Anthropic 在 2026-06-30 发布 Sonnet 5，明确文案是&quot;the most agentic Sonnet model yet&quot;，是 Sonnet 4.6 的 <strong>drop-in 升级</strong>——API 行为兼容，换一行 model id 就能上手。入门定价 $2/MTok 输入、$10/MTok 输出，约为同档旗舰的一半，全面登陆 Anthropic API、GitHub Copilot 等平台。核心提升集中在 <strong>agentic coding 和自主任务执行</strong>。</p>
+<p>为什么这对 Agent 选型重要：此前 agent 场景要么用顶级旗舰（贵），要么降级用小模型（容易在长任务里崩）。Sonnet 5 把&quot;agentic 能力&quot;做到中端价位，直接重塑了成本/性能曲线——很多原本要跑 Opus 的 agent 工作流，可以下放到 Sonnet 5。</p>
+<h4 id="section-6">GPT-5.6 &quot;Sol&quot; / &quot;Terra&quot;：从长链操作到端到端工作流</h4>
+<p>OpenAI 的 GPT-5.6 模型族旗舰代号 <strong>&quot;Sol&quot;</strong>（前沿智能），另有均衡日常模型代号 <strong>&quot;Terra&quot;</strong>，均已 GA。差异化能力在<strong>自然语言到前端 UI 的生成</strong>与<strong>交互式可视化</strong>。它体现了 OpenAI 2026 的加速迭代策略：GPT-5.1 于 2025.11 发布，2026.3 已从 ChatGPT 退役；agent 场景的定位从 GPT-5 时代的&quot;执行长链操作&quot;进化到&quot;端到端自主完成复杂工作流&quot;。thinking 模式作为显式开关保留，用户可按任务决定开/关。</p>
+<h4 id="section-7">Gemini 3 / 3.1 + Agent Mode：操作系统级 agent 平台</h4>
+<p>Google 在 2026 年把 Gemini 从聊天机器人重新定位为「操作系统级 agent 平台」（Forbes 对 Google I/O 2026 的总结），覆盖搜索、购物、工作全场景。关键技术：</p>
+<ul>
+<li><strong>Agent Mode</strong>（3.1 解锁）：可自主编写、测试、部署连接外部生态系统的桥接脚本（例如连 iOS），让 Gemini 不只是&quot;对话&quot;，而是&quot;动手改你的环境&quot;。</li>
+<li><strong>Thought Signatures</strong>：让 agent 追踪自身推理过程的机制，把&quot;推理可观测&quot;内建到模型层。</li>
+<li><strong>Gemini 3.5 Flash</strong>：专为复杂 agentic workflow 设计的轻量档。</li>
+<li>历史线：Gemini 2.5 Deep Think（2025.08）是 Google 首个公开的多 agent 模型，IMO 2025 拿到 Bronze 级，是 3.x 系列 agent 化的起点。</li>
+</ul>
+<h3 id="section-8">三、Agent 能力四维对比</h3>
+<p>横评 Agent 模型不能只看推理分。2026 业界收敛出四个真正决定 agent 表现的维度：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>                    Agent 能力四维
+   ┌───────────────────────────────────────────┐
+   │ 1. 工具交错（Interleaved Thinking）        │  思考→调工具→再思考 循环
+   │ 2. 长上下文（1M token）                     │  三家旗舰均已达到 1M
+   │ 3. 长任务自主性                             │  能否稳定跑数十/上百步
+   │ 4. harness 耦合度（Post-training Coupling）│  模型权重是否绑死某套工具签名
+   └───────────────────────────────────────────┘
+</code></pre></details>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Claude Sonnet 5</th>
+<th>GPT-5.6</th>
+<th>Gemini 3.1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>工具交错</strong></td>
+<td>原生支持（interleaved thinking）</td>
+<td>支持</td>
+<td>支持 + Agent Mode 主动写脚本</td>
+</tr>
+<tr>
+<td><strong>长上下文</strong></td>
+<td>1M token（承自 Sonnet 4.6）</td>
+<td>1M token</td>
+<td>1M token（3.1 Pro）</td>
+</tr>
+<tr>
+<td><strong>长任务自主性</strong></td>
+<td>强（Anthropic 同期发布长时科学计算 Agent）</td>
+<td>强（端到端工作流）</td>
+<td>强（Agent Mode 自主部署）</td>
+</tr>
+<tr>
+<td><strong>harness 耦合</strong></td>
+<td>与 Claude Code 深度协同，权重倾向 Claude Code 工具签名</td>
+<td>Codex 系模型权重绑 <code>apply_patch</code> 签名</td>
+<td>与 Google ADK / Agent Engine 深度绑定</td>
+</tr>
+</tbody></table>
+<p><strong>关键判断</strong>：第 4 维（harness 耦合度）是 2026 新增的选型维度。研究表明，模型在 post-training 阶段会把对特定工具签名（如 <code>apply_patch</code>、某套 MCP 工具）的&quot;偏好&quot;冻进权重——脱离配套 harness 性能会掉。这意味着<strong>选模型其实在选&quot;模型 + harness&quot;的组合</strong>，详见 <a href="097.html">#109 — Agent Harness 三层抽象</a>。</p>
+<h3 id="section-9">四、推理模型 vs 通用模型选型决策（2026 版）</h3>
+<p>合流之后，决策不再是&quot;选哪个模型品类&quot;，而是&quot;任务该不该开 thinking、开多大预算&quot;。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">def choose_model_and_thinking(task):
+    &quot;&quot;&quot;2026 版 Agent 选型决策（伪代码）&quot;&quot;&quot;
+    complexity = assess_complexity(task)        # 简单 / 中等 / 复杂推理
+    latency_sensitive = task.needs_realtime     # 对话/实时？
+    cost_sensitive = task.batch_scale           # 批量？
+    needs_tools = task.requires_tool_calls      # agent 工具循环？
+
+    # 规则 1：实时对话、翻译、简单 QA → 关 thinking，用通用档
+    if complexity == &quot;simple&quot; or latency_sensitive:
+        return {&quot;thinking&quot;: False, &quot;tier&quot;: &quot;standard&quot;}
+
+    # 规则 2：数学/算法/科学证明/复杂多步推理 → 开 thinking，给足 budget
+    if complexity == &quot;complex_reasoning&quot;:
+        return {&quot;thinking&quot;: True, &quot;budget_tokens&quot;: 8000}
+
+    # 规则 3：Agent 长任务 → 开 interleaved thinking + 工具交错
+    if needs_tools and task.long_horizon:
+        return {
+            &quot;thinking&quot;: True,
+            &quot;interleaved&quot;: True,          # 思考与工具调用交错
+            &quot;budget_tokens&quot;: &quot;per_step&quot;,  # 每步单独预算
+        }
+
+    # 规则 4：成本敏感的批量 → 关 thinking，用 Sonnet/Flash 档兜底
+    if cost_sensitive:
+        return {&quot;thinking&quot;: False, &quot;tier&quot;: &quot;mid&quot;}  # 如 Sonnet 5 / Gemini 3.5 Flash
+</code></pre></details>
+<p>实战中的混合策略（Model Routing）：</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    R[&quot;Agent Router&lt;br/&gt;按任务类型路由&quot;] --&gt; Q1{&quot;规划 / 关键判断&lt;br/&gt;复杂决策?&quot;}
+    Q1 -- &quot;是&quot; --&gt; A[&quot;旗舰档&lt;br/&gt;thinking on&quot;]
+    Q1 -- &quot;否&quot; --&gt; Q2{&quot;常规工具执行&lt;br/&gt;信息检索?&quot;}
+    Q2 -- &quot;是&quot; --&gt; B[&quot;旗舰档&lt;br/&gt;thinking off&quot;]
+    Q2 -- &quot;否&quot; --&gt; Q3{&quot;格式化 / 摘要&lt;br/&gt;翻译?&quot;}
+    Q3 -- &quot;是&quot; --&gt; C[&quot;中端档&lt;br/&gt;Sonnet 5 / Flash&quot;]
+    Q3 -- &quot;否&quot; --&gt; D[&quot;轻量档&lt;br/&gt;实时 / 高并发&quot;]
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    class R,A,B,C,D proc
+    class Q1,Q2,Q3 decision
+</div></figure>
+<p><em>生产 Agent 按任务路由档位：关键判断开 thinking，常规执行关，格式化走中端，实时走轻量。</em></p>
+<p>Model Routing 已是生产 Agent 的核心组件，详见 <a href="079.html">#089 — 模型路由</a>。</p>
+<h3 id="section-10">五、Test-Time Compute Scaling：底层范式仍然成立</h3>
+<p>合流不等于范式变了——Test-Time Compute Scaling（测试时计算扩展）反而被三家一致接受为常态。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">scaling_paradigms = {
+    &quot;Train-Time Scaling（旧）&quot;: {
+        &quot;方法&quot;: &quot;加大参数量 + 堆训练数据&quot;,
+        &quot;代表&quot;: &quot;GPT-3 → GPT-4&quot;,
+        &quot;局限&quot;: &quot;边际收益递减（Scaling Law 放缓）&quot;,
+    },
+    &quot;Test-Time Scaling（2026 主流）&quot;: {
+        &quot;方法&quot;: &quot;允许模型思考更久（更长的推理 token）&quot;,
+        &quot;代表&quot;: &quot;o1 → o3 → 旗舰通用模型内置 thinking&quot;,
+        &quot;优势&quot;: &quot;按需分配——简单题少想，难题多想&quot;,
+        &quot;实现&quot;: &quot;RL 训练模型学会自适应分配思考时间&quot;,
+        &quot;进化&quot;: &quot;从&#39;固定开关&#39;演化为 budget_tokens / minimum_thinking_tokens 可控&quot;,
+    },
+}
+</code></pre></details>
+<p>RL 训练信号方面，可验证奖励（数学/代码可自动判对错）已成共识，偏好/Judge 奖励作补充；thinking 与工具调用交错（interleaved）三家都已支持。详见 <a href="093.html">#103 — Agentic-RL 与 GRPO</a>。</p>
+<h3 id="section-11">六、成本与延迟（2026 口径）</h3>
+<p>旗舰通用模型定价（输入/输出 per MTok，近似值，以官方为准）：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>输入</th>
+<th>输出</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Claude Sonnet 5</td>
+<td>$2</td>
+<td>$10</td>
+<td>约同档旗舰一半</td>
+</tr>
+<tr>
+<td>Claude Opus 4.7</td>
+<td>（见官方）</td>
+<td>（见官方）</td>
+<td>顶级档，含 thinking</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>（见官方）</td>
+<td>（见官方）</td>
+<td>旗舰档</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>（见官方）</td>
+<td>（见官方）</td>
+<td>旗舰档</td>
+</tr>
+<tr>
+<td>Gemini 3.5 Flash</td>
+<td>（见官方）</td>
+<td>（见官方）</td>
+<td>专为 agentic workflow</td>
+</tr>
+</tbody></table>
+<p>注意：以上未标具体数字者请查官方价目，禁止照抄过期数字。</p>
+<p>关键成本事实：</p>
+<ul>
+<li>thinking token 单独计费（计入输出），开 thinking 会显著拉高单次成本</li>
+<li>一道复杂数学/agent 规划题可能产生 5k-20k 思考 token</li>
+<li>延迟：thinking off → 1-5s；thinking on → 10-120s（随复杂度）</li>
+</ul>
+<p>成本控制实战见 <a href="078.html">#088 — 成本优化</a>，延迟优化（streaming/缓存/批处理）见 <a href="080.html">#090 — 延迟优化</a></p>
+<h3 id="section-12">七、高分≠可信：SWE-bench 信任危机</h3>
+<p>2026 选型还有一个必须知道的坑：<strong>SWE-bench Verified 顶部分数已达 87-94%（Claude 系列领先），但同时出现「benchmark 可被 gaming」的信任危机</strong>。研究揭示 harness 配置、retry 策略、reasoning effort 都会显著影响分数；同一模型换个 harness 排名能差出几十位。新基准 SWE-EVO 转向长周期软件演化任务，弥补 SWE-bench 只测单点 bug 修复的局限。</p>
+<p><strong>对选型的含义</strong>：选 Agent 模型不能只看 SWE-bench / 推理分，要看你自己的 harness + 你的真实任务分布。详见 <a href="067.html">#076 — 静态 Benchmark 陷阱</a> 与 <a href="061.html">#069 — 评估方法论</a>。</p>
+<h3 id="section-13">八、历史脉络：从 o1 / o3 / DeepSeek-R1 说起（仍有效的概念）</h3>
+<p>理解 2026 版图，需要知道这条线是怎么来的。以下概念至今仍有效，只是载体从「专用推理模型」变成了「通用模型的 thinking 模式」：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">reasoning_model_history = {
+    &quot;OpenAI o 系列（开启者）&quot;: {
+        &quot;o1 / o1-pro&quot;:  &quot;2024-09 / 12，闭源 RL CoT，首次提出 test-time compute scaling&quot;,
+        &quot;o3 / o3-mini&quot;: &quot;2025-01，推理 + 工具调用，ARC-AGI 高计算配置下 87.5%&quot;,
+        &quot;后续&quot;:          &quot;o3-pro / o4 / GPT-5 系列，逐步把推理做成通用模型的可开关模式&quot;,
+    },
+    &quot;DeepSeek-R1（开源里程碑）&quot;: {
+        &quot;R1-Zero&quot;: &quot;纯 GRPO 强化学习（不用 SFT），涌现 &#39;Aha moment&#39;——模型自学会说&#39;等一下，让我重新检查&#39;&quot;,
+        &quot;R1&quot;:      &quot;Cold Start SFT + 大规模 RL，AIME 2024 达 79.8%（满血 671B）&quot;,
+        &quot;蒸馏&quot;:     &quot;R1 蒸馏到 7B/14B/32B/70B，证明推理能力可迁移到小模型&quot;,
+        &quot;意义&quot;:     &quot;证明推理能力可从纯 RL 自主涌现，不必依赖人工 CoT 示范&quot;,
+    },
+    &quot;Anthropic extended thinking&quot;: {
+        &quot;起点&quot;:  &quot;Sonnet 3.7（2025-02）首次支持，budget_tokens 控制思考深度&quot;,
+        &quot;进化&quot;:  &quot;Sonnet 4/4.5 引入 interleaved thinking（思考与工具交错）&quot;,
+        &quot;现状&quot;:  &quot;Sonnet 5 / Opus 4.7 系列继承，长思考链稳定性大幅提升&quot;,
+    },
+    &quot;Google Deep Think&quot;: {
+        &quot;起点&quot;:  &quot;Gemini 2.5 Deep Think（2025-08），Google 首个公开多 agent 模型，IMO 2025 Bronze&quot;,
+        &quot;进化&quot;:  &quot;Gemini 3.x 演化为 Thought Signatures + Agent Mode&quot;,
+    },
+}
+
+# 仍然有效、值得记住的概念：
+still_valid_concepts = [
+    &quot;Test-Time Compute Scaling（训练时扩展 vs 推理时扩展）&quot;,
+    &quot;RL 训练推理能力（GRPO 等可验证奖励算法）&quot;,
+    &quot;Aha moment / 自我纠正 / 回溯（从 RL 涌现）&quot;,
+    &quot;蒸馏：把大模型推理能力迁移到小模型&quot;,
+    &quot;budget_tokens：从固定开关演化为可控预算&quot;,
+    &quot;Interleaved thinking：思考与工具调用交错&quot;,
+]
+</code></pre></details>
+<p>DeepSeek-R1 的训练流程（GRPO + Cold Start SFT + Rejection Sampling + 二次 RL）和 R1-Zero 的涌现行为，依然是面试高频考点，详见 <a href="093.html">#103 — Agentic-RL 与 GRPO</a>。</p>
+<h2 id="section-14">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：「2026 年还该不该选专用推理模型？」</strong> — 这个问题本身已经过时。推理能力已合流进通用旗舰，成为可开关的 thinking 模式。正确的问法是：<strong>这个任务该不该开 thinking、开多大 budget</strong>。o1/o3 那种&quot;独立推理品类&quot;的边界已经模糊，纯专用推理模型的份额在收缩。</p>
+</li>
+<li><p><strong>误区：「Agent 选型看 SWE-bench / 推理分就够了」</strong> — SWE-bench Verified 顶部已达 87-94%，但出现 gaming 信任危机——harness 配置、retry 策略都能显著刷分。选型要看「agentic 能力 × 成本 × harness 耦合度」三维，并在自己的真实任务上验证。详见 <a href="067.html">#076</a>。</p>
+</li>
+<li><p><strong>追问：「Sonnet 5 为什么敢叫『最 agentic 的 Sonnet』？」</strong> — 三条依据：(1) drop-in 替换 Sonnet 4.6，API 兼容；(2) 主提升集中在 agentic coding 与自主任务执行；(3) 定价 $2/$10 per MTok，把 agentic 能力做到中端价位，让原本要跑顶级旗舰的 agent 工作流可以下放。</p>
+</li>
+<li><p><strong>追问：「post-training coupling 对选型意味着什么？」</strong> — 模型在 post-training 阶段会把对特定工具签名（<code>apply_patch</code>、某套 MCP 工具）的偏好冻进权重。脱离配套 harness 性能会掉。所以<strong>选模型其实在选&quot;模型 + harness&quot;组合</strong>：Claude↔Claude Code、Codex↔<code>apply_patch</code>、Gemini↔ADK。详见 <a href="097.html">#109 — Agent Harness 三层抽象</a>、<a href="098.html">#110 — Coding Agent Harness 横评</a>。</p>
+</li>
+<li><p><strong>追问：「Gemini 的 Thought Signatures 和 Claude 的 extended thinking 有什么区别？」</strong> — 两者都是把&quot;推理&quot;做成可见/可控的一等公民，但侧重不同：Claude 的 extended thinking 是<strong>可配预算的思考链</strong>（<code>budget_tokens</code> 控制深度，interleaved 与工具交错）；Gemini 的 Thought Signatures 强调 <strong>agent 对自身推理过程的追踪与可观测</strong>，配合 Agent Mode 让 agent 能主动写脚本改环境。</p>
+</li>
+<li><p><strong>追问：「1M 上下文了，Agent 还需要 RAG 吗？」</strong> — 单针检索（single-needle retrieval）在 1M token 下对顶级模型已基本解决，但多跳推理（multi-hop reasoning）超过 256K 后性能显著下降。所以长任务、大知识库仍需 RAG，1M 上下文解决的是&quot;短期工作记忆&quot;，不是&quot;长期知识&quot;。这条决策详见 <a href="092.html">#102 — Context Engineering</a> 的上下文工程体系。</p>
+</li>
+<li><p><strong>追问：「未来 Agent 会全面开 thinking 吗？」</strong> — 更可能是<strong>混合架构 + 模型路由</strong>：规划/关键判断开 thinking，常规执行关 thinking。Thinking token 单独计费且显著拉高成本与延迟，无脑全开不划算。详见 <a href="079.html">#089 — 模型路由</a>。</p>
+</li>
+</ol>
+<h2 id="section-15">参考资料</h2>
+<ul>
+<li><a href="https://www.anthropic.com/news/claude-sonnet-5">Anthropic — Claude Sonnet 5 发布公告</a> —「最 agentic 的 Sonnet」定位、$2/$10 定价与 drop-in 升级</li>
+<li><a href="https://www.anthropic.com/claude-sonnet-5-system-card">Anthropic — Claude Sonnet 5 System Card</a></li>
+<li><a href="https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/">TechCrunch — Anthropic launches Claude Sonnet 5 as a cheaper way to run agents</a></li>
+<li><a href="https://openai.com/index/gpt-5-6/">OpenAI — GPT-5.6 发布说明</a> — Sol/Terra 代号、NL→UI 与端到端工作流</li>
+<li><a href="https://help.openai.com/en/articles/9624314-model-release-notes">OpenAI — Model Release Notes</a> — GPT-5.1 于 2026.3 从 ChatGPT 退役</li>
+<li><a href="https://blog.google/products-and-platforms/products/gemini/gemini-3/">Google — Gemini 3 官方博客</a></li>
+<li><a href="https://blog.google/products-and-platforms/products/gemini/gemini-2-5-deep-think/">Google — Gemini 2.5 Deep Think</a> — Google 首个公开多 agent 模型、IMO 2025 Bronze</li>
+<li><a href="https://www.forbes.com/sites/janakirammsv/2026/05/21/google-io-2026-turned-gemini-into-an-agent-platform/">Forbes — Google I/O 2026 turned Gemini into an Agent Platform</a></li>
+<li><a href="https://www.tomsguide.com/ai/google-just-unlocked-agent-mode-for-gemini-3-1-here-are-7-things-it-can-now-do-for-you">Tom&#39;s Guide — Gemini 3.1 Agent Mode</a></li>
+<li><a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via RL (arXiv)</a> — GRPO + Aha moment 涌现（历史脉络）</li>
+<li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic — Introducing Claude Fable 5.1 and Claude Mythos 5.1</a> — 2026-09-01，同一模型不同安全护栏，agentic 负载降价最高约 45%</li>
+<li><a href="https://openai.com/index/gpt-6-astra/">OpenAI — GPT-6 Astra: A new generation of intelligence</a> — 2026-09-03 旗舰发布，agentic / computer use 方向 SOTA，$10/$50 per MTok</li>
+<li><a href="https://www.anthropic.com/claude-opus-5-5">Anthropic — Introducing Claude Opus 5.5</a> / <a href="https://www.anthropic.com/claude-sonnet-5-5">Sonnet 5.5</a> / <a href="https://www.anthropic.com/claude-haiku-5-5">Haiku 5.5</a> — 2026-09/10 全梯队三连发，agentic 能力与成本双线推进</li>
+<li><a href="https://openai.com/index/practical-guide-building-gpt-6">OpenAI — A model guide for the GPT-6 family</a> — GPT-6 家族官方选型指南：reasoning effort 调节、技能与生产工作流（2026-10-02）</li>
+<li><a href="https://magazine.sebastianraschka.com/p/categories-of-inference-time-scaling">Sebastian Raschka — Categories of Inference-Time Scaling</a> — Test-Time Compute Scaling 理论框架</li>
+<li><a href="https://www.swebench.com/">SWE-bench 官方排行榜</a> — 87-94% 顶部分数与信任危机实证</li>
+<li><a href="https://moogician.github.io/blog/2026/trustworthy-benchmarks-cont/">Benchmark 信任危机分析</a></li>
+</ul>
+<h2 id="section-16">相关阅读</h2>
+<ul>
+<li><a href="044.html">049 — 推理策略：Chain-of-Thought 与 Tree-of-Thought</a>：thinking 模式背后的 CoT 思想源头</li>
+<li><a href="046.html">052 — Plan-and-Solve 与动态重规划</a>：thinking 开启后规划能力的落地</li>
+<li><a href="049.html">056 — MCTS 在 Agent 规划中的应用</a>：搜索式推理与 test-time compute 的另一条路径</li>
+<li><a href="093.html">103 — Agentic-RL 与 GRPO</a>：DeepSeek-R1 的训练算法详解（历史脉络的深入篇）</li>
+<li><a href="061.html">069 — 评估方法论</a>：如何科学评估 thinking on/off 的收益</li>
+<li><a href="067.html">076 — 静态 Benchmark 陷阱</a>：SWE-bench 信任危机详解</li>
+<li><a href="078.html">088 — 成本优化</a>：thinking token 计费与预算控制</li>
+<li><a href="079.html">089 — 模型路由</a>：按任务复杂度路由 thinking on/off</li>
+<li><a href="080.html">090 — 延迟优化</a>：开 thinking 后的延迟治理</li>
+<li><a href="092.html">102 — Context Engineering</a>：1M 上下文与 thinking 的协同</li>
+<li><a href="097.html">109 — Agent Harness 三层抽象</a>：post-training coupling 与模型+harness 组合选型</li>
+<li><a href="098.html">110 — Coding Agent Harness 横评</a>：Claude Code / Cursor / Cline 等如何与模型耦合</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">一、为什么 2026 要重写这张版图：推理与通用正在合流</a></li><li class="toc-level-3"><a href="#section-4">二、2026 三大旗舰 Agent 模型横评</a></li><li class="toc-level-4"><a href="#section-5">Claude Sonnet 5：最 agentic 的 Sonnet</a></li><li class="toc-level-4"><a href="#section-6">GPT-5.6 &quot;Sol&quot; / &quot;Terra&quot;：从长链操作到端到端工作流</a></li><li class="toc-level-4"><a href="#section-7">Gemini 3 / 3.1 + Agent Mode：操作系统级 agent 平台</a></li><li class="toc-level-3"><a href="#section-8">三、Agent 能力四维对比</a></li><li class="toc-level-3"><a href="#section-9">四、推理模型 vs 通用模型选型决策（2026 版）</a></li><li class="toc-level-3"><a href="#section-10">五、Test-Time Compute Scaling：底层范式仍然成立</a></li><li class="toc-level-3"><a href="#section-11">六、成本与延迟（2026 口径）</a></li><li class="toc-level-3"><a href="#section-12">七、高分≠可信：SWE-bench 信任危机</a></li><li class="toc-level-3"><a href="#section-13">八、历史脉络：从 o1 / o3 / DeepSeek-R1 说起（仍有效的概念）</a></li><li class="toc-level-2"><a href="#section-14">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-15">参考资料</a></li><li class="toc-level-2"><a href="#section-16">相关阅读</a></li></ol></nav></article><nav class="chapter-nav"><a href="047.html" class="nav-card"><span>上一章</span><strong>← LLM 作为规划器的局限性与缓解方案</strong></a><a href="049.html" class="nav-card next"><span>下一章</span><strong>Monte Carlo Tree Search 在 Agent 规划中的应用 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

@@ -1,0 +1,455 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link active" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">提示工程 · 第 065 题</div><h1>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</h1><blockquote>
+<p>难度：高级
+分类：Prompt Engineering</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>自动化 Prompt 优化是 2024-2026 业界共识的 Prompt Engineering 演进方向——把&quot;手写字符串、人工迭代&quot;升级为&quot;声明任务+算法搜索&quot;。主流方案分两大流派：(1) <strong>DSPy 流派</strong>（Stanford NLP）——&quot;<strong>编程而非提示</strong>&quot;，用 Python 代码声明 Signature 和 Module，由优化器自动生成 Prompt + Few-shot 示例。代表算法：<strong>BootstrapFewShot</strong>（trace 模型自身成功调用做自举）、<strong>MIPROv2</strong>（贝叶斯优化搜索指令+示例组合）、<strong>SIMBA</strong>（2025 新增，基于 LLM 反思的迭代式优化）。(2) <strong>元提示流派</strong>——LLM 直接生成和优化 Prompt 字符串。代表算法：<strong>APE</strong>（Automatic Prompt Engineer，生成候选+验证集筛选）、<strong>OPRO</strong>（Google DeepMind，用历史 Prompt+得分作为上下文让 LLM 生成更好的 Prompt）、<strong>PromptBreeder</strong>（进化算法，变异+选择+交叉）。两派核心差异：<strong>DSPy 优化结构化组件</strong>（签名+示例），可组合、可移植；<strong>元提示直接优化字符串</strong>，更简单直接但难复用。生产实践：DSPy 适合长期维护的复杂管道，元提示适合单任务 Prompt 调优。研究表明，自动生成的 Prompt 在多数任务上达到甚至超越人类专家手工编写的 Prompt。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">为什么需要自动化 Prompt 优化？</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>人工 Prompt Engineering 的困境：
+  1. 搜索空间巨大：自然语言的组合可能性近乎无限
+  2. 评估困难：微小的措辞变化可能导致大幅性能差异
+  3. 不可迁移：换模型后 Prompt 需要重新调优
+  4. 依赖经验：不同人的 Prompt 质量差异巨大
+  5. 难以组合：多步骤管道中每个 Prompt 互相影响
+
+自动化优化的解法：
+  让算法自动探索 Prompt 空间 → 用指标评估 → 迭代优化
+  将&quot;艺术&quot;转化为&quot;工程&quot;
+</code></pre></details>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 传统方式：手工编写和迭代 Prompt
+prompt_v1 = &quot;回答以下问题：{question}&quot;           # 效果差
+prompt_v2 = &quot;你是专家。详细回答：{question}&quot;      # 好一点
+prompt_v3 = &quot;你是资深专家。\n请分步骤回答：\n{question}\n先分析再总结&quot;  # 更好
+# ...手动迭代数十个版本——脆弱、不可复现、难以系统优化
+</code></pre></details>
+<h3 id="section-4">流派一：DSPy（编程化 Prompt 优化）</h3>
+<h4 id="section-5">DSPy 的核心概念</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">import os
+import dspy
+
+# 先设置环境变量（DSPy 默认从环境变量读取 API Key）
+os.environ[&quot;OPENAI_API_KEY&quot;] = &quot;sk-...&quot;
+# 或：os.environ[&quot;ANTHROPIC_API_KEY&quot;] = &quot;...&quot;
+
+# 1. Signature（签名）：声明输入输出的语义
+# 最简形式：&quot;question -&gt; answer&quot;
+# 等价于告诉 LLM &quot;给定 question，生成 answer&quot;
+
+class QA(dspy.Signature):
+    &quot;&quot;&quot;回答关于 AI Agent 的技术问题&quot;&quot;&quot;
+    question: str = dspy.InputField(desc=&quot;技术面试问题&quot;)
+    answer: str = dspy.OutputField(desc=&quot;详细的技术回答，包含示例&quot;)
+
+# 2. Module（模块）：LLM 调用的基本单元
+class SimpleQA(dspy.Module):
+    def __init__(self):
+        self.generate = dspy.ChainOfThought(QA)  # 自动加 CoT
+
+    def forward(self, question):
+        return self.generate(question=question)
+
+# 3. 配置 LLM
+lm = dspy.LM(&quot;openai/gpt-4o-mini&quot;)  # 也支持 &quot;anthropic/claude-sonnet-4-5&quot;
+dspy.configure(lm=lm)
+
+# 4. 使用
+qa = SimpleQA()
+result = qa(question=&quot;什么是 ReAct 模式？&quot;)
+print(result.answer)
+</code></pre></details>
+<h4 id="section-6">DSPy 的优化器（核心创新）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 优化器自动为你的 Module 找到最佳 Prompt
+
+# 准备训练数据（少量示例即可）
+trainset = [
+    dspy.Example(
+        question=&quot;什么是 RAG？&quot;,
+        answer=&quot;RAG 是检索增强生成...&quot;
+    ).with_inputs(&quot;question&quot;),
+    # ... 10-50 个示例
+]
+
+# 定义评估指标
+def accuracy_metric(example, prediction, trace=None):
+    &quot;&quot;&quot;评估回答质量&quot;&quot;&quot;
+    # 可以用 LLM 评分、关键词匹配等
+    return dspy.evaluate.answer_exact_match(example, prediction)
+
+# 选择优化器
+optimizer = dspy.BootstrapFewShot(
+    metric=accuracy_metric,
+    max_bootstrapped_demos=4,  # 最多 4 个自动生成的示例
+    max_labeled_demos=4,       # 最多 4 个标注示例
+)
+
+# 编译（自动优化）
+optimized_qa = optimizer.compile(
+    SimpleQA(),
+    trainset=trainset
+)
+
+# optimized_qa 现在包含了自动优化后的 Prompt 和 Few-shot 示例
+# 直接使用即可，无需手动调 Prompt
+</code></pre></details>
+<h4 id="section-7">主要优化器对比</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">optimizers = {
+    &quot;BootstrapFewShot&quot;: {
+        &quot;原理&quot;: &quot;trace 模型自身在 trainset 上成功调用的轨迹做自举&quot;,
+        &quot;过程&quot;: (
+            &quot;用学生模型（或同一模型）跑 trainset → &quot;
+            &quot;用 metric 筛选通过的 trace → &quot;
+            &quot;把这些成功的 (input, reasoning, output) 三元组作为 Few-shot 示例插入 Prompt&quot;
+        ),
+        &quot;适用&quot;: &quot;小数据集、快速优化、有可靠 metric&quot;,
+        &quot;成本&quot;: &quot;低（少量 LLM 调用）&quot;,
+    },
+    &quot;MIPROv2&quot;: {
+        &quot;原理&quot;: &quot;贝叶斯优化搜索最佳 Prompt 指令 + 示例组合&quot;,
+        &quot;过程&quot;: &quot;生成候选指令（让 LLM 提议多个 instruction 文本）→ 用 Bayesian Optimizer 在 (instruction × few-shot) 联合空间搜索 → 迭代优化&quot;,
+        &quot;适用&quot;: &quot;需要高质量优化的生产场景&quot;,
+        &quot;成本&quot;: &quot;中等&quot;,
+    },
+    &quot;SIMBA&quot;: {
+        &quot;原理&quot;: &quot;Stochastic Introspective Mini-Batch Ascent（2025 新增）&quot;,
+        &quot;过程&quot;: &quot;迭代式 mini-batch 评估 → LLM 反思失败案例 → 生成改进版 instruction → 重复直至收敛&quot;,
+        &quot;适用&quot;: &quot;对 metric 敏感、需要利用 LLM 反思能力的复杂任务&quot;,
+        &quot;成本&quot;: &quot;中-高（多次 LLM 反思调用）&quot;,
+    },
+    &quot;BootstrapFinetune&quot;: {
+        &quot;原理&quot;: &quot;用优化后的 trace 数据微调小模型&quot;,
+        &quot;过程&quot;: &quot;先用大模型生成高质量 trace → 用 trace 微调小模型&quot;,
+        &quot;适用&quot;: &quot;需要降低推理成本&quot;,
+        &quot;成本&quot;: &quot;高（需要微调）&quot;,
+    },
+}
+</code></pre></details>
+<h4 id="section-8">多步骤管道示例</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class RAGPipeline(dspy.Module):
+    &quot;&quot;&quot;DSPy 实现的 RAG 管道&quot;&quot;&quot;
+
+    def __init__(self, num_passages=3):
+        self.retrieve = dspy.Retrieve(k=num_passages)
+        self.generate = dspy.ChainOfThought(
+            &quot;context, question -&gt; answer&quot;
+        )
+
+    def forward(self, question):
+        # Step 1: 检索
+        context = self.retrieve(question).passages
+
+        # Step 2: 生成（自动带 CoT）
+        answer = self.generate(
+            context=context,
+            question=question
+        )
+        return answer
+
+# 优化整个管道——不只是单个 Prompt
+# 优化器会同时优化检索和生成的配合
+optimized_rag = optimizer.compile(
+    RAGPipeline(),
+    trainset=trainset
+)
+</code></pre></details>
+<h3 id="section-9">流派二：元提示（Meta-Prompting）</h3>
+<h4 id="section-10">方法 1：APE（Automatic Prompt Engineer）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class AutomaticPromptEngineer:
+    &quot;&quot;&quot;让 LLM 自动生成和筛选 Prompt&quot;&quot;&quot;
+
+    async def optimize(self, task_description, eval_examples, k=10):
+        # Step 1: 生成候选 Prompt
+        candidates = await self.generate_candidates(task_description, k)
+
+        # Step 2: 在验证集上评估每个候选
+        scored = []
+        for prompt in candidates:
+            score = await self.evaluate(prompt, eval_examples)
+            scored.append({&quot;prompt&quot;: prompt, &quot;score&quot;: score})
+
+        # Step 3: 选择最优 Prompt
+        best = max(scored, key=lambda x: x[&quot;score&quot;])
+        return best
+
+    async def generate_candidates(self, task_description, k):
+        &quot;&quot;&quot;让 LLM 生成 k 个不同的 Prompt 候选&quot;&quot;&quot;
+        meta_prompt = f&quot;&quot;&quot;
+        我需要一个 Prompt 来完成以下任务：
+        {task_description}
+
+        请生成 {k} 个不同风格和策略的 Prompt 变体。
+        每个 Prompt 应该尝试不同的方法：
+        - 有的用角色设定
+        - 有的用 CoT
+        - 有的用正面指令
+        - 有的用约束条件
+        - 有的用示例引导
+
+        用 === 分隔每个 Prompt。
+        &quot;&quot;&quot;
+        response = await self.llm.invoke(meta_prompt)
+        return response.split(&quot;===&quot;)
+
+    async def evaluate(self, prompt, examples):
+        &quot;&quot;&quot;在验证集上评估 Prompt 效果&quot;&quot;&quot;
+        correct = 0
+        for ex in examples:
+            output = await self.llm.invoke(prompt.format(input=ex.input))
+            if self.metric(output, ex.expected):
+                correct += 1
+        return correct / len(examples)
+</code></pre></details>
+<h4 id="section-11">方法 2：OPRO（Optimization by PROmpting）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class OPRO:
+    &quot;&quot;&quot;Google DeepMind：用 LLM 的上下文学习能力优化 Prompt&quot;&quot;&quot;
+
+    async def optimize(self, task, eval_set, max_iterations=20):
+        history = []  # 历史 Prompt 及其得分
+
+        for iteration in range(max_iterations):
+            # 将历史作为上下文，让 LLM 生成更好的 Prompt
+            meta_prompt = f&quot;&quot;&quot;
+            任务：{task}
+
+            以下是之前尝试过的 Prompt 及其得分（满分 100）：
+            {self.format_history(history)}
+
+            分析以上 Prompt 的得分模式：
+            - 什么策略得分高？
+            - 什么策略得分低？
+            - 如何结合高分策略的优点？
+
+            基于这些洞察，生成一个新的、更好的 Prompt：
+            &quot;&quot;&quot;
+            new_prompt = await self.optimizer_llm.invoke(meta_prompt)
+
+            # 评估新 Prompt
+            score = await self.evaluate(new_prompt, eval_set)
+            history.append({&quot;prompt&quot;: new_prompt, &quot;score&quot;: score})
+
+            # 按得分排序，只保留 top-k
+            history.sort(key=lambda x: x[&quot;score&quot;], reverse=True)
+            history = history[:20]
+
+        return history[0]  # 返回最优 Prompt
+</code></pre></details>
+<h4 id="section-12">方法 3：PromptBreeder（进化算法）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class PromptBreeder:
+    &quot;&quot;&quot;用进化算法优化 Prompt&quot;&quot;&quot;
+
+    async def evolve(self, task, population_size=20, generations=10):
+        # 初始化种群
+        population = await self.initialize_population(task, population_size)
+
+        for gen in range(generations):
+            # 评估适应度
+            for individual in population:
+                individual[&quot;fitness&quot;] = await self.evaluate(individual[&quot;prompt&quot;])
+
+            # 选择（锦标赛选择）
+            parents = self.tournament_select(population, k=population_size // 2)
+
+            # 变异（用 LLM 做变异操作）
+            offspring = []
+            for parent in parents:
+                mutated = await self.mutate(parent[&quot;prompt&quot;], task)
+                offspring.append({&quot;prompt&quot;: mutated})
+
+            # 交叉（合并两个 Prompt 的优点）
+            for i in range(0, len(parents) - 1, 2):
+                crossed = await self.crossover(
+                    parents[i][&quot;prompt&quot;], parents[i+1][&quot;prompt&quot;]
+                )
+                offspring.append({&quot;prompt&quot;: crossed})
+
+            # 新一代 = 精英保留 + 后代
+            population = self.elite_preserve(population, offspring)
+
+        return max(population, key=lambda x: x[&quot;fitness&quot;])
+
+    async def mutate(self, prompt, task):
+        &quot;&quot;&quot;用 LLM 变异 Prompt&quot;&quot;&quot;
+        return await self.llm.invoke(f&quot;&quot;&quot;
+        以下 Prompt 用于 {task}：
+        {prompt}
+
+        请修改这个 Prompt 以可能提升效果。
+        你可以：改变措辞、添加约束、调整结构、增加示例。
+        只做一处有意义的修改。
+        &quot;&quot;&quot;)
+
+    async def crossover(self, prompt_a, prompt_b):
+        &quot;&quot;&quot;合并两个 Prompt 的优点&quot;&quot;&quot;
+        return await self.llm.invoke(f&quot;&quot;&quot;
+        以下是两个效果不错的 Prompt：
+
+        Prompt A：{prompt_a}
+        Prompt B：{prompt_b}
+
+        请创建一个新 Prompt，结合 A 和 B 的最佳特点。
+        &quot;&quot;&quot;)
+</code></pre></details>
+<h3 id="section-13">两大流派对比</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>DSPy（编程化）</th>
+<th>元提示（APE/OPRO/PromptBreeder）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优化对象</td>
+<td>结构化组件（签名+示例）</td>
+<td>Prompt 字符串</td>
+</tr>
+<tr>
+<td>表达粒度</td>
+<td>Python 模块/管道</td>
+<td>自然语言文本</td>
+</tr>
+<tr>
+<td>可组合性</td>
+<td>强（Module 嵌套）</td>
+<td>弱（单 Prompt）</td>
+</tr>
+<tr>
+<td>可移植性</td>
+<td>重新编译即可换模型</td>
+<td>换模型常需重新优化</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>中等（需学 DSPy DSL）</td>
+<td>低（写 meta prompt 即可）</td>
+</tr>
+<tr>
+<td>适合场景</td>
+<td>复杂管道、生产环境</td>
+<td>单任务 Prompt 调优</td>
+</tr>
+<tr>
+<td>优化算法</td>
+<td>BootstrapFewShot / MIPROv2 / SIMBA / BootstrapFinetune</td>
+<td>候选生成 / 迭代 / 进化</td>
+</tr>
+</tbody></table>
+<h3 id="section-14">自动化 vs 手工 Prompt Engineering</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>手工 Prompt</th>
+<th>自动化优化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发方式</td>
+<td>反复修改字符串</td>
+<td>声明任务 + 算法搜索</td>
+</tr>
+<tr>
+<td>优化方式</td>
+<td>人工试错</td>
+<td>算法自动优化</td>
+</tr>
+<tr>
+<td>可复现性</td>
+<td>依赖个人经验</td>
+<td>代码 + 数据可复现</td>
+</tr>
+<tr>
+<td>版本管理</td>
+<td>管理字符串版本</td>
+<td>管理代码/数据版本</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>低</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>简单任务、原型</td>
+<td>复杂管道、长期维护</td>
+</tr>
+</tbody></table>
+<h3 id="section-15">实际应用：组合工作流</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 生产中典型的组合工作流（融合两派优点）
+async def hybrid_optimization_workflow(task, eval_dataset):
+    # 阶段 1：用元提示（APE）做粗粒度探索
+    candidates = await ape.generate_candidates(task, k=20)
+
+    # 阶段 2：快速筛选（在小验证集上）
+    top_5 = await ape.filter_top_k(candidates, eval_dataset[:50], k=5)
+
+    # 阶段 3：用 DSPy 做结构化精调
+    # 把 top-5 prompt 作为初始 instruction 喂给 MIPROv2
+    optimizer = dspy.MIPROv2(metric=accuracy_metric)
+    optimized_module = optimizer.compile(
+        MyModule(),
+        trainset=eval_dataset,
+        # MIPROv2 会在 top_5 周围继续搜索
+    )
+
+    # 阶段 4：人工审核
+    # 自动生成的 Prompt 可能过于&quot;hacky&quot;
+    # 需要人工检查是否有安全隐患或不当内容
+    approved = await human_review(optimized_module.signature)
+
+    # 阶段 5：A/B 测试上线
+    if approved:
+        await ab_test.deploy(optimized_module, traffic=0.1)
+
+    return optimized_module
+</code></pre></details>
+<h3 id="section-16">自动化优化的局限</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">limitations = {
+    &quot;评估依赖&quot;: (
+        &quot;优化质量取决于评估指标的质量。&quot;
+        &quot;差的指标 → 过拟合到指标而非真实效果&quot;
+    ),
+    &quot;过拟合风险&quot;: &quot;可能过拟合到验证集，在新数据上效果差&quot;,
+    &quot;可解释性&quot;: &quot;自动生成的 Prompt 可能难以理解为什么有效&quot;,
+    &quot;安全性&quot;: &quot;自动优化可能绕过安全护栏以提升指标&quot;,
+    &quot;成本&quot;: &quot;优化过程需要大量 LLM 调用（OPRO 上百次、PromptBreeder 上千次）&quot;,
+    &quot;收敛性&quot;: &quot;不保证找到全局最优&quot;,
+}
+</code></pre></details>
+<h2 id="section-17">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;DSPy 完全不需要 Prompt Engineering 知识&quot;</strong> — DSPy 自动化了 Prompt 措辞的优化，但你仍需要设计好 Signature（输入输出语义）、选择合适的 Module（是否需要 CoT、是否需要检索），以及定义好评估指标。框架自动化的是&quot;调词&quot;，不是&quot;设计&quot;。</p>
+</li>
+<li><p><strong>误区：&quot;自动生成的 Prompt 一定比人写的好&quot;</strong> — 取决于评估指标的质量和验证集的代表性。如果指标不够全面（比如只看准确率不看安全性），优化可能走偏。</p>
+</li>
+<li><p><strong>误区：&quot;Meta-Prompting / DSPy 可以完全替代人工 Prompt Engineering&quot;</strong> — 自动化了&quot;措辞调优&quot;，但任务定义、评估指标设计、安全审核仍需人工。最佳实践是自动化生成候选 + 人工审核和调整。</p>
+</li>
+<li><p><strong>追问：&quot;OPRO 和 DSPy 的区别是什么？&quot;</strong> — OPRO 直接用 LLM 优化 Prompt 文本（字符串级别）；DSPy 用优化器优化 Prompt 的结构化组件（签名 + 示例）。DSPy 更模块化和可组合，OPRO 更简单直接但难复用到其他任务。</p>
+</li>
+<li><p><strong>追问：&quot;BootstrapFewShot 究竟在做什么？&quot;</strong> — 关键点：它<strong>不是</strong>让 LLM &quot;脑补&quot;出新的训练样例；而是让目标 Module 跑一遍 trainset，挑出 metric 通过的成功调用轨迹（包括中间推理），把这些真实成功的 trace 作为 Few-shot demos 插入 Prompt。本质是&quot;用模型自己的成功经验来调教自己&quot;。</p>
+</li>
+<li><p><strong>追问：&quot;DSPy 优化后的 Prompt 可以导出吗？&quot;</strong> — 可以。用 <code>optimized_module.save(path)</code> 保存，用 <code>module.load(path)</code> 加载。也可以 inspect 看到优化后的实际 Prompt 文本。生产中可以将优化后的 Prompt 提取出来直接使用，不依赖 DSPy 运行时。</p>
+</li>
+<li><p><strong>追问：&quot;什么时候不该用 DSPy？&quot;</strong> — (1) 简单的一次性任务——手写 Prompt 更快；(2) 没有评估数据——优化器需要指标来判断好坏；(3) 任务频繁变化——每次变化都需要重新编译。DSPy 最适合需要长期维护和迭代优化的生产管道。</p>
+</li>
+<li><p><strong>追问：&quot;Meta-Prompting 在生产中实用吗？&quot;</strong> — 适合需要长期维护的高频场景（如客服、内容审核、数据提取）。对于一次性或低频任务，人工调优的 ROI 更高。关键是评估数据集的质量——没有好的评估集就无法做自动优化。</p>
+</li>
+</ol>
+<h2 id="section-18">参考资料</h2>
+<ul>
+<li><a href="https://dspy.ai/">DSPy Official Website</a></li>
+<li><a href="https://github.com/stanfordnlp/dspy">DSPy: Programming—not prompting—language models (GitHub, Stanford NLP)</a></li>
+<li><a href="https://miptgirl.medium.com/programming-not-prompting-a-hands-on-guide-to-dspy-04ea2d966e6d">Programming, Not Prompting: A Hands-on Guide to DSPy (Medium)</a></li>
+<li><a href="https://towardsdatascience.com/systematic-llm-prompt-engineering-using-dspy-optimization/">Systematic LLM Prompt Engineering Using DSPy Optimization (Towards Data Science)</a></li>
+<li><a href="https://docs.wandb.ai/weave/cookbooks/dspy_prompt_optimization">DSPy Prompt Optimization (Weights &amp; Biases)</a></li>
+<li><a href="https://www.prompthub.us/blog/a-complete-guide-to-meta-prompting">A Complete Guide to Meta Prompting (PromptHub)</a></li>
+<li><a href="https://cameronrwolfe.substack.com/p/automatic-prompt-optimization">Automatic Prompt Optimization (Cameron R. Wolfe)</a></li>
+<li><a href="https://www.comet.com/site/blog/meta-prompting/">Meta Prompting: Use LLMs to Optimize Prompts (Comet)</a></li>
+<li><a href="https://arxiv.org/html/2507.14241v2">Promptomatix: Automatic Prompt Optimization Framework (arXiv)</a></li>
+<li><a href="https://medium.com/data-science/automated-prompt-engineering-the-definitive-hands-on-guide-1476c8cd3c50">Automated Prompt Engineering: The Definitive Hands-On Guide (Medium)</a></li>
+</ul>
+<hr>
+<blockquote>
+<p>📎 本题由原 #065（DSPy 编程化 Prompt 优化）与 #067（Meta-Prompting）合并而来（2026-05-23 重构）</p>
+</blockquote>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">为什么需要自动化 Prompt 优化？</a></li><li class="toc-level-3"><a href="#section-4">流派一：DSPy（编程化 Prompt 优化）</a></li><li class="toc-level-4"><a href="#section-5">DSPy 的核心概念</a></li><li class="toc-level-4"><a href="#section-6">DSPy 的优化器（核心创新）</a></li><li class="toc-level-4"><a href="#section-7">主要优化器对比</a></li><li class="toc-level-4"><a href="#section-8">多步骤管道示例</a></li><li class="toc-level-3"><a href="#section-9">流派二：元提示（Meta-Prompting）</a></li><li class="toc-level-4"><a href="#section-10">方法 1：APE（Automatic Prompt Engineer）</a></li><li class="toc-level-4"><a href="#section-11">方法 2：OPRO（Optimization by PROmpting）</a></li><li class="toc-level-4"><a href="#section-12">方法 3：PromptBreeder（进化算法）</a></li><li class="toc-level-3"><a href="#section-13">两大流派对比</a></li><li class="toc-level-3"><a href="#section-14">自动化 vs 手工 Prompt Engineering</a></li><li class="toc-level-3"><a href="#section-15">实际应用：组合工作流</a></li><li class="toc-level-3"><a href="#section-16">自动化优化的局限</a></li><li class="toc-level-2"><a href="#section-17">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-18">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="057.html" class="nav-card"><span>上一章</span><strong>← 如何防止 Prompt Injection 攻击？</strong></a><a href="059.html" class="nav-card next"><span>下一章</span><strong>Prompt 版本管理与 A/B 测试 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/reader.js"></script></body></html>

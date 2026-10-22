@@ -1,0 +1,290 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>如何调试和监控多 Agent 系统？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link active" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">多 Agent · 第 039 题</div><h1>如何调试和监控多 Agent 系统？</h1><blockquote>
+<p>难度：高级
+分类：Multi-Agent</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>多 Agent 系统的调试和监控比单 Agent 困难得多——非确定性输出、跨 Agent 交互、隐式依赖和涌现行为使得问题难以复现和定位。核心方法是<strong>分布式追踪（Distributed Tracing）</strong>：用 Trace 和 Span 记录每个 Agent 的每一步操作，形成可视化的执行图。行业正在收敛到 <strong>OpenTelemetry (OTEL)</strong> 作为标准遥测协议。主流工具包括 Langfuse（开源）、LangSmith（LangChain 生态）、Arize AI、Braintrust、Maxim AI 等。关键指标包括：延迟、token 用量/成本、工具调用成功率、Handoff 成功率、以及输出质量评分。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">多 Agent 调试的独特挑战</h3>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    IN[&quot;Input&quot;] --&gt; A[&quot;Agent A&quot;]
+    A --&gt; T1[&quot;Tool 1&quot;]
+    T1 --&gt; B[&quot;Agent B&quot;]
+    B --&gt; T2[&quot;Tool 2&quot;]
+    A --&gt; C[&quot;Agent C&quot;]
+    C -- &quot;循环&quot; --&gt; A
+    A --&gt; D[&quot;Agent D&quot;]
+    C --&gt; T3[&quot;Tool 3&quot;]
+    T3 -- &quot;失败&quot; --&gt; R[&quot;重试&quot;]
+    R --&gt; T3
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef err fill:#ffebee,stroke:#c62828,color:#b71c1c
+    class A,B,C,D agent
+    class IN,T1,T2,T3 proc
+    class R err
+</div></figure>
+<p><em>单 Agent 是链，多 Agent 是有环、有分流、还有失败重试的图——调试复杂度指数级上升。</em></p>
+<table>
+<thead>
+<tr>
+<th>挑战</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>非确定性</td>
+<td>同样的输入可能产生不同的执行路径</td>
+</tr>
+<tr>
+<td>跨 Agent 交互</td>
+<td>问题可能源于 Agent A 但表现在 Agent C</td>
+</tr>
+<tr>
+<td>隐式依赖</td>
+<td>Agent 间通过共享状态产生的隐式耦合</td>
+</tr>
+<tr>
+<td>延迟叠加</td>
+<td>多个 LLM 调用串联，延迟难以定位</td>
+</tr>
+<tr>
+<td>上下文丢失</td>
+<td>Handoff 过程中关键信息可能丢失</td>
+</tr>
+</tbody></table>
+<h3 id="section-4">核心方法：Trace 和 Span</h3>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    T[&quot;Trace：用户询问订单退款&lt;br/&gt;总计 470ms · 1700 tokens · $0.012&quot;]
+    T --&gt; S1[&quot;Span：Triage Agent&lt;br/&gt;120ms · 500 tokens&quot;]
+    T --&gt; S2[&quot;Span：Refund Agent&lt;br/&gt;350ms · 1200 tokens&quot;]
+    S1 --&gt; A1[&quot;LLM 推理（80ms）&quot;]
+    S1 --&gt; A2[&quot;Handoff（10ms）&quot;]
+    S2 --&gt; B1[&quot;LLM 推理（100ms）&quot;]
+    S2 --&gt; B2[&quot;Tool：get_order_status（150ms）→ 成功&quot;]
+    S2 --&gt; B3[&quot;Tool：process_refund（80ms）→ 成功&quot;]
+    S2 --&gt; B4[&quot;LLM 生成回复（50ms）&quot;]
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    class T store
+    class S1,S2,A1,A2,B1,B2,B3,B4 proc
+</div></figure>
+<p><em>Trace 记录一次完整请求，Span 嵌套成执行树，还原每个 Agent 每一步的耗时与 token。</em></p>
+<h3 id="section-5">实现追踪</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 方式 1：使用 OpenTelemetry（行业标准）
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+
+tracer = trace.get_tracer(&quot;multi-agent-system&quot;)
+
+async def agent_execute(agent_name, task):
+    with tracer.start_as_current_span(f&quot;agent.{agent_name}&quot;) as span:
+        span.set_attribute(&quot;agent.name&quot;, agent_name)
+        span.set_attribute(&quot;task&quot;, task)
+
+        # LLM 调用
+        with tracer.start_as_current_span(&quot;llm.invoke&quot;) as llm_span:
+            response = await llm.invoke(task)
+            llm_span.set_attribute(&quot;tokens.input&quot;, response.input_tokens)
+            llm_span.set_attribute(&quot;tokens.output&quot;, response.output_tokens)
+            llm_span.set_attribute(&quot;model&quot;, response.model)
+
+        # 工具调用
+        for tool_call in response.tool_calls:
+            with tracer.start_as_current_span(f&quot;tool.{tool_call.name}&quot;) as tool_span:
+                result = await execute_tool(tool_call)
+                tool_span.set_attribute(&quot;tool.success&quot;, result.success)
+
+        span.set_attribute(&quot;agent.status&quot;, &quot;completed&quot;)
+        return response
+</code></pre></details>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 方式 2：使用 Langfuse（开源 LLM 可观测性平台）
+from langfuse import Langfuse
+from langfuse.decorators import observe
+
+langfuse = Langfuse()
+
+@observe(name=&quot;triage-agent&quot;)
+async def triage_agent(user_message):
+    # 自动记录输入/输出/延迟/token
+    response = await llm.invoke(user_message)
+
+    if response.needs_handoff:
+        # 嵌套 Span：Handoff
+        with langfuse.span(name=&quot;handoff&quot;, metadata={&quot;to&quot;: response.target_agent}):
+            return await handoff(response.target_agent, response.context)
+
+    return response
+
+@observe(name=&quot;refund-agent&quot;)
+async def refund_agent(context):
+    # 嵌套 Span 自动形成调用树
+    order = await get_order(context[&quot;order_id&quot;])
+    refund = await process_refund(order)
+    return refund
+</code></pre></details>
+<h3 id="section-6">关键监控指标</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">monitoring_metrics = {
+    # 性能指标
+    &quot;latency&quot;: {
+        &quot;per_agent&quot;: &quot;每个 Agent 的处理时间&quot;,
+        &quot;end_to_end&quot;: &quot;用户请求到最终响应的总时间&quot;,
+        &quot;tool_calls&quot;: &quot;每次工具调用的延迟&quot;,
+    },
+    # 成本指标
+    &quot;tokens&quot;: {
+        &quot;input_tokens&quot;: &quot;每个 Agent 的输入 token 数&quot;,
+        &quot;output_tokens&quot;: &quot;每个 Agent 的输出 token 数&quot;,
+        &quot;total_cost&quot;: &quot;按模型定价计算的总成本&quot;,
+    },
+    # 质量指标
+    &quot;quality&quot;: {
+        &quot;tool_call_success_rate&quot;: &quot;工具调用成功率&quot;,
+        &quot;handoff_success_rate&quot;: &quot;Handoff 成功率（无上下文丢失）&quot;,
+        &quot;task_completion_rate&quot;: &quot;任务完成率&quot;,
+        &quot;output_quality_score&quot;: &quot;LLM-as-Judge 质量评分&quot;,
+    },
+    # 健康指标
+    &quot;health&quot;: {
+        &quot;error_rate&quot;: &quot;各 Agent 的错误率&quot;,
+        &quot;retry_count&quot;: &quot;重试次数&quot;,
+        &quot;circuit_breaker_trips&quot;: &quot;断路器触发次数&quot;,
+    },
+}
+</code></pre></details>
+<h3 id="section-7">调试工作流</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>1. 问题发现
+   └→ 告警触发（延迟飙升/错误率上升/成本异常）
+
+2. 问题定位
+   └→ 查看 Trace 列表，筛选异常 Trace
+      └→ 展开 Trace 的 Span 树
+         └→ 定位到具体的 Agent/工具/LLM 调用
+
+3. 根因分析
+   └→ 检查该 Span 的输入/输出/prompt
+      └→ 是 LLM 选错了工具？参数错误？工具超时？
+
+4. 修复验证
+   └→ 调整 prompt/工具描述/超时设置
+      └→ 在 Playground 中用原始输入重放
+         └→ 确认修复后部署
+</code></pre></details>
+<h3 id="section-8">多 Agent 特有的调试技巧</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 技巧 1：Handoff 断点——在每次 Handoff 时记录完整上下文
+class HandoffDebugger:
+    def on_handoff(self, from_agent, to_agent, context):
+        self.logger.info(
+            f&quot;Handoff: {from_agent} → {to_agent}&quot;,
+            extra={
+                &quot;context_size&quot;: len(json.dumps(context)),
+                &quot;context_keys&quot;: list(context.keys()),
+                &quot;messages_count&quot;: len(context.get(&quot;messages&quot;, [])),
+            }
+        )
+
+# 技巧 2：Agent 决策日志——记录 LLM 的推理过程
+class DecisionLogger:
+    def log_decision(self, agent_name, prompt, response, chosen_tool):
+        self.store({
+            &quot;agent&quot;: agent_name,
+            &quot;input_summary&quot;: summarize(prompt),
+            &quot;tool_chosen&quot;: chosen_tool,
+            &quot;confidence&quot;: response.confidence,
+            &quot;alternatives_considered&quot;: response.alternatives,
+        })
+
+# 技巧 3：回放调试——保存完整 Trace 后离线回放
+class TraceReplayer:
+    def replay(self, trace_id):
+        trace = self.load_trace(trace_id)
+        for span in trace.spans:
+            print(f&quot;[{span.agent}] {span.operation}: {span.input[:100]}...&quot;)
+            print(f&quot;  → {span.output[:100]}...&quot;)
+            print(f&quot;  ⏱ {span.duration_ms}ms, 💰 {span.cost}&quot;)
+</code></pre></details>
+<h3 id="section-9">主流工具对比</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>类型</th>
+<th>最适合</th>
+<th>特色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Langfuse</td>
+<td>开源</td>
+<td>自托管 + 全面可观测性</td>
+<td>Prompt 管理 + 追踪 + 评估一体</td>
+</tr>
+<tr>
+<td>LangSmith</td>
+<td>SaaS</td>
+<td>LangChain/LangGraph 生态</td>
+<td>与 LangGraph 深度集成</td>
+</tr>
+<tr>
+<td>Arize AI</td>
+<td>SaaS</td>
+<td>企业级</td>
+<td>统一 LLM + Agent 评估</td>
+</tr>
+<tr>
+<td>Braintrust</td>
+<td>SaaS</td>
+<td>多步骤链调试</td>
+<td>嵌套 Trace 可视化</td>
+</tr>
+<tr>
+<td>Maxim AI</td>
+<td>SaaS</td>
+<td>多 Agent 专项</td>
+<td>Agent 交互分析</td>
+</tr>
+<tr>
+<td>Datadog LLM</td>
+<td>SaaS</td>
+<td>已有 Datadog 的团队</td>
+<td>与 APM 统一监控</td>
+</tr>
+</tbody></table>
+<h3 id="section-10">落地信号：子 Agent 嵌套的可观测性被补齐（Agent SDK，2026-08）</h3>
+<p>前面的 Trace/Span 模型有个长期实践缺口：<strong>子 Agent 内部是黑箱</strong>——trace 树上只留下一个&quot;派生了子任务&quot;的节点和最终返回值，嵌套在第几层、前台还是后台、中间想了什么都看不到，而多 Agent 排障最难的恰恰是这一段。2026-08 的 Claude Agent SDK 用四条改动补上了对应的四类盲区：</p>
+<ul>
+<li><strong>结构信息（TS v0.3.238）</strong>：<code>task_started</code> 事件新增 <code>spawn_depth</code>（子 Agent 嵌套层数——递归派生失控此前只能靠总耗时反推）和 <code>is_backgrounded</code>（是否后台执行——此前&quot;一个节点开始了但迟迟不结束&quot;无法区分是卡住还是本来就异步）。</li>
+<li><strong>失败路径的显式终态（TS v0.3.238）</strong>：<code>command_lifecycle</code> 新增 <code>refused</code> 终态——跨会话 peer 消息被接收侧策略拒绝时明确上报，而不是静默无帧。&quot;没有信号&quot;本身不构成信号，有了显式终态这条链路在 trace 上不再断掉。</li>
+<li><strong>节点内部的过程（Python v0.2.140）</strong>：<code>forward_subagent_text</code> 把子 Agent 的 text / thinking block 转发进主消息流——本文&quot;Agent 决策日志&quot;技巧想要的原料由 SDK 直接供给，不必自己在子 Agent 里埋点。</li>
+<li><strong>结构化错误（Python v0.2.140）</strong>：<code>ResultError</code> 取代裸的 exit code，携带 subtype、errors、<code>api_error_status</code>、<code>terminal_reason</code>、<code>session_id</code> 等字段——按失败原因分支处理取代一升级就碎的 stderr 字符串匹配，<code>session_id</code> 让失败直接关联回该会话的 trace。</li>
+</ul>
+<p>需要说明这是 SDK 层能力而非 OTEL 标准扩展（字段名是 Anthropic SDK 自己的），接统一可观测性设施仍需导出时映射成 span attribute。但它说明一件事：<strong>子 Agent 嵌套的可观测性正从&quot;各家自己埋点&quot;变成 SDK 默认提供</strong>。</p>
+<h2 id="section-11">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;用 print/log 就够了&quot;</strong> — 多 Agent 系统的日志是分散的，无法从日志中重建 Agent 间的因果关系。需要结构化的 Trace + Span 来保留操作间的父子和时序关系。</p>
+</li>
+<li><p><strong>误区：&quot;只监控最终输出质量&quot;</strong> — 最终输出正确不代表过程正确。Agent 可能通过错误的推理路径得到了正确结果（运气好），这类问题只有通过过程追踪才能发现。</p>
+</li>
+<li><p><strong>追问：&quot;OpenTelemetry 在 LLM 领域的角色是什么？&quot;</strong> — OTEL 正在成为 Agent 遥测的标准协议。多个框架（Pydantic AI、smolagents、Strands Agents）已原生支持 OTEL 导出。这避免了厂商锁定，允许用同一套基础设施监控不同框架的 Agent。</p>
+</li>
+<li><p><strong>追问：&quot;如何测试多 Agent 系统？&quot;</strong> — 因为 Agent 输出非确定性，不能用精确匹配断言。推荐：(1) 用评分标准（Rubric）评估输出质量；(2) 用 LLM-as-Judge 自动评估；(3) 构建场景级集成测试而非单元测试；(4) 用 Trace 回放做回归测试。</p>
+</li>
+<li><p><strong>场景追问：&quot;你的多 Agent 系统在高峰期 P99 延迟突然从 2 秒飙升到 15 秒，但各 Agent 单独测试都很正常。如何定位？&quot;</strong> — 这是多 Agent 系统特有的性能问题。定位路径：(1) 检查 Trace 中的跨 Agent 通信延迟 → 可能是消息队列或网络瓶颈；(2) 分析 Agent 间的依赖关系 → 找出是否存在串行化的热点路径；(3) 检查共享资源（如数据库、向量库）在高峰期的表现 → 可能需要添加缓存或读写分离；(4) 查看是否有 Agent 触发了过多的重试 → 重试风暴会指数级放大延迟；(5) 实施 Agent 级别的熔断 → 某个 Agent 响应慢时快速失败而非等待。</p>
+</li>
+<li><p><strong>场景追问：&quot;你的多 Agent 系统中出现&#39;幽灵 Agent&#39;现象——某个 Agent 偶尔会执行完全不在预期范围内的操作，导致系统状态不一致。如何排查？&quot;</strong> — 这是多 Agent 系统中最难调试的问题。排查路径：(1) 立即启用全量 Trace 记录，捕获完整执行路径；(2) 检查 Agent 的 System Prompt 是否有模糊指令 → 可能导致 Agent 自行扩展行为；(3) 分析 Agent 间的消息传递 → 可能存在上下文污染或消息篡改；(4) 检查是否有未记录的配置漂移 → 生产环境和开发环境的 Prompt 版本不一致；(5) 实施 Agent 白名单机制 → 明确列出每个 Agent 允许执行的操作，超出范围自动告警。</p>
+</li>
+<li><p><strong>场景追问：&quot;你的多 Agent 系统中 Agent A 传递给 Agent B 的数据偶尔丢失关键字段，Agent B 因此做出错误决策。如何解决？&quot;</strong> — 这是 Handoff 数据一致性问题。解决路径：(1) 在 Handoff 接口上实施 Schema 验证 → Agent B 收到数据前先校验完整性；(2) 设计标准化的 Handoff 协议 → 明确定义每个 Agent 期望的输入输出格式；(3) 在 Handoff 点记录日志，对比发送和接收的数据；(4) 加入数据补全机制 → Agent B 检测到缺失字段时主动向 Agent A 请求；(5) 实施 Handoff 测试 → 构建专门测试各种 Handoff 场景的测试集。</p>
+</li>
+</ol>
+<h2 id="section-12">参考资料</h2>
+<ul>
+<li><a href="https://www.getmaxim.ai/articles/agent-tracing-for-debugging-multi-agent-ai-systems/">Agent Tracing for Debugging Multi-Agent AI Systems (Maxim AI)</a></li>
+<li><a href="https://langfuse.com/blog/2024-07-ai-agent-observability-with-langfuse">AI Agent Observability with Langfuse (Langfuse Blog)</a></li>
+<li><a href="https://www.langchain.com/langsmith/observability">LangSmith: AI Agent Observability Platform (LangChain)</a></li>
+<li><a href="https://www.langchain.com/articles/llm-observability-tools">8 LLM Observability Tools to Monitor AI Agents (LangChain)</a></li>
+<li><a href="https://www.braintrust.dev/articles/best-llm-monitoring-tools-2026">5 Best Tools for Monitoring LLM Applications in 2026 (Braintrust)</a></li>
+<li><a href="https://github.com/anthropics/claude-agent-sdk-typescript/releases/tag/v0.3.238">claude-agent-sdk-typescript v0.3.238 Release Notes：task_started 新增 is_backgrounded / spawn_depth，command_lifecycle 新增 refused (GitHub)</a></li>
+<li><a href="https://github.com/anthropics/claude-agent-sdk-python/releases/tag/v0.2.140">claude-agent-sdk-python v0.2.140 Release Notes：forward_subagent_text 与 ResultError (GitHub)</a></li>
+<li><a href="https://code.claude.com/docs/en/agent-sdk/overview">Claude Agent SDK Overview 官方文档 (Anthropic)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">多 Agent 调试的独特挑战</a></li><li class="toc-level-3"><a href="#section-4">核心方法：Trace 和 Span</a></li><li class="toc-level-3"><a href="#section-5">实现追踪</a></li><li class="toc-level-3"><a href="#section-6">关键监控指标</a></li><li class="toc-level-3"><a href="#section-7">调试工作流</a></li><li class="toc-level-3"><a href="#section-8">多 Agent 特有的调试技巧</a></li><li class="toc-level-3"><a href="#section-9">主流工具对比</a></li><li class="toc-level-3"><a href="#section-10">落地信号：子 Agent 嵌套的可观测性被补齐（Agent SDK，2026-08）</a></li><li class="toc-level-2"><a href="#section-11">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-12">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="035.html" class="nav-card"><span>上一章</span><strong>← 多 Agent 系统中的涌现行为与可控性</strong></a><a href="037.html" class="nav-card next"><span>下一章</span><strong>Agent 记忆的类型：短期记忆、长期记忆、工作记忆 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

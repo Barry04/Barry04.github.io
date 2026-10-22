@@ -1,0 +1,217 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Embedding 模型选择与微调策略 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link active" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">RAG · 第 015 题</div><h1>Embedding 模型选择与微调策略</h1><blockquote>
+<p>难度：中级
+分类：RAG</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Embedding 模型的选择直接决定 RAG 检索质量。2025-2026 年的格局：<strong>Voyage AI voyage-3-large</strong> 与 <strong>Cohere embed-v4</strong> 在 MTEB Benchmark 上排名相近，分别在性价比与多语言/多模态场景占优（具体名次取决于子任务）；<strong>OpenAI text-embedding-3-large</strong> 是最均衡的生产默认选择。开源方面 <strong>BGE-M3</strong> 和 <strong>Qwen3 Embedding</strong> 表现出色。微调可带来 10-30% 的领域特定提升，但需要注意重新索引的成本。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">Embedding 模型的作用</h3>
+<p>Embedding 模型将文本转化为高维向量，使得语义相似的文本在向量空间中距离更近。在 RAG 中，它用于两个环节：</p>
+<ol>
+<li><strong>索引时</strong>：将文档块转为向量存入向量数据库</li>
+<li><strong>查询时</strong>：将用户问题转为向量，与文档向量做相似度匹配</li>
+</ol>
+<p><strong>关键约束：</strong> 索引和查询必须使用<strong>同一个</strong> Embedding 模型，否则向量空间不一致，检索完全失效。</p>
+<h3 id="section-4">主流商业模型对比</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>维度</th>
+<th>MTEB 表现</th>
+<th>价格($/M tokens)</th>
+<th>特色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Voyage AI voyage-3-large</strong></td>
+<td>1024</td>
+<td>综合前列</td>
+<td>$0.06</td>
+<td>性价比最高，多领域领先</td>
+</tr>
+<tr>
+<td><strong>OpenAI text-embedding-3-large</strong></td>
+<td>3072(可缩)</td>
+<td>前列</td>
+<td>$0.13</td>
+<td>最均衡，支持维度缩减</td>
+</tr>
+<tr>
+<td><strong>Cohere embed-v4</strong></td>
+<td>1536</td>
+<td>多语言/多模态前列</td>
+<td>~$0.10</td>
+<td>100+ 语言，多模态</td>
+</tr>
+<tr>
+<td><strong>OpenAI text-embedding-3-small</strong></td>
+<td>1536</td>
+<td>中上</td>
+<td>$0.02</td>
+<td>最便宜，适合成本敏感场景</td>
+</tr>
+</tbody></table>
+<h4 id="section-5">Voyage AI — 性价比之王</h4>
+<p>Voyage AI 的 voyage-3-large 在多项 MTEB 子任务上超越 OpenAI text-embedding-3-large 与 Cohere embed-v3（具体提升幅度因数据集而异）。1024 维 Embedding 比 OpenAI 的 3072 维节省约 3 倍存储空间，价格仅为 OpenAI 的一半。</p>
+<p>特别值得注意：Voyage 提供领域特化模型（截至 2026-05 的最新版）：</p>
+<ul>
+<li><code>voyage-law-3</code>：法律领域（案例检索精度大幅领先通用模型）</li>
+<li><code>voyage-code-3</code>：代码搜索</li>
+<li><code>voyage-finance-2</code>：金融领域（v3 尚未发布）</li>
+</ul>
+<h4 id="section-6">OpenAI text-embedding-3-large — 最均衡的默认选择</h4>
+<p>Agentset 的评测显示它在更多的直接对比中胜出，是最稳定的生产选择。独特优势：支持通过 <code>dimensions</code> 参数缩减维度（3072→1536→256），在精度和存储间灵活权衡。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from openai import OpenAI
+client = OpenAI()
+
+# 全维度：最高精度
+full = client.embeddings.create(
+    model=&quot;text-embedding-3-large&quot;,
+    input=&quot;查询文本&quot;
+)  # 3072 维
+
+# 缩减维度：节省存储，轻微精度损失
+compact = client.embeddings.create(
+    model=&quot;text-embedding-3-large&quot;,
+    input=&quot;查询文本&quot;,
+    dimensions=1024  # 从 3072 缩减到 1024
+)
+</code></pre></details>
+<h4 id="section-7">Cohere embed-v4 — 多语言多模态之王</h4>
+<p>在 MTEB 多语言子任务上排名前列，支持 100+ 语言的跨语言检索，能在同一语义空间中嵌入文本和图像。支持 128K token 的超长输入。</p>
+<h3 id="section-8">主流开源模型</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>维度</th>
+<th>许可证</th>
+<th>特色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>BAAI/bge-m3</strong></td>
+<td>1024</td>
+<td>MIT</td>
+<td>多语言，自托管首选</td>
+</tr>
+<tr>
+<td><strong>Qwen3 Embedding (4B/8B)</strong></td>
+<td>可变</td>
+<td>Apache 2.0</td>
+<td>最新 SOTA，32K 上下文</td>
+</tr>
+<tr>
+<td><strong>Jina Embeddings v3</strong></td>
+<td>1024</td>
+<td>Apache 2.0</td>
+<td>多语言，任务特定适配</td>
+</tr>
+<tr>
+<td><strong>all-MiniLM-L6-v2</strong></td>
+<td>384</td>
+<td>Apache 2.0</td>
+<td>极轻量，MVP 首选</td>
+</tr>
+</tbody></table>
+<p><strong>选择开源模型的理由：</strong></p>
+<ul>
+<li>数据隐私：不需要将文档发送到第三方 API</li>
+<li>成本控制：大量数据时自托管更经济</li>
+<li>离线部署：无网络环境</li>
+<li>完全可控：可以微调和定制</li>
+</ul>
+<h3 id="section-9">微调策略</h3>
+<p>领域特定微调可带来 <strong>10-30%</strong> 的检索质量提升。</p>
+<h4 id="section-10">何时需要微调？</h4>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    A{&quot;通用 Embedding&lt;br/&gt;在你的数据上满意？&quot;}
+    A --&gt;|&quot;满意&quot;| B[&quot;不需要微调&quot;]
+    A --&gt;|&quot;不满意&quot;| C{&quot;原因是什么？&quot;}
+    C --&gt;|&quot;数据质量问题&quot;| D[&quot;先优化数据，不是模型&quot;]
+    C --&gt;|&quot;领域术语不理解&quot;| E[&quot;微调&quot;]
+    C --&gt;|&quot;检索逻辑需要定制&quot;| F[&quot;微调&quot;]
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    class A,C decision
+    class B,D,E,F proc
+</div></figure>
+<p><em>微调前先测通用模型：不满意先区分原因——数据质量问题先修数据，领域术语或检索逻辑不匹配才值得微调。</em></p>
+<h4 id="section-11">微调方法</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 1. 准备训练数据：(query, positive_doc, negative_doc) 三元组
+training_data = [
+    {
+        &quot;query&quot;: &quot;RLHF 的奖励模型如何训练？&quot;,
+        &quot;positive&quot;: &quot;奖励模型通过人类偏好标注数据训练...&quot;,
+        &quot;negative&quot;: &quot;强化学习是一种机器学习方法...&quot;
+    },
+    # ... 至少 1000 个样本
+]
+
+# 2. 使用对比学习进行微调
+from sentence_transformers import SentenceTransformer, losses
+
+model = SentenceTransformer(&quot;BAAI/bge-base-en-v1.5&quot;)
+train_loss = losses.TripletLoss(model)
+model.fit(
+    train_objectives=[(train_dataloader, train_loss)],
+    epochs=3
+)
+</code></pre></details>
+<h4 id="section-12">微调的关键注意事项</h4>
+<ol>
+<li><strong>必须重新索引</strong>：微调改变了 Embedding 空间，所有已索引的向量都需要重新生成。这是不可忽略的成本。</li>
+<li><strong>数据量要求</strong>：至少 1000 个标注样本，理想情况 5000-10000 个</li>
+<li><strong>评估闭环</strong>：用 Recall@k、MRR 等指标对比微调前后的效果</li>
+<li><strong>基础模型选择</strong>：选与你的领域最接近的基础模型微调，效果更好</li>
+</ol>
+<h3 id="section-13">选型决策框架</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">def choose_embedding_model(requirements: dict) -&gt; str:
+    if requirements[&quot;stage&quot;] == &quot;mvp&quot;:
+        return &quot;all-MiniLM-L6-v2&quot;        # 免费、快、够用
+
+    if requirements[&quot;multilingual&quot;]:
+        return &quot;cohere-embed-v4&quot;          # 100+ 语言
+
+    if requirements[&quot;privacy_critical&quot;]:
+        return &quot;bge-m3 (self-hosted)&quot;     # MIT 许可，完全可控
+
+    if requirements[&quot;budget&quot;] == &quot;tight&quot;:
+        return &quot;voyage-3-large&quot;           # 最高性价比
+
+    if requirements[&quot;domain_specific&quot;]:
+        if requirements[&quot;domain&quot;] in [&quot;legal&quot;, &quot;code&quot;, &quot;finance&quot;]:
+            return f&quot;voyage-{domain}-2&quot;   # 领域特化模型
+        else:
+            return &quot;fine-tune bge-m3&quot;     # 自定义微调
+
+    return &quot;openai-text-embedding-3-large&quot;  # 最均衡的默认选择
+</code></pre></details>
+<h3 id="section-14">关键原则</h3>
+<blockquote>
+<p>&quot;在你的数据上做 Benchmark——通用分数不一定适用于你的领域。&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;价格更高的模型不一定准确率更高。最佳模型是在准确率和成本之间取得最好平衡的模型。&quot;</p>
+</blockquote>
+<h2 id="section-15">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;选 MTEB 排名第一的就对了&quot;</strong> — MTEB 是通用基准，你的领域数据分布可能完全不同。必须在自己的数据集上评估。</p>
+</li>
+<li><p><strong>误区：&quot;维度越高越好&quot;</strong> — 3072 维比 1024 维精度更高，但存储 3 倍、检索更慢。很多场景下 1024 维甚至 768 维就足够了。OpenAI 的维度缩减功能正是为此设计。</p>
+</li>
+<li><p><strong>追问：&quot;如果换了 Embedding 模型怎么办？&quot;</strong> — 必须重新索引所有文档。索引和查询必须使用完全相同的模型。这是换模型的最大成本。</p>
+</li>
+<li><p><strong>追问：&quot;Embedding 和 LLM 需要来自同一家吗？&quot;</strong> — 不需要。Embedding 模型和 LLM 是独立组件。可以用 Voyage 的 Embedding + Anthropic 的 Claude 生成，完全没问题。</p>
+</li>
+</ol>
+<h2 id="section-16">参考资料</h2>
+<ul>
+<li><a href="https://app.ailog.fr/en/blog/guides/choosing-embedding-models">Best Embedding Models 2025: MTEB Scores &amp; Leaderboard (Ailog)</a></li>
+<li><a href="https://artsmart.ai/blog/top-embedding-models-in-2025/">Top Embedding Models 2026: Complete Guide (ArtSmart)</a></li>
+<li><a href="https://reintech.io/blog/embedding-models-comparison-2026-openai-cohere-voyage-bge">Embedding Models Comparison 2026: OpenAI vs Cohere vs Voyage vs BGE (Reintech)</a></li>
+<li><a href="https://www.zenml.io/blog/best-embedding-models-for-rag">9 Best Embedding Models for RAG (ZenML)</a></li>
+<li><a href="https://agentset.ai/embeddings">Embedding Model Leaderboard (Agentset)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">Embedding 模型的作用</a></li><li class="toc-level-3"><a href="#section-4">主流商业模型对比</a></li><li class="toc-level-4"><a href="#section-5">Voyage AI — 性价比之王</a></li><li class="toc-level-4"><a href="#section-6">OpenAI text-embedding-3-large — 最均衡的默认选择</a></li><li class="toc-level-4"><a href="#section-7">Cohere embed-v4 — 多语言多模态之王</a></li><li class="toc-level-3"><a href="#section-8">主流开源模型</a></li><li class="toc-level-3"><a href="#section-9">微调策略</a></li><li class="toc-level-4"><a href="#section-10">何时需要微调？</a></li><li class="toc-level-4"><a href="#section-11">微调方法</a></li><li class="toc-level-4"><a href="#section-12">微调的关键注意事项</a></li><li class="toc-level-3"><a href="#section-13">选型决策框架</a></li><li class="toc-level-3"><a href="#section-14">关键原则</a></li><li class="toc-level-2"><a href="#section-15">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-16">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="011.html" class="nav-card"><span>上一章</span><strong>← 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</strong></a><a href="013.html" class="nav-card next"><span>下一章</span><strong>混合检索：如何结合语义检索和关键词检索？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

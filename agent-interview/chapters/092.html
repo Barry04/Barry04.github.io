@@ -1,0 +1,500 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link active" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">提示工程 · 第 102 题</div><h1>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</h1><blockquote>
+<p>难度：高级
+分类：Prompt Engineering</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p><strong>Context Engineering</strong> 是一种从&quot;如何写好单条 Prompt&quot;到&quot;如何为 LLM 构建完整、精准上下文&quot;的范式转变。它关注的核心问题不再是措辞技巧，而是<strong>上下文的选择、组装与管理</strong>。一个 LLM 调用的效果，70% 取决于喂给它的上下文质量，而非 Prompt 本身的遣词造句。Context Engineering 将上下文视为四大来源的动态组合：<strong>System Prompt</strong>、<strong>Tool Results</strong>、<strong>Conversation History</strong> 和 <strong>External Knowledge</strong>（RAG / API）。其核心挑战在于<strong>上下文窗口是有限的&quot;房地产&quot;</strong>——必须在有限的 token 预算内，为当前任务挑选信息密度最高的上下文片段。在 <strong>Agentic 场景</strong>中，这一挑战尤为突出：多轮 tool call 会持续积累上下文，若不加管理，关键信息会被淹没在噪声中，导致 Agent 性能急剧下降。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">从 Prompt Engineering 到 Context Engineering</h3>
+<p>Prompt Engineering 聚焦于&quot;怎么问&quot;，Context Engineering 聚焦于&quot;用什么信息去问&quot;。这是一个维度的跃升：</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    subgraph PE[&quot;Prompt Engineering —— 怎么问：措辞、格式化一条指令&quot;]
+        PE1[&quot;System Prompt 写作技巧&lt;br/&gt;Few-shot 示例 / CoT、ReAct 格式&quot;]
+    end
+    subgraph CE[&quot;Context Engineering —— 用什么信息问：构建决策上下文&quot;]
+        SP[&quot;System Prompt&quot;]
+        TR[&quot;Tool Results&quot;]
+        HI[&quot;对话历史&quot;]
+        EK[&quot;External Knowledge&lt;br/&gt;RAG / API&quot;]
+        B[&quot;动态上下文组装器&lt;br/&gt;(Context Builder)&quot;]
+        L[&quot;LLM 调用入口&quot;]
+    end
+    PE -- &quot;范式升级&quot; --- CE
+    SP --&gt; B
+    TR --&gt; B
+    HI --&gt; B
+    EK --&gt; B
+    B --&gt; L
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    class PE1,B proc
+    class SP,TR,HI,EK store
+    class L agent
+</div></figure>
+<p><em>Context Engineering：四路上下文经组装器按预算与优先级合流进 LLM，而非打磨单条 Prompt。</em></p>
+<h3 id="section-4">四大上下文来源</h3>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>内容</th>
+<th>特征</th>
+<th>管理策略</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>System Prompt</strong></td>
+<td>角色定义、工具描述、输出格式、约束规则</td>
+<td>静态、每次调用都携带</td>
+<td>精简压缩，避免冗余</td>
+</tr>
+<tr>
+<td><strong>Tool Results</strong></td>
+<td>搜索结果、API 返回、代码执行输出</td>
+<td>动态生成、体积不可控</td>
+<td>截断 / 摘要 / 选择性保留</td>
+</tr>
+<tr>
+<td><strong>Conversation History</strong></td>
+<td>用户多轮对话、之前的 Agent 推理过程</td>
+<td>线性增长、含大量噪声</td>
+<td>滑动窗口 / 摘要压缩</td>
+</tr>
+<tr>
+<td><strong>External Knowledge</strong></td>
+<td>RAG 检索文档、知识库、用户画像</td>
+<td>按需注入、相关性参差</td>
+<td>相关性排序 + top-k 截断</td>
+</tr>
+</tbody></table>
+<h3 id="section-5">上下文窗口的&quot;房地产&quot;管理</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>┌────────────────── Context Window (128K tokens) ──────────────────┐
+│                                                                  │
+│  ┌──────────────┐  固定区域：~10%                                │
+│  │ System Prompt│  角色 + 工具描述 + 格式要求                      │
+│  └──────────────┘                                                │
+│  ┌──────────────┐  弹性区域：~30%                                │
+│  │ RAG / 知识库  │  根据查询动态检索                               │
+│  └──────────────┘                                                │
+│  ┌──────────────┐  增长区域：~40%                                │
+│  │ 对话历史      │  多轮交互 + tool call 结果                      │
+│  └──────────────┘                                                │
+│  ┌──────────────┐  预留区域：~20%                                │
+│  │ 输出空间      │  模型生成 token 的预算                          │
+│  └──────────────┘                                                │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+
+关键原则：上下文不是越多越好，而是信噪比越高越好。
+每加入一段上下文都要问：它对当前决策的边际贡献 &gt; 它消耗的 token 成本吗？
+</code></pre></details>
+<h3 id="section-6">Prompt Engineering vs Context Engineering 对比</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Prompt Engineering</th>
+<th>Context Engineering</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>核心关注</td>
+<td>单条指令的措辞与格式</td>
+<td>整体上下文的选择与组装</td>
+</tr>
+<tr>
+<td>优化对象</td>
+<td>Prompt 模板</td>
+<td>上下文管道 (Context Pipeline)</td>
+</tr>
+<tr>
+<td>技能要求</td>
+<td>语言直觉 + 试错调优</td>
+<td>系统设计 + 信息架构</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>单轮问答、简单任务</td>
+<td>Agentic 系统、复杂工作流</td>
+</tr>
+<tr>
+<td>评估指标</td>
+<td>输出质量</td>
+<td>上下文信噪比 + 输出质量</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>低（人工逐条调优）</td>
+<td>高（程序化、可自动化）</td>
+</tr>
+<tr>
+<td>类比</td>
+<td>写好一封邮件</td>
+<td>管理整个项目的信息流</td>
+</tr>
+</tbody></table>
+<h3 id="section-7">动态上下文组装器：Python 实现</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from dataclasses import dataclass, field
+from enum import Enum
+from typing import Optional
+
+
+class ContextSource(Enum):
+    &quot;&quot;&quot;上下文来源类型&quot;&quot;&quot;
+    SYSTEM = &quot;system&quot;
+    TOOL_RESULT = &quot;tool_result&quot;
+    HISTORY = &quot;history&quot;
+    KNOWLEDGE = &quot;knowledge&quot;
+
+
+@dataclass
+class ContextBlock:
+    &quot;&quot;&quot;单个上下文块&quot;&quot;&quot;
+    source: ContextSource
+    content: str
+    priority: int = 5          # 1-10，越高越重要
+    token_count: int = 0       # 预估 token 数
+    metadata: dict = field(default_factory=dict)
+
+
+class ContextBuilder:
+    &quot;&quot;&quot;动态上下文组装器——Context Engineering 的核心实现&quot;&quot;&quot;
+
+    def __init__(self, max_tokens: int = 128_000, reserve_output: float = 0.2):
+        self.max_tokens = max_tokens
+        # 为模型输出预留空间
+        self.available_tokens = int(max_tokens * (1 - reserve_output))
+        self.blocks: list[ContextBlock] = []
+
+        # 各来源的 token 预算上限（百分比）
+        self.budget = {
+            ContextSource.SYSTEM: 0.12,      # System Prompt 最多占 12%
+            ContextSource.KNOWLEDGE: 0.35,   # RAG 知识最多占 35%
+            ContextSource.HISTORY: 0.35,     # 对话历史最多占 35%
+            ContextSource.TOOL_RESULT: 0.18, # 工具结果最多占 18%
+        }
+
+    def add(self, source: ContextSource, content: str,
+            priority: int = 5, metadata: Optional[dict] = None) -&gt; &quot;ContextBuilder&quot;:
+        &quot;&quot;&quot;添加一个上下文块&quot;&quot;&quot;
+        token_count = self._estimate_tokens(content)
+        self.blocks.append(ContextBlock(
+            source=source,
+            content=content,
+            priority=priority,
+            token_count=token_count,
+            metadata=metadata or {},
+        ))
+        return self  # 链式调用
+
+    def build(self) -&gt; list[dict]:
+        &quot;&quot;&quot;
+        核心方法：根据优先级和预算，组装最终上下文。
+        返回 OpenAI 兼容的 messages 格式。
+        &quot;&quot;&quot;
+        # 第一步：按来源分组
+        grouped: dict[ContextSource, list[ContextBlock]] = {}
+        for block in self.blocks:
+            grouped.setdefault(block.source, []).append(block)
+
+        # 第二步：每组内按优先级降序排列
+        for source in grouped:
+            grouped[source].sort(key=lambda b: b.priority, reverse=True)
+
+        # 第三步：按预算分配，优先级高的先占位
+        selected: list[ContextBlock] = []
+        for source, blocks in grouped.items():
+            budget_tokens = int(self.available_tokens * self.budget.get(source, 0.1))
+            used = 0
+            for block in blocks:
+                if used + block.token_count &lt;= budget_tokens:
+                    selected.append(block)
+                    used += block.token_count
+                else:
+                    # 尝试截断以填满预算
+                    remaining = budget_tokens - used
+                    if remaining &gt; 100:  # 至少保留 100 token 才值得截断
+                        truncated = self._truncate(block.content, remaining)
+                        selected.append(ContextBlock(
+                            source=block.source,
+                            content=truncated,
+                            priority=block.priority,
+                            token_count=remaining,
+                        ))
+                    break
+
+        # 第四步：组装为 messages 格式
+        return self._to_messages(selected)
+
+    def _to_messages(self, blocks: list[ContextBlock]) -&gt; list[dict]:
+        &quot;&quot;&quot;将上下文块转为 LLM messages 格式&quot;&quot;&quot;
+        messages = []
+        # System Prompt 放最前面
+        sys = [b for b in blocks if b.source == ContextSource.SYSTEM]
+        if sys:
+            messages.append({&quot;role&quot;: &quot;system&quot;,
+                             &quot;content&quot;: &quot;\n\n&quot;.join(b.content for b in sys)})
+        # RAG 知识注入
+        know = [b for b in blocks if b.source == ContextSource.KNOWLEDGE]
+        if know:
+            messages.append({&quot;role&quot;: &quot;system&quot;,
+                             &quot;content&quot;: &quot;[相关知识]\n&quot; + &quot;\n---\n&quot;.join(b.content for b in know)})
+        # 对话历史按原始顺序
+        hist = sorted([b for b in blocks if b.source == ContextSource.HISTORY],
+                       key=lambda b: b.metadata.get(&quot;turn_index&quot;, 0))
+        for b in hist:
+            messages.append({&quot;role&quot;: b.metadata.get(&quot;role&quot;, &quot;user&quot;), &quot;content&quot;: b.content})
+        return messages
+
+    @staticmethod
+    def _estimate_tokens(text: str) -&gt; int:
+        &quot;&quot;&quot;粗略估算 token 数（中文约 1.5 字符/token，英文约 4 字符/token）&quot;&quot;&quot;
+        cn_chars = sum(1 for c in text if &#39;\u4e00&#39; &lt;= c &lt;= &#39;\u9fff&#39;)
+        en_chars = len(text) - cn_chars
+        return int(cn_chars / 1.5 + en_chars / 4)
+
+    @staticmethod
+    def _truncate(text: str, max_tokens: int) -&gt; str:
+        &quot;&quot;&quot;按 token 预算截断文本，保留前部内容&quot;&quot;&quot;
+        # 简化实现：按字符比例截断
+        ratio = max_tokens / max(ContextBuilder._estimate_tokens(text), 1)
+        cut_point = int(len(text) * min(ratio, 1.0))
+        return text[:cut_point] + &quot;\n...[已截断]&quot;
+
+
+# ── 使用示例 ──────────────────────────────────────────────
+if __name__ == &quot;__main__&quot;:
+    ctx = ContextBuilder(max_tokens=128_000)
+    ctx.add(ContextSource.SYSTEM, &quot;你是资深数据分析师 Agent...&quot;, priority=10)
+    ctx.add(ContextSource.KNOWLEDGE, &quot;[文档] Q3 营收同比增长 23%...&quot;, priority=8)
+    ctx.add(ContextSource.HISTORY, &quot;帮我分析上季度销售数据&quot;, priority=7,
+            metadata={&quot;role&quot;: &quot;user&quot;, &quot;turn_index&quot;: 0})
+    ctx.add(ContextSource.TOOL_RESULT, &quot;SQL 结果：| 7月 | 520万 | +15% |...&quot;, priority=9)
+    messages = ctx.build()  # 自动按预算裁剪、按优先级排序
+    print(f&quot;组装完成，共 {len(messages)} 条 messages&quot;)
+</code></pre></details>
+<h3 id="section-8">Agentic 场景的特殊挑战</h3>
+<p>在 Agent 多轮执行过程中，上下文管理面临独特挑战：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Agent 执行循环中的上下文膨胀问题：
+
+Turn 1:  System(2K) + User(0.5K)                          = 2.5K tokens
+Turn 3:  System(2K) + History(3K) + ToolResult(5K)         = 10K tokens
+Turn 7:  System(2K) + History(12K) + ToolResults(25K)      = 39K tokens
+Turn 12: System(2K) + History(28K) + ToolResults(60K)      = 90K tokens  ⚠️
+Turn 15: System(2K) + History(40K) + ToolResults(85K)      = 127K tokens 💥
+                                                             ↑ 接近窗口上限
+
+常见应对策略：
+┌────────────────────────────────────────────┐
+│ 策略 1：滑动窗口（Sliding Window）           │
+│   只保留最近 N 轮对话，丢弃早期历史           │
+│                                            │
+│ 策略 2：摘要压缩（Summarization）            │
+│   用 LLM 将早期对话压缩为摘要                │
+│                                            │
+│ 策略 3：工具结果裁剪（Result Pruning）        │
+│   只保留工具结果的关键字段，丢弃原始数据       │
+│                                            │
+│ 策略 4：分层记忆（Hierarchical Memory）       │
+│   短期记忆 → 工作记忆 → 长期记忆分级存储      │
+└────────────────────────────────────────────┘
+</code></pre></details>
+<p>在 Multi-Agent 系统中，挑战进一步放大：每个 Agent 有独立的上下文窗口，Agent 之间的信息传递需要精心设计——传太多导致 token 浪费，传太少导致信息丢失。Context Engineering 在此扮演的是<strong>信息路由器</strong>的角色，决定哪些信息传递给哪个 Agent、以什么粒度传递。</p>
+<h3 id="section-9">Context Engineering 的行业共识：Anthropic 官方工程指南</h3>
+<p>2026 年，Context Engineering 已从&quot;新概念&quot;成长为<strong>行业共识与独立工程学科</strong>。Anthropic 发布的官方工程指南将其定义为&quot;为 LLM 的上下文窗口填入恰好够用的信息&quot;的精密工程，核心是把上下文窗口视为一个<strong>需要持续维护的有限资源</strong>，而非静态容器。</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    subgraph W[&quot;① 写入上下文（Write）&quot;]
+        A1[&quot;检索 RAG&quot;]
+        A2[&quot;工具结果&quot;]
+        A3[&quot;系统提示&quot;]
+    end
+    subgraph M[&quot;② 管理上下文（Manage）&quot;]
+        B1[&quot;压缩 / 摘要&quot;]
+        B2[&quot;裁剪 / 截断&quot;]
+        B3[&quot;滑动窗口&quot;]
+    end
+    subgraph P[&quot;③ 跨会话持久化（Agentic Memory）&quot;]
+        C1[&quot;文件式记忆&quot;]
+        C2[&quot;写笔记到窗口外&quot;]
+        C3[&quot;下次会话读回&quot;]
+    end
+    W --- M
+    M --- P
+    M --&gt; N[&quot;上下文窗口 ≠ 记忆&lt;br/&gt;它是「工作台」，不是「档案柜」&quot;]
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef neutral fill:#eceff1,stroke:#546e7a,color:#37474f
+    class A1,A2,A3,C1,C2,C3 store
+    class B1,B2,B3 proc
+    class N neutral
+</div></figure>
+<p><em>上下文是工作台不是档案柜：写入 → 窗口内压缩管理 → 外化为跨会话记忆。</em></p>
+<p>三个关键认知升级：</p>
+<ol>
+<li><strong>上下文窗口 ≠ 记忆</strong>。窗口是 Agent 的&quot;工作台&quot;（scratchpad），用完即清；长期信息必须<strong>外化</strong>到窗口之外的文件、数据库、知识图谱。这与 <a href="038.html">041 — 上下文窗口管理与压缩</a> 讨论的压缩策略一脉相承。</li>
+<li><strong>Agentic Memory</strong>：Agent 定期把学到的经验写成笔记（如 <code>.md</code> 文件），持久化到上下文窗口外，下次会话开始时读回。这把&quot;记忆&quot;从一次性 token 变成可累积的资产（详见 <a href="039.html">043 — 持久化记忆</a>）。</li>
+<li><strong>信息衰减是常态</strong>。长程 Agent 运行中，早期轮次的工具结果、已完成子任务的细节会从&quot;有用&quot;变成&quot;噪声&quot;。Context Engineering 要求主动清理（context editing / compaction），而非被动等待窗口溢出。</li>
+</ol>
+<blockquote>
+<p><strong>参考资料</strong>：<a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective Context Engineering for AI Agents (Anthropic 官方工程指南)</a></p>
+</blockquote>
+<h3 id="section-10">Prompt Caching：上下文缓存的经济学</h3>
+<p>当 Agent 在多轮执行中反复携带相同的 System Prompt、工具定义、知识库前缀时，<strong>Prompt Caching</strong>（上下文缓存）能把这些稳定前缀的计算结果缓存起来，命中时以极低成本读取——这是 Context Engineering 在&quot;成本维度&quot;的关键杠杆，也是长程 Agent 能&quot;烧得起 token&quot;的根本原因。</p>
+<h4 id="section-11">核心机制：前缀匹配</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Prompt 渲染顺序（Anthropic）：tools → system → messages
+
+  ┌─ tools ──────────────┐  位置 0（最稳定）
+  │ 工具定义（确定性排序） │
+  ├─ system ─────────────┤
+  │ System Prompt（冻结） │  ◄── cache_control 断点①
+  ├─ messages ───────────┤
+  │ 对话历史（逐轮增长）   │  ◄── cache_control 断点②（最新轮）
+  │ ...                  │
+  │ 当前用户问题（易变）   │  位置 N（最不稳定）
+  └──────────────────────┘
+
+缓存命中 = 从 prompt 开头到断点的每一个字节完全一致
+任何一个字节的改变 → 该断点之后的所有缓存全部失效
+</code></pre></details>
+<h4 id="section-12">Anthropic vs OpenAI 缓存机制对比</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Anthropic Prompt Caching</th>
+<th>OpenAI Prompt Caching</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>触发方式</td>
+<td>手动 <code>cache_control</code> 断点 / 顶层自动缓存</td>
+<td><strong>全自动</strong>（无需标记，系统自动识别高频前缀）</td>
+</tr>
+<tr>
+<td>最小缓存前缀</td>
+<td>1024–4096 tokens（因模型而异）</td>
+<td>1024 tokens</td>
+</tr>
+<tr>
+<td>命中读取折扣</td>
+<td>~90% off（读取价 ≈ 0.1× 基础输入价）</td>
+<td>~50% off（读取价 ≈ 0.5× 基础输入价）</td>
+</tr>
+<tr>
+<td>写入溢价</td>
+<td>5 分钟 TTL：1.25×；1 小时 TTL：2×</td>
+<td>无额外写入溢价</td>
+</tr>
+<tr>
+<td>TTL（存活时间）</td>
+<td>5 分钟（默认）/ 1 小时（可选）</td>
+<td>约 5–10 分钟（系统管理，不可配置）</td>
+</tr>
+<tr>
+<td>断点上限</td>
+<td>4 个 / 请求</td>
+<td>不适用（自动管理）</td>
+</tr>
+<tr>
+<td>命中验证</td>
+<td><code>usage.cache_read_input_tokens</code></td>
+<td><code>usage.prompt_tokens_details.cached_tokens</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 上述折扣率与 TTL 为公开 API 文档截至 2026.7 的参数；各厂商可能随定价调整，使用前以官方文档为准。</p>
+</blockquote>
+<h4 id="section-13">成本/延迟收益量化</h4>
+<p>以一个携带 20K token System Prompt + 10K token 知识库前缀的 Agent 为例（Anthropic）：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>                    无缓存         有缓存（命中后）
+输入 token          30,000         30,000（其中 ~28,000 命中缓存）
+输入成本（相对值）   1.0×           ≈ 0.19×  (28000×0.1 + 2000×1) / 30000
+首字延迟（TTFT）    基线           显著降低（跳过前缀的 prefill 计算）
+
+盈亏平衡点：
+  · 5 分钟 TTL：2 次请求即回本 (1.25× + 0.1× = 1.35×  vs  2× 无缓存)
+  · 1 小时 TTL：至少需 3 次请求  (2× + 0.2× = 2.2×  vs  3× 无缓存)
+</code></pre></details>
+<p>对于 Agentic 场景（同一会话内 10+ 轮调用，每轮都携带相同 System Prompt + 累积历史），缓存命中率通常可达 <strong>80%+</strong>——没有 Prompt Caching，多轮 Agent 的 token 成本将高到难以承受。</p>
+<h4 id="section-14">缓存失效管理：静默杀手</h4>
+<p>缓存失效<strong>不报错</strong>——<code>cache_read_input_tokens</code> 静默归零，你只会在账单上发现成本飙升。常见&quot;静默失效&quot;根因：</p>
+<table>
+<thead>
+<tr>
+<th>反模式</th>
+<th>为什么破坏缓存</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>System Prompt 内插 <code>datetime.now()</code> / 时间戳</td>
+<td>每次请求前缀都不同</td>
+</tr>
+<tr>
+<td><code>json.dumps(d)</code> 未加 <code>sort_keys=True</code></td>
+<td>序列化顺序不确定 → 字节级差异</td>
+</tr>
+<tr>
+<td>工具列表按用户动态增减 / 顺序随机</td>
+<td>tools 在位置 0，一处变动全盘失效</td>
+</tr>
+<tr>
+<td>System Prompt 内插 <code>uuid4()</code> / 请求 ID</td>
+<td>每次请求唯一</td>
+</tr>
+<tr>
+<td>中途切换模型</td>
+<td>缓存按模型隔离，换模型 = 冷启动</td>
+</tr>
+</tbody></table>
+<p><strong>工程实践</strong>：把动态内容（时间、用户 ID、会话状态）放到 <code>messages</code> 末尾，<strong>绝不要</strong>插进 System Prompt；工具列表按 <code>name</code> 确定性排序；构建 prompt 后用 <code>count_tokens</code> 比对前后两次请求的字节差异来排查静默失效。</p>
+<h4 id="section-15">Agent 多轮场景的断点策略</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Anthropic: 冻结前缀 + 最新轮各放一个断点
+# 每次请求复用之前所有轮次的前缀缓存
+response = client.messages.create(
+    model=&quot;claude-sonnet-5&quot;,
+    max_tokens=4096,
+    system=[{
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;text&quot;: STABLE_SYSTEM_PROMPT,
+        &quot;cache_control&quot;: {&quot;type&quot;: &quot;ephemeral&quot;},   # 断点①：冻结前缀
+    }],
+    messages=[
+        # ... 历史对话（前缀已被断点①缓存）...
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: [
+            {&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: latest_tool_result},  # 累积历史
+        ]},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: new_question},          # 易变，放最后
+    ],
+    extra_headers={&quot;cache_control&quot;: &quot;ephemeral&quot;},  # 顶层自动在最新 block 放断点②
+)
+
+# 响应中验证命中：&gt;0 即命中
+print(f&quot;缓存读取: {response.usage.cache_read_input_tokens} tokens&quot;)
+print(f&quot;缓存写入: {response.usage.cache_creation_input_tokens} tokens&quot;)
+</code></pre></details>
+<blockquote>
+<p><strong>进阶陷阱</strong>：单个断点最多回溯 <strong>20 个 content block</strong> 找前一次缓存。长 Agent 轮次（一轮内大量 tool_use/tool_result）若超过 20 个 block，下一个断点会静默 miss——需每 ~15 个 block 补一个中间断点。冷启动场景可用 <code>max_tokens=0</code> 的空请求<strong>预热</strong>缓存，消除首次请求的 prefill 延迟。</p>
+</blockquote>
+<h2 id="section-16">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;Context Engineering 就是写更好的 Prompt&quot;</strong> — 这是最常见的混淆。Prompt Engineering 是 Context Engineering 的一个子集。Context Engineering 不仅关注 Prompt 本身，更关注 Prompt 之外的所有信息——工具返回值如何裁剪、对话历史如何压缩、外部知识如何检索与排序。类比来说，Prompt Engineering 是写好一封邮件，Context Engineering 是管理整个项目的信息流。</p>
+</li>
+<li><p><strong>误区：&quot;上下文越多越好，反正模型支持 128K&quot;</strong> — 研究表明 LLM 存在&quot;Lost in the Middle&quot;现象：当上下文过长时，模型对中间位置信息的注意力显著下降。此外，无关上下文会稀释模型对关键信息的注意力，降低输出质量。正确的做法是追求<strong>高信噪比</strong>而非高信息量——每一段上下文都应该对当前任务有明确的边际贡献。</p>
+</li>
+<li><p><strong>追问：&quot;如何衡量上下文质量？&quot;</strong> — 可以从三个维度评估：(1) <strong>相关性</strong>——上下文中每段信息与当前任务的相关度（可用 embedding 相似度量化）；(2) <strong>充分性</strong>——是否包含完成任务所需的全部关键信息（通过 ablation test 验证）；(3) <strong>效率</strong>——信息密度，即有效 token 占总 token 的比例。实践中常用 A/B 测试对比不同上下文策略对最终输出质量的影响。</p>
+</li>
+<li><p><strong>追问：&quot;Context Engineering 在 Multi-Agent 中如何应用？&quot;</strong> — 在 Multi-Agent 架构中，Context Engineering 承担三重角色：(1) <strong>上下文隔离</strong>——每个 Agent 只接收与其职责相关的上下文，避免信息过载；(2) <strong>上下文传递</strong>——设计 Agent 之间的信息传递协议，决定传递摘要还是原始数据；(3) <strong>共享上下文管理</strong>——维护全局状态（如 Blackboard 模式），让多个 Agent 读写共享的结构化上下文，而非互相透传完整历史。</p>
+</li>
+</ol>
+<h2 id="section-17">参考资料</h2>
+<ul>
+<li><a href="https://www.philschmid.de/context-engineering">Context Engineering for AI Agents — Lessons from Building Real Systems (Philipp Schmid)</a></li>
+<li><a href="https://blog.langchain.dev/context-engineering/">Prompt Design != Context Engineering (Torantulino / LangChain Blog)</a></li>
+<li><a href="https://arxiv.org/abs/2307.03172">Lost in the Middle: How Language Models Use Long Contexts (Nelson Liu et al., 2023)</a></li>
+<li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective Context Engineering for AI Agents (Anthropic 官方工程指南)</a> — Context Engineering 作为独立工程学科的系统化框架、Agentic Memory 与信息生命周期</li>
+<li><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching">Prompt Caching (Anthropic 官方文档)</a> — cache_control 机制、断点放置、静默失效排查清单</li>
+<li><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">Building Effective Agents (Anthropic)</a></li>
+<li><a href="https://x.com/karpathy/status/1937902205765607918">The Shift from Prompt Engineering to Context Engineering (Andrej Karpathy)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">从 Prompt Engineering 到 Context Engineering</a></li><li class="toc-level-3"><a href="#section-4">四大上下文来源</a></li><li class="toc-level-3"><a href="#section-5">上下文窗口的&quot;房地产&quot;管理</a></li><li class="toc-level-3"><a href="#section-6">Prompt Engineering vs Context Engineering 对比</a></li><li class="toc-level-3"><a href="#section-7">动态上下文组装器：Python 实现</a></li><li class="toc-level-3"><a href="#section-8">Agentic 场景的特殊挑战</a></li><li class="toc-level-3"><a href="#section-9">Context Engineering 的行业共识：Anthropic 官方工程指南</a></li><li class="toc-level-3"><a href="#section-10">Prompt Caching：上下文缓存的经济学</a></li><li class="toc-level-4"><a href="#section-11">核心机制：前缀匹配</a></li><li class="toc-level-4"><a href="#section-12">Anthropic vs OpenAI 缓存机制对比</a></li><li class="toc-level-4"><a href="#section-13">成本/延迟收益量化</a></li><li class="toc-level-4"><a href="#section-14">缓存失效管理：静默杀手</a></li><li class="toc-level-4"><a href="#section-15">Agent 多轮场景的断点策略</a></li><li class="toc-level-2"><a href="#section-16">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-17">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="091.html" class="nav-card"><span>上一章</span><strong>← A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</strong></a><a href="093.html" class="nav-card next"><span>下一章</span><strong>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

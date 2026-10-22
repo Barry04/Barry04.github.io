@@ -1,0 +1,390 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link active" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">安全与对齐 · 第 115 题</div><h1>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</h1><blockquote>
+<p>难度：中级
+分类：Safety &amp; Alignment</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Agent 产品的合规设计，本质是把「法律要求的可追溯、可解释、可干预」翻译成工程上的强制卡点。<strong>EU AI Act</strong> 是全球首部全面的 AI 立法，采用<strong>风险分级（risk-based）思路</strong>——把 AI 系统按危害程度分为四档：禁止、高风险、有限风险、最小风险，风险越高，义务越重。其中<strong>高风险 AI 系统的核心义务</strong>（透明度、人工监督、自动记录日志、数据治理、稳健性与网络安全）将于 <strong>2026 年 8 月 2 日全面生效</strong>，最高罚款 €35M 或全球年营收 7%。</p>
+<p>Agent 相比传统软件有两类<strong>特有合规难题</strong>：一是 <strong>自主决策链路长、可解释性差</strong>——一个看似无害的购物 Agent 可能自主决定调用支付工具、读取用户通讯录、修改收货地址，每一步都需要独立审计；二是 <strong>工具调用和记忆天然与隐私法规交叉</strong>——Agent 的 long-term memory 会持续积累 PII，tool call 会触达外部系统，这使得 EU AI Act 与 GDPR（通用数据保护条例）必须联合考虑。</p>
+<p>务实的做法不是「等法规落地再合规」，而是从 Day 1 把<strong>合规作为架构的一层</strong>来设计：透明度声明、Human-in-the-Loop（HITL）卡点、全链路审计日志、PII 脱敏管线。这些不只是合规成本，同时也是提升 Agent 可靠性与用户信任的工程收益。对中国出海 Agent 产品，还需同时对照《生成式人工智能服务管理暂行办法》与美国各州法规，做<strong>多法域合规矩阵</strong>。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">EU AI Act 风险分级体系</h3>
+<p>EU AI Act 的核心设计是「<strong>风险越高，义务越重</strong>」，把 AI 系统分为四个层级：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>                    ┌─────────────┐
+                    │  禁止使用    │  不可接受风险 → 全面禁止
+                    │ Prohibited  │  （社会评分、实时生物识别、
+                    └──────┬──────┘   潜意识操纵、剥削弱势群体）
+                           │
+                    ┌──────▼──────┐
+                    │   高风险     │  高风险 → 严格义务
+                    │ High-Risk   │  （招聘、信贷、医疗、执法、
+                    └──────┬──────┘   教育、关键基础设施等）
+                           │
+                    ┌──────▼──────┐
+                    │  有限风险    │  有限风险 → 透明度义务
+                    │  Limited    │  （聊天机器人、Deepfake、
+                    └──────┬──────┘   情感识别——须告知用户）
+                           │
+                    ┌──────▼──────┐
+                    │  最小风险    │  最小风险 → 无额外义务
+                    │  Minimal    │  （垃圾邮件过滤、游戏 AI、
+                    └─────────────┘   库存预测——自由部署）
+
+    义务递增 ▼                             义务递减 ▲
+    禁止 &gt; 严格合规 &gt; 透明告知 &gt; 无要求
+</code></pre></details>
+<p>对 Agent 产品来说，判定所属层级是最关键的一步——它直接决定了你需要投入多少合规资源。<strong>多数通用对话 Agent / Coding Agent 落在「有限风险」或「最小风险」</strong>，而一旦进入招聘筛选、信用评估、保险定价、医疗诊断、教育评估等领域，立刻被划入「高风险」，触发全套义务。</p>
+<blockquote>
+<p><strong>时效关键点</strong>：高风险系统义务的全面生效日是 <strong>2026 年 8 月 2 日</strong>（EU AI Act 生效满 24 个月）。禁止性条款已于 2025 年 2 月 2 日适用，通用型 AI 模型（GPAI）条款已于 2025 年 8 月 2 日适用。Agent 产品若面向欧盟市场，必须在 2026.8.2 前完成高风险合规或证明自己不属于高风险。</p>
+</blockquote>
+<h3 id="section-4">高风险 AI 系统的核心义务</h3>
+<p>一旦被判定为高风险，EU AI Act 要求系统满足以下维度的义务，每一项都对应具体的工程实现：</p>
+<table>
+<thead>
+<tr>
+<th>义务维度</th>
+<th>法规要求</th>
+<th>工程落地</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>风险管理体系</strong></td>
+<td>全生命周期建立持续的风险识别与缓解流程（Art.9）</td>
+<td>每次 Agent 架构变更后跑风险评估流水线</td>
+</tr>
+<tr>
+<td><strong>数据与数据治理</strong></td>
+<td>训练/验证/测试数据须相关、无错、完整（Art.10）</td>
+<td>数据血缘记录、偏见检测、数据卡片（datasheet）</td>
+</tr>
+<tr>
+<td><strong>技术文档</strong></td>
+<td>系统上线前完成并持续维护技术文档（Art.11）</td>
+<td>自动生成模型卡片、系统架构文档、变更日志</td>
+</tr>
+<tr>
+<td><strong>记录与日志</strong></td>
+<td>自动记录事件（logging），确保可追溯（Art.12）</td>
+<td>结构化 trace，保留 tool call 全量日志</td>
+</tr>
+<tr>
+<td><strong>透明度与信息</strong></td>
+<td>向部署者提供清晰的使用说明（Art.13）</td>
+<td>Agent 能力边界文档、已知失败模式披露</td>
+</tr>
+<tr>
+<td><strong>人工监督</strong></td>
+<td>允许自然人在使用期间有效监督（Art.14）</td>
+<td>HITL 卡点、人工中断/覆盖机制</td>
+</tr>
+<tr>
+<td><strong>稳健性、准确性与网络安全</strong></td>
+<td>具适当韧性，能抵御错误与恶意攻击（Art.15）</td>
+<td>Red Team 测试、对抗性鲁棒性、Prompt Injection 防御</td>
+</tr>
+<tr>
+<td><strong>事后监控</strong></td>
+<td>上线后持续监控性能与风险（Art.72）</td>
+<td>生产环境可观测性 + 异常告警</td>
+</tr>
+<tr>
+<td><strong>合格评定与 CE 标志</strong></td>
+<td>通过合格评定，加贴 CE 标志（Art.43-48）</td>
+<td>第三方审计 / 自我声明（视类别）</td>
+</tr>
+</tbody></table>
+<p>这些义务看起来繁重，但从工程角度看，<strong>多数是成熟工程实践的法律化</strong>——可观测性、文档化、人工审核、安全测试本就是生产级 Agent 的标配。合规的增量成本主要是「把已有实践文档化、制度化、可审计化」。</p>
+<h3 id="section-5">GPAI 条款：Agent 底层模型的额外约束</h3>
+<p>Agent 通常构建在通用大模型（GPAI）之上。EU AI Act 对 <strong>GPAI 模型提供者</strong>（如 Anthropic、OpenAI、Google）单独设定了义务：</p>
+<ul>
+<li><strong>所有 GPAI 提供者</strong>：须维护技术文档、训练数据摘要、版权合规、向下游部署者传递信息。</li>
+<li><strong>系统性风险 GPAI</strong>（训练算力超过 <strong>10²⁵ FLOPS</strong> 阈值的模型）：额外要求模型评估、对抗性测试（Red Teaming）、严重事件上报、网络安全保护。</li>
+</ul>
+<p>对 Agent 团队的影响：<strong>你通常是「部署者」而非「提供者」</strong>，主要义务在自己这层；但你有权要求模型提供者传递必要的技术文档与能力边界信息。如果你对底层模型做了显著微调（fine-tuning）使其进入新用途，责任边界会向你偏移。</p>
+<h3 id="section-6">Agent 特有的三大合规挑战</h3>
+<p>传统软件合规的对象是「确定性的代码逻辑」，Agent 合规面对的则是「概率性的自主决策链」，这带来三个独有难题：</p>
+<p><strong>挑战一：自主决策的可解释性</strong></p>
+<p>传统软件的决策路径由代码硬编码，审计就是读代码。Agent 的决策由 LLM 在运行时动态生成——同一次输入可能走完全不同的工具调用序列。EU AI Act 高风险义务要求决策可解释、可追溯，但 Agent 的 reasoning 过程往往是黑盒。</p>
+<table>
+<thead>
+<tr>
+<th>传统软件审计</th>
+<th>Agent 审计</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>if score&gt;80 → 通过</code><br><code>else → 拒绝</code></td>
+<td>LLM 生成的 reasoning：<br><code>&quot;用户信用良好，建议批准&quot;</code><br><code>→ tool: check_credit()</code><br><code>→ tool: calc_risk()</code><br><code>→ tool: approve_loan()</code></td>
+</tr>
+<tr>
+<td>← 可读，规则确定，审计简单</td>
+<td>路径动态，需记录每步 reasoning</td>
+</tr>
+</tbody></table>
+<p><strong>挑战二：工具调用的全链路审计</strong></p>
+<p>Agent 的危害往往不在「说了什么」，而在「做了什么」——一个购物 Agent 自主下单、一个 IT Agent 修改生产配置、一个邮件 Agent 对外发送内容。EU AI Act 的 logging 义务要求记录「相关事件」，对 Agent 而言这意味着<strong>每一次 tool call 的入参、出参、时间戳、触发 reasoning 都必须结构化留存</strong>，且日志本身要防篡改。</p>
+<p><strong>挑战三：记忆系统与 GDPR 的交叉</strong></p>
+<p>Agent 的 long-term memory 会持续积累用户数据：对话历史、偏好画像、执行过的操作。这与 <strong>GDPR</strong> 的数据最小化、目的限制、删除权（Right to Erasure）、数据可携带权产生直接冲突。一个合规的 Agent memory 系统必须支持：按用户粒度隔离、可导出、可彻底删除、有保留期限策略。这是纯技术合规（EU AI Act）与隐私合规（GDPR）的交汇点，也是面试中常被深挖的点。</p>
+<h3 id="section-7">合规设计清单与参考架构</h3>
+<p>把上述义务落地为一套「合规中间层」，嵌入 Agent 的执行循环中：</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    U[&quot;用户请求&quot;] --&gt; T[&quot;① 透明度声明&lt;br/&gt;AI 身份与能力边界&quot;]
+    T --&gt; P[&quot;② PII 脱敏&lt;br/&gt;假名化 · 注入拦截&quot;]
+    P --&gt; AG[&quot;③ Agent 推理&quot;]
+    AG -- &quot;每次工具调用&quot; --&gt; RA{&quot;④ 风险评估器&quot;}
+    RA -- &quot;低风险放行&quot; --&gt; LOG[&quot;⑥ 全链路审计日志&quot;]
+    RA -- &quot;高风险&quot; --&gt; HITL[&quot;⑤ HITL 卡点&lt;br/&gt;人工确认&quot;]
+    HITL --&gt; LOG
+    LOG --&gt; OG[&quot;⑦ 输出护栏&lt;br/&gt;合规检查&quot;]
+    OG --&gt; RESP[&quot;最终响应&quot;]
+    RESP --&gt; PM[&quot;⑧ 事后监控&lt;br/&gt;指标告警 · 事件上报&quot;]
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    class RA,HITL decision
+    class AG agent
+    class U,T,P,LOG,OG,RESP,PM proc
+</div></figure>
+<p><em>合规是架构的一层：透明度、PII 脱敏、风险评估、HITL、审计日志、输出护栏、事后监控串成强制卡点。</em></p>
+<p>对应的<strong>合规设计清单</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>合规要素</th>
+<th>设计动作</th>
+<th>对应法规义务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>透明度声明</td>
+<td>交互入口展示「AI 生成 / 自主操作」告知</td>
+<td>透明度义务（Art.13 / 有限风险告知）</td>
+</tr>
+<tr>
+<td>PII 处理</td>
+<td>输入端假名化（pseudonymization），memory 按用户隔离、可删除</td>
+<td>GDPR 数据最小化、删除权</td>
+</tr>
+<tr>
+<td>HITL 卡点</td>
+<td>不可逆操作（支付、删除、外发）前强制人工确认</td>
+<td>人工监督（Art.14）</td>
+</tr>
+<tr>
+<td>全链路日志</td>
+<td>结构化 trace：reasoning + tool call 入参出参 + 时间戳</td>
+<td>记录与日志（Art.12）</td>
+</tr>
+<tr>
+<td>风险评估器</td>
+<td>按操作类型 + 影响面打分，高风险自动升级</td>
+<td>风险管理体系（Art.9）</td>
+</tr>
+<tr>
+<td>模型/系统卡片</td>
+<td>自动生成能力边界、已知失败模式、训练数据摘要</td>
+<td>技术文档（Art.11）</td>
+</tr>
+<tr>
+<td>事后监控</td>
+<td>生产可观测性 + 异常检测 + 严重事件上报通道</td>
+<td>事后监控（Art.72）</td>
+</tr>
+<tr>
+<td>对抗性测试</td>
+<td>定期 Red Team，覆盖 Prompt Injection、越狱</td>
+<td>稳健性与网络安全（Art.15）</td>
+</tr>
+</tbody></table>
+<p>下面是一个<strong>合规中间件的伪代码实现</strong>，展示如何在不侵入业务逻辑的前提下嵌入审计、HITL 和 PII 处理：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">import time
+import hashlib
+import json
+from dataclasses import dataclass, field
+from enum import Enum
+
+# ── 风险分级：哪些 tool call 需要人工确认 ──────────────────
+RISK_LEVELS = {
+    &quot;search_web&quot;: &quot;low&quot;,
+    &quot;read_file&quot;: &quot;low&quot;,
+    &quot;write_file&quot;: &quot;medium&quot;,
+    &quot;send_email&quot;: &quot;high&quot;,        # 外发通信 → HITL
+    &quot;make_payment&quot;: &quot;critical&quot;,  # 金融交易 → HITL
+    &quot;delete_record&quot;: &quot;critical&quot;, # 不可逆操作 → HITL
+}
+
+@dataclass
+class AuditEntry:
+    &quot;&quot;&quot;单条审计日志——满足 EU AI Act Art.12 记录义务&quot;&quot;&quot;
+    trace_id: str
+    timestamp: float
+    tool_name: str
+    input_hash: str       # 存哈希而非原文，兼顾审计与隐私
+    output_hash: str
+    reasoning: str        # Agent 决策依据（可解释性）
+    risk_level: str
+    approved_by: str = &quot;&quot;  # HITL 审批人
+    metadata: dict = field(default_factory=dict)
+
+class ComplianceMiddleware:
+    &quot;&quot;&quot;Agent 合规中间件：审计 + HITL + PII 脱敏&quot;&quot;&quot;
+
+    def __init__(self):
+        self.audit_log: list[AuditEntry] = []
+        self.high_risk_threshold = {&quot;high&quot;, &quot;critical&quot;}
+
+    # ① PII 脱敏：进入 Agent 前处理
+    def redact_pii(self, text: str) -&gt; str:
+        &quot;&quot;&quot;假名化——满足 GDPR 数据最小化原则&quot;&quot;&quot;
+        # 实际场景用 NER 模型或正则识别邮箱/电话/身份证号
+        return text.replace(&quot;@&quot;, &quot;[at]&quot;)  # 简化示例
+
+    # ② 工具调用前：风险评估 + HITL 卡点
+    def before_tool_call(self, tool_name: str, params: dict,
+                         reasoning: str, trace_id: str) -&gt; dict:
+        risk = RISK_LEVELS.get(tool_name, &quot;medium&quot;)
+
+        if risk in self.high_risk_threshold:
+            # 高风险操作：升级人工确认（对应 Art.14 人工监督）
+            return {
+                &quot;needs_approval&quot;: True,
+                &quot;risk_level&quot;: risk,
+                &quot;tool&quot;: tool_name,
+                &quot;reasoning&quot;: reasoning,
+                &quot;message&quot;: f&quot;高风险操作 {tool_name}，等待人工确认&quot;,
+            }
+        return {&quot;needs_approval&quot;: False, &quot;risk_level&quot;: risk}
+
+    # ③ 工具调用后：写审计日志
+    def after_tool_call(self, tool_name: str, params: dict,
+                        result: dict, reasoning: str,
+                        trace_id: str, approved_by: str = &quot;&quot;) -&gt; None:
+        entry = AuditEntry(
+            trace_id=trace_id,
+            timestamp=time.time(),
+            tool_name=tool_name,
+            input_hash=hashlib.sha256(
+                json.dumps(params, sort_keys=True).encode()).hexdigest()[:16],
+            output_hash=hashlib.sha256(
+                json.dumps(result, sort_keys=True).encode()).hexdigest()[:16],
+            reasoning=reasoning,
+            risk_level=RISK_LEVELS.get(tool_name, &quot;medium&quot;),
+            approved_by=approved_by,
+        )
+        self.audit_log.append(entry)
+
+    # ④ GDPR 删除权：按用户清除记忆
+    def purge_user_data(self, user_id: str) -&gt; int:
+        &quot;&quot;&quot;Right to Erasure——彻底删除某用户的所有 trace&quot;&quot;&quot;
+        before = len(self.audit_log)
+        self.audit_log = [
+            e for e in self.audit_log
+            if e.metadata.get(&quot;user_id&quot;) != user_id
+        ]
+        return before - len(self.audit_log)
+
+    # ⑤ 导出某次会话的完整审计链（供监管检查）
+    def export_trace(self, trace_id: str) -&gt; list[dict]:
+        return [
+            {
+                &quot;step&quot;: i, &quot;tool&quot;: e.tool_name, &quot;ts&quot;: e.timestamp,
+                &quot;reasoning&quot;: e.reasoning, &quot;risk&quot;: e.risk_level,
+                &quot;approved_by&quot;: e.approved_by,
+            }
+            for i, e in enumerate(
+                [x for x in self.audit_log if x.trace_id == trace_id])
+        ]
+</code></pre></details>
+<p>这套中间件的关键设计：<strong>审计日志只存哈希而非原始数据</strong>，既满足可追溯（能证明某次调用发生过），又降低隐私泄露面（日志本身不含 PII）；<strong>HITL 卡点按风险等级自动触发</strong>，不依赖开发者手动加确认逻辑。</p>
+<h3 id="section-8">多法域对比：EU / 中国 / 美国</h3>
+<p>Agent 产品若面向多市场，需同时满足多个法域。三大法域的监管思路差异显著：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>EU AI Act</th>
+<th>中国《生成式 AI 服务管理暂行办法》</th>
+<th>美国（联邦无统一法 + 州级）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>立法思路</strong></td>
+<td>横向风险分级，统一立法</td>
+<td>按服务类型垂直监管，备案制</td>
+<td>无联邦统一法，州级碎片化 + 行业指导</td>
+</tr>
+<tr>
+<td><strong>核心机制</strong></td>
+<td>四级风险分级 + 合格评定</td>
+<td>算法备案 + 安全评估 + 内容合规</td>
+<td>高风险场景的事前影响评估（州级）</td>
+</tr>
+<tr>
+<td><strong>适用对象</strong></td>
+<td>在欧盟市场的所有 AI 系统（含域外提供者）</td>
+<td>面向中国公众提供生成式 AI 服务</td>
+<td>各州管辖范围内的 AI 系统</td>
+</tr>
+<tr>
+<td><strong>关键要求</strong></td>
+<td>透明度、人工监督、日志、数据治理</td>
+<td>训练数据合法、内容真实准确、标识 AI 生成</td>
+<td>透明度、影响评估、反歧视</td>
+</tr>
+<tr>
+<td><strong>内容监管</strong></td>
+<td>较少涉及具体内容</td>
+<td><strong>严格</strong>：须符合核心价值观，禁止生成违法内容</td>
+<td>主要关注歧视、深度伪造</td>
+</tr>
+<tr>
+<td><strong>生效状态</strong></td>
+<td>高风险义务 2026.8.2 全面生效</td>
+<td>2023.8.15 已生效</td>
+<td>Colorado AI Act 2026.2.1 生效</td>
+</tr>
+<tr>
+<td><strong>罚款上限</strong></td>
+<td>€35M 或全球营收 7%</td>
+<td>警告、罚款、暂停服务</td>
+<td>各州不同</td>
+</tr>
+</tbody></table>
+<p>实践建议：<strong>以最严法域（通常是 EU）为基线设计合规架构</strong>，再叠加各市场的特殊要求（如中国的内容合规与备案、美国部分州的算法审计）。这种「最高水位线」策略能避免为每个市场维护独立合规版本的高昂成本。</p>
+<blockquote>
+<p><strong>注意</strong>：美国加州 SB-1047（前沿 AI 模型安全法案）已于 2024 年被州长否决，未成为法律；但 Colorado SB 24-205（消费者 AI 保护法）已签署，2026 年 2 月 1 日生效，是美国首部全面性州级 AI 法。联邦层面目前主要靠部门指引（如 NIST AI RMF 自愿框架），尚无统一立法。</p>
+</blockquote>
+<h2 id="section-9">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>追问：「我的 Agent 算不算高风险？判定标准是什么？」</strong> — 这是面试最高频的合规问题。判定分两条路径：路径一是<strong>用途清单</strong>（EU AI Act Annex III），列举了天然高风险的场景——招聘筛选、信贷评估、保险定价、教育评分、医疗诊断、执法辅助、关键基础设施管理、民主程序中的投票辅助等；路径二是<strong>产品安全法规附件</strong>（Annex I）下的 AI 组件，如医疗器械、机械、航空器中的 AI。如果你的 Agent 侵入这些场景，就是高风险。一个通用客服 Agent 不是高风险，但同样代码一旦用于筛选简历，立刻变成高风险。<strong>判定不看技术，看用途</strong>。</p>
+</li>
+<li><p><strong>误区：「合规和快速迭代不可兼得」</strong> — 合规并非要求冻结架构，而是要求<strong>变更可控可追溯</strong>。关键是建立「合规即代码」（Compliance as Code）流水线：把透明度声明、风险评估、日志规范沉淀为 CI/CD 中的自动检查项，而非人工 review。这样每次迭代自动通过合规门禁，迭代速度不受显著影响。真正的成本在初次搭建合规基础设施，后续边际成本很低。</p>
+</li>
+<li><p><strong>追问：「开源 Agent 的责任归属是谁？」</strong> — EU AI Act 区分「提供者（provider）」和「部署者（deployer）」。开源模型在「非服务化分发」下享有一定豁免，但<strong>一旦你把开源 Agent 包装成服务对外提供，你就是 provider，承担全套义务</strong>。如果你只是用别人的开源 Agent 做内部工具且不对外，义务较轻。微调（fine-tuning）开源模型用于新用途的团队，可能从「部署者」升级为「提供者」，责任加重——这是开源生态中的灰色地带，面试常被追问。</p>
+</li>
+<li><p><strong>追问：「Agent 的记忆系统怎么同时满足 EU AI Act 和 GDPR？」</strong> — 两条法规关注点不同但交叉：EU AI Act 关注决策可审计（要求保留日志），GDPR 关注隐私保护（要求最小化、可删除）。冲突点在于「日志保留」与「删除权」。解法是<strong>日志只存哈希和结构化元数据，不存 PII 原文</strong>；memory 系统按用户隔离，支持粒度化删除和保留期限；对必须保留的决策证据做假名化处理，使数据主体不可直接识别。这是「合规即架构」的典型设计。</p>
+</li>
+<li><p><strong>追问：「Agent 发生误操作致损，谁担责？」</strong> — EU AI Act 下责任链条大致是：提供者保证系统本身合规（技术文档、风险体系）；部署者负责正确使用（人工监督、事后监控）；若因部署者未执行 HITL 导致事故，部署者担主责。但实际诉讼中，用户往往同时起诉提供者和部署者。<strong>工程上能做的，是确保每次高风险操作都有明确的人工确认记录</strong>，把责任边界留痕。</p>
+</li>
+</ol>
+<h2 id="section-10">参考资料</h2>
+<ul>
+<li><a href="https://artificialintelligenceact.eu/">EU AI Act 官方门户（全文、时间线、常见问题）</a></li>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">EU AI Act 全文（EUR-Lex）</a></li>
+<li><a href="https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline">Holland &amp; Knight：US Companies Face EU AI Act&#39;s August 2026 Compliance Deadline</a></li>
+<li><a href="https://modulos.ai/ai-compliance-guide/">Modulos：2026 AI Compliance Guide</a></li>
+<li><a href="https://dl.acm.org/doi/full/10.1145/3710808">CACM：加州 SB-1047 否决分析（The Defeat of California&#39;s SB 1047）</a></li>
+<li><a href="http://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm">国家网信办：《生成式人工智能服务管理暂行办法》</a></li>
+<li><a href="https://www.nist.gov/it/ai-risk-management-framework">NIST AI Risk Management Framework (AI RMF 1.0)</a></li>
+<li><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">European Commission：AI Act 指南与实施问答</a></li>
+</ul>
+<hr>
+<h3 id="section-11">延伸思考 / 交叉引用</h3>
+<ul>
+<li><strong>#078 Agent 安全风险</strong>：合规是安全风险的「法律外壳」——理解 Agent 有哪些攻击面（Prompt Injection、越权工具调用），是判断合规义务轻重的前提。</li>
+<li><strong>#079 Guardrails</strong>：输入/输出护栏是合规中间件的核心组件，护栏拦截率直接对应「稳健性与网络安全」义务的落地证据。</li>
+<li><strong>#080 Human-in-the-Loop</strong>：HITL 卡点是满足「人工监督」（Art.14）义务的标准工程模式；本文的合规中间件本质上是 HITL 的风险分级自动化。</li>
+<li><strong>#081 最小权限与沙箱</strong>：最小权限原则既是安全最佳实践，也是合规审计中「数据治理」与「网络安全」义务的直接证据。</li>
+<li><strong>#076 静态 Benchmark 陷阱</strong>：合规要求「稳健性」证据，但静态 benchmark 高分 ≠ 生产可靠——合规审计需要的是真实环境的事后监控数据，而非榜单分数。</li>
+<li><strong>#104 / #010 生产部署</strong>：合规架构（日志、监控、HITL）应作为生产部署基础设施的一部分，从架构评审阶段就纳入，而非上线后补救。</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">EU AI Act 风险分级体系</a></li><li class="toc-level-3"><a href="#section-4">高风险 AI 系统的核心义务</a></li><li class="toc-level-3"><a href="#section-5">GPAI 条款：Agent 底层模型的额外约束</a></li><li class="toc-level-3"><a href="#section-6">Agent 特有的三大合规挑战</a></li><li class="toc-level-3"><a href="#section-7">合规设计清单与参考架构</a></li><li class="toc-level-3"><a href="#section-8">多法域对比：EU / 中国 / 美国</a></li><li class="toc-level-2"><a href="#section-9">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-10">参考资料</a></li><li class="toc-level-3"><a href="#section-11">延伸思考 / 交叉引用</a></li></ol></nav></article><nav class="chapter-nav"><a href="102.html" class="nav-card"><span>上一章</span><strong>← 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</strong></a><a href="104.html" class="nav-card next"><span>下一章</span><strong>什么是 12-Factor Agents？如何用它评审生产级 Agent？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

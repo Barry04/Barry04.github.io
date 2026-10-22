@@ -1,0 +1,267 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agent 记忆的类型：短期记忆、长期记忆、工作记忆 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link active" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">记忆与状态 · 第 040 题</div><h1>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</h1><blockquote>
+<p>难度：基础
+分类：Memory &amp; State</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>LLM Agent 的记忆系统借鉴认知科学，分为三种核心类型：<strong>短期记忆（Short-Term Memory）</strong>——当前会话的对话历史，存在于 LLM 的上下文窗口中，会话结束即丢失；<strong>长期记忆（Long-Term Memory）</strong>——持久化存储在外部系统（向量数据库、关系数据库）中的知识，跨会话保留，需要检索才能使用；<strong>工作记忆（Working Memory）</strong>——Agent 在当前任务中主动维护的关键信息子集，本质上就是上下文窗口中当前可用的信息。关键理解：LLM 本身是无状态的，所有&quot;记忆&quot;都是工程层面的外部实现。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">LLM 的记忆本质</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>核心事实：LLM 本身是无状态的
+每次 API 调用都是独立的——模型不会&quot;记住&quot;之前的调用。
+
+产品层面的&quot;记忆&quot;（如 ChatGPT 记住你的名字）是在 LLM 之上
+工程化实现的记忆层，不是模型的固有能力。
+
+构建 Agent 时，你需要自己实现这个记忆层。
+</code></pre></details>
+<h3 id="section-4">短期记忆（Short-Term Memory / STM）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 短期记忆 = 上下文窗口中的对话历史
+conversation_history = [
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;帮我查一下订单 #12345&quot;},
+    {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;订单 #12345 已发货，预计明天到达&quot;},
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;物流单号是多少？&quot;},
+    # Agent 可以回答，因为&quot;订单 #12345&quot;在短期记忆中
+]
+
+# LLM 调用时，完整对话历史作为输入
+response = llm.invoke(messages=conversation_history)
+</code></pre></details>
+<p><strong>特点：</strong></p>
+<ul>
+<li>存储位置：LLM 的上下文窗口（Context Window）</li>
+<li>生命周期：当前会话</li>
+<li>容量限制：受上下文窗口大小限制（4K-200K tokens）</li>
+<li>访问方式：直接可用，无需检索</li>
+<li>丢失时机：会话结束、上下文窗口溢出</li>
+</ul>
+<h3 id="section-5">长期记忆（Long-Term Memory / LTM）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 长期记忆 = 外部存储 + 检索
+class LongTermMemory:
+    def __init__(self, vector_db, relational_db):
+        self.vector_db = vector_db      # 语义检索
+        self.relational_db = relational_db  # 结构化查询
+
+    def store(self, memory: dict):
+        &quot;&quot;&quot;存储记忆到外部系统&quot;&quot;&quot;
+        # 向量化存储（用于语义检索）
+        embedding = embed(memory[&quot;content&quot;])
+        self.vector_db.upsert(
+            id=memory[&quot;id&quot;],
+            vector=embedding,
+            metadata=memory[&quot;metadata&quot;]
+        )
+        # 结构化存储（用于精确查询）
+        self.relational_db.insert(memory)
+
+    def retrieve(self, query: str, top_k: int = 5) -&gt; list:
+        &quot;&quot;&quot;基于语义相似度检索相关记忆&quot;&quot;&quot;
+        query_embedding = embed(query)
+        results = self.vector_db.search(query_embedding, top_k=top_k)
+        return results
+</code></pre></details>
+<p>长期记忆的三个认知子类型（LangMem 框架）：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">memory_subtypes = {
+    &quot;语义记忆 (Semantic)&quot;: {
+        &quot;定义&quot;: &quot;事实和知识——Agent 知道的东西&quot;,
+        &quot;示例&quot;: &quot;用户偏好、产品知识、规则&quot;,
+        &quot;存储&quot;: &quot;向量数据库 Collection 或结构化 Profile&quot;,
+        &quot;检索&quot;: &quot;按语义相似度搜索&quot;,
+    },
+    &quot;情景记忆 (Episodic)&quot;: {
+        &quot;定义&quot;: &quot;经历和事件——Agent 做过的事&quot;,
+        &quot;示例&quot;: &quot;成功解决问题的完整交互记录&quot;,
+        &quot;存储&quot;: &quot;带上下文的完整交互日志&quot;,
+        &quot;检索&quot;: &quot;按情境相似度检索（类似 few-shot）&quot;,
+    },
+    &quot;程序记忆 (Procedural)&quot;: {
+        &quot;定义&quot;: &quot;技能和流程——Agent 知道怎么做&quot;,
+        &quot;示例&quot;: &quot;System Prompt 中的规则和步骤&quot;,
+        &quot;存储&quot;: &quot;Prompt 模板、规则引擎&quot;,
+        &quot;检索&quot;: &quot;通常固定加载，不动态检索&quot;,
+    },
+}
+</code></pre></details>
+<h3 id="section-6">工作记忆（Working Memory）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 工作记忆 = 当前上下文窗口中的所有信息
+# 包括：System Prompt + 对话历史 + 检索到的长期记忆 + 工具结果
+
+working_memory = {
+    &quot;system_prompt&quot;: &quot;你是客服助手...&quot;,           # 程序记忆
+    &quot;user_profile&quot;: &quot;用户偏好：简洁回答&quot;,          # 从长期记忆检索
+    &quot;relevant_docs&quot;: [&quot;退款政策: ...&quot;, &quot;退货流程: ...&quot;],  # RAG 检索
+    &quot;conversation&quot;: [...],                        # 短期记忆
+    &quot;tool_results&quot;: {&quot;order_status&quot;: &quot;shipped&quot;},  # 工具调用结果
+}
+
+# 所有这些组合起来 = Agent 当前&quot;能想到&quot;的全部信息
+context_window = format_for_llm(working_memory)
+response = llm.invoke(context_window)
+</code></pre></details>
+<p><strong>类比操作系统：</strong></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>上下文窗口（工作记忆）≈ RAM（当前运行的程序可直接访问，容量有限）
+长期记忆（外部存储）≈ 硬盘（大容量但需要读取操作）
+</code></pre></details>
+<p>MemGPT 正是基于这个类比，实现了类似操作系统虚拟内存的机制——自动在&quot;内存&quot;（上下文窗口）和&quot;磁盘&quot;（外部存储）之间移动数据。</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    subgraph WM[&quot;上下文窗口 ≈ RAM（工作记忆，容量有限）&quot;]
+        SP[&quot;System Prompt&lt;br/&gt;（程序记忆）&quot;]
+        CH[&quot;对话历史&lt;br/&gt;（短期记忆）&quot;]
+        LT[&quot;检索到的长期记忆&quot;]
+        TR[&quot;工具结果&quot;]
+    end
+    subgraph EXT[&quot;外部存储 ≈ 硬盘（长期记忆，大容量）&quot;]
+        VDB[&quot;向量库&lt;br/&gt;语义检索&quot;]
+        RDB[&quot;关系库&lt;br/&gt;精确查询&quot;]
+    end
+    EXT -- &quot;检索加载&quot; --&gt; WM
+    WM -- &quot;固化存储&quot; --&gt; EXT
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    class SP,CH,LT,TR proc
+    class VDB,RDB store
+</div></figure>
+<p><em>工作记忆 = 上下文窗口（RAM），长期记忆 = 外部存储（硬盘），&quot;记忆&quot;全靠工程层在两级之间搬运。</em></p>
+<h3 id="section-7">记忆管理策略</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class MemoryManager:
+    &quot;&quot;&quot;记忆在 STM 和 LTM 之间的流转&quot;&quot;&quot;
+
+    def consolidate(self, short_term_memory):
+        &quot;&quot;&quot;将重要的短期记忆转化为长期记忆&quot;&quot;&quot;
+        for memory in short_term_memory:
+            importance = self.score_importance(memory)
+            if importance &gt; self.threshold:
+                self.long_term.store(memory)
+
+    def forget(self, long_term_memory):
+        &quot;&quot;&quot;遗忘机制：清除低价值的长期记忆&quot;&quot;&quot;
+        for memory in long_term_memory:
+            # 时间衰减：越老的记忆权重越低
+            memory.relevance *= 0.95
+            # 频率加权：经常被访问的记忆保留
+            if memory.access_count &lt; 2 and memory.relevance &lt; 0.1:
+                self.long_term.delete(memory.id)
+
+    def load_to_working(self, query):
+        &quot;&quot;&quot;将相关长期记忆加载到工作记忆&quot;&quot;&quot;
+        relevant = self.long_term.retrieve(query, top_k=5)
+        self.working_memory.update(relevant)
+</code></pre></details>
+<h3 id="section-8">最新研究：AgeMem（统一记忆管理）</h3>
+<p>2026 年 1 月提出的 AgeMem 框架将记忆操作暴露为工具调用，让 Agent 自主决定何时存储、检索、更新、摘要或丢弃信息：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># AgeMem：记忆操作即工具
+memory_tools = [
+    {&quot;name&quot;: &quot;memory_store&quot;, &quot;description&quot;: &quot;存储重要信息到长期记忆&quot;},
+    {&quot;name&quot;: &quot;memory_retrieve&quot;, &quot;description&quot;: &quot;从长期记忆中检索相关信息&quot;},
+    {&quot;name&quot;: &quot;memory_update&quot;, &quot;description&quot;: &quot;更新已有的记忆条目&quot;},
+    {&quot;name&quot;: &quot;memory_summarize&quot;, &quot;description&quot;: &quot;将多条记忆合并为摘要&quot;},
+    {&quot;name&quot;: &quot;memory_forget&quot;, &quot;description&quot;: &quot;删除不再需要的记忆&quot;},
+]
+# Agent 在任务执行中自主调用这些工具管理记忆
+</code></pre></details>
+<h3 id="section-9">官方原语：Anthropic Memory Tool（memory_20250818，2025-08）</h3>
+<p>Anthropic 在 2025-08 通过 Claude Developer Platform 推出 <strong>Memory Tool</strong>，把&quot;记忆&quot;做成 client/server 模式的官方工具原语——服务端只暴露文件接口（list/read/create/update/delete），由客户端持久化到任意存储后端（本地 FS、S3、SQLite、Redis 等），Claude 在 agentic loop 中按需调用：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">import anthropic
+
+client = anthropic.Anthropic()
+
+# 1) 声明 Memory Tool（type 字段是 server-managed 标识，与 web_search 同范式）
+memory_tool = {
+    &quot;type&quot;: &quot;memory_20250818&quot;,
+    &quot;name&quot;: &quot;memory&quot;,                       # 工具固定名
+}
+
+# 2) 调用 Claude，启用 context-management beta 与 memory beta
+response = client.messages.create(
+    model=&quot;claude-sonnet-4-5&quot;,
+    max_tokens=2048,
+    tools=[memory_tool],
+    extra_headers={&quot;anthropic-beta&quot;: &quot;context-management-2025-06-27&quot;},
+    messages=[
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;总结一下我上次说的项目偏好&quot;}
+    ],
+)
+
+# 3) Claude 会返回 tool_use 形如：
+#    {&quot;type&quot;: &quot;tool_use&quot;, &quot;name&quot;: &quot;memory&quot;,
+#     &quot;input&quot;: {&quot;command&quot;: &quot;view&quot;, &quot;path&quot;: &quot;/memories&quot;}}
+#    客户端在本地文件系统/数据库里实现 view/create/str_replace/insert/delete/rename
+#    把结果作为 tool_result 回灌，Claude 在下一轮继续 read/write
+
+# 4) 与上下文编辑（context_editing）配合：当工具结果累计接近上限，
+#    自动清掉旧的 tool_result block，但保留写入 memory 文件的那一份
+#    → 实现&quot;长寿命 agent + 紧凑 context window&quot;
+</code></pre></details>
+<p>关键特性：</p>
+<ul>
+<li><strong>客户端持有数据所有权</strong>：服务器不存任何记忆内容，便于满足 GDPR/合规</li>
+<li><strong>与 context editing 协同</strong>：旧的 tool_result 会被服务端策略性清理，但 memory 文件保留</li>
+<li><strong>跨会话共享</strong>：把同一份 memory 文件挂到多个 Claude 会话/Agent，实现团队级或个人长期画像</li>
+<li><strong>比向量数据库更简单</strong>：路径 + 文本读写，模型自己决定存什么，不依赖额外的 embedding 服务</li>
+</ul>
+<p>这是目前 LLM 厂商提供的最完整的&quot;官方记忆原语&quot;，与 Anthropic Skills、Structured Outputs 一起构成 2025-2026 Claude Platform 的三大新原语。</p>
+<h3 id="section-10">三种记忆的关系</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>短期记忆</th>
+<th>工作记忆</th>
+<th>长期记忆</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置</td>
+<td>上下文窗口</td>
+<td>上下文窗口</td>
+<td>外部存储</td>
+</tr>
+<tr>
+<td>容量</td>
+<td>受窗口限制</td>
+<td>受窗口限制</td>
+<td>近乎无限</td>
+</tr>
+<tr>
+<td>持久性</td>
+<td>会话级</td>
+<td>请求级</td>
+<td>永久</td>
+</tr>
+<tr>
+<td>访问速度</td>
+<td>即时</td>
+<td>即时</td>
+<td>需检索</td>
+</tr>
+<tr>
+<td>内容</td>
+<td>对话历史</td>
+<td>STM + 检索的 LTM</td>
+<td>所有历史知识</td>
+</tr>
+</tbody></table>
+<h2 id="section-11">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;上下文窗口越大，就不需要长期记忆了&quot;</strong> — 即使 200K token 的窗口，也无法存储数月的用户交互历史。更重要的是，窗口越大成本越高，且 LLM 在超长上下文中的注意力会分散（&quot;lost in the middle&quot; 问题）。</p>
+</li>
+<li><p><strong>误区：&quot;短期记忆和工作记忆是一回事&quot;</strong> — 短期记忆是对话历史的累积；工作记忆是当前步骤可用的全部信息（包括从长期记忆检索的内容）。工作记忆 = 短期记忆 + 检索的长期记忆 + System Prompt + 工具结果。</p>
+</li>
+<li><p><strong>追问：&quot;如何决定什么信息值得存入长期记忆？&quot;</strong> — 用重要性评分：(1) 用户明确要求记住的信息（高优先级）；(2) 影响未来决策的事实（如用户偏好）；(3) 成功解决问题的范例（情景记忆）。避免存储临时性信息和中间推理步骤。</p>
+</li>
+<li><p><strong>追问：&quot;MemGPT 的核心思想是什么？&quot;</strong> — 将上下文窗口视为有限的&quot;内存&quot;资源，实现类似操作系统虚拟内存的层级管理。Agent 可以在核心记忆（RAM/上下文窗口）和归档记忆（磁盘/外部存储）之间主动移动数据，创造&quot;无限记忆&quot;的体验。</p>
+</li>
+<li><p><strong>追问：&quot;&#39;LLM 无状态&#39;这个前提会一直成立吗？&quot;</strong> — 不一定。它描述的是当前主流架构，不是理论必然。Metis 这类记忆基础模型把记忆状态放进模型内部，通过 memory attention 访问历史压缩信息，更新只需一次前向传播、不需要梯度，推理时权重冻结而记忆状态自主演化——这时&quot;无状态&quot;就不再成立了。面试时的稳妥答法：说清楚这是当前工程现实和它成立的原因（每次 API 调用独立、KV cache 不跨请求保留），再指出已有把记忆内化进底座的研究方向。</p>
+</li>
+</ol>
+<h2 id="section-12">参考资料</h2>
+<ul>
+<li><a href="https://mem0.ai/blog/memory-in-agents-what-why-and-how/">Agent Memory: What, Why and How (Mem0)</a></li>
+<li><a href="https://langchain-ai.github.io/langmem/concepts/conceptual_guide/">LangMem: Long-term Memory Concepts (LangChain)</a></li>
+<li><a href="https://arxiv.org/abs/2601.01885">AgeMem: Unified Long-Term and Short-Term Memory (arXiv)</a></li>
+<li><a href="https://www.letta.com/blog/agent-memory">Agent Memory: How to Build Agents that Learn and Remember (Letta)</a></li>
+<li><a href="https://docs.langchain.com/oss/python/concepts/memory">Memory Overview (LangChain Docs)</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use/memory-tool">Anthropic Memory Tool (memory_20250818, Official Docs)</a></li>
+<li><a href="https://www.anthropic.com/engineering/memory-and-context-management">Building agents with the Claude Developer Platform: Memory Tool (Anthropic Engineering)</a></li>
+<li><a href="https://arxiv.org/abs/2607.26760">Metis: Memory Foundation Model (arXiv)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">LLM 的记忆本质</a></li><li class="toc-level-3"><a href="#section-4">短期记忆（Short-Term Memory / STM）</a></li><li class="toc-level-3"><a href="#section-5">长期记忆（Long-Term Memory / LTM）</a></li><li class="toc-level-3"><a href="#section-6">工作记忆（Working Memory）</a></li><li class="toc-level-3"><a href="#section-7">记忆管理策略</a></li><li class="toc-level-3"><a href="#section-8">最新研究：AgeMem（统一记忆管理）</a></li><li class="toc-level-3"><a href="#section-9">官方原语：Anthropic Memory Tool（memory20250818，2025-08）</a></li><li class="toc-level-3"><a href="#section-10">三种记忆的关系</a></li><li class="toc-level-2"><a href="#section-11">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-12">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="036.html" class="nav-card"><span>上一章</span><strong>← 如何调试和监控多 Agent 系统？</strong></a><a href="038.html" class="nav-card next"><span>下一章</span><strong>对话上下文窗口管理与压缩策略 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

@@ -1,0 +1,390 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>RAG 概念、Pipeline 与组件总览 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link active" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">RAG · 第 011 题</div><h1>RAG 概念、Pipeline 与组件总览</h1><blockquote>
+<p>难度：基础
+分类：RAG</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>RAG（Retrieval-Augmented Generation，检索增强生成）是一种在 LLM 生成回答之前，先从外部知识库中检索相关文档并注入到 Prompt 中的技术。它主要解决 LLM 的三大核心局限：<strong>知识截止</strong>（训练数据过时）、<strong>幻觉</strong>（编造看似合理的错误信息）、以及<strong>缺乏领域专有知识</strong>。生产级 RAG 系统由三条流水线组成：<strong>Indexing Pipeline</strong>（离线——数据清洗、分块、Embedding、存储到向量数据库）、<strong>Retrieval Pipeline</strong>（在线——查询理解、向量检索、后检索优化如重排序和压缩）、<strong>Generation Pipeline</strong>（在线——上下文组装、Prompt 构建、LLM 生成、输出验证）。RAG 经历了 Naive→Advanced→Modular 三个演进阶段：Naive RAG 是简单的索引-检索-生成链；Advanced RAG 加入预检索（查询改写）与后检索（重排序、压缩）优化；Modular RAG 让每个组件独立可替换、可组合。理解三条流水线的交互方式与 RAG 的演进脉络，是构建高质量 RAG 系统的基础。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">LLM 的三大核心局限</h3>
+<h4 id="section-4">1. 知识截止（Knowledge Cutoff）</h4>
+<p>LLM 的知识在训练完成后就被&quot;冻结&quot;了。当用户询问训练数据截止日期之后的信息时，模型要么承认不知道，要么自信地给出错误答案。LLM 的训练数据往往严重过时，而且当知识出现空白时，它们会进行外推，自信地说出听起来合理但实际错误的陈述。</p>
+<h4 id="section-5">2. 幻觉（Hallucination）</h4>
+<p>由于依赖固定参数，LLM 在面对超出训练范围的任务时，经常产生与任务无关的输出或事实不一致的回答。这种现象被称为幻觉（hallucination）或虚构（confabulation），严重损害了 LLM 的可靠性和可信度。</p>
+<h4 id="section-6">3. 缺乏私有/领域知识</h4>
+<p>LLM 无法访问企业内部文档、私有数据库或最新的领域知识。即使是最强大的通用模型，也无法回答关于公司内部流程、客户数据或专有技术的问题。</p>
+<h3 id="section-7">RAG 如何解决三大局限</h3>
+<table>
+<thead>
+<tr>
+<th>局限</th>
+<th>RAG 的解决方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>知识截止</td>
+<td>外部知识库可以随时更新，无需重新训练模型</td>
+</tr>
+<tr>
+<td>幻觉</td>
+<td>提供&quot;事实锚点&quot;，让 LLM 基于检索到的真实文档生成回答</td>
+</tr>
+<tr>
+<td>缺乏领域知识</td>
+<td>接入企业私有数据、行业文档、实时数据源</td>
+</tr>
+</tbody></table>
+<p>额外优势：</p>
+<ul>
+<li><strong>成本效益</strong>：无需对 LLM 进行昂贵的微调或重新训练</li>
+<li><strong>来源可溯</strong>：可以在回答中附带引用来源，用户可以验证</li>
+<li><strong>权限控制</strong>：可以根据用户权限控制可检索的文档范围</li>
+</ul>
+<h3 id="section-8">RAG 整体架构</h3>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    subgraph offline[&quot;离线 · Indexing Pipeline&quot;]
+        A[&quot;数据源&quot;] --&gt; B[&quot;清洗&quot;] --&gt; C[&quot;分块&quot;] --&gt; D[&quot;Embedding&quot;] --&gt; E[&quot;向量数据库&quot;]
+    end
+    subgraph online[&quot;在线 · Retrieval → Generation&quot;]
+        F[&quot;用户查询&quot;] --&gt; G[&quot;查询理解&quot;] --&gt; H[&quot;检索 + 重排序&quot;]
+        H --&gt; I[&quot;上下文组装&lt;br/&gt;+ Prompt 构建&quot;]
+        I --&gt; J[&quot;LLM 生成&quot;] --&gt; K[&quot;输出验证&quot;]
+    end
+    E -.-&gt;|&quot;离线索引供在线检索&quot;| H
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    class A,B,C,D,F,G,H,I,J,K proc
+    class E store
+</div></figure>
+<p><em>生产级 RAG 由离线索引流水线与在线检索/生成流水线构成，检索质量决定生成上限。</em></p>
+<p>核心流程：</p>
+<ol>
+<li><strong>索引（Indexing）</strong>：离线阶段——将文档分块、生成 Embedding、存入向量数据库</li>
+<li><strong>检索（Retrieval）</strong>：在线阶段——将用户查询转为向量，从向量库中找到最相关的文档块</li>
+<li><strong>生成（Generation）</strong>：将检索到的文档块与原始问题拼接为 Prompt，送入 LLM 生成回答</li>
+</ol>
+<h3 id="section-9">1. Indexing Pipeline（索引流水线）</h3>
+<p>索引流水线是离线阶段，负责将原始数据转化为可检索的向量索引。</p>
+<h4 id="section-10">数据摄取与清洗</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 原始数据通常来自多种格式
+sources = [
+    PDFLoader(&quot;report.pdf&quot;),
+    WebLoader(&quot;https://docs.example.com&quot;),
+    DatabaseLoader(&quot;postgresql://...&quot;),
+    MarkdownLoader(&quot;docs/*.md&quot;),
+]
+
+# 清洗：去除 HTML 标签、修正编码、标准化格式
+for doc in documents:
+    doc.content = remove_html_tags(doc.content)
+    doc.content = normalize_whitespace(doc.content)
+    doc.metadata = extract_metadata(doc)  # 保留元数据（来源、日期、作者）
+</code></pre></details>
+<h4 id="section-11">分块（Chunking）</h4>
+<p>将长文档切分为语义完整的小块，常见策略：</p>
+<ul>
+<li><strong>固定大小分块</strong>：按 token 数切分，简单但可能破坏语义</li>
+<li><strong>递归分块</strong>：按段落→句子→词的层次分割，平衡实用性</li>
+<li><strong>语义分块</strong>：基于 Embedding 相似度在语义断点处分割</li>
+</ul>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=512,       # 注意：chunk_size 是字符数，不是 token 数
+    chunk_overlap=50,     # 相邻块重叠 50 字符，保留上下文连续性
+    separators=[&quot;\n\n&quot;, &quot;\n&quot;, &quot;。&quot;, &quot; &quot;, &quot;&quot;]
+)
+chunks = splitter.split_documents(documents)
+
+# 如需按 token 计长，使用 TokenTextSplitter 或 from_tiktoken_encoder：
+# from langchain.text_splitter import TokenTextSplitter
+# splitter = TokenTextSplitter(chunk_size=512, chunk_overlap=50)
+# 或：
+# splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+#     chunk_size=512, chunk_overlap=50
+# )
+</code></pre></details>
+<h4 id="section-12">Embedding 与存储</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from langchain_openai import OpenAIEmbeddings
+
+embeddings = OpenAIEmbeddings(model=&quot;text-embedding-3-large&quot;)
+vectors = embeddings.embed_documents([chunk.content for chunk in chunks])
+
+# 存入向量数据库（附带元数据，支持后续过滤）
+vectorstore.upsert(
+    ids=[chunk.id for chunk in chunks],
+    embeddings=vectors,
+    documents=[chunk.content for chunk in chunks],
+    metadatas=[chunk.metadata for chunk in chunks]  # 来源、日期、类别等
+)
+</code></pre></details>
+<h3 id="section-13">2. Retrieval Pipeline（检索流水线）</h3>
+<p>检索流水线在每次用户查询时实时运行，负责找到最相关的文档块。</p>
+<h4 id="section-14">预检索优化（Pre-retrieval）</h4>
+<p>提升检索质量的关键在于优化查询本身：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 查询改写：让 LLM 重新表述用户问题，提升匹配度
+def rewrite_query(original_query: str) -&gt; str:
+    return llm.generate(
+        f&quot;将以下问题改写为更适合向量检索的形式，&quot;
+        f&quot;保持核心语义：\n{original_query}&quot;
+    )
+
+# 查询分解：将复杂问题拆分为多个子问题
+def decompose_query(query: str) -&gt; list[str]:
+    return llm.generate(
+        f&quot;将以下复杂问题分解为 2-3 个独立的子问题：\n{query}&quot;
+    )
+
+# HyDE：生成假设性回答，用回答而非问题去检索
+def hypothetical_document(query: str) -&gt; str:
+    return llm.generate(f&quot;为以下问题生成一个假设性回答：\n{query}&quot;)
+</code></pre></details>
+<h4 id="section-15">向量检索</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 基本语义检索
+results = vectorstore.similarity_search(
+    query_embedding,
+    top_k=20,                              # 先检索较多候选
+    filter={&quot;category&quot;: &quot;technical_docs&quot;}  # 元数据过滤
+)
+</code></pre></details>
+<h4 id="section-16">后检索优化（Post-retrieval）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 重排序：用 Cross-Encoder 对候选结果精排
+from sentence_transformers import CrossEncoder
+
+reranker = CrossEncoder(&quot;cross-encoder/ms-marco-MiniLM-L-6-v2&quot;)
+reranked = reranker.rank(query, [r.content for r in results])
+top_results = reranked[:5]  # 取 Top 5
+
+# 上下文压缩：去除检索块中不相关的部分
+compressed = llm.generate(
+    f&quot;从以下文档中提取与问题 &#39;{query}&#39; 直接相关的信息：\n{chunk}&quot;
+)
+</code></pre></details>
+<h3 id="section-17">3. Generation Pipeline（生成流水线）</h3>
+<p>将检索结果与用户查询组合，送入 LLM 生成最终回答。</p>
+<h4 id="section-18">上下文组装与 Prompt 构建</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">def build_rag_prompt(query: str, contexts: list[str]) -&gt; str:
+    context_text = &quot;\n\n---\n\n&quot;.join(contexts)
+    return f&quot;&quot;&quot;基于以下参考文档回答用户问题。
+如果文档中没有足够信息，请明确说明。
+请在回答中引用相关来源。
+
+参考文档：
+{context_text}
+
+用户问题：{query}
+
+回答：&quot;&quot;&quot;
+</code></pre></details>
+<h4 id="section-19">上下文窗口管理</h4>
+<p>当检索到的文档超出 LLM 的上下文窗口时，需要智能截断：</p>
+<ul>
+<li>按重排序得分排列，优先保留高分文档</li>
+<li>对低优先级文档进行摘要压缩</li>
+<li>确保关键信息出现在上下文的开头和结尾（避免 &quot;Lost in the Middle&quot; 问题）</li>
+</ul>
+<h3 id="section-20">三条流水线的优化关系</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>优化方向</th>
+<th>关键指标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Indexing</td>
+<td>分块策略、Embedding 质量、元数据丰富度</td>
+<td>索引覆盖率</td>
+</tr>
+<tr>
+<td>Retrieval</td>
+<td>查询改写、混合检索、重排序</td>
+<td>Recall@k, Precision@k</td>
+</tr>
+<tr>
+<td>Generation</td>
+<td>Prompt 工程、上下文窗口管理、输出验证</td>
+<td>答案正确率、幻觉率</td>
+</tr>
+</tbody></table>
+<h3 id="section-21">RAG 的三个演进阶段</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>特点</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Naive RAG</strong></td>
+<td>简单的&quot;索引-检索-生成&quot;链</td>
+<td>检索精度低、上下文不足</td>
+</tr>
+<tr>
+<td><strong>Advanced RAG</strong></td>
+<td>加入预检索优化（查询改写）和后检索优化（重排序、压缩）</td>
+<td>仍是单次检索</td>
+</tr>
+<tr>
+<td><strong>Modular RAG</strong></td>
+<td>每个组件独立可替换、可组合</td>
+<td>系统复杂度高</td>
+</tr>
+</tbody></table>
+<h3 id="section-22">RAG 的局限性</h3>
+<p>RAG 并非万能。它自身也存在问题：</p>
+<ol>
+<li><p><strong>不能完全消除幻觉</strong>：&quot;RAG 不是直接的解决方案，因为 LLM 仍然可能围绕源材料进行幻觉。&quot; LLM 可能从检索到的文档中断章取义，得出错误结论。</p>
+</li>
+<li><p><strong>检索质量瓶颈</strong>：</p>
+<ul>
+<li>低精确率（Precision）：检索到的文档块与问题不匹配</li>
+<li>低召回率（Recall）：未能检索到所有相关文档块</li>
+<li>过时信息：知识库本身可能包含过时数据</li>
+</ul>
+</li>
+<li><p><strong>依赖知识库质量</strong>：知识库中的偏见或错误会直接传导到 LLM 的回答中</p>
+</li>
+</ol>
+<h3 id="section-23">1M token 时代：长上下文 vs RAG 决策框架</h3>
+<p>2026 年，Claude / Gemini / GPT 旗舰模型的上下文窗口普遍达到 1M token（约 75 万英文单词），一个自然的疑问随之而来：<strong>既然能一次性塞下整本书甚至整个代码仓，还需要 RAG 吗？</strong> 答案不是二选一，而是按场景决策——长上下文解决了「单针检索」，但「多跳找针」与成本/延迟仍是 RAG 的主场。</p>
+<h4 id="section-24">单针已解，多跳仍难</h4>
+<p>2026 年的实证研究（arXiv:2605.02173，<em>Retrieval and Multi-Hop Reasoning in 1M-Token Context</em>）系统测试了 Gemini 3.1 Pro、Claude Opus 4.7 等顶级模型在 1M token 窗口下的检索与推理表现，得出两条关键结论：</p>
+<ol>
+<li><strong>单针检索（single-needle retrieval）基本已解决</strong>：在超长上下文中找一条明确的事实陈述（&quot;文档里提到的 CFO 叫什么名字？&quot;），顶级模型的召回接近满分，经典的&quot;大海捞针&quot;（needle-in-a-haystack）不再是难题。</li>
+<li><strong>多跳推理（multi-hop reasoning）仍有显著差距</strong>：当答案需要跨多个分散段落定位并串联推理（如&quot;A 公司的 CFO 曾任职于哪家被 B 公司收购的企业？&quot;），模型要先找再连，错误会逐跳放大。<strong>超过约 256K token 后，多跳任务准确率出现明显滑坡</strong>——上下文越长，中间关键信息越容易被忽略（Lost in the Middle 现象在超长窗口下依然存在）。</li>
+</ol>
+<p>这条分界线直接决定了选型：长上下文&quot;消灭&quot;了简单事实查找对 RAG 的依赖，但<strong>复杂问答、跨文档推理仍是 RAG（尤其 Agentic RAG 的迭代检索）的主场</strong>。Agentic RAG 如何用多轮检索攻克多跳问题，详见 <a href="015.html">#018 — 什么是 Agentic RAG？它与传统 RAG 有何不同？</a>。</p>
+<h4 id="section-25">决策框架：何时全塞上下文，何时仍需 RAG</h4>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    Q{&quot;知识源规模与&lt;br/&gt;问题复杂度？&quot;}
+    Q --&gt;|&quot;单文档 / 小语料&quot;| A[&quot;✅ 全塞上下文&lt;br/&gt;简单、零检索延迟&quot;]
+    Q --&gt;|&quot;大语料 / 频繁更新&quot;| B[&quot;✅ RAG 按需检索&lt;br/&gt;成本可控、召回为关键&quot;]
+    Q --&gt;|&quot;多跳 / 跨文档推理&quot;| C[&quot;✅ Agentic RAG&lt;br/&gt;多轮检索、迭代充分性判断&quot;]
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    class Q decision
+    class A,B proc
+    class C agent
+</div></figure>
+<p><em>按知识源规模与问题复杂度选路：小语料全塞上下文，大语料 RAG 按需检索，多跳推理交给 Agentic RAG。</em></p>
+<p>三条经验法则（按维度查表）：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>倾向长上下文（全塞）</th>
+<th>倾向 RAG（按需检索）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>语料规模</strong></td>
+<td>单文档 / &lt; 200K token</td>
+<td>&gt; 1M token 或持续增长</td>
+</tr>
+<tr>
+<td><strong>更新频率</strong></td>
+<td>静态、极少更新</td>
+<td>高频更新（新闻、库存、对话历史）</td>
+</tr>
+<tr>
+<td><strong>问题类型</strong></td>
+<td>单针事实、整体摘要、通篇理解</td>
+<td>多跳推理、精确片段定位</td>
+</tr>
+<tr>
+<td><strong>延迟敏感</strong></td>
+<td>可接受首 token 延迟（TTFT）较高</td>
+<td>要求快速首 token</td>
+</tr>
+<tr>
+<td><strong>成本预算</strong></td>
+<td>低频调用、可承担长上下文费用</td>
+<td>高频调用、需控制 token 消耗</td>
+</tr>
+</tbody></table>
+<h4 id="section-26">成本与延迟权衡</h4>
+<p>长上下文不是免费的。即便模型支持 1M token，三大成本仍在：</p>
+<ol>
+<li><strong>Token 费用随长度近似线性增长</strong>：1M token 的输入费用远高于&quot;一次向量检索 + 拼接 Top-5 片段&quot;（后者通常 &lt; 8K token）。高频场景下，RAG 的成本优势是数量级的。</li>
+<li><strong>首 token 延迟（TTFT）显著上升</strong>：Prefill 阶段需要处理全部输入 token，上下文越长等待越久；RAG 只 prefill 精选片段，首 token 更快，体感更&quot;跟手&quot;。</li>
+<li><strong>召回率反噬</strong>：如前所述，超过约 256K token 后多跳任务的&quot;有效召回&quot;不升反降——塞得越多，模型越可能在中间段落&quot;走神&quot;。</li>
+</ol>
+<blockquote>
+<p><strong>实践建议</strong>：Prompt Caching 可缓解长上下文的重复 prefill 成本——把稳定的大段系统提示 / 参考文档缓存，仅增量部分计费，是长上下文方案的&quot;中间路线&quot;。详见 <a href="092.html">#102 — 什么是 Context Engineering？</a>。</p>
+</blockquote>
+<h4 id="section-27">现实中的混合方案</h4>
+<p>生产系统很少走极端，主流组合有二：</p>
+<ul>
+<li><strong>RAG 为主 + 长上下文兜底</strong>：先向量检索 Top-K 片段注入上下文；若用户追问或检索置信度不足，再触发二次检索或扩大注入范围。这正是 Agentic RAG 的典型循环（交叉引用 <a href="015.html">#018</a>）。</li>
+<li><strong>长上下文为主 + RAG 定位辅助</strong>：对单份大文档（如一份长合同、一个中型代码仓）直接全塞，省去检索；但跨多份文档时仍用 RAG 先定位再读取，规避多跳退化。</li>
+</ul>
+<p>一句话总结：<strong>1M token 淘汰了&quot;为了塞不下才检索&quot;的 RAG，但没淘汰&quot;为了找得准、花得省、推得对&quot;的 RAG。</strong></p>
+<h2 id="section-28">端到端代码示例</h2>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from langchain_chroma import Chroma
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+
+# 1. 索引：分块 + Embedding + 存储
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks = text_splitter.split_documents(documents)
+vectorstore = Chroma.from_documents(chunks, OpenAIEmbeddings())
+
+# 2. 检索器
+retriever = vectorstore.as_retriever(search_kwargs={&quot;k&quot;: 5})
+
+# 3. 生成：构建 RAG Chain
+prompt = ChatPromptTemplate.from_template(
+    &quot;基于以下上下文回答问题。如果上下文中没有答案，请说&#39;我不确定&#39;。\n\n&quot;
+    &quot;上下文：{context}\n\n问题：{question}&quot;
+)
+llm = ChatOpenAI(model=&quot;gpt-4o&quot;)
+
+rag_chain = (
+    {&quot;context&quot;: retriever, &quot;question&quot;: RunnablePassthrough()}
+    | prompt
+    | llm
+)
+
+answer = rag_chain.invoke(&quot;公司的退款政策是什么？&quot;)
+</code></pre></details>
+<h2 id="section-29">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;RAG 完全解决了幻觉问题&quot;</strong> — RAG 降低了幻觉概率，但 LLM 仍可能围绕检索内容进行幻觉，或忽略检索结果而使用自身知识。需要配合 Guardrails 和输出验证。</p>
+</li>
+<li><p><strong>误区：&quot;RAG 可以替代微调（Fine-tuning）&quot;</strong> — RAG 和微调解决不同问题。RAG 解决知识问题（&quot;知道什么&quot;），微调解决能力问题（&quot;怎么做&quot;）。如果需要改变模型的行为风格或推理模式，应该用微调。</p>
+</li>
+<li><p><strong>误区：&quot;RAG 的重点是 Generation&quot;</strong> — 实际上 Retrieval 的质量才是 RAG 效果的决定性因素。检索到的文档不相关，再强的 LLM 也救不回来。优化顺序应该是：Retrieval &gt; Indexing &gt; Generation。</p>
+</li>
+<li><p><strong>误区：&quot;原型能用 = 生产能用&quot;</strong> — 原型和生产系统的差异在于评估和监控能力。生产 RAG 需要 (1) 检索质量监控；(2) 生成质量评估；(3) 成本和延迟追踪。</p>
+</li>
+<li><p><strong>追问：&quot;RAG vs 长上下文窗口——如果模型能处理 100 万 token，还需要 RAG 吗？&quot;</strong> — 需要。(1) 长上下文的&quot;大海捞针&quot;问题——中间的信息容易被忽略；(2) 成本——100 万 token 的推理费用远高于 RAG 检索；(3) 延迟——长上下文增加推理时间。</p>
+</li>
+<li><p><strong>追问：&quot;RAG 的检索精度和 LLM 生成质量哪个更重要？&quot;</strong> — 检索精度。如果检索到的文档不相关，再强的 LLM 也无法生成正确答案。&quot;Garbage in, garbage out&quot; 在 RAG 中尤为适用。</p>
+</li>
+<li><p><strong>追问：&quot;如何评估 RAG Pipeline 的各个环节？&quot;</strong> — Indexing：覆盖率测试（是否所有关键信息都被索引）；Retrieval：Recall@k、MRR、NDCG；Generation：Faithfulness（忠实度）、Relevance（相关性）、Answer Correctness。</p>
+</li>
+<li><p><strong>追问：&quot;向量检索一定比关键词检索好吗？&quot;</strong> — 不一定。精确术语匹配（如产品型号、法律条款编号）时，BM25 等关键词检索可能更好。最佳实践是混合检索（Hybrid Search）。</p>
+</li>
+</ol>
+<h2 id="section-30">参考资料</h2>
+<ul>
+<li><a href="https://www.pinecone.io/learn/retrieval-augmented-generation/">Retrieval-Augmented Generation (RAG) (Pinecone)</a></li>
+<li><a href="https://www.promptingguide.ai/research/rag">RAG for LLMs (Prompt Engineering Guide)</a></li>
+<li><a href="https://arxiv.org/abs/2312.10997">Retrieval-Augmented Generation for Large Language Models: A Survey (arXiv:2312.10997)</a></li>
+<li><a href="https://stackoverflow.blog/2023/10/18/retrieval-augmented-generation-keeping-llms-relevant-and-current/">Retrieval Augmented Generation: Keeping LLMs Relevant and Current (Stack Overflow)</a></li>
+<li><a href="https://www.k2view.com/blog/rag-hallucination/">RAG Hallucination: What Is It and How to Avoid It (K2View)</a></li>
+<li><a href="https://developer.nvidia.com/blog/rag-101-demystifying-retrieval-augmented-generation-pipelines/">RAG 101: Demystifying Retrieval-Augmented Generation Pipelines (NVIDIA)</a></li>
+<li><a href="https://weaviate.io/blog/introduction-to-rag">Introduction to LLM RAG (Weaviate)</a></li>
+<li><a href="https://orq.ai/blog/rag-pipelines">RAG Pipelines Explained (Orq.ai)</a></li>
+<li><a href="https://machinelearningmastery.com/understanding-rag-part-x-rag-pipelines-in-production/">RAG Pipelines in Production (Machine Learning Mastery)</a></li>
+</ul>
+<hr>
+<blockquote>
+<p>📎 本题由原 #011（什么是 RAG）与 #012（RAG Pipeline 组件）合并而来（2026-05-23 重构）</p>
+</blockquote>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">LLM 的三大核心局限</a></li><li class="toc-level-4"><a href="#section-4">1. 知识截止（Knowledge Cutoff）</a></li><li class="toc-level-4"><a href="#section-5">2. 幻觉（Hallucination）</a></li><li class="toc-level-4"><a href="#section-6">3. 缺乏私有/领域知识</a></li><li class="toc-level-3"><a href="#section-7">RAG 如何解决三大局限</a></li><li class="toc-level-3"><a href="#section-8">RAG 整体架构</a></li><li class="toc-level-3"><a href="#section-9">1. Indexing Pipeline（索引流水线）</a></li><li class="toc-level-4"><a href="#section-10">数据摄取与清洗</a></li><li class="toc-level-4"><a href="#section-11">分块（Chunking）</a></li><li class="toc-level-4"><a href="#section-12">Embedding 与存储</a></li><li class="toc-level-3"><a href="#section-13">2. Retrieval Pipeline（检索流水线）</a></li><li class="toc-level-4"><a href="#section-14">预检索优化（Pre-retrieval）</a></li><li class="toc-level-4"><a href="#section-15">向量检索</a></li><li class="toc-level-4"><a href="#section-16">后检索优化（Post-retrieval）</a></li><li class="toc-level-3"><a href="#section-17">3. Generation Pipeline（生成流水线）</a></li><li class="toc-level-4"><a href="#section-18">上下文组装与 Prompt 构建</a></li><li class="toc-level-4"><a href="#section-19">上下文窗口管理</a></li><li class="toc-level-3"><a href="#section-20">三条流水线的优化关系</a></li><li class="toc-level-3"><a href="#section-21">RAG 的三个演进阶段</a></li><li class="toc-level-3"><a href="#section-22">RAG 的局限性</a></li><li class="toc-level-3"><a href="#section-23">1M token 时代：长上下文 vs RAG 决策框架</a></li><li class="toc-level-4"><a href="#section-24">单针已解，多跳仍难</a></li><li class="toc-level-4"><a href="#section-25">决策框架：何时全塞上下文，何时仍需 RAG</a></li><li class="toc-level-4"><a href="#section-26">成本与延迟权衡</a></li><li class="toc-level-4"><a href="#section-27">现实中的混合方案</a></li><li class="toc-level-2"><a href="#section-28">端到端代码示例</a></li><li class="toc-level-2"><a href="#section-29">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-30">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="008.html" class="nav-card"><span>上一章</span><strong>← 生产级 Agent 系统设计（含智能客服实战案例）</strong></a><a href="010.html" class="nav-card next"><span>下一章</span><strong>文档分块（Chunking）策略有哪些？各有什么优缺点？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

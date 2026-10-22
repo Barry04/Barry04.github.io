@@ -1,0 +1,632 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link active" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">框架选型 · 第 110 题</div><h1>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</h1><blockquote>
+<p><strong>难度</strong>: 高级
+🆕 2026 新增（Harness 主题）</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>2026 年 Coding Agent Harness 已从&quot;单一 CLI 工具&quot;演化为多层架构产业。Claude Code（Anthropic）、Cursor（Cursor Inc.）、Aider（Paul Gauthier）、Cline（Cline.bot）、Codex CLI（OpenAI）这五大 harness 在四个维度上 <strong>故意选择了完全不同的策略</strong>：Context（Claude Code 自动 compact + Memory tool vs Aider tree-sitter + PageRank vs Cursor 云端 Composer vs Cline IDE context vs Codex AGENTS.md）、Tool（MCP / 自家 SDK / Function calling / Apply_patch）、Permission（Claude Code allow-list + Hook 硬拦 vs Cline 显式 Plan/Act vs Codex 三档 approval mode）、Sandbox（无沙箱 vs OS 原生 Seatbelt/bubblewrap vs 云端 VM）。任何&quot;哪个最好&quot;的回答都必须先问&quot;在哪个维度&quot;。Claude Code 的扩展生态（Skill / MCP / Slash / Hook / Subagent 五机制协同）是当前最完整、最值得深入研究的范本。</p>
+<p>2026 年中值得关注的两个新动向：一是<strong>工具融合趋势</strong>——The New Stack 报道 Claude Code / Cursor / Codex 三大工具正通过 MCP、Skill 等共享开放标准&quot;merge into one stack&quot;，能力趋同而非分化；二是<strong>自主性光谱的另一极</strong>——Devin 2.0（2026.2）走&quot;多模型全自主异步工程师&quot;路线，自主任务完成率约 40%，与五大本地 harness 的&quot;人机协作&quot;路线形成对照。</p>
+<p><strong>Cheat sheet</strong>：</p>
+<ul>
+<li><strong>四维对比口诀</strong>：Context（怎么记）/ Tool（怎么用）/ Permission（怎么审）/ Sandbox（怎么隔）</li>
+<li><strong>Context 三流派</strong>：全塞 + compact（Claude Code）/ 检索式（Aider repo map）/ 云端（Cursor / Devin）</li>
+<li><strong>Sandbox 两路线</strong>：OS 原生（Codex Seatbelt/bubblewrap）vs 云端 VM（Devin / Replit / Cursor 3）vs 无沙箱靠人审批（Cline / Claude Code）</li>
+<li><strong>Claude Code 五机制口诀</strong>：MCP=plumbing / Skill=how-to / Slash=button / Hook=guardrail / Subagent=isolation</li>
+<li><strong>Hook vs Prompt 本质差</strong>：Hook 确定性（regardless of model） / Prompt 概率性（model may skip）</li>
+<li><strong>关键数据</strong>：Cline CLI + Claude Opus 4.7 在 Terminal Bench 2.0 跑出 74.2%，超过 Claude Code 同模型 69.4%</li>
+<li><strong>性价比维度（2026-09）</strong>：GPT-5.6 家族进 Kiro 后 Terminal-Bench 2.1 成功任务成本降约 82%（OpenAI + AWS 联合优化）——harness 与模型协同调优的性价比实证</li>
+<li><strong>模型-工具面耦合（2026-09）</strong>：Claude Agent SDK（TS）v0.3.268 起 TaskCreate/TodoWrite 类工具仅在旧模型（Claude 3.x 与 4.0–4.7 系）默认提供，新模型须显式列入 tools/allowedTools——升级模型即静默丢任务工具，模型与 harness 耦合的又一面</li>
+<li><strong>2026 三强新进展</strong>：Claude Code（Ultrathink 深思考模式 + 语音输入，2026.3）/ Cursor 3（重建界面 + 并行 Agent 编排）/ Codex CLI（每周多 alpha 迭代）</li>
+<li><strong>2026 工具融合趋势</strong>：三大 harness 通过 MCP、Skill 等共享标准走向 &quot;merge into one stack&quot;，能力趋同</li>
+<li><strong>自主性另一极</strong>：Devin 2.0（2026.2，多模型，全自主异步工程师）自主完成率约 40%，$500/mo；社区共识是「组合两个工具」（如 Aider/Cline + Devin）而非单押</li>
+</ul>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">一、五大 Coding Agent Harness 形态总览</h3>
+<table>
+<thead>
+<tr>
+<th>Harness</th>
+<th>形态</th>
+<th>模型策略</th>
+<th>标志特征</th>
+<th>SWE-bench Verified 2026-Q1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Claude Code</strong></td>
+<td>全屏 CLI + IDE 集成</td>
+<td>锁定 Claude（Opus 4.7 / Sonnet 4.6 / Haiku 4.5）</td>
+<td>Hook + Skill + MCP + Subagent + Plugin 五件套；75% auto-compact；2026.3 新增 Ultrathink 深思考模式 + 语音输入</td>
+<td>Opus 4.7 87.6% / Sonnet 4.5 80.9%</td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>VS Code Fork + Composer</td>
+<td>自家 Composer 模型 + 多模型可选</td>
+<td>Cursor 3（2026-04）重建界面，引入 Agents Window（云端 VM）+ 并行 Agent 编排</td>
+<td>Composer 78.4%（Cursor 3 发布数据）</td>
+</tr>
+<tr>
+<td><strong>Aider</strong></td>
+<td>Git-first 终端</td>
+<td>BYOM（OpenAI / Claude / 本地）</td>
+<td>tree-sitter + PageRank repo map</td>
+<td>70%+（Sonnet 4.6 配置）</td>
+</tr>
+<tr>
+<td><strong>Cline</strong></td>
+<td>VS Code 扩展 + 2026-05 独立 SDK</td>
+<td>BYOM（任意）</td>
+<td>Plan/Act 显式分离；checkpoint 每步可回滚</td>
+<td>Cline CLI + Opus 4.7 = Terminal Bench 2.0 74.2%</td>
+</tr>
+<tr>
+<td><strong>Codex CLI</strong></td>
+<td>Rust 终端 App</td>
+<td>OpenAI（gpt-5 / o5 / codex models）</td>
+<td>OS 原生 Seatbelt/bubblewrap 沙箱 + AGENTS.md 标准</td>
+<td>gpt-5-codex ~85%</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Devin / Replit Agent 因为是&quot;云端容器 VM + 浏览器入口&quot;而非&quot;本地 harness&quot;，本题不作主比较对象，仅作为云端 sandbox 路线的参照。</p>
+<p><strong>Devin 2.0（2026.2）补充</strong>：Cognition 把 Devin 定位为&quot;全自主异步工程师&quot;——2026.2 起支持多模型（不再锁单家），自主任务完成率约 40%，入门价 $500/mo。它代表与五大本地 harness 相反的一极：<strong>用「自治长度 + 异步交付」换「人工介入」</strong>。社区共识是顶级开发者倾向于<strong>组合使用两个工具</strong>（如 Aider + Devin、Cline + Devin）而非押注单一 Agent——本地协作做精细改动，云端 Devin 跑长周期大任务。Codex CLI 同期保持每周多个 alpha 版本的高频迭代。</p>
+</blockquote>
+<h3 id="section-4">二、四维对比详表</h3>
+<h4 id="section-5">维度 1：Context 管理</h4>
+<table>
+<thead>
+<tr>
+<th>Harness</th>
+<th>策略</th>
+<th>关键机制</th>
+<th>Token 经济</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Claude Code</strong></td>
+<td>全塞 + 自动 compact</td>
+<td>75% 利用率时 compact；Memory tool 持久化；Skill progressive disclosure</td>
+<td>200K 窗口，compact 后基本不丢；CLAUDE.md 自动 re-inject</td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>云端 Composer 上下文池</td>
+<td>@-mention 文件、Composer 自动 retrieve；Cursor 3 多窗口并发</td>
+<td>自家模型适配，不公开具体策略</td>
+</tr>
+<tr>
+<td><strong>Aider</strong></td>
+<td>外部检索 + 显式控制</td>
+<td>tree-sitter AST 解析全 repo → PageRank 排序 → token 预算内塞入</td>
+<td>默认 <code>--map-tokens=1024</code>，无 chat 文件时膨胀 8x</td>
+</tr>
+<tr>
+<td><strong>Cline</strong></td>
+<td>IDE 上下文 + 文件批准</td>
+<td>显式 add file / read file；每步全 transcript 可见</td>
+<td>用户完全可控，配 BYOM 模型选</td>
+</tr>
+<tr>
+<td><strong>Codex CLI</strong></td>
+<td>AGENTS.md + workdir 文件读取</td>
+<td>自动读 monorepo 嵌套 AGENTS.md；32 KiB 硬上限静默截断</td>
+<td>AGENTS.md 是核心 context 入口</td>
+</tr>
+</tbody></table>
+<p><strong>关键对比 — Claude Code 的 &quot;全塞 + compact&quot; vs Aider 的 &quot;检索式 repo map&quot;</strong>：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Claude Code 流派（全塞 + 智能压缩）</th>
+<th>Aider 流派（外部检索）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优势</td>
+<td>context 不丢，cross-file 推理强；模型直接看到原文</td>
+<td>小窗口模型也能在大 repo 工作；显式控制，可解释</td>
+</tr>
+<tr>
+<td>劣势</td>
+<td>200K 窗口 + compact 算法依赖；长 trajectory 可能丢早期细节</td>
+<td>tree-sitter 不支持的语言失效；仅给 outline 不给原文</td>
+</tr>
+</tbody></table>
+<h4 id="section-6">维度 2：Tool Registry &amp; Discovery</h4>
+<table>
+<thead>
+<tr>
+<th>Harness</th>
+<th>工具协议</th>
+<th>Discovery</th>
+<th>扩展机制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Claude Code</strong></td>
+<td>内置 + MCP（开放） + Skill（按需加载）</td>
+<td>MCP server 自动发现；Skill metadata 启动时常驻</td>
+<td>MCP / Skill / Subagent / Hook / Plugin 五件套</td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>内置 + MCP（2025-10 起支持）</td>
+<td>编辑器 UI 配 MCP</td>
+<td>Cursor Rules（<code>.cursor/rules/*.mdc</code>）</td>
+</tr>
+<tr>
+<td><strong>Aider</strong></td>
+<td>git + 终端 + LLM-driven file edit</td>
+<td>无插件机制，靠 prompt 触发</td>
+<td>几乎不可扩展（哲学：保持简单）</td>
+</tr>
+<tr>
+<td><strong>Cline</strong></td>
+<td>内置 read/write/exec + MCP</td>
+<td>MCP marketplace；2026-05 SDK 后开放 plugin</td>
+<td><code>@cline/sdk</code> plugin 注册 tool / 监听事件</td>
+</tr>
+<tr>
+<td><strong>Codex CLI</strong></td>
+<td><code>shell_command</code> + <code>apply_patch</code>（深度耦合模型权重）</td>
+<td>AGENTS.md / 自家 cookbook</td>
+<td>Custom tools via <code>[tools.&lt;name&gt;]</code> 配置</td>
+</tr>
+</tbody></table>
+<p><strong>关键观察 — <code>apply_patch</code> 的 post-training coupling</strong>：</p>
+<p>Codex 模型在 post-training 阶段被 <em>绑定</em> 到 <code>apply_patch</code> 工具的语法（OpenCode 团队 + HumanLayer 双重证实）。要让 Codex 在自家 harness 里发挥水平，必须模仿 Codex 的 <code>apply_patch</code> 签名。<strong>Claude Code 模型类似——Claude Opus 4.x / Sonnet 4.x 对 <code>str_replace_based_edit_tool</code> 与 <code>bash</code> 工具的偏好已写进权重</strong>。这就是 SDK / harness / 模型三者深度耦合的本质。</p>
+<h4 id="section-7">维度 3：Permission &amp; Approval</h4>
+<table>
+<thead>
+<tr>
+<th>Harness</th>
+<th>默认审批策略</th>
+<th>升级机制</th>
+<th>&quot;硬拦&quot;能力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Claude Code</strong></td>
+<td>Permission allowlist（<code>settings.json</code>）</td>
+<td><code>--dangerously-skip-permissions</code> 跳过</td>
+<td><strong>PreToolUse Hook <code>deny</code> 即使 bypass 模式也强拦</strong></td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>编辑器内&quot;Apply / Reject&quot; diff</td>
+<td>Composer 自动模式可批量批准</td>
+<td>无强制硬拦</td>
+</tr>
+<tr>
+<td><strong>Aider</strong></td>
+<td>自动 commit（git audit trail）</td>
+<td><code>--yes</code> 跳过批准</td>
+<td>无（靠 git revert）</td>
+</tr>
+<tr>
+<td><strong>Cline</strong></td>
+<td><strong>每动作弹批准框（Plan / Act 模式）</strong></td>
+<td>Auto-approve / YOLO mode</td>
+<td>Checkpoint 每步快照可回滚</td>
+</tr>
+<tr>
+<td><strong>Codex CLI</strong></td>
+<td>三档：<code>read-only</code> / <code>auto</code>（默认） / <code>full access</code></td>
+<td><code>:workspace</code> / <code>:danger-full-access</code> profile</td>
+<td>沙箱内不需要硬拦（隔离）</td>
+</tr>
+</tbody></table>
+<p><strong>关键观察 — Hook 的确定性 vs 提示词的概率性</strong>（深刻教训）：</p>
+<p>Claude Code 的 Hook 系统是 2026 业界讨论最多的设计点。在 prompt 里写&quot;提交前必须跑 lint&quot;——模型可能跳过（概率性）；写成 PreToolUse Hook（shell 脚本）——保证执行（确定性）。<strong>HumanLayer 总结</strong>：&quot;success is silent, failures are verbose&quot;——成功不污染 context，失败把错误注入 agent loop 让模型修。这是把 Coding Agent 从&quot;玩具&quot;变成&quot;生产工具&quot;的关键。</p>
+<h4 id="section-8">维度 4：Sandbox &amp; Runtime</h4>
+<table>
+<thead>
+<tr>
+<th>Harness</th>
+<th>沙箱路线</th>
+<th>实现</th>
+<th>真实 CVE / 风险</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Claude Code</strong></td>
+<td><strong>无沙箱</strong>（靠 permission allowlist + Hook）</td>
+<td>host 直接执行；推荐配合 macOS Sandbox Manager</td>
+<td>CVE-2025-66479（BashTool 空白 allowlist）/ SOCKS5 null-byte 注入（v2.0.24-v2.1.89）</td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>本地无沙箱；Cursor 3 起 Agents Window = 云端 VM</td>
+<td>默认本地直接跑</td>
+<td>与 Claude Code 类似风险面</td>
+</tr>
+<tr>
+<td><strong>Aider</strong></td>
+<td><strong>无沙箱</strong>（git 是唯一防线）</td>
+<td>host 直接执行</td>
+<td>依赖 git diff review 习惯</td>
+</tr>
+<tr>
+<td><strong>Cline</strong></td>
+<td><strong>无沙箱</strong>（靠 Plan/Act 显式批准 + checkpoint）</td>
+<td>host 直接执行</td>
+<td>显式批准是首要防线</td>
+</tr>
+<tr>
+<td><strong>Codex CLI</strong></td>
+<td><strong>OS 原生沙箱</strong></td>
+<td>macOS Seatbelt 框架 / Linux/WSL2 bubblewrap / Windows Restricted Token+ACL</td>
+<td><code>workspace-write</code> 默认网络关；<code>danger-full-access</code> 等于无</td>
+</tr>
+</tbody></table>
+<p><strong>三种沙箱路线的本质权衡</strong>：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OS 原生（Codex）</th>
+<th>云端 VM（Devin/Replit/Cursor 3）</th>
+<th>无沙箱（Claude Code/Cline/Aider）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优势</td>
+<td>本地零成本；文件直接 share</td>
+<td>极致隔离（VM 级别）；可异步长跑（200 分钟自治）</td>
+<td>零延迟、零基础设施；用户拥有完整 host 能力</td>
+</tr>
+<tr>
+<td>劣势</td>
+<td>平台差异（macOS ≠ Linux）；复杂规则维护</td>
+<td>需要 cold start（10-60s）；egress / data exfil 风险</td>
+<td>必须配 permission + Hook 防线；用户审批疲劳是大问题</td>
+</tr>
+</tbody></table>
+<h3 id="section-9">三、Claude Code 扩展生态深度剖析（五机制协同）</h3>
+<p>Claude Code 的扩展生态是 2026 最完整、最值得深入的 harness 设计范本。社区已总结的发布时间线：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>2024-11  MCP (Model Context Protocol)            外部工具协议
+2025-07  Subagents                                Context 隔离与并行
+2025-09  Hooks                                    生命周期确定性触发
+2025-10  Plugins                                  分发与打包
+2025-10  Skills                                   Progressive Disclosure 知识包
+2026-02  Agent Teams                              多 Subagent 编排
+</code></pre></details>
+<h4 id="section-10">五种机制的设计对照表</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Slash Command</th>
+<th>Skill</th>
+<th>MCP</th>
+<th>Subagent</th>
+<th>Hook</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>触发</strong></td>
+<td>用户显式 <code>/cmd</code></td>
+<td>模型自动判断</td>
+<td>模型 tool_call</td>
+<td>任务委派（Agent tool）</td>
+<td>生命周期事件</td>
+</tr>
+<tr>
+<td><strong>加载成本</strong></td>
+<td>≈0（模板）</td>
+<td>~30-50 tokens metadata</td>
+<td>1k-50k+ tokens 起步</td>
+<td>独立 context 隔离</td>
+<td>注册时几乎为零</td>
+</tr>
+<tr>
+<td><strong>主要用途</strong></td>
+<td>重复 prompt 模板</td>
+<td>流程化领域知识</td>
+<td>外部世界访问</td>
+<td>并行/隔离子任务</td>
+<td>强制行为</td>
+</tr>
+<tr>
+<td><strong>文件结构</strong></td>
+<td>单 <code>.md</code> 文件</td>
+<td>目录 + SKILL.md + 资源</td>
+<td>server 进程</td>
+<td><code>.claude/agents/*.md</code> + frontmatter</td>
+<td><code>.claude/settings.json</code> hooks 字段</td>
+</tr>
+<tr>
+<td><strong>加载粒度</strong></td>
+<td>整体</td>
+<td>三级渐进</td>
+<td>全部 schema</td>
+<td>独立 system prompt</td>
+<td>不进 context</td>
+</tr>
+<tr>
+<td><strong>确定性</strong></td>
+<td>用户主动（确定性）</td>
+<td>模型判断（概率性）</td>
+<td>模型决策（概率性）</td>
+<td>父 agent 决策（概率性）</td>
+<td><strong>强制执行（确定性）</strong></td>
+</tr>
+</tbody></table>
+<p><strong>记忆口诀</strong>：</p>
+<blockquote>
+<p><strong>MCP = plumbing（管道）</strong>
+<strong>Skill = how to（手册）</strong>
+<strong>Slash = manual trigger（按钮）</strong>
+<strong>Subagent = isolation（隔间）</strong>
+<strong>Hook = guardrail（护栏）</strong></p>
+</blockquote>
+<h4 id="section-11">Skill 的 Progressive Disclosure 三级架构</h4>
+<p>Anthropic 把 Skill 拆为三层加载（官方文档明确）：</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>加载时机</th>
+<th>Token 成本</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>L1 Metadata</strong></td>
+<td>启动时常驻</td>
+<td>~50-100 tokens / Skill</td>
+<td>YAML frontmatter 的 <code>name</code> + <code>description</code></td>
+</tr>
+<tr>
+<td><strong>L2 Instructions</strong></td>
+<td>Claude 判断相关时读取</td>
+<td>~275-8000 tokens</td>
+<td>SKILL.md body 主体</td>
+</tr>
+<tr>
+<td><strong>L3 Resources</strong></td>
+<td>bash 按需读取</td>
+<td>无上限（不进 context）</td>
+<td>bundled scripts / reference files</td>
+</tr>
+</tbody></table>
+<p><strong>经济性证据</strong>：17 个官方 skill 全加载只需 ~1700 token，等价于&quot;知道几十种能力但只为一种付费&quot;。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-yaml"># SKILL.md 必填字段示例
+---
+name: pdf-processing  # ≤64字符，小写/数字/连字符，禁用 &quot;anthropic&quot;/&quot;claude&quot;
+description: Extract text and tables from PDF files. Use when working with PDFs.  # ≤1024字符
+---
+
+## Workflow
+
+1. Use `python scripts/extract.py &lt;file&gt;` to extract text
+2. ...
+</code></pre></details>
+<p><strong>核心机制</strong>：Skill 不是把全部内容塞进 system prompt，而是 Claude 在 VM 中通过 bash <code>read SKILL.md</code> 显式读取。Script 文件在执行时只把 stdout 注入 context，代码本身不消耗 token。这是 2026 跨厂商采纳的第一个开放标准（OpenAI / Google / GitHub / Cursor 在两个月内集成）。</p>
+<h4 id="section-12">Hook 的 12+ 生命周期事件</h4>
+<p>Claude Code 官方支持的 hook 事件按 cadence 分类：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>Per session:    SessionStart / SessionEnd / Setup
+Per turn:       UserPromptSubmit / Stop / StopFailure
+Per tool call:  PreToolUse / PostToolUse / PostToolBatch
+Agent-related:  SubagentStart / SubagentStop / TaskCreated
+MCP-related:    PermissionRequest / PermissionDenied / Elicitation
+Async:          FileChanged / CwdChanged / PreCompact / PostCompact
+</code></pre></details>
+<p>5 种 handler 类型：<code>command</code>（shell） / <code>http</code>（POST 端点） / <code>mcp_tool</code> / <code>prompt</code>（单轮 LLM 评估） / <code>agent</code>（带工具的子 agent，实验性）。</p>
+<p><strong>权限决策模型（PreToolUse 独有）</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-json">// .claude/settings.json
+{
+  &quot;hooks&quot;: {
+    &quot;PreToolUse&quot;: [
+      {
+        &quot;matcher&quot;: &quot;Bash&quot;,
+        &quot;hooks&quot;: [
+          {
+            &quot;type&quot;: &quot;command&quot;,
+            &quot;command&quot;: &quot;node /path/to/check-destructive.js&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre></details>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-javascript">// check-destructive.js — 示例 hook 输出
+const input = JSON.parse(require(&#39;fs&#39;).readFileSync(0, &#39;utf-8&#39;));
+if (input.tool_input.command.match(/rm -rf|git push --force/)) {
+  console.log(JSON.stringify({
+    permissionDecision: &quot;deny&quot;,  // 即使 --dangerously-skip-permissions 也硬拦
+    reason: &quot;Destructive command blocked by project policy&quot;
+  }));
+  process.exit(0);
+}
+process.exit(0);  // allow
+</code></pre></details>
+<p><strong>Exit code 约定</strong>（极易踩坑）：</p>
+<ul>
+<li><code>0</code> = 成功（解析 stdout JSON）</li>
+<li><strong><code>2</code> = blocking error（阻止动作）</strong></li>
+<li>其他 = 非阻塞错误</li>
+<li><strong>注意</strong>：<code>exit 1</code> 不阻断，必须 <code>exit 2</code> 才阻断</li>
+</ul>
+<p><strong>Permission Decision 四值</strong>：<code>allow</code> / <code>deny</code>（强拦） / <code>ask</code>（强制升级用户审批） / <code>defer</code>（走正常权限流程）。</p>
+<h4 id="section-13">Subagent vs MCP server 的边界</h4>
+<p>这是面试官最爱挖的细节问题：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Subagent</th>
+<th>MCP server</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>本质</strong></td>
+<td>Claude 的另一个实例 + 独立 context</td>
+<td>进程 / HTTP 服务 + 工具 schema</td>
+</tr>
+<tr>
+<td><strong>解决的问题</strong></td>
+<td>Context 隔离（防 poisoning）；并行探索</td>
+<td>外部资源访问标准化（N×M 问题）</td>
+</tr>
+<tr>
+<td><strong>数据传递</strong></td>
+<td>父发 prompt → 子返回 string</td>
+<td>model <code>tool_call</code> → server response</td>
+</tr>
+<tr>
+<td><strong>状态</strong></td>
+<td>子完整 context 不进父 context</td>
+<td>server 自己管 state（HTTP）或 stdio</td>
+</tr>
+<tr>
+<td><strong>典型用例</strong></td>
+<td>多文件代码重构、深度调研、并行验证</td>
+<td>数据库查询、文件系统、GitHub、Sentry</td>
+</tr>
+<tr>
+<td><strong>配置</strong></td>
+<td><code>.claude/agents/&lt;name&gt;.md</code></td>
+<td><code>.claude/settings.json</code> 的 <code>mcpServers</code></td>
+</tr>
+</tbody></table>
+<p><strong>Subagent 的两种语义</strong>：</p>
+<ul>
+<li><strong>默认 fresh-context</strong>：每次启全新 200k 窗口，子任务跑完只返回最终 string，中间 tool_call 不进父 context</li>
+<li><strong><code>CLAUDE_CODE_FORK_SUBAGENT=1</code> fork</strong>：继承当前对话历史（基于已有上下文继续探索），代价是 fork 子 context 随父增长，且与 <code>--print</code> headless 模式不兼容</li>
+</ul>
+<h4 id="section-14">实战例子：「提交前自动跑 lint + 写测试时按需加载测试规范」</h4>
+<p>这是 Scout-A Q3 的经典场景题，五机制如何协同：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>需求拆解
+├── lint 必须每次都跑                  → Hook（确定性）
+│   └── PreToolUse on git commit / PostToolUse on Edit
+├── 测试规范按需加载                   → Skill（progressive disclosure）
+│   └── .claude/skills/testing-conventions/
+├── 测试要跨多文件分析                  → Subagent（隔离）
+│   └── .claude/agents/test-reviewer.md
+├── 查 Sentry 报错                     → MCP（外部世界访问）
+│   └── mcpServers: { sentry: { command: &quot;...&quot;, args: [...] } }
+└── 用户显式入口                       → Slash Command
+    └── .claude/commands/run-tests.md → /run-tests
+</code></pre></details>
+<p><strong>错误用法（常见踩坑）</strong>：</p>
+<ul>
+<li>把 commit message format 做成 Skill → 应放 CLAUDE.md / AGENTS.md（频繁触发，不是按需）</li>
+<li>指望 Skill 访问 GitHub → 应用 MCP（Skill 没工具能力，只有 bash 内 stdout）</li>
+<li>把简单 prompt 模板做成 Skill → 应用 Slash Command（Skill 太重，过度设计）</li>
+<li>在 prompt 里写&quot;提交前必须跑 lint&quot; → 应该是 Hook（模型可能跳过）</li>
+</ul>
+<h3 id="section-15">四、横向对比小结：选哪个 Harness？</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>团队选型决策树
+│
+├── 想要&quot;最完整生态 + 深度可扩展&quot;
+│   └── Claude Code（五机制协同；锁 Claude 模型）
+│
+├── 想要&quot;VS Code 原生体验 + 多窗口并发&quot;
+│   └── Cursor（Composer 自家模型 + Cursor 3 Agents Window）
+│
+├── 想要&quot;git-first + 极简 + 多模型&quot;
+│   └── Aider（学习曲线最平，repo map 算法精妙）
+│
+├── 想要&quot;显式 HITL + checkpoint 安全网&quot;
+│   └── Cline（Plan/Act 一等公民 + 2026-05 独立 SDK 跨 surface）
+│
+└── 想要&quot;原生 OS 沙箱 + AGENTS.md 标准&quot;
+    └── Codex CLI（Rust 重写，Seatbelt/bubblewrap 隔离）
+</code></pre></details>
+<p><strong>SWE-bench Verified ≠ 唯一指标</strong>：harness 的产品体验差异远大于跑分差异。Cursor 在交互流畅度上领先，Aider 在 git 集成与可解释性上领先，Claude Code 在生态深度上领先，Codex CLI 在沙箱安全上领先，Cline 在显式可控性上领先。<strong>先问&quot;我的场景看重哪个维度&quot;，再选 harness</strong>。</p>
+<p><strong>2026 工具融合趋势（选型新变量）</strong>：The New Stack 报道 Claude Code / Cursor / Codex 三大工具正通过插件和共享开放标准&quot;merge into one stack&quot;——MCP 让三者接同一批 server，Skill 这种 progressive disclosure 知识包在两个月内被 OpenAI / Google / GitHub / Cursor 集成，AGENTS.md / CLAUDE.md / <code>.cursor/rules</code> 也在收敛为相似的&quot;项目指令文件&quot;约定。<strong>这意味着选型的护城河正从「功能差异」转移到「Context / Permission / Sandbox 的工程取舍与生态成熟度」</strong>——能力趋同后，谁的可控性、可审计性、隔离强度更好，谁就更适合生产。另一条并行路线是<strong>人机协作 vs 全自主</strong>的分工：本地 harness（五大）做精细协作，Devin 2.0 这种全自主异步 agent 跑长周期大任务，社区主流做法是组合使用而非二选一。</p>
+<h2 id="section-16">常见误区 / 面试追问</h2>
+<ul>
+<li><p><strong>误区 1：「Claude Code 五机制可以互相替代」</strong> — 错。MCP / Skill / Slash / Subagent / Hook 各管一个独立的 context 问题，强行替代会过度设计或失效。常见错误：把 commit format 写成 Skill（应在 CLAUDE.md）、指望 Hook 给模型加知识（Hook 不进 context，应该是 Skill）、用 Skill 调 GitHub（应该用 MCP）。</p>
+</li>
+<li><p><strong>误区 2：「Hook 和 Prompt 是一回事，反正都是让模型做什么」</strong> — 这是 Coding Agent 从&quot;玩具&quot;到&quot;生产工具&quot;的核心分水岭。<strong>Hook = 确定性（regardless of model behavior） / Prompt = 概率性（model may skip）</strong>。在 CLAUDE.md 写&quot;提交前必须跑 lint&quot;——模型可能跳过；写成 PreToolUse hook——保证执行。这层分工不理解就做不出可靠的代码 Agent。</p>
+</li>
+<li><p><strong>误区 3：「Cursor 3 的 Agents Window 让 Cursor 变成了 Devin」</strong> — 不完全。Cursor 3 引入云端 sandbox VM，但<strong>仍然以编辑器为主入口</strong>；Devin 则是&quot;全自治长跑&quot;（200 分钟自治再交付）。两者形态不同：Cursor 是&quot;IDE + 异步 agent 加成&quot;，Devin 是&quot;独立 SWE 代理&quot;。</p>
+</li>
+<li><p><strong>误区 4：「OpenAI Codex 模型可以无缝放到任何 harness 里」</strong> — 错。Codex 模型在 post-training 阶段被绑定到 <code>apply_patch</code> 工具签名，OpenCode 团队发现脱离这个签名性能会掉。<strong>Post-training coupling 是 2026 行业的硬约束</strong>——模型与 harness 是深度耦合系统。</p>
+</li>
+<li><p><strong>追问 1：「Aider 的 repo map 算法核心是什么？」</strong> → 答：tree-sitter 解析所有源文件成 AST → 提取 <code>name.definition.*</code> 和 <code>name.reference.*</code> 两类 tag → NetworkX 构建文件依赖图（A 引用 B 定义的符号 → 有向边） → PageRank 排序（chat-mentioned files 50x 权重，well-named identifiers 10x 权重） → token 预算下二分查找最大塞入量。默认 <code>--map-tokens=1024</code>，无 chat 文件时膨胀 8x。这是&quot;小窗口模型在大 repo 上能工作&quot;的核心算法。</p>
+</li>
+<li><p><strong>追问 2：「为什么 Claude Code 的 PreToolUse Hook <code>deny</code> 决策能强拦 <code>--dangerously-skip-permissions</code>？」</strong> → 答：因为 Hook 是项目级别的<strong>配置约束</strong>而非&quot;用户偏好&quot;。Anthropic 的设计哲学是：项目所有者可以设置&quot;用户即使加了 bypass flag 也不能越的红线&quot;，这对企业 / 团队 / 开源项目至关重要。具体到代码，PreToolUse Hook 的 <code>permissionDecision: &quot;deny&quot;</code> 在 permission system 层面短路了所有 upstream 判断。</p>
+</li>
+<li><p><strong>追问 3：「Skill 的 Progressive Disclosure 与 RAG 的检索式有什么区别？」</strong> → 答：表面相似，本质不同。</p>
+<ul>
+<li><strong>RAG</strong>：query → embedding 检索 → top-k chunks 进 context；触发由&quot;用户 query&quot;驱动，粒度是 chunk</li>
+<li><strong>Skill</strong>：模型读到 frontmatter description → 自主判断 → bash 读 SKILL.md；触发由&quot;模型判断&quot;驱动，粒度是&quot;完整流程文档 + scripts&quot;</li>
+<li>Skill 的关键创新是 <strong>&quot;模型选择加载什么知识&quot;</strong>，而 RAG 是&quot;系统选择灌什么知识给模型&quot;。前者更适合&quot;流程性知识&quot;（工作流、规范、检查清单），后者更适合&quot;事实性知识&quot;（文档、代码、数据）。</li>
+</ul>
+</li>
+<li><p><strong>追问 4：「Cline 2026-05 把 runtime 从 IDE 剥离成 <code>@cline/sdk</code>，对行业意味着什么？」</strong> → 答：意味着 Harness 进入&quot;<strong>runtime 独立化 + 多 surface 适配</strong>&quot;阶段。同一份 agent runtime 可跑 IDE / CLI / Web / CI，session 跨 surface 迁移（VSCode 启动的会话可在终端继续）。这预示 2026-2027 Harness 演进方向：<strong>与产品形态解耦，与模型/工具/protocol 协同</strong>。Claude Code 同期也在做类似分层（Claude Agent SDK 与 Claude Code CLI 解耦）。</p>
+</li>
+<li><p><strong>追问 5：「Devin 与 Replit Agent 这种『云端长跑型』为什么没纳入横评？」</strong> → 答：因为它们不是&quot;本地 harness&quot;而是&quot;云端 agent 产品&quot;，比较维度完全不同。Devin/Replit 的核心权衡是&quot;自治长度 vs 失败重试经济学&quot;（Devin 用 ACU 计费、Replit 200 分钟自治），而本题五个 harness 的核心权衡是&quot;context / tool / permission / sandbox 四维选择&quot;。两类产品形态适合两个不同问题：本地协作开发（Claude Code / Cursor / Aider / Cline / Codex CLI） vs 异步 SWE 代理（Devin / Replit）。<strong>补充 Devin 2.0（2026.2）数据</strong>：支持多模型后自主任务完成率约 40%、入门价 $500/mo——这个 40% 正是讨论「全自主 Agent 可靠性」与「为何仍需 HITL」的硬论据，社区主流做法是组合使用（本地 harness 做精细活 + Devin 跑大任务）而非二选一。</p>
+</li>
+<li><p><strong>追问 6：「2026 年 Claude Code / Cursor / Codex 在融合，是不是很快会变成一个工具？」</strong> → 答：能力在趋同，但<strong>四维工程取舍不会合并</strong>。The New Stack 报道的&quot;merge into one stack&quot;指的是<strong>接口层标准化</strong>——MCP 统一工具协议、Skill 统一知识加载、AGENTS.md/CLAUDE.md 统一项目指令；但每个 harness 在 Context（全塞+compact vs 检索式 vs 云端）、Permission（Hook 硬拦 vs 显式批准 vs 沙箱隔离）、Sandbox（无 vs OS 原生 vs 云端 VM）上的<strong>根本赌注不同</strong>，这些是写进架构和模型权重的取舍，不会因插件互通而消失。选型逻辑从「比谁功能多」转向「比谁的可控性、可审计性、隔离强度更适合生产」。</p>
+</li>
+</ul>
+<h2 id="section-17">参考资料</h2>
+<h3 id="section-18">综合横评</h3>
+<ul>
+<li><a href="https://www.requesty.ai/blog/agentic-coding-tools-compared-2026-claude-code-cursor-codex-aider">Requesty — Agentic Coding Tools Compared 2026</a> — 五大 harness 详细产品对比</li>
+<li><a href="https://thoughts.jock.pl/p/ai-coding-harness-agents-2026">thoughts.jock.pl — AI Coding Harness Agents 2026</a> — 行业评论与排名</li>
+<li><a href="https://artificialanalysis.ai/agents/coding">Artificial Analysis — Coding Agents Leaderboard</a> — Terminal Bench / SWE-bench 实时跑分</li>
+<li><a href="https://openai.com/index/gpt-5-6-in-kiro/">OpenAI — Advancing price-performance for developers with GPT-5.6 in Kiro</a> — Terminal-Bench 2.1 成功任务成本降约 82%（2026-08-24）</li>
+<li><a href="https://github.com/anthropics/claude-agent-sdk-typescript/releases">Claude Agent SDK (TypeScript) Releases</a> — v0.3.268：Task/Todo 类工具默认面收窄到旧模型清单，新模型须显式声明（2026-09）</li>
+<li><a href="https://htek.dev/articles/all-agent-harnesses-live-comparison">htek.dev — All Agent Harnesses: The Live Comparison</a> — 持续更新的对比表</li>
+</ul>
+<h3 id="section-19">2026 竞争格局与工具融合</h3>
+<ul>
+<li><a href="https://thenewstack.io/ai-coding-tool-stack/">The New Stack — The AI Coding Tool Stack</a> — Claude Code / Cursor / Codex 通过插件与共享标准 &quot;merge into one stack&quot; 的趋势报道</li>
+<li><a href="https://www.cosmicjs.com/blog/claude-code-vs-codex-vs-cursor">CosmicJS — Claude Code vs Codex vs Cursor</a> — 三强产品形态对比</li>
+<li><a href="https://www.contextstudios.ai/blog/ai-coding-agents-showdown-claude-code-vs-cursor-vs-codex-2026">Context Studios — AI Coding Agents Showdown 2026</a> — 含 Claude Code Ultrathink 模式解读</li>
+<li><a href="https://blog.arcbjorn.com/state-of-cli-coding-agents-2026">arcbjorn — State of CLI Coding Agents 2026</a> — CLI Agent 形态 2026 现状梳理</li>
+</ul>
+<h3 id="section-20">Claude Code 五机制深度</h3>
+<ul>
+<li><a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">Anthropic — Equipping Agents for the Real World with Agent Skills</a> — Progressive Disclosure 官方源头</li>
+<li><a href="https://alexop.dev/posts/understanding-claude-code-full-stack/">alexop.dev — Understanding Claude Code&#39;s Full Stack</a> — 七层扩展全栈梳理</li>
+<li><a href="https://code.claude.com/docs/en/hooks">code.claude.com/docs/en/hooks</a> — Hook 官方文档（12+ 事件、5 种 handler、Exit code 约定）</li>
+<li><a href="https://code.claude.com/docs/en/sub-agents">code.claude.com/docs/en/sub-agents</a> — Subagent 官方文档</li>
+<li><a href="https://www.newsletter.swirlai.com/p/agent-skills-progressive-disclosure">SwirlAI Newsletter — Agent Skills Progressive Disclosure</a> — 17 个官方 skill 的 token 经济实证</li>
+<li><a href="https://www.morphllm.com/claude-code-skills-mcp-plugins">Morph — Claude Code Skills vs MCP vs Plugins</a> — 三件套实战对比</li>
+</ul>
+<h3 id="section-21">Aider Repo Map 算法</h3>
+<ul>
+<li><a href="https://aider.chat/2023/10/22/repomap.html">Aider — Building a Better Repo Map with Tree-Sitter</a> — tree-sitter + PageRank 算法原文</li>
+<li><a href="https://deepwiki.com/Aider-AI/aider/4.1-repository-mapping-system">DeepWiki — Aider Repository Mapping System</a></li>
+</ul>
+<h3 id="section-22">Codex CLI 与 Sandbox</h3>
+<ul>
+<li><a href="https://developers.openai.com/codex/concepts/sandboxing">developers.openai.com/codex/concepts/sandboxing</a> — Seatbelt / bubblewrap / Restricted Token 官方说明</li>
+<li><a href="https://developers.openai.com/codex/cli/features">developers.openai.com/codex/cli/features</a> — 三档 approval mode + permission profile</li>
+<li><a href="https://developers.openai.com/codex/guides/agents-md">developers.openai.com/codex/guides/agents-md</a> — AGENTS.md 标准</li>
+</ul>
+<h3 id="section-23">Cline SDK 与 Plan/Act</h3>
+<ul>
+<li><a href="https://cline.bot/blog/introducing-cline-sdk-the-upgraded-agent-runtime">Cline Blog — Introducing the Cline SDK (2026-05-13)</a> — Runtime 与 IDE 解耦</li>
+<li><a href="https://github.com/cline/cline">GitHub — cline/cline</a> — 5M+ 安装的 VS Code 扩展</li>
+<li><a href="https://www.marktechpost.com/2026/05/14/cline-releases-cline-sdk-an-open-source-agent-runtime-now-powering-its-cli-and-kanban-with-ide-extensions-being-migrated/">MarkTechPost — Cline SDK Coverage</a></li>
+</ul>
+<h3 id="section-24">Harness Engineering 理论</h3>
+<ul>
+<li><a href="https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents">HumanLayer — Skill Issue: Harness Engineering for Coding Agents</a> — &quot;It&#39;s not a model problem. It&#39;s a configuration problem.&quot;</li>
+<li><a href="https://addyosmani.com/blog/agent-harness-engineering/">Addy Osmani — Agent Harness Engineering</a> — Ralph Loop / Sprint Contracts / Planner-Generator-Evaluator split</li>
+</ul>
+<h3 id="section-25">Cursor &amp; Devin &amp; Replit 参照</h3>
+<ul>
+<li><a href="https://cognition.ai/blog/devin-annual-performance-review-2025">Cognition — Devin&#39;s 2025 Performance Review</a></li>
+<li><a href="https://blog.replit.com/introducing-agent-3-our-most-autonomous-agent-yet">Replit — Introducing Agent 3</a> — 200 分钟自治</li>
+<li><a href="https://www.aibuilderclub.com/blog/best-ai-coding-agent-2026">AI Builder Club — Best AI Coding Agent 2026</a> — 含 Devin 2.0 多模型、~40% 完成率、$500/mo 定价</li>
+<li><a href="https://www.totalum.app/blog/best-ai-coding-agents-2026">Totalum — Best AI Coding Agents 2026</a> — 2026 Coding Agent 评测（含「组合两工具」社区共识）</li>
+</ul>
+<h2 id="section-26">相关阅读</h2>
+<ul>
+<li><a href="024.html">027 — MCP（Model Context Protocol）</a>：本题 Tool 维度依赖的协议标准</li>
+<li><a href="086.html">096 — Framework Overview（LangChain / LlamaIndex / Haystack）</a>：Framework 层横评，与本题 Harness 横评形成对照</li>
+<li><a href="088.html">098 — 框架 vs 自研</a>：自研动机与本题&quot;为什么大厂不用 LangGraph&quot;互为补充</li>
+<li><a href="089.html">099 — OpenAI Agents SDK vs Claude Agent SDK</a>：SDK 层对比，本题更上一层（产品级 harness）</li>
+<li><a href="097.html">109 — 什么是 Agent Harness</a>：Harness 概念入门，本题的&quot;基础篇&quot;</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">一、五大 Coding Agent Harness 形态总览</a></li><li class="toc-level-3"><a href="#section-4">二、四维对比详表</a></li><li class="toc-level-4"><a href="#section-5">维度 1：Context 管理</a></li><li class="toc-level-4"><a href="#section-6">维度 2：Tool Registry &amp; Discovery</a></li><li class="toc-level-4"><a href="#section-7">维度 3：Permission &amp; Approval</a></li><li class="toc-level-4"><a href="#section-8">维度 4：Sandbox &amp; Runtime</a></li><li class="toc-level-3"><a href="#section-9">三、Claude Code 扩展生态深度剖析（五机制协同）</a></li><li class="toc-level-4"><a href="#section-10">五种机制的设计对照表</a></li><li class="toc-level-4"><a href="#section-11">Skill 的 Progressive Disclosure 三级架构</a></li><li class="toc-level-2"><a href="#section-12">Workflow</a></li><li class="toc-level-4"><a href="#section-13">Hook 的 12+ 生命周期事件</a></li><li class="toc-level-4"><a href="#section-14">Subagent vs MCP server 的边界</a></li><li class="toc-level-4"><a href="#section-15">实战例子：「提交前自动跑 lint + 写测试时按需加载测试规范」</a></li><li class="toc-level-3"><a href="#section-16">四、横向对比小结：选哪个 Harness？</a></li><li class="toc-level-2"><a href="#section-17">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-18">参考资料</a></li><li class="toc-level-3"><a href="#section-19">综合横评</a></li><li class="toc-level-3"><a href="#section-20">2026 竞争格局与工具融合</a></li><li class="toc-level-3"><a href="#section-21">Claude Code 五机制深度</a></li><li class="toc-level-3"><a href="#section-22">Aider Repo Map 算法</a></li><li class="toc-level-3"><a href="#section-23">Codex CLI 与 Sandbox</a></li><li class="toc-level-3"><a href="#section-24">Cline SDK 与 Plan/Act</a></li><li class="toc-level-3"><a href="#section-25">Harness Engineering 理论</a></li><li class="toc-level-3"><a href="#section-26">Cursor &amp; Devin &amp; Replit 参照</a></li><li class="toc-level-2"><a href="#section-27">相关阅读</a></li></ol></nav></article><nav class="chapter-nav"><a href="097.html" class="nav-card"><span>上一章</span><strong>← 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</strong></a><a href="099.html" class="nav-card next"><span>下一章</span><strong>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/reader.js"></script></body></html>

@@ -38,6 +38,7 @@ exclude:
   - Gemfile.lock
   - docs
   - skills
+  - tools
   - vendor
   - vercel.json
 

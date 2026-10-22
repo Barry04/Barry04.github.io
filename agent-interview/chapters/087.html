@@ -1,0 +1,260 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>LangGraph 的核心概念：节点、边、状态 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link active" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">框架选型 · 第 097 题</div><h1>LangGraph 的核心概念：节点、边、状态</h1><blockquote>
+<p>难度：基础
+分类：Frameworks</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>LangGraph 是 LangChain 生态中专门用于构建<strong>有状态、可恢复（durable）的多步骤 Agent 工作流</strong>的框架，于 2025 年 10 月 22 日发布 1.0 GA，成为 durable agent（持久化 Agent）框架领域首个稳定版本，月 PyPI 下载量超 3800 万（2026），被称为&quot;Agent 编排的 React&quot;。1.0 GA 之后，2026 Q2 更新进一步补齐生产级能力：<strong>per-node 超时</strong>（逐节点设置执行时限，防止单步卡死拖垮整图）、<strong>v2 streaming</strong>（新一代结构化流式输出，配合 DeltaChannel 实现增量推送）；LangChain 侧也同步重构，聚焦核心 agent loop 并引入 <strong>middleware</strong>（中间件）概念，便于统一拦截、改写请求与响应。其核心思想是将 Agent 的执行流程建模为一个<strong>有向图（Graph）</strong>，包含三个基本构建块：(1) <strong>State（状态）</strong>——图的共享记忆，是一个 TypedDict，所有节点通过读写 State 来传递信息，支持 Reducer 函数自定义状态合并逻辑（如消息列表追加而非覆盖）；(2) <strong>Node（节点）</strong>——图中的&quot;工作单元&quot;，每个节点是一个 Python 函数，接收当前 State 并返回 State 更新（可以是 LLM 调用、工具执行、条件判断等任何操作）；(3) <strong>Edge（边）</strong>——连接节点的&quot;路由器&quot;，分为普通边（固定路由）和条件边（基于 State 动态路由，实现分支逻辑）。LangGraph 还提供 <strong>Checkpointer（检查点）</strong> 实现状态持久化，支持 Human-in-the-Loop（<code>interrupt()</code> 暂停等待人工审批）、错误恢复、长时间任务。执行模型是&quot;超步骤（Super-step）&quot;——每个超步骤中并行执行所有就绪节点，然后同步 State，直到到达 END 节点。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">核心架构图</h3>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    S[&quot;START&quot;] --&gt;|&quot;普通边&quot;| L[&quot;llm 节点&lt;br/&gt;Python 函数，读写 State&quot;]
+    L --&gt; Q{&quot;条件边&lt;br/&gt;should_continue:&lt;br/&gt;有 tool_calls？&quot;}
+    Q -- &quot;是&quot; --&gt; T[&quot;tools 节点&lt;br/&gt;执行工具，结果写回 State&quot;]
+    T --&gt;|&quot;普通边&quot;| L
+    Q -- &quot;否&quot; --&gt; E[&quot;END&quot;]
+    L -. &quot;读写&quot; .- ST[&quot;State 共享记忆&lt;br/&gt;messages 经 Reducer 追加合并&quot;]
+    T -. &quot;写回&quot; .- ST
+    L -. &quot;每个超步骤存档&quot; .- CK[&quot;Checkpointer 持久化&lt;br/&gt;interrupt() 暂停 / 恢复 / 时间旅行&quot;]
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    class L agent
+    class Q decision
+    class ST,CK store
+</div></figure>
+<p><em>LangGraph 把 Agent 建成图：节点读写共享 State，条件边决定循环还是终止，Checkpointer 让图可暂停、可恢复。</em></p>
+<h3 id="section-4">State：图的共享记忆</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from typing import Annotated, TypedDict
+from langgraph.graph import StateGraph, START, END
+from langgraph.graph.message import add_messages
+from langchain_core.messages import BaseMessage
+
+# 定义 State：所有节点共享的数据结构
+class AgentState(TypedDict):
+    # Annotated + add_messages = Reducer 模式
+    # 新消息追加到列表，而非覆盖
+    messages: Annotated[list[BaseMessage], add_messages]
+
+    # 普通字段：新值直接覆盖旧值
+    current_task: str
+    step_count: int
+    final_answer: str
+
+# State 设计原则：
+# 1. 只放需要跨节点共享的数据
+# 2. 用 Reducer 处理需要&quot;累加&quot;的字段（如消息历史）
+# 3. 默认行为是覆盖（最后写入的值生效）
+# 4. State 是不可变的——节点返回更新字典，由框架合并
+
+# Reducer 示例：自定义合并逻辑
+def merge_tool_results(existing: dict, new: dict) -&gt; dict:
+    &quot;&quot;&quot;工具结果合并：新结果追加到已有结果&quot;&quot;&quot;
+    merged = {**existing, **new}
+    return merged
+
+class AdvancedState(TypedDict):
+    messages: Annotated[list[BaseMessage], add_messages]
+    tool_results: Annotated[dict, merge_tool_results]
+</code></pre></details>
+<h3 id="section-5">Node：图中的工作单元</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, AIMessage
+
+llm = ChatOpenAI(model=&quot;gpt-4o&quot;)
+
+# 节点 1：调用 LLM
+def call_llm(state: AgentState) -&gt; dict:
+    &quot;&quot;&quot;每个节点接收 State，返回 State 更新&quot;&quot;&quot;
+    response = llm.invoke(state[&quot;messages&quot;])
+    # 返回的字典会与当前 State 合并
+    return {&quot;messages&quot;: [response]}
+
+# 节点 2：执行工具
+def execute_tools(state: AgentState) -&gt; dict:
+    &quot;&quot;&quot;执行 LLM 请求的工具调用&quot;&quot;&quot;
+    last_message = state[&quot;messages&quot;][-1]
+    results = []
+    for tool_call in last_message.tool_calls:
+        result = run_tool(tool_call)
+        results.append(result)
+    return {&quot;messages&quot;: results}
+
+# 节点 3：检查是否完成
+def should_continue(state: AgentState) -&gt; str:
+    &quot;&quot;&quot;条件边的路由函数——返回下一个节点的名称&quot;&quot;&quot;
+    last_message = state[&quot;messages&quot;][-1]
+    if last_message.tool_calls:
+        return &quot;tools&quot;      # 有工具调用 → 去执行工具
+    else:
+        return END           # 无工具调用 → 结束
+
+# 节点的本质：
+# - 就是普通的 Python 函数
+# - 输入：当前 State
+# - 输出：State 更新字典（不是完整 State）
+# - 可以包含任何逻辑：LLM 调用、API 请求、数据处理
+</code></pre></details>
+<h3 id="section-6">Edge：连接节点的路由器</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 构建完整的 Graph
+graph = StateGraph(AgentState)
+
+# 添加节点
+graph.add_node(&quot;llm&quot;, call_llm)
+graph.add_node(&quot;tools&quot;, execute_tools)
+
+# 普通边：固定路由（A → B）
+graph.add_edge(START, &quot;llm&quot;)        # 入口 → LLM
+graph.add_edge(&quot;tools&quot;, &quot;llm&quot;)      # 工具执行后 → 回到 LLM
+
+# 条件边：动态路由（基于 State 决定去哪）
+graph.add_conditional_edges(
+    &quot;llm&quot;,                           # 从 LLM 节点出发
+    should_continue,                  # 路由函数
+    {
+        &quot;tools&quot;: &quot;tools&quot;,            # 返回 &quot;tools&quot; → 去 tools 节点
+        END: END,                     # 返回 END → 结束
+    }
+)
+
+# 编译图
+app = graph.compile()
+
+# 边的类型：
+# 1. 普通边 add_edge(A, B)：A 执行后一定去 B
+# 2. 条件边 add_conditional_edges(A, func, mapping)：
+#    A 执行后，由 func(state) 返回值决定去哪
+# 3. START：虚拟入口节点
+# 4. END：虚拟终止节点
+</code></pre></details>
+<h3 id="section-7">Checkpointer：状态持久化与 Human-in-the-Loop</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from langgraph.checkpoint.memory import MemorySaver
+from langgraph.checkpoint.postgres import PostgresSaver
+
+# 开发环境：内存检查点
+checkpointer = MemorySaver()
+
+# 生产环境：PostgreSQL 检查点
+# checkpointer = PostgresSaver(conn_string=&quot;postgresql://...&quot;)
+
+# 编译时注入 Checkpointer
+app = graph.compile(checkpointer=checkpointer)
+
+# 使用 thread_id 管理对话
+config = {&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;user-123&quot;}}
+result = app.invoke(
+    {&quot;messages&quot;: [HumanMessage(content=&quot;帮我查一下订单&quot;)]},
+    config=config,
+)
+
+# 同一个 thread_id 的后续调用会自动加载历史 State
+result2 = app.invoke(
+    {&quot;messages&quot;: [HumanMessage(content=&quot;退款怎么操作？&quot;)]},
+    config=config,  # 自动携带之前的对话历史
+)
+
+# Human-in-the-Loop：interrupt() 暂停等待人工
+from langgraph.types import interrupt
+
+def sensitive_action(state: AgentState) -&gt; dict:
+    &quot;&quot;&quot;执行敏感操作前暂停，等待人工确认&quot;&quot;&quot;
+    approval = interrupt(
+        {&quot;question&quot;: &quot;是否批准执行此操作？&quot;, &quot;details&quot;: state[&quot;current_task&quot;]}
+    )
+    if approval == &quot;yes&quot;:
+        return {&quot;messages&quot;: [AIMessage(content=&quot;操作已执行&quot;)]}
+    else:
+        return {&quot;messages&quot;: [AIMessage(content=&quot;操作已取消&quot;)]}
+
+# Checkpointer 使能的能力：
+# 1. 对话持久化——跨请求保持状态
+# 2. 错误恢复——从最后一个检查点重试
+# 3. Human-in-the-Loop——暂停/恢复执行
+# 4. 时间旅行——回滚到任意历史状态
+</code></pre></details>
+<h3 id="section-8">1.0 GA 与 2026 生产化新特性</h3>
+<p>LangGraph 1.0 GA（2025-10-22）的标志性意义在于把&quot;durable agent&quot;从实验概念确立为<strong>生产标准</strong>——凭借 Checkpointer 持久化 + 超步骤执行模型，Agent 进程可在任意超步骤崩溃后从最近检查点恢复，长时任务不再依赖进程常驻。2026 Q2 更新围绕&quot;生产可控性&quot;补齐了三块关键能力：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>解决的问题</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>per-node 超时</strong></td>
+<td>单个节点（如一次外部 API 调用、一段 LLM 推理）卡死会拖垮整图</td>
+<td>在节点粒度声明执行时限，超时自动中断并触发重试或错误分支，与 <code>retry_policy</code>、<code>interrupt()</code> 组合形成分级容错</td>
+</tr>
+<tr>
+<td><strong>v2 streaming</strong></td>
+<td>旧版 streaming 只能拿到最终结果或粗粒度 token 流，难以按结构化事件增量消费</td>
+<td>新一代流式接口按节点输出粒度增量推送，配合 <strong>DeltaChannel</strong> 只下发状态变更部分（delta），降低流式场景的带宽和延迟</td>
+</tr>
+<tr>
+<td><strong>middleware（中间件）</strong></td>
+<td>横切逻辑（日志、鉴权、改写请求/响应）散落在各节点难以维护</td>
+<td>LangChain 侧引入 middleware 概念，统一拦截 agent loop 的请求与响应，便于插拔可观测、限流、审计等横切关注点</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>选型提示：1.0 GA 之前，&quot;超时&quot;&quot;流式增量&quot;&quot;横切拦截&quot;这些生产刚需大多要手写 wrapper 绕行；1.0 GA + 2026 Q2 后已转为框架一等能力，自研编排层前应先核对 LangGraph 是否已覆盖，避免重复造轮子。</p>
+</blockquote>
+<h3 id="section-9">完整 ReAct Agent 示例</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># LangChain 1.0 GA（2025-10）：推荐 langchain.agents.create_agent
+# langgraph.prebuilt.create_react_agent 已 deprecated
+from langchain.agents import create_agent
+from langgraph.checkpoint.memory import MemorySaver
+from langchain_openai import ChatOpenAI
+from langchain_core.tools import tool
+
+@tool
+def get_weather(city: str) -&gt; str:
+    &quot;&quot;&quot;获取城市天气&quot;&quot;&quot;
+    return f&quot;{city}：晴天，25°C&quot;
+
+@tool
+def search_flights(origin: str, destination: str) -&gt; str:
+    &quot;&quot;&quot;搜索航班&quot;&quot;&quot;
+    return f&quot;{origin}→{destination}：找到 3 个航班&quot;
+
+# 一行创建完整的 ReAct Agent（v1.0 GA 推荐方式）
+agent = create_agent(
+    model=ChatOpenAI(model=&quot;gpt-4o&quot;),
+    tools=[get_weather, search_flights],
+    checkpointer=MemorySaver(),
+)
+
+# 执行
+result = agent.invoke(
+    {&quot;messages&quot;: [(&quot;human&quot;, &quot;我想去北京，先查天气再搜航班&quot;)]},
+    config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;trip-1&quot;}},
+)
+
+# 注：create_agent 底层仍是 LangGraph 图；旧版 create_react_agent 在 v1.x 仍可用
+# 但官方明确建议新代码使用 langchain.agents.create_agent
+# 1.0 GA 后可通过 middleware 参数挂载日志/鉴权/改写等横切逻辑，无需侵入节点函数
+</code></pre></details>
+<h2 id="section-10">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;LangGraph 就是 LangChain 的升级版&quot;</strong> — LangGraph 不是 LangChain 的替代品，而是补充。LangChain 处理单步链式调用（Prompt → LLM → Parser），LangGraph 处理多步有状态工作流（循环、分支、人工审核）。简单任务用 LangChain，复杂 Agent 用 LangGraph。</p>
+</li>
+<li><p><strong>误区：&quot;State 就是全局变量&quot;</strong> — State 不是可变的全局变量。节点不能直接修改 State，只能返回更新字典，由框架通过 Reducer 合并。这种设计保证了状态变更的可追踪性和一致性。</p>
+</li>
+<li><p><strong>追问：&quot;LangGraph 的执行模型是什么？&quot;</strong> — &quot;超步骤（Super-step）&quot;模型：每个超步骤中，所有没有未满足依赖的节点并行执行，执行完毕后同步 State，然后进入下一个超步骤。这类似于 Pregel 图计算模型（Google 的大规模图处理框架）。</p>
+</li>
+<li><p><strong>追问：&quot;LangGraph 如何处理错误？&quot;</strong> — 三层错误处理：(1) 节点内 try/catch 处理预期错误；(2) Checkpointer 支持从失败点重试（不丢失已完成步骤）；(3) Graph 级别的 <code>retry_policy</code> 配置自动重试策略。结合 <code>interrupt()</code> 还可以在错误时暂停并请求人工介入。1.0 GA 后还可在节点粒度配 <strong>per-node 超时</strong>，单步卡死时自动中断并走重试/错误分支，避免拖垮整图。</p>
+</li>
+<li><p><strong>追问：&quot;什么是 durable agent？LangGraph 为什么适合生产部署？&quot;</strong> — Durable agent 指 Agent 执行状态可持久化、崩溃后可从检查点恢复、长时任务不依赖进程常驻。LangGraph 靠 Checkpointer（每完成一个超步骤就落盘状态）实现这一点，2026 Q2 又补齐了 per-node 超时（防单步卡死）和 v2 streaming / DeltaChannel（增量流式输出）。这也是它月下载量超 3800 万、成为 durable agent 框架首个 GA 版本的核心原因。面试可顺势对比：纯内存编排（如裸 ReAct 循环）一旦进程退出则全部状态丢失，生产场景必须上 durable 化方案。</p>
+</li>
+</ol>
+<h2 id="section-11">参考资料</h2>
+<ul>
+<li><a href="https://www.langchain.com/blog/langchain-langgraph-1dot0">LangChain &amp; LangGraph 1.0 (Official Announcement)</a></li>
+<li><a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph Overview (Official Docs)</a></li>
+<li><a href="https://medium.com/@ajaykumargajula7/a-beginners-guide-to-langgraph-understanding-the-core-concepts-bc2b1011d675">A Beginner&#39;s Guide to LangGraph: Core Concepts (Medium)</a></li>
+<li><a href="https://pub.towardsai.net/from-single-brains-to-team-intelligence-mastering-ai-agent-systems-with-langgraph-in-2025-3520af4fc758">Mastering AI Agent Systems with LangGraph in 2025 (Towards AI)</a></li>
+<li><a href="https://dev.to/raunaklallala/understanding-core-concepts-of-langgraph-deep-dive-1d7h">Understanding Core Concepts of LangGraph Deep Dive (Dev.to)</a></li>
+<li><a href="https://medium.com/@vivekvjnk/langgraph-basics-understanding-state-schema-nodes-and-edges-77f2fd17cae5">LangGraph Basics: Understanding State, Schema, Nodes, and Edges (Medium)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">核心架构图</a></li><li class="toc-level-3"><a href="#section-4">State：图的共享记忆</a></li><li class="toc-level-3"><a href="#section-5">Node：图中的工作单元</a></li><li class="toc-level-3"><a href="#section-6">Edge：连接节点的路由器</a></li><li class="toc-level-3"><a href="#section-7">Checkpointer：状态持久化与 Human-in-the-Loop</a></li><li class="toc-level-3"><a href="#section-8">1.0 GA 与 2026 生产化新特性</a></li><li class="toc-level-3"><a href="#section-9">完整 ReAct Agent 示例</a></li><li class="toc-level-2"><a href="#section-10">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-11">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="086.html" class="nav-card"><span>上一章</span><strong>← 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</strong></a><a href="088.html" class="nav-card next"><span>下一章</span><strong>框架 vs 自研：什么时候应该自己构建 Agent 框架？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

@@ -1,0 +1,535 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link active" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">生产部署 · 第 104 题</div><h1>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</h1><blockquote>
+<p>难度：高级
+分类：Production &amp; Deployment</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Agent 生产环境故障排查需要建立<strong>系统性的可观测性体系</strong>，核心方法论是&quot;<strong>Trace 驱动排查</strong>&quot;——从 <strong>Trace ID</strong> 出发，逐步还原 Agent 每一步的决策路径、工具调用和上下文状态。排查流程遵循 <strong>OODA 循环</strong>（Observe → Orient → Decide → Act）：先通过 <strong>Metrics 告警</strong>发现异常，再通过 <strong>Distributed Tracing</strong> 定位到具体 step，然后分析 <strong>LLM Input/Output</strong> 和 <strong>Tool Response</strong> 找到根因，最后制定修复方案并验证。关键原则是<strong>不要猜测，要用数据说话</strong>——每个故障都必须有对应的 Trace 证据。常见的 Agent 生产故障包括无限循环、幻觉输出、工具超时、权限越界和模型版本漂移，每类故障都有特定的排查模式和防御性修复策略。修复后必须进行 <strong>Post-Mortem</strong>，将故障模式沉淀为自动化检测规则，防止同类问题复发。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">Agent 生产故障的特殊性</h3>
+<p>与传统软件不同，Agent 故障具有<strong>非确定性</strong>——同样的输入可能产生不同的执行路径。这使得排查必须依赖完整的 Trace 记录而非简单的日志回放。</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    M[&quot;Metrics 告警触发&lt;br/&gt;Token 异常 · P99 飙升 · 错误率突增&quot;] --&gt; T[&quot;Trace 深入分析&lt;br/&gt;Step 回放 · Context 快照 · 路径还原&quot;]
+    T --&gt; RC[&quot;根因分析&lt;br/&gt;LLM / Tool 层定位具体原因&quot;]
+    RC --&gt; F[&quot;修复验证&lt;br/&gt;回归测试 + 灰度发布&quot;]
+    F --&gt; PM[&quot;Post-Mortem&lt;br/&gt;故障模式沉淀为检测规则&quot;]
+    PM -- &quot;闭环防复发&quot; --&gt; M
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef err fill:#ffebee,stroke:#c62828,color:#b71c1c
+    class T,RC,F,PM proc
+    class M err
+</div></figure>
+<p><em>Trace 驱动排查四步：告警发现→Trace 定位→根因分析→修复验证，Post-Mortem 把故障沉淀回检测规则。</em></p>
+<h3 id="section-4">核心排查工具集</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">import time, json, hashlib, asyncio, random, difflib
+from dataclasses import dataclass
+from typing import Optional
+from collections import Counter
+
+
+@dataclass
+class TraceStep:
+    &quot;&quot;&quot;单个 Agent 执行步骤的 Trace 记录&quot;&quot;&quot;
+    step_id: int
+    action: str           # &quot;llm_call&quot; | &quot;tool_call&quot; | &quot;observation&quot;
+    tool_name: Optional[str] = None
+    input_text: str = &quot;&quot;
+    output_text: str = &quot;&quot;
+    token_count: int = 0
+    latency_ms: float = 0.0
+    timestamp: float = 0.0
+    error: Optional[str] = None
+
+
+class TraceAnalyzer:
+    &quot;&quot;&quot;Agent Trace 分析器 —— 故障排查核心工具&quot;&quot;&quot;
+
+    def __init__(self, steps: list[TraceStep]):
+        self.steps = steps
+
+    def detect_infinite_loop(self, max_repeats: int = 3) -&gt; dict:
+        &quot;&quot;&quot;检测无限循环 —— 滑动窗口发现重复 tool_call 模式&quot;&quot;&quot;
+        seq = [s.tool_name for s in self.steps if s.action == &quot;tool_call&quot; and s.tool_name]
+        for win in range(1, len(seq) // 2 + 1):
+            for i in range(len(seq) - win * max_repeats + 1):
+                pattern = seq[i:i + win]
+                count = sum(1 for j in range(i, len(seq) - win + 1, win)
+                            if seq[j:j + win] == pattern)
+                if count &gt;= max_repeats:
+                    return {&quot;detected&quot;: True, &quot;pattern&quot;: pattern,
+                            &quot;repeat_count&quot;: count, &quot;severity&quot;: &quot;critical&quot;}
+        return {&quot;detected&quot;: False}
+
+    def analyze_context_placement(self) -&gt; dict:
+        &quot;&quot;&quot;分析检索内容在 Context 中的位置 —— 排查 Lost-in-the-Middle&quot;&quot;&quot;
+        for step in self.steps:
+            if step.action == &quot;llm_call&quot; and &quot;[RETRIEVED_CONTEXT]&quot; in step.input_text:
+                pos = step.input_text.find(&quot;[RETRIEVED_CONTEXT]&quot;)
+                ratio = pos / len(step.input_text)
+                return {&quot;position_ratio&quot;: ratio,
+                        &quot;risk&quot;: &quot;high&quot; if 0.3 &lt; ratio &lt; 0.7 else &quot;low&quot;}
+        return {&quot;risk&quot;: &quot;unknown&quot;}
+
+    def get_tool_latency_stats(self) -&gt; dict:
+        &quot;&quot;&quot;各工具延迟分布 —— 排查超时问题&quot;&quot;&quot;
+        buckets: dict[str, list[float]] = {}
+        for s in self.steps:
+            if s.action == &quot;tool_call&quot; and s.tool_name:
+                buckets.setdefault(s.tool_name, []).append(s.latency_ms)
+        return {name: {&quot;p50&quot;: sorted(lats)[len(lats)//2],
+                       &quot;p99&quot;: sorted(lats)[int(len(lats)*0.99)],
+                       &quot;error_rate&quot;: sum(1 for s in self.steps
+                                         if s.tool_name == name and s.error) / len(lats)}
+                for name, lats in buckets.items()}
+
+
+class TokenBudgetMonitor:
+    &quot;&quot;&quot;Token 预算监控器 —— 实时追踪和预警&quot;&quot;&quot;
+
+    def __init__(self, max_tokens: int = 100_000, max_steps: int = 30):
+        self.max_tokens, self.max_steps = max_tokens, max_steps
+        self.consumed, self.step_count = 0, 0
+        self.history: list[int] = []
+
+    def record(self, step: TraceStep) -&gt; dict:
+        self.consumed += step.token_count
+        self.step_count += 1
+        self.history.append(step.token_count)
+        alert = None
+        if self.consumed &gt;= self.max_tokens:
+            alert = &quot;CRITICAL: Token 预算耗尽&quot;
+        elif self.step_count &gt;= self.max_steps:
+            alert = &quot;CRITICAL: 步数超限&quot;
+        elif len(self.history) &gt;= 3:
+            avg = sum(self.history[-3:-1]) / 2
+            if avg &gt; 0 and self.history[-1] &gt; avg * 3:
+                alert = f&quot;WARNING: Token 突增 (当前{self.history[-1]}, 均值{avg:.0f})&quot;
+        return {&quot;step&quot;: self.step_count, &quot;used&quot;: self.consumed, &quot;alert&quot;: alert}
+
+    def should_terminate(self) -&gt; tuple[bool, str]:
+        if self.consumed &gt;= self.max_tokens: return True, &quot;Token 预算耗尽&quot;
+        if self.step_count &gt;= self.max_steps: return True, &quot;步数超限&quot;
+        return False, &quot;&quot;
+</code></pre></details>
+<h3 id="section-5">Scenario 1: Agent 陷入无限循环</h3>
+<p><strong>问题描述</strong>：监控告警显示某 Agent 会话 Token 消耗在 5 分钟内暴涨 20 倍，LLM 反复调用 <code>query_database</code>，每次调用后又判断&quot;需要重试&quot;。</p>
+<p><strong>排查步骤</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>┌─────────────────────────────────────────────────────────────┐
+│              无限循环排查路径                                  │
+├─────────────────────────────────────────────────────────────┤
+│  Step 1: Token 告警触发                                      │
+│     ▼                                                       │
+│  Step 2: 查看 Trace → step_count = 47（正常 &lt; 10）           │
+│     ▼                                                       │
+│  Step 3: 分析 tool_call pattern → query_database × 42       │
+│     ▼                                                       │
+│  Step 4: 检查 tool response                                  │
+│     │    → &quot;Error: connection timeout, please retry&quot;         │
+│     ▼                                                       │
+│  Step 5: 根因 → LLM 将 &quot;please retry&quot; 解读为重试指令         │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></details>
+<p><strong>根因</strong>：工具错误信息含 <code>&quot;please retry&quot;</code>，LLM 将其解读为系统指令而非错误报告。缺少循环检测和 max_steps 限制，Agent 陷入无限重试。</p>
+<p><strong>修复方案</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class LoopDetector:
+    &quot;&quot;&quot;循环检测器 —— 防止 Agent 无限循环&quot;&quot;&quot;
+    def __init__(self, max_same_calls: int = 3, max_steps: int = 25):
+        self.max_same_calls = max_same_calls
+        self.max_steps = max_steps
+        self.history: list[str] = []
+
+    def check(self, tool_name: str) -&gt; dict:
+        self.history.append(tool_name)
+        if len(self.history) &gt;= self.max_same_calls:
+            if len(set(self.history[-self.max_same_calls:])) == 1:
+                return {&quot;action&quot;: &quot;interrupt&quot;,
+                        &quot;reason&quot;: f&quot;连续 {self.max_same_calls} 次调用 {tool_name}&quot;}
+        if len(self.history) &gt;= self.max_steps:
+            return {&quot;action&quot;: &quot;terminate&quot;, &quot;reason&quot;: &quot;步数超限&quot;}
+        return {&quot;action&quot;: &quot;continue&quot;}
+
+def normalize_tool_error(raw_error: str) -&gt; str:
+    &quot;&quot;&quot;规范化工具错误 —— 消除误导 LLM 的自然语言&quot;&quot;&quot;
+    return (f&quot;[TOOL_ERROR] 工具执行失败。原始信息: {raw_error}。&quot;
+            f&quot;[INSTRUCTION] 不要重试，请告知用户并建议替代方案。&quot;)
+</code></pre></details>
+<h3 id="section-6">Scenario 2: RAG 检索正常但回答仍然幻觉</h3>
+<p><strong>问题描述</strong>：用户反馈 Agent 回答错误。检查 RAG Pipeline 发现检索到的文档正确（Recall 正常），但最终回答与检索内容完全不符。</p>
+<p><strong>排查步骤</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>┌──────────────────────────────────────────────────────────────┐
+│            RAG 幻觉排查路径                                    │
+├──────────────────────────────────────────────────────────────┤
+│  ┌──────────┐     ┌──────────────┐     ┌──────────────────┐ │
+│  │ 检索日志  │────→│ LLM Input    │────→│ LLM Output      │ │
+│  │ Top-5 Doc │     │ 完整 Prompt  │     │ 最终回答        │ │
+│  │ ✓ 正确    │     │              │     │ ✗ 与检索不符    │ │
+│  └──────────┘     └──────────────┘     └──────────────────┘ │
+│                         ▼                                    │
+│               ┌──────────────────┐                           │
+│               │ Prompt 结构分析   │                           │
+│               │ System      300t │                           │
+│               │ History    2000t │                           │
+│               │ Docs       1500t │ ← ⚠ 中间位置             │
+│               │ Query        50t │                           │
+│               │ Instruct    200t │                           │
+│               └──────────────────┘                           │
+│                         ▼                                    │
+│          Lost-in-the-Middle：LLM 注意力不足                   │
+└──────────────────────────────────────────────────────────────┘
+</code></pre></details>
+<p><strong>根因</strong>：检索结果被放在 Prompt 中间位置，受 <strong>Lost-in-the-Middle</strong> 效应影响，LLM 对中间信息关注度下降，更倾向于依赖自身参数知识。</p>
+<p><strong>修复方案</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class ContextWindowOptimizer:
+    &quot;&quot;&quot;Context Window 优化器 —— 解决 Lost-in-the-Middle&quot;&quot;&quot;
+
+    def build_prompt(self, system: str, docs: list[dict],
+                     history: list[dict], query: str) -&gt; str:
+        # 只保留最近 3 轮对话，减少噪声
+        recent = history[-3:] if len(history) &gt; 3 else history
+        history_text = &quot;\n&quot;.join(f&quot;{m[&#39;role&#39;]}: {m[&#39;content&#39;]}&quot; for m in recent)
+        # 按相关性排序，只取 Top-3
+        sorted_docs = sorted(docs, key=lambda d: d[&quot;score&quot;], reverse=True)[:3]
+        docs_text = &quot;\n\n&quot;.join(
+            f&quot;[文档{i+1}] (相关性:{d[&#39;score&#39;]:.2f})\n{d[&#39;content&#39;]}&quot;
+            for i, d in enumerate(sorted_docs))
+        # 关键：检索内容紧跟 System Prompt，利用 Primacy Bias
+        return f&quot;&quot;&quot;{system}
+
+## 参考资料（必须优先基于以下内容回答，不得编造未提及的信息）
+{docs_text}
+
+## 对话历史
+{history_text}
+
+## 当前问题
+{query}
+
+请严格基于参考资料回答。如无相关信息，明确告知用户。&quot;&quot;&quot;
+</code></pre></details>
+<h3 id="section-7">Scenario 3: 工具调用间歇性超时</h3>
+<p><strong>问题描述</strong>：14:00-16:00 高峰期工具调用失败率从 1% 飙升到 35%，非高峰完全正常。</p>
+<p><strong>排查步骤</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>排查阶段</th>
+<th>检查项</th>
+<th>发现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. 时间维度</td>
+<td>错误率 vs 时间曲线</td>
+<td>错误集中在 14:00-16:00</td>
+</tr>
+<tr>
+<td>2. 工具维度</td>
+<td>按工具分类统计</td>
+<td>仅 <code>search_api</code> 受影响</td>
+</tr>
+<tr>
+<td>3. 错误类型</td>
+<td>分析响应码</td>
+<td>429 Too Many Requests (78%)</td>
+</tr>
+<tr>
+<td>4. 流量分析</td>
+<td>统计 QPS 峰值</td>
+<td>高峰 QPS 达限额的 120%</td>
+</tr>
+<tr>
+<td>5. 根因确认</td>
+<td>检查 API 文档</td>
+<td>Rate Limit: 100 req/min</td>
+</tr>
+</tbody></table>
+<p><strong>根因</strong>：第三方 API 有 100 req/min 限制，高峰期并发超限触发 HTTP 429。</p>
+<p><strong>修复方案</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class RateLimitAwareToolCaller:
+    &quot;&quot;&quot;限流感知调用器 —— 指数退避 + 缓存 + 限流预检&quot;&quot;&quot;
+
+    def __init__(self, rate_limit: int = 90):  # 留 10% 余量
+        self.rate_limit = rate_limit
+        self.timestamps: list[float] = []
+        self.cache: dict[str, dict] = {}
+
+    async def call(self, tool_name: str, args: dict, func, retries: int = 3) -&gt; dict:
+        # 1. 缓存命中检查
+        key = hashlib.md5(f&quot;{tool_name}:{json.dumps(args, sort_keys=True)}&quot;.encode()).hexdigest()
+        if key in self.cache and time.time() - self.cache[key][&quot;ts&quot;] &lt; 300:
+            return {&quot;result&quot;: self.cache[key][&quot;data&quot;], &quot;source&quot;: &quot;cache&quot;}
+
+        # 2. 限流预检
+        now = time.time()
+        self.timestamps = [t for t in self.timestamps if now - t &lt; 60]
+        if len(self.timestamps) &gt;= self.rate_limit:
+            return {&quot;error&quot;: &quot;接近限流阈值&quot;, &quot;action&quot;: &quot;backoff&quot;}
+
+        # 3. 指数退避重试
+        for attempt in range(retries):
+            try:
+                self.timestamps.append(time.time())
+                result = await asyncio.wait_for(func(**args), timeout=10.0)
+                self.cache[key] = {&quot;data&quot;: result, &quot;ts&quot;: time.time()}
+                return {&quot;result&quot;: result, &quot;source&quot;: &quot;live&quot;}
+            except (asyncio.TimeoutError, Exception) as e:
+                if attempt &lt; retries - 1:
+                    wait = (2 ** attempt) * (5 if &quot;429&quot; in str(e) else 1) + random.uniform(0, 1)
+                    await asyncio.sleep(wait)
+        return {&quot;error&quot;: &quot;多次重试失败&quot;, &quot;action&quot;: &quot;fallback&quot;}
+</code></pre></details>
+<h3 id="section-8">Scenario 4: Agent 执行了危险的不可逆操作</h3>
+<p><strong>问题描述</strong>：用户要求&quot;清理过期数据&quot;，Agent 直接调用 <code>delete_records</code> 删除了 50,000 条记录（含有效数据），无确认、无备份。</p>
+<p><strong>排查步骤</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>┌──────────────────────────────────────────────────────────────────┐
+│            危险操作排查路径                                        │
+├──────────────────────────────────────────────────────────────────┤
+│  用户输入: &quot;清理过期数据&quot;                                         │
+│       ▼                                                          │
+│  LLM 决策: delete_records(filter=&quot;created_at &lt; 2024-01&quot;)        │
+│       ├──→ ⚠ filter 条件由 LLM 自行推断，未经确认                │
+│       ├──→ ⚠ delete_records 无权限分级                           │
+│       ├──→ ⚠ 无 dry-run 预览                                    │
+│       └──→ ⚠ 无审批流程                                         │
+│       ▼                                                          │
+│  直接删除 50,000 条记录 → 不可逆                                 │
+└──────────────────────────────────────────────────────────────────┘
+</code></pre></details>
+<p><strong>根因</strong>：工具权限过于粗放，<code>delete_records</code> 无条件执行；缺少 Human-in-the-Loop 审批；LLM 自行推断 filter 条件无人审核。</p>
+<p><strong>修复方案</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from enum import Enum
+from typing import Callable
+
+class RiskLevel(Enum):
+    LOW = &quot;low&quot;       # 只读，无需确认
+    MEDIUM = &quot;medium&quot; # 写操作，需 dry-run 预览
+    HIGH = &quot;high&quot;     # 不可逆操作，需人工审批
+
+class SafeToolExecutor:
+    &quot;&quot;&quot;安全执行器 —— 最小权限 + 分级审批 + Dry-Run&quot;&quot;&quot;
+    RISK_REGISTRY = {
+        &quot;search_documents&quot;: RiskLevel.LOW,
+        &quot;query_database&quot;: RiskLevel.LOW,
+        &quot;update_record&quot;: RiskLevel.MEDIUM,
+        &quot;delete_records&quot;: RiskLevel.HIGH,
+        &quot;drop_table&quot;: RiskLevel.HIGH,
+    }
+
+    def __init__(self, approval_fn: Callable):
+        self.approve = approval_fn
+
+    async def execute(self, tool_name: str, args: dict, func) -&gt; dict:
+        risk = self.RISK_REGISTRY.get(tool_name, RiskLevel.HIGH)
+        if risk == RiskLevel.LOW:
+            return await func(**args)
+        # 中/高风险：先 dry-run
+        preview = await func(**args, dry_run=True)
+        confirm = await self.approve(
+            action=tool_name, preview=preview, risk=risk.value,
+            require_reason=(risk == RiskLevel.HIGH))
+        if not confirm[&quot;approved&quot;]:
+            return {&quot;status&quot;: &quot;cancelled&quot;, &quot;reason&quot;: confirm.get(&quot;reason&quot;)}
+        if risk == RiskLevel.HIGH:
+            backup_id = f&quot;backup_{tool_name}_{int(time.time())}&quot;  # 自动备份
+        return await func(**args, dry_run=False)
+</code></pre></details>
+<h3 id="section-9">Scenario 5: 模型 API 升级后 Agent 行为突变</h3>
+<p><strong>问题描述</strong>：某天大量用户反馈输出格式异常——JSON 变为自然语言叙述，多步规划退化。前一天无任何代码变更。</p>
+<p><strong>排查步骤</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>排查阶段</th>
+<th>操作</th>
+<th>发现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. 代码变更</td>
+<td>git log、CI/CD</td>
+<td>无部署</td>
+</tr>
+<tr>
+<td>2. 基础设施</td>
+<td>服务器、网络</td>
+<td>正常</td>
+</tr>
+<tr>
+<td>3. Trace 对比</td>
+<td>昨日 vs 今日同类请求</td>
+<td>同 Prompt，输出格式完全不同</td>
+</tr>
+<tr>
+<td>4. 模型版本</td>
+<td>API Response Header</td>
+<td><code>gpt-4-0613</code> → <code>gpt-4-0125-preview</code></td>
+</tr>
+<tr>
+<td>5. 根因确认</td>
+<td>供应商更新日志</td>
+<td>默认模型静默升级</td>
+</tr>
+</tbody></table>
+<p><strong>根因</strong>：模型供应商静默升级默认版本，新版本 Instruction Following 行为变化。Agent 未 pin 具体版本，直接受影响。</p>
+<p><strong>修复方案</strong>：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class ModelVersionGuard:
+    &quot;&quot;&quot;模型版本守卫 —— 防止静默升级&quot;&quot;&quot;
+
+    def __init__(self, pinned: str, allowed: list[str]):
+        self.pinned = pinned
+        self.allowed = allowed
+        self.baselines: dict[str, str] = {}
+
+    def verify(self, headers: dict) -&gt; dict:
+        actual = headers.get(&quot;x-model-version&quot;, &quot;unknown&quot;)
+        if actual not in self.allowed:
+            return {&quot;status&quot;: &quot;mismatch&quot;, &quot;expected&quot;: self.pinned,
+                    &quot;actual&quot;: actual, &quot;action&quot;: &quot;回退到 pinned 版本&quot;}
+        return {&quot;status&quot;: &quot;ok&quot;}
+
+    def regression_test(self, cases: list[dict], model_fn) -&gt; dict:
+        results = []
+        for c in cases:
+            out = model_fn(c[&quot;input&quot;])
+            fmt_ok = self._check_format(out, c.get(&quot;format&quot;))
+            sim = difflib.SequenceMatcher(None, self.baselines.get(c[&quot;id&quot;], &quot;&quot;), out).ratio()
+            results.append({&quot;id&quot;: c[&quot;id&quot;], &quot;format_ok&quot;: fmt_ok,
+                            &quot;similarity&quot;: sim, &quot;pass&quot;: fmt_ok and sim &gt; 0.7})
+        rate = sum(1 for r in results if r[&quot;pass&quot;]) / len(results)
+        return {&quot;pass_rate&quot;: rate,
+                &quot;recommendation&quot;: &quot;安全切换&quot; if rate &gt;= 0.95 else &quot;保持 pinned 版本&quot;}
+
+    def _check_format(self, output: str, fmt: str | None) -&gt; bool:
+        if fmt == &quot;json&quot;:
+            try: json.loads(output); return True
+            except: return False
+        return True
+
+class GrayScaleDeployment:
+    &quot;&quot;&quot;灰度切换 —— 安全升级模型版本&quot;&quot;&quot;
+    def __init__(self, old: str, new: str):
+        self.old, self.new, self.ratio = old, new, 0.0
+
+    def route(self, request_id: str) -&gt; str:
+        h = int(hashlib.md5(request_id.encode()).hexdigest(), 16) % 100
+        return self.new if h &lt; self.ratio * 100 else self.old
+
+    def increase(self, step: float = 0.1):
+        self.ratio = min(1.0, self.ratio + step)
+</code></pre></details>
+<h3 id="section-10">五大场景对比总结</h3>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>核心症状</th>
+<th>排查关键指标</th>
+<th>根因类别</th>
+<th>防御性修复</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无限循环</td>
+<td>Token 消耗暴涨</td>
+<td>step_count, tool_call 重复模式</td>
+<td>Prompt/Tool 交互</td>
+<td>循环检测 + max_steps</td>
+</tr>
+<tr>
+<td>RAG 幻觉</td>
+<td>回答与检索不符</td>
+<td>Context 位置、Prompt 结构</td>
+<td>Context Window 管理</td>
+<td>位置优化 + 内容压缩</td>
+</tr>
+<tr>
+<td>工具超时</td>
+<td>间歇性失败率飙升</td>
+<td>工具延迟 P99、HTTP 429 比例</td>
+<td>外部依赖限流</td>
+<td>退避重试 + 缓存 + 限流感知</td>
+</tr>
+<tr>
+<td>危险操作</td>
+<td>不可逆数据损失</td>
+<td>工具权限审计、审批记录</td>
+<td>权限设计缺陷</td>
+<td>最小权限 + HITL + Dry-Run</td>
+</tr>
+<tr>
+<td>模型突变</td>
+<td>输出格式/逻辑变化</td>
+<td>模型版本、输出 diff</td>
+<td>外部模型版本漂移</td>
+<td>Pin 版本 + 回归测试 + 灰度</td>
+</tr>
+</tbody></table>
+<h3 id="section-11">构建 Agent 可观测性体系</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>┌────────────────────────────────────────────────────────────────────┐
+│                   Agent 可观测性三支柱                              │
+├────────────────────────────────────────────────────────────────────┤
+│  ┌──────────────┐  ┌──────────────────┐  ┌──────────────────────┐ │
+│  │   Metrics    │  │   Tracing        │  │   Logging            │ │
+│  │   指标监控    │  │   分布式追踪      │  │   结构化日志         │ │
+│  ├──────────────┤  ├──────────────────┤  ├──────────────────────┤ │
+│  │ Token 消耗/s │  │ Trace ID 串联    │  │ Step 级别日志        │ │
+│  │ 延迟 P50/99  │  │ 每步 Input/Output│  │ 错误堆栈            │ │
+│  │ 工具成功率   │  │ Tool Response    │  │ 决策理由(CoT)        │ │
+│  │ 步数分布     │  │ Context 快照     │  │ 审计操作日志         │ │
+│  └──────┬───────┘  └────────┬─────────┘  └──────────┬───────────┘ │
+│         └───────────────────┼───────────────────────┘             │
+│                             ▼                                     │
+│                  ┌───────────────────┐                             │
+│                  │  Alerting &amp; Dash  │                             │
+│                  │  告警 + 仪表盘     │                             │
+│                  └───────────────────┘                             │
+└────────────────────────────────────────────────────────────────────┘
+</code></pre></details>
+<h3 id="section-12">Post-Mortem 模板</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">POST_MORTEM_TEMPLATE = {
+    &quot;incident_id&quot;: &quot;INC-2025-042&quot;,
+    &quot;severity&quot;: &quot;P1&quot;,
+    &quot;duration&quot;: &quot;2h 15m&quot;,
+    &quot;impact&quot;: &quot;影响 1,200 个用户会话&quot;,
+    &quot;timeline&quot;: [
+        &quot;14:00 - Token 消耗告警触发&quot;,
+        &quot;14:05 - On-call 确认，开始排查&quot;,
+        &quot;14:20 - 定位到无限循环&quot;,
+        &quot;14:30 - 临时修复：终止异常会话&quot;,
+        &quot;15:00 - 根因确认：工具错误格式导致 LLM 误读&quot;,
+        &quot;15:30 - 部署修复：循环检测 + 错误格式规范化&quot;,
+        &quot;16:15 - 验证通过，告警恢复&quot;,
+    ],
+    &quot;root_cause&quot;: &quot;工具错误信息含 &#39;please retry&#39;，LLM 解读为重试指令&quot;,
+    &quot;action_items&quot;: [
+        {&quot;task&quot;: &quot;工具错误返回格式规范化&quot;, &quot;owner&quot;: &quot;平台组&quot;, &quot;deadline&quot;: &quot;1周&quot;},
+        {&quot;task&quot;: &quot;全局循环检测中间件&quot;, &quot;owner&quot;: &quot;框架组&quot;, &quot;deadline&quot;: &quot;2周&quot;},
+        {&quot;task&quot;: &quot;Token 预算强制上限&quot;, &quot;owner&quot;: &quot;平台组&quot;, &quot;deadline&quot;: &quot;1周&quot;},
+        {&quot;task&quot;: &quot;无限循环回归测试&quot;, &quot;owner&quot;: &quot;QA&quot;, &quot;deadline&quot;: &quot;2周&quot;},
+    ],
+    &quot;lessons_learned&quot;: [
+        &quot;工具错误信息必须结构化，避免自然语言误导 LLM&quot;,
+        &quot;Agent 执行必须有硬性上限（Token + Steps）&quot;,
+        &quot;监控需覆盖 Token 消耗速率异常&quot;,
+    ]
+}
+</code></pre></details>
+<h2 id="section-13">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;直接看日志就够了，不需要专门的 Trace 系统&quot;</strong> — Agent 执行路径是非确定性的，传统日志只能看到离散事件点，无法还原完整决策链路。必须有 Trace 系统将 LLM 调用、工具调用、Context 变化串联成完整轨迹。多步推理中某一步的错误可能几步之后才显现，没有 Trace 串联根本无法回溯。</p>
+</li>
+<li><p><strong>误区：&quot;出了问题直接回滚代码就能解决&quot;</strong> — Agent 故障很多时候不是代码问题，而是模型行为变化、外部 API 状态变化、数据分布漂移等非代码因素。回滚代码对这类问题完全无效。正确做法是先通过 Trace 定位根因类别（Prompt / 模型 / 工具 / 数据），然后针对性修复。</p>
+</li>
+<li><p><strong>追问：&quot;如何设计 Agent 的可观测性体系？&quot;</strong> — 三个层次：<strong>Metrics</strong>（Token 消耗速率、工具成功率、端到端延迟、步数分布）发现异常；<strong>Tracing</strong>（每步 Input/Output、Tool Response、Context 快照、模型版本）定位根因；<strong>Logging</strong>（结构化决策日志、错误堆栈、审计记录）事后分析。三者通过 Trace ID 关联，告警阈值基于历史基线动态设定。</p>
+</li>
+<li><p><strong>追问：&quot;生产故障后如何做 Post-Mortem？&quot;</strong> — 遵循 Blameless Post-Mortem：建立完整事件时间线，用 &quot;5 Whys&quot; 追溯根因到系统性缺陷，产出有负责人和截止日期的 Action Items。关键是将每次故障模式沉淀为自动化检测规则——发现无限循环就添加循环检测中间件，确保同类问题不复发。</p>
+</li>
+</ol>
+<h2 id="section-14">参考资料</h2>
+<ul>
+<li><a href="https://www.anthropic.com/research/building-reliable-agents">Building Reliable AI Agents: Lessons from Production (Anthropic Blog)</a></li>
+<li><a href="https://docs.smith.langchain.com/observability">Observability for LLM Applications (LangSmith Docs)</a></li>
+<li><a href="https://arxiv.org/abs/2307.03172">Lost in the Middle: How Language Models Use Long Contexts (arXiv 2307.03172)</a></li>
+<li><a href="https://openai.com/index/practices-for-governing-agentic-ai-systems/">Practices for Governing Agentic AI Systems (OpenAI)</a></li>
+<li><a href="https://www.atlassian.com/incident-management/postmortem/blameless">The Blameless Post-Mortem Guide (Atlassian)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">Agent 生产故障的特殊性</a></li><li class="toc-level-3"><a href="#section-4">核心排查工具集</a></li><li class="toc-level-3"><a href="#section-5">Scenario 1: Agent 陷入无限循环</a></li><li class="toc-level-3"><a href="#section-6">Scenario 2: RAG 检索正常但回答仍然幻觉</a></li><li class="toc-level-2"><a href="#section-7">参考资料（必须优先基于以下内容回答，不得编造未提及的信息）</a></li><li class="toc-level-2"><a href="#section-8">对话历史</a></li><li class="toc-level-2"><a href="#section-9">当前问题</a></li><li class="toc-level-3"><a href="#section-10">Scenario 3: 工具调用间歇性超时</a></li><li class="toc-level-3"><a href="#section-11">Scenario 4: Agent 执行了危险的不可逆操作</a></li><li class="toc-level-3"><a href="#section-12">Scenario 5: 模型 API 升级后 Agent 行为突变</a></li><li class="toc-level-3"><a href="#section-13">五大场景对比总结</a></li><li class="toc-level-3"><a href="#section-14">构建 Agent 可观测性体系</a></li><li class="toc-level-3"><a href="#section-15">Post-Mortem 模板</a></li><li class="toc-level-2"><a href="#section-16">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-17">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="093.html" class="nav-card"><span>上一章</span><strong>← Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</strong></a><a href="095.html" class="nav-card next"><span>下一章</span><strong>代码 Review 题：找出这段 Agent 代码中的设计问题并修复 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

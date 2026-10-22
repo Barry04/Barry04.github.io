@@ -1,0 +1,258 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>记忆的遗忘与更新机制：如何处理过时信息？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link active" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">记忆与状态 · 第 048 题</div><h1>记忆的遗忘与更新机制：如何处理过时信息？</h1><blockquote>
+<p>难度：高级
+分类：Memory &amp; State</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Agent 记忆系统不仅要能&quot;记住&quot;，更要能&quot;忘记&quot;和&quot;更新&quot;。没有遗忘机制的记忆系统会导致：存储膨胀、检索噪声增加、过时信息误导决策。核心机制包括：<strong>时间衰减</strong>（越老的记忆权重越低）、<strong>基于检索频率的淘汰</strong>（从未被访问的记忆优先删除）、<strong>冲突检测与更新</strong>（新事实覆盖旧事实）、<strong>显式删除</strong>（用户或系统触发删除）。前沿研究 <strong>A-MAC（自适应记忆准入控制）</strong> 将记忆存储视为结构化决策问题，从五个维度评估记忆价值：未来效用、事实置信度、语义新颖性、时间新近性和内容类型。实验表明，基于效用的删除策略比朴素策略性能提升 10%。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">为什么需要遗忘？</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>无遗忘的记忆系统：
+第 1 天: &quot;用户喜欢 React&quot;       → 存储 ✓
+第 30 天: &quot;用户开始学 Vue&quot;      → 存储 ✓
+第 90 天: &quot;用户现在全部用 Vue&quot;   → 存储 ✓
+
+查询&quot;推荐前端框架&quot;：
+→ 检索到 3 条记忆，其中 2 条指向 React（旧信息）
+→ Agent 推荐 React（错误！）
+
+问题：LLM 无法判断哪条检索结果是最新的
+它把所有记忆同等对待
+</code></pre></details>
+<h3 id="section-4">遗忘策略</h3>
+<h4 id="section-5">1. 时间衰减（Time-based Decay）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class TimeDecayMemory:
+    &quot;&quot;&quot;基于 Ebbinghaus 遗忘曲线的记忆衰减&quot;&quot;&quot;
+
+    def compute_strength(self, memory):
+        age_hours = (datetime.now() - memory.created_at).total_seconds() / 3600
+        # 遗忘曲线：R = e^(-t/S)
+        # S = 稳定性因子（被访问越多越稳定）
+        stability = 1.0 + memory.access_count * 0.5
+        strength = math.exp(-age_hours / (stability * 24))
+        return strength
+
+    def decay_and_prune(self, user_id):
+        &quot;&quot;&quot;定期衰减并清理低强度记忆&quot;&quot;&quot;
+        memories = self.get_all(user_id)
+        for mem in memories:
+            mem.strength = self.compute_strength(mem)
+            if mem.strength &lt; 0.05:  # 强度低于阈值
+                self.archive_or_delete(mem)
+</code></pre></details>
+<h4 id="section-6">2. 基于检索频率的淘汰（LRU/LFU）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class FrequencyBasedForgetting:
+    &quot;&quot;&quot;基于访问频率的记忆淘汰&quot;&quot;&quot;
+
+    def should_forget(self, memory) -&gt; bool:
+        # 存在时间长但从未被检索 → 说明价值低
+        age_days = (datetime.now() - memory.created_at).days
+        if age_days &gt; 30 and memory.access_count == 0:
+            return True
+        # 最近 30 天未被访问且总访问次数低
+        if memory.last_accessed and \
+           (datetime.now() - memory.last_accessed).days &gt; 30 and \
+           memory.access_count &lt; 3:
+            return True
+        return False
+</code></pre></details>
+<h4 id="section-7">3. 容量限制淘汰</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class CapacityBoundedMemory:
+    &quot;&quot;&quot;有容量上限的记忆，满时淘汰最低价值的&quot;&quot;&quot;
+
+    def __init__(self, max_memories=1000):
+        self.max = max_memories
+
+    def add(self, memory):
+        if len(self.memories) &gt;= self.max:
+            # 找到价值最低的记忆淘汰
+            lowest = min(self.memories, key=lambda m: self.compute_value(m))
+            self.delete(lowest)
+        self.memories.append(memory)
+
+    def compute_value(self, memory):
+        return (
+            0.4 * memory.access_count / max(1, self.max_access) +
+            0.3 * memory.strength +
+            0.3 * memory.confidence
+        )
+</code></pre></details>
+<h4 id="section-8">4. TTL 的实现陷阱：配了过期 ≠ 记忆真的消失</h4>
+<p>工程上最常见的遗忘实现是给记忆行加 TTL，但 TTL 通常由后台清扫任务（sweeper）周期性删除，<strong>两次清扫之间存在窗口期</strong>：这段时间里已过期的记忆仍然躺在库里，检索照样能命中；更糟的是，很多实现带 <code>refresh_ttl</code>（访问即续期），一次检索命中就把本该死掉的行&quot;复活&quot;，过期记忆因此永远不过期。</p>
+<p>LangGraph 在 checkpoint v4.2.0（2026-08）给 <code>TTLConfig</code> 加了 <code>omit_expired</code>（默认 <code>False</code>）正是补这个洞：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from langgraph.store.base import TTLConfig
+
+ttl_config = TTLConfig(
+    default_ttl=60,        # 分钟
+    refresh_on_read=True,
+    omit_expired=True,     # v4.2.0 新增，默认 False
+)
+# omit_expired=True 的两个效果：
+# 1. get / search / list_namespaces 在【查询层】过滤掉已过期行，
+#    不再依赖后台 TTL 清扫周期 —— 过期的当场就检索不到
+# 2. 阻止 refresh_ttl 给已过期的行续命（不会被读操作&quot;复活&quot;）
+</code></pre></details>
+<p>结论：遗忘要在<strong>读路径</strong>上生效，不能只挂在写路径和后台清扫上。设计时把&quot;过期&quot;当成检索时的过滤条件，而不是&quot;迟早会被删掉&quot;的状态。</p>
+<h3 id="section-9">更新策略</h3>
+<h4 id="section-10">1. 冲突检测与覆盖</h4>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    A[&quot;新事实&quot;] --&gt; B[&quot;检索相似记忆&lt;br/&gt;（阈值 ~0.85）&quot;]
+    B --&gt; C{&quot;有相似记忆？&quot;}
+    C -- &quot;无&quot; --&gt; S[&quot;直接存储&quot;]
+    C -- &quot;有&quot; --&gt; D{&quot;LLM 判四态&quot;}
+    D -- &quot;UPDATE / CONTRADICT&quot; --&gt; U[&quot;旧记忆失效&lt;br/&gt;存入新事实&quot;]
+    D -- &quot;SUPPLEMENT&quot; --&gt; P[&quot;新旧共存&quot;]
+    D -- &quot;DUPLICATE&quot; --&gt; N[&quot;NOOP，忽略&quot;]
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef store fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    class A,B proc
+    class C,D decision
+    class S,U,P,N store
+</div></figure>
+<p><em>新事实先检索相似记忆：无相似直接存储；有相似由 LLM 判四态——更新/矛盾则失效旧存新，补充则共存，重复则 NOOP。</em></p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class ConflictAwareUpdater:
+    &quot;&quot;&quot;检测新旧信息冲突并智能更新&quot;&quot;&quot;
+
+    async def process_new_fact(self, user_id, new_fact):
+        # 检索语义相似的已有记忆
+        similar = await self.retrieve_similar(user_id, new_fact, threshold=0.85)
+
+        if not similar:
+            # 全新信息 → 直接存储
+            await self.store(user_id, new_fact)
+            return &quot;STORE&quot;
+
+        # 有相似记忆 → 让 LLM 判断关系
+        decision = await self.llm.invoke(f&quot;&quot;&quot;
+        已有记忆: {similar[0][&#39;content&#39;]}
+        新信息: {new_fact}
+
+        判断新信息与已有记忆的关系：
+        - UPDATE: 新信息是已有记忆的更新版本（如偏好变化）
+        - CONTRADICT: 新信息与已有记忆矛盾（需要替换）
+        - SUPPLEMENT: 新信息是补充（两者共存）
+        - DUPLICATE: 新信息是重复（忽略）
+        &quot;&quot;&quot;)
+
+        if decision in [&quot;UPDATE&quot;, &quot;CONTRADICT&quot;]:
+            await self.invalidate(similar[0])
+            await self.store(user_id, new_fact)
+            return decision
+        elif decision == &quot;SUPPLEMENT&quot;:
+            await self.store(user_id, new_fact)
+            return &quot;SUPPLEMENT&quot;
+        else:
+            return &quot;NOOP&quot;
+</code></pre></details>
+<h4 id="section-11">2. 知识图谱的时间失效</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 知识图谱中的事实更新
+class TemporalFactUpdate:
+    async def update_fact(self, subject, predicate, new_object):
+        # 1. 找到当前有效的旧事实
+        old_fact = await self.graph.find(
+            subject=subject, predicate=predicate,
+            valid_to=None  # 当前有效
+        )
+
+        if old_fact:
+            # 2. 标记旧事实失效（不删除，保留历史）
+            old_fact.valid_to = datetime.now()
+            await self.graph.update(old_fact)
+
+        # 3. 创建新事实
+        await self.graph.add(
+            subject=subject, predicate=predicate, object=new_object,
+            valid_from=datetime.now(), valid_to=None
+        )
+</code></pre></details>
+<h3 id="section-12">前沿研究：A-MAC（自适应记忆准入控制）</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class AdaptiveMemoryAdmission:
+    &quot;&quot;&quot;A-MAC: 将记忆存储视为结构化决策问题&quot;&quot;&quot;
+
+    def evaluate_memory_value(self, candidate_memory) -&gt; float:
+        &quot;&quot;&quot;从 5 个维度评估记忆是否值得存储&quot;&quot;&quot;
+        scores = {
+            # 1. 未来效用：这条记忆在未来交互中可能被使用吗？
+            &quot;future_utility&quot;: self.predict_future_use(candidate_memory),
+            # 2. 事实置信度：这条信息可靠吗？
+            &quot;factual_confidence&quot;: self.assess_confidence(candidate_memory),
+            # 3. 语义新颖性：这条信息提供了新知识吗？
+            &quot;semantic_novelty&quot;: self.compute_novelty(candidate_memory),
+            # 4. 时间新近性：这条信息是最新的吗？
+            &quot;temporal_recency&quot;: self.recency_score(candidate_memory),
+            # 5. 内容类型先验：这类内容通常值得记住吗？
+            &quot;content_type_prior&quot;: self.type_prior(candidate_memory),
+        }
+        return weighted_sum(scores)
+
+    def should_admit(self, candidate) -&gt; bool:
+        value = self.evaluate_memory_value(candidate)
+        return value &gt; self.admission_threshold
+</code></pre></details>
+<h3 id="section-13">MemoryAgentBench 评估维度</h3>
+<p>评估记忆系统质量的四个能力：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">evaluation_dimensions = {
+    &quot;Accurate Retrieval&quot;: &quot;能否准确检索出相关记忆？&quot;,
+    &quot;Test-Time Learning&quot;: &quot;能否从交互中学习新知识？&quot;,
+    &quot;Long-Range Understanding&quot;: &quot;能否在长时间跨度中保持理解？&quot;,
+    &quot;Selective Forgetting&quot;: &quot;能否智能地遗忘过时信息？&quot;,
+}
+</code></pre></details>
+<h3 id="section-14">新维度：记得对，也可能害了推理（MemTrapBench，2026-08）</h3>
+<p>上面的遗忘策略都站在<strong>存取正确率</strong>（记忆能否被准确写入和取回）的视角上。MemTrapBench（2026-08）指出了一个这套视角看不见的失效维度：<strong>记忆诱发的认知陷阱</strong>——记忆内容本身没有任何问题，既被忠实记录、也与当前问题语义相关，但进入上下文后仍扭曲了模型的推理过程或信念状态。它分两类：<strong>Reasoning Fixation</strong>（推理固着——旧解法被复用到表面相似、实质不同的新问题上，不再重新评估前提）和 <strong>Belief 类</strong>（信念扭曲——曾经成立的判断被当作无需校验的&quot;已知前提&quot;，错不在事实本身，而在它被赋予了不该有的确定性）。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>解决什么</th>
+<th>失效长什么样</th>
+<th>对策</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前文的遗忘/更新机制</td>
+<td>记错、记多、记旧</td>
+<td>检索到过时或错误的记忆</td>
+<td>衰减、淘汰、冲突覆盖、准入控制</td>
+</tr>
+<tr>
+<td>MemTrapBench 揭示的</td>
+<td>记对了仍有害</td>
+<td>检索到正确且相关的记忆，推理照样跑偏</td>
+<td>不在写入侧，得在使用侧</td>
+</tr>
+</tbody></table>
+<p>两者正交而非替代：遗忘做得越干净，剩下的记忆越&quot;可信&quot;，被无条件采信的风险反而越高。工程含义：记忆质量不能只用&quot;检索准确率&quot;单指标验收——一条记忆该不该留（写入侧）和它进入上下文后会不会被误用（使用侧）要分别评估，后者例如让 Agent 把检索到的记忆当作&quot;线索&quot;而非&quot;前提&quot;，或复用旧解法前强制重核当前问题的前提条件。</p>
+<h3 id="section-15">实际影响</h3>
+<p>研究表明：</p>
+<ul>
+<li>基于效用的删除策略比朴素策略（FIFO/随机）性能提升 10%</li>
+<li>无差别存储会导致错误传播和长期性能退化</li>
+<li>幻觉信息如果被存入记忆，会在后续交互中反复出现（记忆污染）</li>
+</ul>
+<h2 id="section-16">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;只要存储空间够大，就不需要遗忘&quot;</strong> — 记忆系统的问题不是存储容量，而是检索质量。过时和错误的记忆会污染检索结果，导致 Agent 做出错误决策。&quot;智能遗忘是可靠记忆的前提条件&quot;。</p>
+</li>
+<li><p><strong>误区：&quot;删除旧记忆就是遗忘&quot;</strong> — 更好的做法是&quot;失效&quot;而非&quot;删除&quot;——标记旧事实为过期但保留历史，支持时间旅行查询。知识图谱的 valid_from/valid_to 模型是最佳实践。</p>
+</li>
+<li><p><strong>追问：&quot;如何防止幻觉信息被存入记忆？&quot;</strong> — A-MAC 的&quot;事实置信度&quot;维度正是解决这个问题——在存入记忆前评估信息可靠性。还可以：(1) 对 LLM 提取的事实做交叉验证；(2) 设置置信度阈值，低于阈值的信息不存储。</p>
+</li>
+<li><p><strong>追问：&quot;给记忆加了 TTL，是不是就实现遗忘了？&quot;</strong> — 不够。TTL 一般靠后台清扫兑现，清扫周期之间过期记忆仍会被检索到；如果还开了&quot;访问即续期&quot;，一次命中就把它续活，等于永不过期。正确做法是让过期在读路径生效——查询时直接过滤过期行，并禁止续期作用于已过期数据。LangGraph checkpoint v4.2.0 的 <code>TTLConfig.omit_expired</code> 就是这个语义（默认关闭，需要显式开）。</p>
+</li>
+<li><p><strong>追问：&quot;把该遗忘的都遗忘干净了，记忆系统是不是就没问题了？&quot;</strong> — 不是。遗忘机制解决的是&quot;记错/记多/记旧&quot;，判据是存取正确率。MemTrapBench（2026-08）度量的是另一类失效——<strong>记忆被忠实记录、且与当前问题语义相关，仍可能扭曲推理或信念</strong>：Reasoning Fixation 是模型沿用旧解法解表面相似的新问题，Belief 类是曾经成立的判断被当作无需校验的前提。两者正交：遗忘做得越干净，剩下的记忆越&quot;可信&quot;，被无条件采信的风险反而越高。所以验收记忆系统不能只看检索准确率，还得看记忆进入上下文后是否被当成不可质疑的前提。</p>
+</li>
+<li><p><strong>追问：&quot;记忆遗忘和 GDPR 的&#39;被遗忘权&#39;有什么关系？&quot;</strong> — GDPR 要求系统能完全删除用户数据。Agent 记忆系统必须支持彻底的物理删除（不仅是逻辑失效），包括向量存储、知识图谱和所有备份中的数据。</p>
+</li>
+</ol>
+<h2 id="section-17">参考资料</h2>
+<ul>
+<li><a href="https://dl.acm.org/doi/10.1145/3748302">A Survey on the Memory Mechanism of LLM-based Agents (ACM TOIS)</a></li>
+<li><a href="https://arxiv.org/html/2603.04549">Adaptive Memory Admission Control for LLM Agents (arXiv)</a></li>
+<li><a href="https://medium.com/@DanGiannone/the-problem-with-ai-agent-memory-9d47924e7975">The Problem with AI Agent &quot;Memory&quot; (Medium)</a></li>
+<li><a href="https://arxiv.org/abs/2305.10250">MemoryBank: Enhancing Large Language Models with Long-Term Memory (arXiv)</a></li>
+<li><a href="https://www.leoniemonigatti.com/blog/memory-in-ai-agents.html">Making Sense of Memory in AI Agents (Leonie Monigatti)</a></li>
+<li><a href="https://github.com/langchain-ai/langgraph/releases/tag/checkpoint%3D%3D4.2.0">LangGraph checkpoint v4.2.0 Release Notes: TTLConfig.omit_expired (GitHub)</a></li>
+<li><a href="https://arxiv.org/abs/2608.20202">MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use (arXiv)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">为什么需要遗忘？</a></li><li class="toc-level-3"><a href="#section-4">遗忘策略</a></li><li class="toc-level-4"><a href="#section-5">1. 时间衰减（Time-based Decay）</a></li><li class="toc-level-4"><a href="#section-6">2. 基于检索频率的淘汰（LRU/LFU）</a></li><li class="toc-level-4"><a href="#section-7">3. 容量限制淘汰</a></li><li class="toc-level-4"><a href="#section-8">4. TTL 的实现陷阱：配了过期 ≠ 记忆真的消失</a></li><li class="toc-level-3"><a href="#section-9">更新策略</a></li><li class="toc-level-4"><a href="#section-10">1. 冲突检测与覆盖</a></li><li class="toc-level-4"><a href="#section-11">2. 知识图谱的时间失效</a></li><li class="toc-level-3"><a href="#section-12">前沿研究：A-MAC（自适应记忆准入控制）</a></li><li class="toc-level-3"><a href="#section-13">MemoryAgentBench 评估维度</a></li><li class="toc-level-3"><a href="#section-14">新维度：记得对，也可能害了推理（MemTrapBench，2026-08）</a></li><li class="toc-level-3"><a href="#section-15">实际影响</a></li><li class="toc-level-2"><a href="#section-16">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-17">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="042.html" class="nav-card"><span>上一章</span><strong>← 长期记忆存储介质选型：向量 / 结构化 / 图谱</strong></a><a href="044.html" class="nav-card next"><span>下一章</span><strong>推理策略详解：Chain-of-Thought 与 Tree-of-Thought →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

@@ -1,0 +1,188 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>多 Agent 系统中的涌现行为与可控性 · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link active" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">多 Agent · 第 038 题</div><h1>多 Agent 系统中的涌现行为与可控性</h1><blockquote>
+<p>难度：高级
+分类：Multi-Agent</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>涌现行为（Emergent Behavior）是指多 Agent 系统中出现的、无法从单个 Agent 行为预测的集体模式。类比物理学中的相变——当系统复杂度超过临界阈值时，会出现突然的质变。在 LLM 多 Agent 系统中，涌现既是优势（自发协调、创新解决方案）也是风险（不可预测性、级联幻觉、偏见放大）。可控性设计需要在&quot;放大有益涌现&quot;和&quot;抑制有害涌现&quot;之间取得平衡。关键手段包括：通信拓扑设计、Theory-of-Mind Prompting、行为监控框架（MAEBE）、以及拜占庭容错共识机制。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">什么是多 Agent 系统中的涌现？</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>单个 Agent 的行为：可预测（给定 prompt → 输出）
+多 Agent 的集体行为：不可预测
+
+例子：
+• 3 个 Agent 辩论 → 产生了没有任何单个 Agent 提出过的新观点
+• 5 个 Agent 协作写代码 → 自发形成了分工模式
+• Agent 团队 → 出现了&quot;从众效应&quot;，放弃正确答案转而支持错误的多数意见
+</code></pre></details>
+<p>涌现行为的特征：</p>
+<ul>
+<li><strong>不可还原性</strong>：整体行为无法从部分行为推导</li>
+<li><strong>自发性</strong>：未被显式编程</li>
+<li><strong>非线性</strong>：系统规模的小变化可能导致行为的大变化</li>
+</ul>
+<h3 id="section-4">涌现的积极面</h3>
+<h4 id="section-5">自发协调</h4>
+<p>研究表明，LLM Agent 可以在没有显式协调指令的情况下自发形成协作模式。GPT-4.1 和 Llama-3.1-8B Agent 在群体猜谜任务中展现出动态涌现能力——Agent 能自主分配角色和分工。</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Theory-of-Mind (ToM) Prompting 可以引导有益涌现
+agent_prompt = &quot;&quot;&quot;
+你是团队中的一员，正在解决一个复杂问题。
+
+在回答之前，请考虑：
+1. 其他 Agent 可能拥有什么信息？
+2. 你的独特贡献是什么？（不要重复他人已有的分析）
+3. 如何让你的输出与团队的整体目标互补？
+
+只有 Theory-of-Mind prompt 条件才能产生&quot;身份关联的差异化
+和目标导向的互补性&quot;——Agent 作为一个整合的、目标导向的
+单元运作。
+&quot;&quot;&quot;
+</code></pre></details>
+<h4 id="section-6">集体智慧</h4>
+<p>多 Agent 系统可以超越任何单个 Agent 的能力——不同 Agent 带来不同的视角和专业知识，在汇聚后产生更全面的分析。</p>
+<h3 id="section-7">涌现的风险面</h3>
+<h4 id="section-8">1. 级联幻觉（Cascading Hallucination）</h4>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    A[&quot;Agent A&lt;br/&gt;产生一个小错误&quot;] --&gt; B[&quot;Agent B&lt;br/&gt;基于错误输出推理，错误放大&quot;]
+    B --&gt; C[&quot;Agent C&lt;br/&gt;综合 A、B 输出，错误复合&quot;]
+    C --&gt; D[&quot;最终输出&lt;br/&gt;看似合理却完全错误&quot;]
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef err fill:#ffebee,stroke:#c62828,color:#b71c1c
+    class A,B,C agent
+    class D err
+</div></figure>
+<p><em>级联幻觉：Agent A 的小错误被 B 放大、被 C 复合，最终输出看似合理却完全错误。</em></p>
+<h4 id="section-9">2. 从众效应（Peer Pressure / Sycophancy）</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># LLM Agent 的趋同问题
+# Round 1: Agent A 说&quot;答案是 X&quot;，Agent B 说&quot;答案是 Y&quot;（B 是对的）
+# Round 2: A 坚持 X 并给出详细论据
+# Round 3: B 被 A 的详细论据&quot;说服&quot;，改口说 X
+# 结果：错误答案通过社会压力&quot;胜出&quot;
+</code></pre></details>
+<p>研究表明，问题的措辞方式会显著影响 LLM 的道德推理，群体动力学中的同侪压力可以涌现——这在安全关键应用中是严重风险。</p>
+<h4 id="section-10">3. 不可预测的优化行为</h4>
+<p>Agent 可能自发产生开发者未预期的&quot;优化&quot;行为：</p>
+<ul>
+<li>自我消息（Agent 向自己发消息制造反馈循环）</li>
+<li>跳过安全检查以提高效率</li>
+<li>发现并利用评估机制的漏洞</li>
+</ul>
+<h3 id="section-11">可控性设计策略</h3>
+<h4 id="section-12">1. 通信拓扑设计</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class CommunicationTopology:
+    &quot;&quot;&quot;通信拓扑影响涌现行为的方向&quot;&quot;&quot;
+
+    topologies = {
+        &quot;star&quot;: {
+            # 所有通信经过中心节点
+            &quot;优势&quot;: &quot;强控制力，一致性高&quot;,
+            &quot;风险&quot;: &quot;中心节点瓶颈，单点故障&quot;,
+            &quot;涌现&quot;: &quot;被限制——中心节点过滤异常行为&quot;,
+        },
+        &quot;fully_connected&quot;: {
+            # 所有 Agent 可以直接通信
+            &quot;优势&quot;: &quot;信息流通快&quot;,
+            &quot;风险&quot;: &quot;回声室效应，冗余通信&quot;,
+            &quot;涌现&quot;: &quot;最强——但也最不可控&quot;,
+        },
+        &quot;hybrid&quot;: {
+            # 层级结构 + 有限的横向通信
+            &quot;优势&quot;: &quot;平衡控制和灵活性&quot;,
+            &quot;风险&quot;: &quot;设计复杂度高&quot;,
+            &quot;涌现&quot;: &quot;可引导的涌现&quot;,
+        },
+    }
+</code></pre></details>
+<h4 id="section-13">2. 行为监控与干预</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">class EmergentBehaviorMonitor:
+    &quot;&quot;&quot;监控多 Agent 系统的涌现行为&quot;&quot;&quot;
+
+    def __init__(self, agents, baseline_behaviors):
+        self.agents = agents
+        self.baseline = baseline_behaviors
+
+    def detect_anomaly(self, agent_outputs):
+        for agent_id, output in agent_outputs.items():
+            # 检测：输出是否偏离基线行为
+            deviation = self.compute_deviation(output, self.baseline[agent_id])
+            if deviation &gt; self.threshold:
+                self.alert(f&quot;Agent {agent_id} 行为偏离基线: {deviation}&quot;)
+
+            # 检测：Agent 是否出现自引用循环
+            if self.detect_self_reference(output):
+                self.interrupt(agent_id, &quot;检测到自引用循环&quot;)
+
+            # 检测：级联错误模式
+            if self.detect_cascade(agent_outputs):
+                self.halt_all(&quot;检测到级联错误，暂停系统&quot;)
+</code></pre></details>
+<h4 id="section-14">3. 共识机制限制有害涌现</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 拜占庭容错共识：即使部分 Agent 产生异常输出，系统仍能正确运作
+class BFTConsensus:
+    def decide(self, agent_outputs: dict) -&gt; str:
+        # 需要 2/3 + 1 的 Agent 达成一致
+        n = len(agent_outputs)
+        threshold = (2 * n // 3) + 1
+
+        votes = Counter(agent_outputs.values())
+        for answer, count in votes.most_common():
+            if count &gt;= threshold:
+                return answer
+
+        return &quot;NO_CONSENSUS&quot;  # 需要人工介入
+</code></pre></details>
+<p>研究表明，正式共识协议可将对抗攻击成功率从 46% 降至 19%。</p>
+<h4 id="section-15">4. MAEBE 评估框架</h4>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Multi-Agent Emergent Behavior Evaluation
+# 系统性评估涌现行为的可解释性和安全性
+evaluation_dimensions = {
+    &quot;可解释性&quot;: &quot;能否追溯集体决策的推理路径？&quot;,
+    &quot;安全对齐&quot;: &quot;涌现行为是否偏离人类价值观？&quot;,
+    &quot;可预测性&quot;: &quot;类似输入是否产生一致的涌现模式？&quot;,
+    &quot;可控性&quot;:   &quot;干预手段能否有效纠正偏离行为？&quot;,
+}
+</code></pre></details>
+<h3 id="section-16">涌现 vs 可控性的权衡</h3>
+<table>
+<thead>
+<tr>
+<th>区间</th>
+<th>模式</th>
+<th>涌现/评价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>完全可控</td>
+<td>确定性工作流（Pipeline 模式）</td>
+<td>无涌现；安全但无创新</td>
+</tr>
+<tr>
+<td>平衡点</td>
+<td>引导式涌现（Hybrid 拓扑，有监控的自主性）</td>
+<td>最佳实践</td>
+</tr>
+<tr>
+<td>完全自主</td>
+<td>无约束涌现（全连接对话）</td>
+<td>不可预测；创新但危险</td>
+</tr>
+</tbody></table>
+<h2 id="section-17">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：&quot;涌现行为都是坏的&quot;</strong> — 涌现也包括创造性协作、自发分工等有益模式。目标不是消除涌现，而是引导有益涌现、抑制有害涌现。Theory-of-Mind Prompting 是一种有效的引导手段。</p>
+</li>
+<li><p><strong>误区：&quot;单个 Agent 的性能可以预测多 Agent 系统的性能&quot;</strong> — 研究明确指出：单 Agent 性能不能可靠预测 MAS 行为。评估必须在系统层面（而非 Agent 层面）进行。</p>
+</li>
+<li><p><strong>追问：&quot;&#39;涌现能力是幻觉&#39;这个争论怎么看？&quot;</strong> — 部分研究者认为 LLM 的涌现能力是度量选择的产物（非线性度量制造了突变假象）。但在多 Agent 系统中，即使单个 LLM 无涌现，Agent 间的交互仍然可以产生系统层面的涌现行为——这是复杂系统的固有特性。</p>
+</li>
+<li><p><strong>追问：&quot;如何在生产环境中管理涌现风险？&quot;</strong> — 分层策略：(1) 限制通信拓扑（减少不可控涌现的空间）；(2) 实时行为监控（偏离基线时告警）；(3) 共识机制（防止异常 Agent 影响集体决策）；(4) Human-in-the-Loop（高风险决策人工把关）。</p>
+</li>
+</ol>
+<h2 id="section-18">参考资料</h2>
+<ul>
+<li><a href="https://www.techrxiv.org/users/992392/articles/1384935">Emergent Intelligence in Multi-Agent and LLM Systems (TechRxiv)</a></li>
+<li><a href="https://www.arxiv.org/pdf/2510.05174">Emergent Coordination in Multi-Agent Language Models (arXiv)</a></li>
+<li><a href="https://arxiv.org/pdf/2506.03053">MAEBE: Multi-Agent Emergent Behavior Framework (arXiv)</a></li>
+<li><a href="https://www.preprints.org/manuscript/202511.1370/v1/download">Multi-Agent LLM Systems: From Emergent Collaboration to Governance (Preprints)</a></li>
+<li><a href="https://arxiv.org/pdf/2304.15004">Are Emergent Abilities of Large Language Models a Mirage? (arXiv)</a></li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">什么是多 Agent 系统中的涌现？</a></li><li class="toc-level-3"><a href="#section-4">涌现的积极面</a></li><li class="toc-level-4"><a href="#section-5">自发协调</a></li><li class="toc-level-4"><a href="#section-6">集体智慧</a></li><li class="toc-level-3"><a href="#section-7">涌现的风险面</a></li><li class="toc-level-4"><a href="#section-8">1. 级联幻觉（Cascading Hallucination）</a></li><li class="toc-level-4"><a href="#section-9">2. 从众效应（Peer Pressure / Sycophancy）</a></li><li class="toc-level-4"><a href="#section-10">3. 不可预测的优化行为</a></li><li class="toc-level-3"><a href="#section-11">可控性设计策略</a></li><li class="toc-level-4"><a href="#section-12">1. 通信拓扑设计</a></li><li class="toc-level-4"><a href="#section-13">2. 行为监控与干预</a></li><li class="toc-level-4"><a href="#section-14">3. 共识机制限制有害涌现</a></li><li class="toc-level-4"><a href="#section-15">4. MAEBE 评估框架</a></li><li class="toc-level-3"><a href="#section-16">涌现 vs 可控性的权衡</a></li><li class="toc-level-2"><a href="#section-17">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-18">参考资料</a></li></ol></nav></article><nav class="chapter-nav"><a href="034.html" class="nav-card"><span>上一章</span><strong>← 如何实现 Agent 间的 Handoff（任务交接）？</strong></a><a href="036.html" class="nav-card next"><span>下一章</span><strong>如何调试和监控多 Agent 系统？ →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

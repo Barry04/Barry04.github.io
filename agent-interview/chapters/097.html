@@ -1,0 +1,317 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link active" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">Agent 架构 · 第 109 题</div><h1>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</h1><blockquote>
+<p><strong>难度</strong>: 中级
+🆕 2026 新增（Harness 主题）</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p>Agent Harness 是 2025-2026 年新晋的行业术语，指**&quot;模型之外的一切&quot;**——围绕固定 LLM 构建的、有强意见的运行壳：默认 system prompt、Tool Registry、Context 工程、Hook 生命周期、沙箱与权限模型全套打包。LangChain 官方在 2025-10 提出的三层抽象很好地厘清了边界：<strong>Framework</strong>（LangChain / CrewAI / OpenAI Agents SDK）给你&quot;积木&quot;；<strong>Runtime</strong>（LangGraph / Temporal / Inngest）给你&quot;durable execution&quot;；<strong>Harness</strong>（Claude Code / Codex CLI / Cline / Devin）给你&quot;一辆装配好的车&quot;。Parallel.ai 的实证数据点出 harness 大约决定 Agent 70% 的实战表现，Terminal Bench 2.0 上同一个 Claude Opus 4.6 换 harness 可从 #33 跳到 ~#5——这就是为什么 Devin 和 Claude Code 都不用 LangGraph 而要自研。</p>
+<p><strong>Cheat sheet</strong>：</p>
+<ul>
+<li><strong>三层抽象（自下而上）</strong>：LLM → Framework（积木） → Runtime（持久化执行） → Harness（装配好的代码 Agent）</li>
+<li><strong>Harness ≠ Framework</strong>：opinionated vs unopinionated；前者只让你 customize 四件事（system prompt / tools / context / subagents）</li>
+<li><strong>Harness 最小抽象 6+1</strong>：Loop / State / Tool / Memory / Hook / Skill +（Observability）</li>
+<li><strong>核心数据点</strong>：Terminal Bench 2.0「harness &gt; 模型」杠杆 —— 同模型不同 harness 排名差异 28 位</li>
+<li><strong>Post-training Coupling</strong>：Codex 模型权重已绑定 <code>apply_patch</code> 工具签名，换 harness 等于丢能力</li>
+</ul>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">一、三层抽象：从 LangChain 官方说起</h3>
+<p>LangChain 官方博文（2025-10）首次系统化提出 Agent 软件栈的三层分类，迅速成为 2026 业界共识：</p>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    subgraph HARNESS[&quot;🔧 Harness — 装配好的车&quot;]
+        H[&quot;Claude Code · Codex CLI · Cline · Devin&lt;br/&gt;opinionated defaults：prompts / tools / context / sandbox&lt;br/&gt;「拿来就能跑的代码 Agent」&quot;]
+    end
+    subgraph RUNTIME[&quot;⚙️ Runtime — 保证跑得稳&quot;]
+        R[&quot;LangGraph · Temporal · Inngest&lt;br/&gt;durable execution / streaming / HITL / 跨线程状态&lt;br/&gt;「保证 Agent 不丢状态」&quot;]
+    end
+    subgraph FRAMEWORK[&quot;🧱 Framework — 造 Agent 的积木&quot;]
+        F[&quot;LangChain · CrewAI · OpenAI Agents SDK&lt;br/&gt;abstraction primitives：Agent / Tool / Chain / Handoff&lt;br/&gt;「拼装 Agent 的原语」&quot;]
+    end
+    LLM[&quot;🧠 LLM — Claude · GPT · Gemini&quot;]
+
+    HARNESS --- RUNTIME --- FRAMEWORK --- LLM
+
+    classDef harness fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef runtime fill:#fff8e1,stroke:#ef6c00,color:#e65100
+    classDef framework fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef llm fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    class H harness
+    class R runtime
+    class F framework
+    class LLM llm
+</div></figure>
+<p><em>三层抽象自下而上：LLM → Framework（积木）→ Runtime（持久化执行）→ Harness（装配好的车）。</em></p>
+<p><strong>一句话区分</strong>：</p>
+<ul>
+<li>Framework 教你&quot;如何拼装 Agent&quot;</li>
+<li>Runtime 让你&quot;Agent 拼装好后跑得稳&quot;</li>
+<li>Harness 直接给你&quot;拼装好且调好性格的 Agent&quot;</li>
+</ul>
+<h3 id="section-4">二、Harness 的最小完整抽象（6+1）</h3>
+<p>社区收敛出的 Harness 通用抽象（Addy Osmani、HumanLayer、atalupadhyay 三方一致）：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>职责</th>
+<th>Claude Code 中的实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Loop</strong></td>
+<td>ReAct 主循环：reason → tool call → observe → repeat；终止条件 / 超时 / 用户中断</td>
+<td>内置 agent loop，max_turns 可配</td>
+</tr>
+<tr>
+<td><strong>State / Context</strong></td>
+<td>消息历史 + token 预算 + compaction 策略</td>
+<td>75% 自动 compact + Memory tool</td>
+</tr>
+<tr>
+<td><strong>Tool</strong></td>
+<td>工具注册表 + schema + 执行沙箱</td>
+<td>内置工具 + MCP server + Skill bash</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>会话/项目级 append-only 日志 + flush/replay</td>
+<td>CLAUDE.md + <code>~/.claude/projects/&lt;id&gt;/memory/</code></td>
+</tr>
+<tr>
+<td><strong>Hook</strong></td>
+<td>生命周期事件 pre/post 拦截 → 策略执行</td>
+<td>12+ 事件，5 种 handler，PreToolUse 可硬拦</td>
+</tr>
+<tr>
+<td><strong>Skill</strong></td>
+<td>Progressive disclosure 的领域知识包</td>
+<td>三级懒加载（metadata / body / resources）</td>
+</tr>
+<tr>
+<td><strong>Observability</strong></td>
+<td>trace / replay / cost-latency 度量</td>
+<td>trace JSON + Anthropic Console</td>
+</tr>
+</tbody></table>
+<p><strong>关键判断</strong>：MCP 不是 Harness 的核心抽象（它是 Tool 层的一个 <em>实现</em> 选项），Slash Command 也不是（它是 Skill 的简化形式）。Harness 设计要回答的本质问题是：<strong>用户能扩展什么、不能扩展什么？</strong></p>
+<h3 id="section-5">三、为什么 Devin / Claude Code 不用 LangGraph 而自研？</h3>
+<p>这是 2026 年最常被问的&quot;反框架&quot;问题，背后有四个硬约束：</p>
+<h4 id="section-6">1. Post-training Coupling（模型权重绑死工具签名）</h4>
+<p>OpenCode 团队在适配 Codex 模型时发现一个关键事实：<strong>Codex 模型在 post-training 阶段已经被 <em>绑定</em> 到 <code>apply_patch</code> 工具的语法</strong>（HumanLayer / Cline 同步证实）。要让 Codex 在自家 harness 里发挥水平，必须 <em>模仿</em> Codex 的 <code>apply_patch</code> 签名。换句话说——<strong>模型对 harness 工具签名的&quot;偏好&quot;会被冻进权重</strong>。这就是&quot;harness 不可随便换&quot;的根本原因。</p>
+<h4 id="section-7">2. 延迟敏感（每步 &lt; 100ms 是产品底线）</h4>
+<p>ReAct 主循环每步开销 &lt; 100ms 是代码 Agent 体验的硬标准。LangGraph 的多层抽象（state graph 序列化 / checkpointer 写盘 / event bus）很难压到这个水位，对话感会变&quot;卡&quot;。</p>
+<h4 id="section-8">3. Hook / Sandbox 不可让渡</h4>
+<p>生产 Agent 必须：</p>
+<ul>
+<li>拦截 <code>rm -rf</code> / <code>git push --force</code> 这类 destructive command（Hook）</li>
+<li>隔离 <code>apply_patch</code> 执行避免污染主机（Sandbox）</li>
+</ul>
+<p>这两类能力是&quot;开箱即用&quot;还是&quot;自己写&quot;，直接决定 Agent 能不能上生产。框架很难做到 opinionated 的 lifecycle hook + 多平台 sandbox。</p>
+<h4 id="section-9">4. Trace 数据是核心 IP</h4>
+<p>Harness 厂商把 trace 数据用来 fine-tune 自家模型（Claude Code 之于 Anthropic、Codex CLI 之于 OpenAI、Cline 之于 Cline.bot）。这些数据是&quot;模型与 harness 协同进化&quot;的飞轮，没人愿意走第三方框架把数据让出去。</p>
+<h4 id="section-10">实证数据：Terminal Bench 2.0 的「harness &gt; 模型」杠杆</h4>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>排名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Claude Opus 4.6 + 通用框架</td>
+<td>#33</td>
+</tr>
+<tr>
+<td>Claude Opus 4.6 + Claude Code</td>
+<td>~#5</td>
+</tr>
+<tr>
+<td>Claude Opus 4.7 + Cline CLI</td>
+<td>74.2%（超过 Claude Code 同模型 69.4%）</td>
+</tr>
+</tbody></table>
+<p><strong>HumanLayer 金句</strong>：&quot;<strong>It&#39;s not a model problem. It&#39;s a configuration problem.</strong>&quot;</p>
+<h3 id="section-11">四、Framework vs Harness 的可视化对照</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Framework（LangChain / CrewAI / Agents SDK）</th>
+<th>Harness（Claude Code / Codex / Cline）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>给什么</td>
+<td>abstraction primitives</td>
+<td>opinionated runtime</td>
+</tr>
+<tr>
+<td>你要做的</td>
+<td>自己写 loop / memory / hook / sandbox</td>
+<td>只 customize 4 件事：system prompt、tools、context（CLAUDE.md / AGENTS.md）、subagents</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>&quot;如何用框架 API&quot;</td>
+<td>&quot;如何调 harness&quot;</td>
+</tr>
+<tr>
+<td>适合</td>
+<td>custom 工作流编排</td>
+<td>通用 Agent 任务</td>
+</tr>
+<tr>
+<td>模型耦合</td>
+<td>模型无关（理论上）</td>
+<td>模型耦合（post-training coupling）</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>SDK 代码</td>
+<td>CLI / IDE 扩展</td>
+</tr>
+</tbody></table>
+<h3 id="section-12">五、何时该用 Framework、Runtime、Harness？</h3>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    Q{&quot;要造什么?&quot;}
+    Q -- &quot;业务系统加点 LLM 能力&lt;br/&gt;chatbot / 表单解析 / 路由&quot; --&gt; A[&quot;直接调 API 或用 Framework&lt;br/&gt;LangChain Expression Language&quot;]
+    Q -- &quot;特定领域的&lt;br/&gt;custom Agent&quot; --&gt; B[&quot;Framework + Runtime&lt;br/&gt;LangGraph 给 durable execution&quot;]
+    Q -- &quot;代码 Agent /&lt;br/&gt;通用电脑 Agent&quot; --&gt; C[&quot;套 Harness：Claude Code / Codex / Cline&lt;br/&gt;按需扩展 Skill / Hook / Subagent&quot;]
+    Q -- &quot;下一代 Harness&lt;br/&gt;产品级&quot; --&gt; D[&quot;自研&lt;br/&gt;先回答 opinionated default 与差异化在哪&quot;]
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    class Q decision
+    class A,B,C,D proc
+</div></figure>
+<p><em>按要造的东西选层：加 LLM 能力用 Framework，领域 Agent 加 Runtime，代码 Agent 直接套 Harness，做下一代 Harness 才自研。</em></p>
+<p><strong>2026-09 新形态：厂商托管 Harness</strong>。OpenAI 发布 Agents API（09-10），把驱动 Codex 的 harness 以托管云服务形式开放（编排、长会话、工具调用）。三层抽象的 Harness 层从「自己装配 / 套用现成产品」延伸出第三个选项——<strong>直接用厂商托管的 harness 基建</strong>；与之对照，Claude Agent SDK 走「harness 砖块 + 自装配」路线（见 #099）。选型问题从「造还是套」变成「造、套、还是托管」。</p>
+<h3 id="section-13">六、代码示例：感受 Harness 与 Framework 的&quot;opinionated&quot;差异</h3>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># Framework 风格（LangGraph）：自己拼装一切
+from langgraph.graph import StateGraph, END
+from langgraph.checkpoint.sqlite import SqliteSaver
+from typing import TypedDict
+
+class AgentState(TypedDict):
+    messages: list
+    next_step: str
+
+def reason_node(state):
+    # 自己决定怎么调 LLM、怎么解析输出、怎么决定下一步
+    ...
+    return {&quot;messages&quot;: state[&quot;messages&quot;] + [...], &quot;next_step&quot;: &quot;tool&quot;}
+
+def tool_node(state):
+    # 自己实现工具调度、参数解析、错误处理
+    ...
+
+graph = StateGraph(AgentState)
+graph.add_node(&quot;reason&quot;, reason_node)
+graph.add_node(&quot;tool&quot;, tool_node)
+graph.add_conditional_edges(&quot;reason&quot;, lambda s: s[&quot;next_step&quot;])
+# ... 你还要自己写: compaction / hook / sandbox / memory / observability
+
+
+# Harness 风格（Claude Code，伪代码视角）：只配置 + 启动
+# 用户视角：在项目根放一个 CLAUDE.md + .claude/ 目录
+#
+# .claude/
+# ├── settings.json        # permission allowlist / hooks
+# ├── hooks/
+# │   └── pre-commit.sh    # 必须每次跑的 lint
+# ├── skills/
+# │   └── testing/SKILL.md # 写测试时按需加载
+# └── agents/
+#     └── reviewer.md      # subagent 定义
+#
+# 然后:
+#   $ claude
+# 即得到一个&quot;懂你 repo、懂你工具、懂你流程&quot;的代码 Agent
+# loop / memory / sandbox / observability 全部 opinionated 内置
+</code></pre></details>
+<p><strong>核心洞察</strong>：Framework 让你&quot;造 Agent&quot;；Harness 让你&quot;开 Agent&quot;。Harness 的&quot;opinionated default&quot;反过来是约束，但也是让你少写 80% 基建代码的捷径。</p>
+<h3 id="section-14">七、前沿动向：Harness 本身成为优化对象（2026-08）</h3>
+<p>前面六节讲的都是&quot;人怎么设计 harness&quot;。2026-08 集中出现的一批论文把它推到了另一个位置：<strong>不再只是人工设计的对象，而是可被搜索、演化、甚至在线训练的优化对象</strong>。这不是对&quot;harness 决定约七成实战表现&quot;的推翻，恰恰相反——正因为杠杆在 harness 上，把优化力气花在这一层才划算。<strong>以下均为社区单次实验、尚无独立复现</strong>，引用时连出处与日期一起标注。</p>
+<p>最硬的量化实证是 StateM（<a href="https://arxiv.org/abs/2608.15089">arXiv 2608.15089</a>，2026-08-15）提出的 <strong>harness scaling</strong>（不动模型权重，只把模型外面那层运行时做厚：持久状态、阶段局部上下文、受检状态转移、可恢复 runbook、带版本的过程性实践）：Terminal-Bench 2.1 上同一个 GPT-5.5 xhigh 从 <strong>83.1% 提升到 92.1%</strong>（论文标题最好成绩 95.3%）——模型是常量，涨的分全部来自 harness。</p>
+<p>方法侧两条路线：DarwinX（<a href="https://arxiv.org/abs/2608.07545">arXiv 2608.07545</a>）冻结权重只演化 prompt / 工具 / 技能 / 控制流，适应度由 benchmark 自带 verifier（判定通过与否的校验器）给出、不需要标准答案，并用 preserve-and-extend 契约（新变体必须保住老能力，导致回归的一律拒绝）防退步；AutoDesign（<a href="https://arxiv.org/abs/2608.13560">arXiv 2608.13560</a>）让 meta-optimizer 指导 code agent 按 rollout（完整任务轨迹）反馈递归改写自身 harness。共同点：<strong>把工程师从 harness 调参循环里换了出去</strong>。同期概念外延也在扩张——EnvHarness 把 harness 思路从&quot;包住模型&quot;搬到&quot;包住环境&quot;、Zetta ζ 做在线演化的运行时 critic，详见参考资料。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>手工设计 harness（当前主流）</th>
+<th>自动搜索 / 演化 harness（本期方向）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>谁来改</td>
+<td>人：读 trace、改 prompt、加工具</td>
+<td>演化循环 / meta-optimizer 按 rollout 反馈自动改写</td>
+</tr>
+<tr>
+<td>优化信号</td>
+<td>工程师判断 + 离线跑分</td>
+<td>benchmark 自带 verifier 的通过/失败信号，不需标准答案</td>
+</tr>
+<tr>
+<td>防退步机制</td>
+<td>人工回归测试 + code review</td>
+<td>preserve-and-extend 契约：导致回归的变体直接拒绝</td>
+</tr>
+<tr>
+<td>可解释性</td>
+<td>高，改动都是人写的</td>
+<td>低，搜出来的 harness 未必讲得清为什么有效</td>
+</tr>
+<tr>
+<td>成熟度</td>
+<td>生产在跑（Claude Code / Codex / Cline）</td>
+<td>论文阶段，单次实验、未经复现</td>
+</tr>
+</tbody></table>
+<p>短期内生产系统仍是手工设计的天下——可解释性和可回滚性不可让渡。但 StateM 那 9 个百分点说明这层还有大量未被人工榨干的空间，DarwinX / AutoDesign 给出了&quot;让机器去榨&quot;的可行路径。面试里被问到&quot;harness 的未来&quot;，这条线比&quot;再加个工具&quot;更值得讲。</p>
+<h2 id="section-15">常见误区 / 面试追问</h2>
+<ul>
+<li><p><strong>误区 1：「Harness 就是另一种框架」</strong> — 表面上都是&quot;模型外面的代码&quot;，但本质完全不同。Framework 是&quot;unopinionated 积木箱&quot;，需要你自己拼装 loop / memory / hook；Harness 是&quot;opinionated 装配好的车&quot;，loop / memory / hook 全部内置，你只能在框架预留的扩展点（CLAUDE.md / Hook / Skill / Subagent）做定制。换言之，<strong>Framework 给自由 + 责任，Harness 给约束 + 默认值</strong>。</p>
+</li>
+<li><p><strong>误区 2：「自研 Harness 是过度设计，直接用 LangGraph 就行」</strong> — 对一般业务系统确实是过度设计，但对&quot;代码 Agent / 通用电脑 Agent&quot;这类需要 opinionated default + post-training coupling 的产品，框架抽象层会成为天花板。Devin / Claude Code / Codex / Cline 这些 SOTA 产品全部自研 harness 不是偶然。</p>
+</li>
+<li><p><strong>误区 3：「换模型不需要换 harness」</strong> — Post-training coupling 让模型与 harness 形成深度绑定。Codex 模型脱离 <code>apply_patch</code> 签名性能会掉，Claude Sonnet 在 Claude Code 与在通用 chat 中表现是两个性格。<strong>模型与 harness 是一对深度耦合的系统</strong>。</p>
+</li>
+<li><p><strong>追问 1：「LangChain / OpenAI Agents SDK 算 Framework 还是 Harness？」</strong> → 答：都是 Framework（LangChain 自家文档明确）。判断标准：是否给出 opinionated 默认 prompt + tool + sandbox + hook 全套？是否拿来就能跑出一个&quot;有性格的 Agent&quot;？LangChain / Agents SDK 不给默认 prompt 与默认 tool，所以是 Framework。DeepAgents（LangChain 2025-11 推出的 harness）才算 Harness。</p>
+</li>
+<li><p><strong>追问 2：「Harness 与 SDK 是什么关系？」</strong> → 答：SDK 是&quot;客户端库&quot;层面的概念（OpenAI Agents SDK、Claude Agent SDK），描述的是&quot;如何调用 API 的 Python/TS 类库&quot;；Harness 是&quot;应用形态&quot;层面的概念，描述的是&quot;装配好的 Agent 产品&quot;。Claude Code = harness，但底层用 Claude Agent SDK；Cursor = harness，底层有自家 Composer SDK。SDK 是 harness 的实现砖块之一。</p>
+</li>
+<li><p><strong>追问 3：「『Harness &gt; 模型』杠杆数据点出自哪里？怎么验证？」</strong> → 答：出自 Terminal Bench 2.0（2026-Q1）。同一个 Claude Opus 4.6 在不同 harness 中跑分差距 28 个排名位次。可参考 Artificial Analysis 的 Coding Agents Leaderboard 持续追踪。这背后的机制是：harness 的 system prompt + tool 选择 + context 工程 + retry 策略 + sandbox 隔离五者协同作用，对单步 ReAct 的正确率有乘法效应。</p>
+</li>
+<li><p><strong>追问 4：「Cline SDK 2026-05 为什么把 runtime 从 IDE 剥离？这意味着什么？」</strong> → 答：意味着 Harness 进入&quot;runtime 独立化&quot;阶段。<code>@cline/sdk</code> 把 agent loop 从 VS Code 插件里彻底拆出，可在 CLI / Web / CI 任意 surface 上调用。这预示 2026-2027 行业方向：<strong>Harness 从&quot;单一产品形态&quot;演化为&quot;runtime + 多 surface 适配器&quot;</strong>——同一份 agent runtime 跑 IDE、跑终端、跑 CI、跑 Kanban。</p>
+</li>
+<li><p><strong>追问 5：「harness 既然决定七成表现，能不能干脆自动搜出最优 harness？」</strong> → 答：2026-08 刚出现第一批工作，可以答&quot;路径已经跑通，但离生产还有距离&quot;。方法侧：DarwinX 冻结权重只演化 prompt / 工具 / 技能 / 控制流，用 benchmark 自带 verifier 当适应度、用 preserve-and-extend 契约拒绝回归变体；AutoDesign 让 meta-optimizer 指导 code agent 递归改写自身 harness。效果侧：StateM 在 Terminal-Bench 2.1 上把 GPT-5.5 xhigh 从 83.1% 推到 92.1%。<strong>答题时务必补限定</strong>：都是社区单次实验、尚无独立复现；且自动搜出的 harness 可解释性差、难回滚，生产环境短期内仍会是手工设计为主。</p>
+</li>
+</ul>
+<h2 id="section-16">参考资料</h2>
+<ul>
+<li><a href="https://www.langchain.com/blog/agent-frameworks-runtimes-and-harnesses-oh-my">LangChain Blog — Agent Frameworks, Runtimes, and Harnesses</a> — 三层抽象的官方定义出处</li>
+<li><a href="https://parallel.ai/articles/what-is-an-agent-harness">Parallel.ai — What Is an Agent Harness?</a> — &quot;everything except the LLM itself&quot; 经典定义 + 70% 性能数据点</li>
+<li><a href="https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents">HumanLayer — Skill Issue: Harness Engineering for Coding Agents</a> — &quot;It&#39;s not a model problem. It&#39;s a configuration problem.&quot; 出处 + Post-training coupling 详解</li>
+<li><a href="https://addyosmani.com/blog/agent-harness-engineering/">Addy Osmani — Agent Harness Engineering</a> — Harness 6+1 抽象 + Ralph Loop / Sprint Contracts 高级模式</li>
+<li><a href="https://cline.bot/blog/introducing-cline-sdk-the-upgraded-agent-runtime">Cline Blog — Introducing the Cline SDK</a> — 2026-05 Runtime 与 IDE 解耦范式</li>
+<li><a href="https://atalupadhyay.wordpress.com/2026/05/02/the-agent-harness-what-it-is-why-it-matters-and-how-to-build-one-from-scratch/">atalupadhyay — The Agent Harness: What It Is, Why It Matters</a> — 从零构建 harness 的工程视角</li>
+<li><a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">Anthropic — Equipping Agents for the Real World with Agent Skills</a> — Progressive Disclosure 与 Harness 中 Skill 抽象的关系</li>
+<li><a href="https://artificialanalysis.ai/agents/coding">Artificial Analysis — Coding Agents Leaderboard</a> — Terminal Bench 实时排行，「Harness &gt; 模型」杠杆的持续证据</li>
+<li><a href="https://arxiv.org/abs/2609.01437">arXiv 2609.01437 — HarnessDev: Can LLMs Create and Evolve Their Own Agent Harness?</a> — 学术侧把 harness 当作可自动优化对象的系统研究（HF Daily Papers 238 upvotes，2026-09）</li>
+</ul>
+<p><strong>前沿动向（2026-08，社区单次实验、未经独立复现）</strong>：</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2608.15089">StateM: 95.3% on Terminal-Bench 2.1 via Harness Scaling（arXiv 2608.15089，2026-08-15）</a> — harness scaling 提出，同模型 83.1% → 92.1% 的量化实证</li>
+<li><a href="https://arxiv.org/abs/2608.07545">DarwinX: Evolving Agent Harnesses Through Natural Selection（arXiv 2608.07545）</a> — 冻结权重演化 harness，preserve-and-extend 契约 + verifier 适应度</li>
+<li><a href="https://arxiv.org/abs/2608.13560">AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design（arXiv 2608.13560）</a> — meta-optimizer 指导 code agent 按 rollout 反馈递归改写自身 harness</li>
+<li><a href="https://arxiv.org/abs/2608.19880">EnvHarness: Awakening Static Worlds for Agent Learning（arXiv 2608.19880，2026-08-20）</a> — 把 harness 思路从&quot;包住模型&quot;扩到&quot;包住环境&quot;</li>
+<li><a href="https://arxiv.org/abs/2608.16590">Zetta ζ: An Efficient Closed-Loop Embodied Harness（arXiv 2608.16590）</a> — 冻结基座策略，在线演化运行时 critic 与恢复技能，三重时间尺度分离</li>
+<li><a href="https://arxiv.org/abs/2608.14036">Demystifying Agent Skills: Why They Work—Until They Don&#39;t（arXiv 2608.14036）</a> — Skill 收益的四因素归因：表示形式 / 结果标注 / 检索难度 / 跨框架鲁棒性</li>
+<li><a href="https://openai.com/index/introducing-the-agents-api">OpenAI — Introducing the Agents API</a> — Codex harness 产品化为托管云服务（2026-09-10），Harness 层的托管形态</li>
+</ul>
+<h2 id="section-17">相关阅读</h2>
+<ul>
+<li><a href="006.html">007 — Workflow vs Agent</a>：Harness 是&quot;光谱右端&quot;的高自主性方案，需要工作流配合</li>
+<li><a href="088.html">098 — 框架 vs 自研</a>：Harness 是&quot;自研 vs 框架&quot;之外的<strong>第三种选择</strong></li>
+<li><a href="089.html">099 — OpenAI Agents SDK vs Claude Agent SDK</a>：两家 SDK 是构建 Harness 的&quot;砖块&quot;层</li>
+<li><a href="098.html">110 — Coding Agent Harness 横评</a>：Harness 的产品级横向对比（深入篇）</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">一、三层抽象：从 LangChain 官方说起</a></li><li class="toc-level-3"><a href="#section-4">二、Harness 的最小完整抽象（6+1）</a></li><li class="toc-level-3"><a href="#section-5">三、为什么 Devin / Claude Code 不用 LangGraph 而自研？</a></li><li class="toc-level-4"><a href="#section-6">1. Post-training Coupling（模型权重绑死工具签名）</a></li><li class="toc-level-4"><a href="#section-7">2. 延迟敏感（每步 &lt; 100ms 是产品底线）</a></li><li class="toc-level-4"><a href="#section-8">3. Hook / Sandbox 不可让渡</a></li><li class="toc-level-4"><a href="#section-9">4. Trace 数据是核心 IP</a></li><li class="toc-level-4"><a href="#section-10">实证数据：Terminal Bench 2.0 的「harness &gt; 模型」杠杆</a></li><li class="toc-level-3"><a href="#section-11">四、Framework vs Harness 的可视化对照</a></li><li class="toc-level-3"><a href="#section-12">五、何时该用 Framework、Runtime、Harness？</a></li><li class="toc-level-3"><a href="#section-13">六、代码示例：感受 Harness 与 Framework 的&quot;opinionated&quot;差异</a></li><li class="toc-level-3"><a href="#section-14">七、前沿动向：Harness 本身成为优化对象（2026-08）</a></li><li class="toc-level-2"><a href="#section-15">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-16">参考资料</a></li><li class="toc-level-2"><a href="#section-17">相关阅读</a></li></ol></nav></article><nav class="chapter-nav"><a href="096.html" class="nav-card"><span>上一章</span><strong>← 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</strong></a><a href="098.html" class="nav-card next"><span>下一章</span><strong>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 →</strong></a></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>

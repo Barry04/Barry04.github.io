@@ -1,0 +1,364 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>什么是 12-Factor Agents？如何用它评审生产级 Agent？ · Agent Interview 100</title><link rel="stylesheet" href="../assets/reader.css"></head><body><header class="mobile-header"><button class="icon-button" data-action="open-sidebar" aria-label="打开目录">☰</button><a href="../index.html" class="mobile-title">Agent Interview 100</a><button class="icon-button" data-action="toggle-theme" aria-label="切换主题">◐</button></header><div class="app-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-brand"><a href="../index.html" class="brand-link"><span class="brand-mark">A</span><span><strong>Agent Interview</strong><small>100 个问题，系统掌握 Agent</small></span></a><button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="关闭目录">×</button></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="搜索章节..." autocomplete="off"></label><div class="sidebar-meta"><span>104 篇文章</span><span>11 个主题</span></div><nav class="chapter-list" aria-label="章节目录"><section class="topic-group"><h2>Agent 架构<span>12</span></h2><div class="topic-items"><a class="chapter-link" href="001.html" data-search="1 什么是 LLM Agent？与传统 LLM 应用有何区别？ Agent 架构"><span class="chapter-number">001</span><span>什么是 LLM Agent？与传统 LLM 应用有何区别？</span></a><a class="chapter-link" href="002.html" data-search="2 解释 Agent 的核心组件：感知、推理、行动、记忆 Agent 架构"><span class="chapter-number">002</span><span>解释 Agent 的核心组件：感知、推理、行动、记忆</span></a><a class="chapter-link" href="003.html" data-search="3 Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive Agent 架构"><span class="chapter-number">003</span><span>Agent 架构模式详解：ReAct、Plan-and-Execute、LATS、Proactive</span></a><a class="chapter-link" href="004.html" data-search="5 如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？ Agent 架构"><span class="chapter-number">005</span><span>如何设计一个分层 Agent 架构（Orchestrator / Worker 模式）？</span></a><a class="chapter-link" href="005.html" data-search="6 Agent Loop 设计：循环控制、终止条件与错误恢复 Agent 架构"><span class="chapter-number">006</span><span>Agent Loop 设计：循环控制、终止条件与错误恢复</span></a><a class="chapter-link" href="006.html" data-search="7 Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？ Agent 架构"><span class="chapter-number">007</span><span>Workflow vs Agent：什么时候用确定性工作流，什么时候用自主 Agent？</span></a><a class="chapter-link" href="007.html" data-search="9 如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？ Agent 架构"><span class="chapter-number">009</span><span>如何实现 Agent 的自我反思（Self-Reflection）和自我纠正？</span></a><a class="chapter-link" href="008.html" data-search="10 生产级 Agent 系统设计（含智能客服实战案例） Agent 架构"><span class="chapter-number">010</span><span>生产级 Agent 系统设计（含智能客服实战案例）</span></a><a class="chapter-link" href="096.html" data-search="108 面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问 Agent 架构"><span class="chapter-number">108</span><span>面试追问链：从「什么是 Agent」到系统设计的 10 层递进追问</span></a><a class="chapter-link" href="097.html" data-search="109 什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？ Agent 架构"><span class="chapter-number">109</span><span>什么是 Agent Harness？与 Framework / Runtime 三层抽象有何区别？</span></a><a class="chapter-link" href="101.html" data-search="113 什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？ Agent 架构"><span class="chapter-number">113</span><span>什么是 Computer Use / Browser Use Agent？它与 API Agent 有何区别？</span></a><a class="chapter-link" href="102.html" data-search="114 什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？ Agent 架构"><span class="chapter-number">114</span><span>什么是 Deep Research / Agentic Search Agent？它和 Agentic RAG 有何区别？</span></a></div></section><section class="topic-group"><h2>RAG<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="009.html" data-search="11 RAG 概念、Pipeline 与组件总览 RAG"><span class="chapter-number">011</span><span>RAG 概念、Pipeline 与组件总览</span></a><a class="chapter-link" href="010.html" data-search="13 文档分块（Chunking）策略有哪些？各有什么优缺点？ RAG"><span class="chapter-number">013</span><span>文档分块（Chunking）策略有哪些？各有什么优缺点？</span></a><a class="chapter-link" href="011.html" data-search="14 向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus RAG"><span class="chapter-number">014</span><span>向量数据库选型：Pinecone vs Weaviate vs Chroma vs Milvus</span></a><a class="chapter-link" href="012.html" data-search="15 Embedding 模型选择与微调策略 RAG"><span class="chapter-number">015</span><span>Embedding 模型选择与微调策略</span></a><a class="chapter-link" href="013.html" data-search="16 混合检索：如何结合语义检索和关键词检索？ RAG"><span class="chapter-number">016</span><span>混合检索：如何结合语义检索和关键词检索？</span></a><a class="chapter-link" href="014.html" data-search="17 Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder RAG"><span class="chapter-number">017</span><span>Re-ranking 的原理与实现：Cross-Encoder vs Bi-Encoder</span></a><a class="chapter-link" href="015.html" data-search="18 什么是 Agentic RAG？它与传统 RAG 有何不同？ RAG"><span class="chapter-number">018</span><span>什么是 Agentic RAG？它与传统 RAG 有何不同？</span></a><a class="chapter-link" href="016.html" data-search="19 高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG RAG"><span class="chapter-number">019</span><span>高级 RAG 变体：Corrective RAG、Self-RAG、Adaptive RAG</span></a><a class="chapter-link" href="017.html" data-search="20 RAG 评估指标体系：原理、计算与实战 RAG"><span class="chapter-number">020</span><span>RAG 评估指标体系：原理、计算与实战</span></a></div></section><section class="topic-group"><h2>工具使用<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="018.html" data-search="21 什么是 Function Calling？它是如何工作的？ 工具使用"><span class="chapter-number">021</span><span>什么是 Function Calling？它是如何工作的？</span></a><a class="chapter-link" href="019.html" data-search="22 如何为 LLM 定义和描述工具（Tool Schema）？ 工具使用"><span class="chapter-number">022</span><span>如何为 LLM 定义和描述工具（Tool Schema）？</span></a><a class="chapter-link" href="020.html" data-search="23 Tool Use 的常见模式：API 调用、数据库查询、代码执行 工具使用"><span class="chapter-number">023</span><span>Tool Use 的常见模式：API 调用、数据库查询、代码执行</span></a><a class="chapter-link" href="021.html" data-search="24 如何设计 Tool Gateway 和工具权限管理？ 工具使用"><span class="chapter-number">024</span><span>如何设计 Tool Gateway 和工具权限管理？</span></a><a class="chapter-link" href="022.html" data-search="25 工具选择策略：LLM 如何决定使用哪个工具？ 工具使用"><span class="chapter-number">025</span><span>工具选择策略：LLM 如何决定使用哪个工具？</span></a><a class="chapter-link" href="023.html" data-search="26 如何处理工具调用失败和超时？ 工具使用"><span class="chapter-number">026</span><span>如何处理工具调用失败和超时？</span></a><a class="chapter-link" href="024.html" data-search="27 MCP（Model Context Protocol）是什么？它如何标准化工具集成？ 工具使用"><span class="chapter-number">027</span><span>MCP（Model Context Protocol）是什么？它如何标准化工具集成？</span></a><a class="chapter-link" href="025.html" data-search="28 并行工具调用 vs 顺序工具调用的设计考量 工具使用"><span class="chapter-number">028</span><span>并行工具调用 vs 顺序工具调用的设计考量</span></a><a class="chapter-link" href="026.html" data-search="29 如何实现动态工具发现和注册？ 工具使用"><span class="chapter-number">029</span><span>如何实现动态工具发现和注册？</span></a><a class="chapter-link" href="027.html" data-search="30 工具使用的安全性：防止注入攻击和越权操作 工具使用"><span class="chapter-number">030</span><span>工具使用的安全性：防止注入攻击和越权操作</span></a></div></section><section class="topic-group"><h2>多 Agent<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="028.html" data-search="31 什么是多 Agent 系统？与单 Agent 相比有何优势？ 多 Agent"><span class="chapter-number">031</span><span>什么是多 Agent 系统？与单 Agent 相比有何优势？</span></a><a class="chapter-link" href="029.html" data-search="32 多 Agent 通信模式：消息传递、共享状态、黑板模式 多 Agent"><span class="chapter-number">032</span><span>多 Agent 通信模式：消息传递、共享状态、黑板模式</span></a><a class="chapter-link" href="030.html" data-search="33 Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical 多 Agent"><span class="chapter-number">033</span><span>Agent 编排模式：Hub-Spoke、Pipeline、Hierarchical</span></a><a class="chapter-link" href="031.html" data-search="34 如何设计 Agent 间的任务分配与协调？ 多 Agent"><span class="chapter-number">034</span><span>如何设计 Agent 间的任务分配与协调？</span></a><a class="chapter-link" href="032.html" data-search="35 多 Agent 系统中的冲突解决机制 多 Agent"><span class="chapter-number">035</span><span>多 Agent 系统中的冲突解决机制</span></a><a class="chapter-link" href="033.html" data-search="36 比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph 多 Agent"><span class="chapter-number">036</span><span>比较主流多 Agent 框架：CrewAI、AutoGen、LangGraph</span></a><a class="chapter-link" href="034.html" data-search="37 如何实现 Agent 间的 Handoff（任务交接）？ 多 Agent"><span class="chapter-number">037</span><span>如何实现 Agent 间的 Handoff（任务交接）？</span></a><a class="chapter-link" href="035.html" data-search="38 多 Agent 系统中的涌现行为与可控性 多 Agent"><span class="chapter-number">038</span><span>多 Agent 系统中的涌现行为与可控性</span></a><a class="chapter-link" href="036.html" data-search="39 如何调试和监控多 Agent 系统？ 多 Agent"><span class="chapter-number">039</span><span>如何调试和监控多 Agent 系统？</span></a><a class="chapter-link" href="091.html" data-search="101 A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？ 多 Agent"><span class="chapter-number">101</span><span>A2A（Agent-to-Agent）协议是什么？它与 MCP 有何区别？</span></a></div></section><section class="topic-group"><h2>记忆与状态<span>7</span></h2><div class="topic-items"><a class="chapter-link" href="037.html" data-search="40 Agent 记忆的类型：短期记忆、长期记忆、工作记忆 记忆与状态"><span class="chapter-number">040</span><span>Agent 记忆的类型：短期记忆、长期记忆、工作记忆</span></a><a class="chapter-link" href="038.html" data-search="41 对话上下文窗口管理与压缩策略 记忆与状态"><span class="chapter-number">041</span><span>对话上下文窗口管理与压缩策略</span></a><a class="chapter-link" href="039.html" data-search="43 如何实现 Agent 的持久化记忆（Persistent Memory）？ 记忆与状态"><span class="chapter-number">043</span><span>如何实现 Agent 的持久化记忆（Persistent Memory）？</span></a><a class="chapter-link" href="040.html" data-search="44 状态管理在 Agent 系统中的设计模式 记忆与状态"><span class="chapter-number">044</span><span>状态管理在 Agent 系统中的设计模式</span></a><a class="chapter-link" href="041.html" data-search="45 如何实现跨会话的用户偏好学习？ 记忆与状态"><span class="chapter-number">045</span><span>如何实现跨会话的用户偏好学习？</span></a><a class="chapter-link" href="042.html" data-search="46 长期记忆存储介质选型：向量 / 结构化 / 图谱 记忆与状态"><span class="chapter-number">046</span><span>长期记忆存储介质选型：向量 / 结构化 / 图谱</span></a><a class="chapter-link" href="043.html" data-search="48 记忆的遗忘与更新机制：如何处理过时信息？ 记忆与状态"><span class="chapter-number">048</span><span>记忆的遗忘与更新机制：如何处理过时信息？</span></a></div></section><section class="topic-group"><h2>规划与推理<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="044.html" data-search="49 推理策略详解：Chain-of-Thought 与 Tree-of-Thought 规划与推理"><span class="chapter-number">049</span><span>推理策略详解：Chain-of-Thought 与 Tree-of-Thought</span></a><a class="chapter-link" href="045.html" data-search="50 任务分解（Task Decomposition）的基本方法 规划与推理"><span class="chapter-number">050</span><span>任务分解（Task Decomposition）的基本方法</span></a><a class="chapter-link" href="046.html" data-search="52 Plan-and-Solve 与动态重规划 规划与推理"><span class="chapter-number">052</span><span>Plan-and-Solve 与动态重规划</span></a><a class="chapter-link" href="047.html" data-search="53 LLM 作为规划器的局限性与缓解方案 规划与推理"><span class="chapter-number">053</span><span>LLM 作为规划器的局限性与缓解方案</span></a><a class="chapter-link" href="048.html" data-search="55 2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型 规划与推理"><span class="chapter-number">055</span><span>2026 推理 / Agent 模型版图：Claude / GPT / Gemini 三家旗舰对比与选型</span></a><a class="chapter-link" href="049.html" data-search="56 Monte Carlo Tree Search 在 Agent 规划中的应用 规划与推理"><span class="chapter-number">056</span><span>Monte Carlo Tree Search 在 Agent 规划中的应用</span></a><a class="chapter-link" href="050.html" data-search="57 如何评估 Agent 的推理质量？ 规划与推理"><span class="chapter-number">057</span><span>如何评估 Agent 的推理质量？</span></a><a class="chapter-link" href="051.html" data-search="58 因果推理在 Agent 决策中的作用 规划与推理"><span class="chapter-number">058</span><span>因果推理在 Agent 决策中的作用</span></a><a class="chapter-link" href="093.html" data-search="103 Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？ 规划与推理"><span class="chapter-number">103</span><span>Agentic-RL 是什么？如何用 GRPO 训练 Agent 的决策能力？</span></a></div></section><section class="topic-group"><h2>提示工程<span>10</span></h2><div class="topic-items"><a class="chapter-link" href="052.html" data-search="59 System Prompt 设计的核心原则 提示工程"><span class="chapter-number">059</span><span>System Prompt 设计的核心原则</span></a><a class="chapter-link" href="053.html" data-search="60 Few-Shot vs Zero-Shot Prompting：如何选择？ 提示工程"><span class="chapter-number">060</span><span>Few-Shot vs Zero-Shot Prompting：如何选择？</span></a><a class="chapter-link" href="054.html" data-search="61 结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？ 提示工程"><span class="chapter-number">061</span><span>结构化输出（Structured Output）：如何让 LLM 返回 JSON/XML？</span></a><a class="chapter-link" href="055.html" data-search="62 Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？ 提示工程"><span class="chapter-number">062</span><span>Agentic Prompting：如何编写让 LLM 自主执行任务的 Prompt？</span></a><a class="chapter-link" href="056.html" data-search="63 Prompt Chaining：多步骤 Prompt 的设计与编排 提示工程"><span class="chapter-number">063</span><span>Prompt Chaining：多步骤 Prompt 的设计与编排</span></a><a class="chapter-link" href="057.html" data-search="64 如何防止 Prompt Injection 攻击？ 提示工程"><span class="chapter-number">064</span><span>如何防止 Prompt Injection 攻击？</span></a><a class="chapter-link" href="058.html" data-search="65 自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景 提示工程"><span class="chapter-number">065</span><span>自动化 Prompt 优化：DSPy / APE / OPRO / PromptBreeder 全景</span></a><a class="chapter-link" href="059.html" data-search="66 Prompt 版本管理与 A/B 测试 提示工程"><span class="chapter-number">066</span><span>Prompt 版本管理与 A/B 测试</span></a><a class="chapter-link" href="060.html" data-search="68 跨模型 Prompt 迁移：如何编写模型无关的 Prompt？ 提示工程"><span class="chapter-number">068</span><span>跨模型 Prompt 迁移：如何编写模型无关的 Prompt？</span></a><a class="chapter-link" href="092.html" data-search="102 什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？ 提示工程"><span class="chapter-number">102</span><span>什么是 Context Engineering？它与 Prompt Engineering 有何本质区别？</span></a></div></section><section class="topic-group"><h2>评估<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="061.html" data-search="69 评估方法论：从 LLM 评估到 Agent 评估 评估"><span class="chapter-number">069</span><span>评估方法论：从 LLM 评估到 Agent 评估</span></a><a class="chapter-link" href="062.html" data-search="71 LLM-as-Judge：使用 LLM 评估 LLM 输出 评估"><span class="chapter-number">071</span><span>LLM-as-Judge：使用 LLM 评估 LLM 输出</span></a><a class="chapter-link" href="063.html" data-search="72 Agent Benchmark：如何设计端到端的 Agent 测试？ 评估"><span class="chapter-number">072</span><span>Agent Benchmark：如何设计端到端的 Agent 测试？</span></a><a class="chapter-link" href="064.html" data-search="73 回归测试：如何检测 Agent 性能退化？ 评估"><span class="chapter-number">073</span><span>回归测试：如何检测 Agent 性能退化？</span></a><a class="chapter-link" href="065.html" data-search="74 Trace 和 Span：Agent 执行的可观测性 评估"><span class="chapter-number">074</span><span>Trace 和 Span：Agent 执行的可观测性</span></a><a class="chapter-link" href="066.html" data-search="75 评估工具对比：Ragas、LangSmith、Braintrust 评估"><span class="chapter-number">075</span><span>评估工具对比：Ragas、LangSmith、Braintrust</span></a><a class="chapter-link" href="067.html" data-search="76 静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？ 评估"><span class="chapter-number">076</span><span>静态 Benchmark 的陷阱：为什么 95% 准确率在生产中会失效？</span></a><a class="chapter-link" href="068.html" data-search="77 如何构建持续评估（Continuous Evaluation）流水线？ 评估"><span class="chapter-number">077</span><span>如何构建持续评估（Continuous Evaluation）流水线？</span></a><a class="chapter-link" href="099.html" data-search="111 Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR 评估"><span class="chapter-number">111</span><span>Eval Harness 设计与生态选型：lm-evaluation-harness / Inspect AI / HELM / METR</span></a></div></section><section class="topic-group"><h2>安全与对齐<span>9</span></h2><div class="topic-items"><a class="chapter-link" href="069.html" data-search="78 LLM Agent 的主要安全风险有哪些？ 安全与对齐"><span class="chapter-number">078</span><span>LLM Agent 的主要安全风险有哪些？</span></a><a class="chapter-link" href="070.html" data-search="79 什么是 Guardrails？如何为 Agent 设置安全护栏？ 安全与对齐"><span class="chapter-number">079</span><span>什么是 Guardrails？如何为 Agent 设置安全护栏？</span></a><a class="chapter-link" href="071.html" data-search="80 Human-in-the-Loop：何时以及如何引入人工审核？ 安全与对齐"><span class="chapter-number">080</span><span>Human-in-the-Loop：何时以及如何引入人工审核？</span></a><a class="chapter-link" href="072.html" data-search="81 Agent 的权限最小化原则与沙箱执行 安全与对齐"><span class="chapter-number">081</span><span>Agent 的权限最小化原则与沙箱执行</span></a><a class="chapter-link" href="073.html" data-search="82 如何检测和缓解 Agent 的幻觉（Hallucination）？ 安全与对齐"><span class="chapter-number">082</span><span>如何检测和缓解 Agent 的幻觉（Hallucination）？</span></a><a class="chapter-link" href="074.html" data-search="83 内容过滤与毒性检测在 Agent 系统中的实现 安全与对齐"><span class="chapter-number">083</span><span>内容过滤与毒性检测在 Agent 系统中的实现</span></a><a class="chapter-link" href="075.html" data-search="84 Agent 对齐问题：如何确保 Agent 行为符合人类意图？ 安全与对齐"><span class="chapter-number">084</span><span>Agent 对齐问题：如何确保 Agent 行为符合人类意图？</span></a><a class="chapter-link" href="076.html" data-search="85 Red Teaming：如何对 Agent 系统进行对抗测试？ 安全与对齐"><span class="chapter-number">085</span><span>Red Teaming：如何对 Agent 系统进行对抗测试？</span></a><a class="chapter-link" href="103.html" data-search="115 Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？ 安全与对齐"><span class="chapter-number">115</span><span>Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</span></a></div></section><section class="topic-group"><h2>生产部署<span>13</span></h2><div class="topic-items"><a class="chapter-link" href="077.html" data-search="86 LLMOps 与 Agent 部署架构 生产部署"><span class="chapter-number">086</span><span>LLMOps 与 Agent 部署架构</span></a><a class="chapter-link" href="078.html" data-search="88 LLM API 的成本优化策略 生产部署"><span class="chapter-number">088</span><span>LLM API 的成本优化策略</span></a><a class="chapter-link" href="079.html" data-search="89 模型路由（Model Routing）：如何根据任务复杂度选择模型？ 生产部署"><span class="chapter-number">089</span><span>模型路由（Model Routing）：如何根据任务复杂度选择模型？</span></a><a class="chapter-link" href="080.html" data-search="90 Agent 系统的延迟优化：Streaming、缓存、批处理 生产部署"><span class="chapter-number">090</span><span>Agent 系统的延迟优化：Streaming、缓存、批处理</span></a><a class="chapter-link" href="081.html" data-search="91 Prompt Drift 管理：如何避免 Prompt 退化？ 生产部署"><span class="chapter-number">091</span><span>Prompt Drift 管理：如何避免 Prompt 退化？</span></a><a class="chapter-link" href="082.html" data-search="92 Agent 系统的日志、监控与告警设计 生产部署"><span class="chapter-number">092</span><span>Agent 系统的日志、监控与告警设计</span></a><a class="chapter-link" href="083.html" data-search="93 如何实现 Agent 的灰度发布和 A/B 测试？ 生产部署"><span class="chapter-number">093</span><span>如何实现 Agent 的灰度发布和 A/B 测试？</span></a><a class="chapter-link" href="084.html" data-search="94 高并发场景下的 Agent 系统扩展策略 生产部署"><span class="chapter-number">094</span><span>高并发场景下的 Agent 系统扩展策略</span></a><a class="chapter-link" href="085.html" data-search="95 Agent 系统的灾难恢复与高可用设计 生产部署"><span class="chapter-number">095</span><span>Agent 系统的灾难恢复与高可用设计</span></a><a class="chapter-link" href="094.html" data-search="104 场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？ 生产部署"><span class="chapter-number">104</span><span>场景题：你的 Agent 在生产环境出了故障，如何系统性排查和修复？</span></a><a class="chapter-link" href="095.html" data-search="107 代码 Review 题：找出这段 Agent 代码中的设计问题并修复 生产部署"><span class="chapter-number">107</span><span>代码 Review 题：找出这段 Agent 代码中的设计问题并修复</span></a><a class="chapter-link" href="100.html" data-search="112 Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress 生产部署"><span class="chapter-number">112</span><span>Agent Sandbox / Runtime 选型：E2B / Daytona / Modal / Cloudflare Sandbox 隔离强度 + cold start + egress</span></a><a class="chapter-link active" href="104.html" data-search="116 什么是 12-Factor Agents？如何用它评审生产级 Agent？ 生产部署"><span class="chapter-number">116</span><span>什么是 12-Factor Agents？如何用它评审生产级 Agent？</span></a></div></section><section class="topic-group"><h2>框架选型<span>6</span></h2><div class="topic-items"><a class="chapter-link" href="086.html" data-search="96 主流 Agent 框架概览：LangChain、LlamaIndex、Haystack 框架选型"><span class="chapter-number">096</span><span>主流 Agent 框架概览：LangChain、LlamaIndex、Haystack</span></a><a class="chapter-link" href="087.html" data-search="97 LangGraph 的核心概念：节点、边、状态 框架选型"><span class="chapter-number">097</span><span>LangGraph 的核心概念：节点、边、状态</span></a><a class="chapter-link" href="088.html" data-search="98 框架 vs 自研：什么时候应该自己构建 Agent 框架？ 框架选型"><span class="chapter-number">098</span><span>框架 vs 自研：什么时候应该自己构建 Agent 框架？</span></a><a class="chapter-link" href="089.html" data-search="99 OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比 框架选型"><span class="chapter-number">099</span><span>OpenAI Responses API / Agents SDK vs Anthropic Claude Agent SDK 对比</span></a><a class="chapter-link" href="090.html" data-search="100 如何设计可测试、可扩展的 Agent 框架抽象层？ 框架选型"><span class="chapter-number">100</span><span>如何设计可测试、可扩展的 Agent 框架抽象层？</span></a><a class="chapter-link" href="098.html" data-search="110 主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比 框架选型"><span class="chapter-number">110</span><span>主流 Coding Agent Harness 横评：Claude Code / Cursor / Aider / Cline / Codex CLI 在 Context / Tool / Permission / Sandbox 四维对比</span></a></div></section></nav><div class="search-empty" id="search-empty" hidden>没有找到匹配章节</div></aside><main class="main-content"><div class="reading-toolbar"><button class="toolbar-button" data-action="toggle-sidebar">☰ <span>目录</span></button><div class="reading-status"><span class="status-dot"></span>本地知识库</div><div class="zoom-controls" aria-label="阅读缩放"><button class="zoom-button" data-action="zoom-out" aria-label="缩小正文">−</button><span class="zoom-value" id="zoom-value">100%</span><button class="zoom-button" data-action="zoom-in" aria-label="放大正文">＋</button></div><button class="toolbar-button" data-action="toggle-theme" aria-label="切换主题">◐</button></div><article class="article"><div class="article-kicker">生产部署 · 第 116 题</div><h1>什么是 12-Factor Agents？如何用它评审生产级 Agent？</h1><blockquote>
+<p>难度：中级
+分类：生产部署</p>
+</blockquote>
+<h2 id="section-1">简短回答</h2>
+<p><strong>12-Factor Agents</strong> 是 HumanLayer 创始人 Dex Horthy 于 2025 年提出的一套「生产级 LLM 应用设计原则」，直接致敬 2011 年 Heroku 团队的经典 <strong>12-Factor App</strong>。项目开源在 <code>humanlayer/12-factor-agents</code>，目前在 GitHub 收获约 <strong>2.4 万 star</strong>，是 Agent 工程化领域传播最广的方法论文档之一。它的核心论断是：<strong>真正能在生产环境交付给客户的 &quot;AI Agent&quot;，绝大多数并不是「给个 prompt + 一袋工具 + 死循环到目标」的魔幻自治体，而是「以 LLM 决策为节点、以确定性代码为边」的软件系统</strong>。</p>
+<p>这套方法论回答一个工程问题：<em>怎样构建「好到可以交付给生产客户」的 LLM 驱动软件？</em> 作者调研了上百位 SaaS 创业者后发现一条高度一致的路径——<strong>抓一个框架快速冲到 70~80% 质量分 → 发现 80% 对面向客户的功能远远不够 → 想突破必须逆向工程框架的 prompt/流程/状态 → 最终推倒重写</strong>。12-Factor Agents 的立论正是：与其 all-in 某个框架，不如把 Agent 的核心能力拆成 12 条可独立采纳的模块化原则，融进你现有的产品代码里。</p>
+<p>12 条原则可以浓缩为一句话：<strong>把 Agent 当作「LLM 决定下一步 + 确定性代码执行 + 结果回灌上下文」的循环，并把这个循环里的每一个关键环节（prompt、上下文、状态、控制流、错误、人工介入）都显式地「收归己有」</strong>。它既是一份反模式清单，也是一张可逐条打勾的生产化评审表。面试中它常作为「你怎么评审一个 Agent 架构」的标准答案出现。</p>
+<h2 id="section-2">详细解析</h2>
+<h3 id="section-3">核心理念：Agent 本质上是一个「确定性外壳 + LLM 决策内核」的循环</h3>
+<p>12-Factor Agents 的起点是对「Agent 是什么」的重新定义。作者指出，业界宣传的 Agent 往往是「丢掉 DAG（有向无环图），让 LLM 实时决定路径」的乌托邦；但真正跑通的 Agent，骨子里是一个稳定的循环：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python"># 12-Factor Agents 的「最小 Agent 循环」（来自官方 README）
+initial_event = {&quot;message&quot;: &quot;...&quot;}
+context = [initial_event]
+
+while True:
+    # 1. LLM 根据当前上下文，决定下一步（输出结构化的 tool call）
+    next_step = await llm.determine_next_step(context)
+    context.append(next_step)
+
+    # 2. 如果 LLM 认为做完了，返回最终答案
+    if next_step.intent == &quot;done&quot;:
+        return next_step.final_answer
+
+    # 3. 确定性代码执行这一步，把结果追加进上下文
+    result = await execute_step(next_step)
+    context.append(result)
+</code></pre></details>
+<figure class="mermaid-figure"><div class="mermaid">flowchart TD
+    A[&quot;上下文（事件流）&lt;br/&gt;初始事件起步&quot;] --&gt; L[&quot;LLM 决定下一步&lt;br/&gt;输出结构化 tool call&quot;]
+    L --&gt; Q{&quot;intent == done?&quot;}
+    Q -- &quot;否&quot; --&gt; X[&quot;确定性代码&lt;br/&gt;执行这一步&quot;]
+    X -- &quot;结果回灌上下文&quot; --&gt; A
+    Q -- &quot;是&quot; --&gt; F[&quot;返回最终答案&quot;]
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef proc fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef decision fill:#fffde7,stroke:#f9a825,color:#795548
+    class L agent
+    class A,X,F proc
+    class Q decision
+</div></figure>
+<p><em>Agent = 确定性外壳 + LLM 决策内核：LLM 定下一步、代码执行、结果回灌上下文，12 条原则都在加固这个循环。</em></p>
+<p>这个循环里只有三件事：<strong>LLM 决定下一步 → 代码执行 → 结果进上下文 → 重复</strong>。12 条原则中的每一条，都是在加固这个循环的某一个面——让 prompt 可控、让上下文可管、让状态可恢复、让错误可自愈、让人工可介入。理解了这个循环，就理解了 12-Factor Agents 的全部锚点。</p>
+<h3 id="section-4">12 条原则逐条解读</h3>
+<p>下表先给出全景，随后对易误解的几条展开说明。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>原则（英文原名）</th>
+<th>一句话释义</th>
+<th>它解决的反模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>Natural Language to Tool Calls</strong></td>
+<td>用 LLM 把自然语言意图转成结构化的「下一步动作」</td>
+<td>把决策逻辑硬编码进 if/else，丧失灵活性</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Own Your Prompts</strong></td>
+<td>Prompt 是一等代码，版本化、可测试、可迭代，不外包给框架黑盒</td>
+<td>框架把 prompt 藏起来，出问题无法定位与调优</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Own Your Context Window</strong></td>
+<td>显式管理每一轮进入上下文的内容（即 Context Engineering）</td>
+<td>上下文无限膨胀，关键信息被淹没，Agent 「失焦」</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Tools Are Just Structured Outputs</strong></td>
+<td>工具调用 = LLM 的原生结构化输出（JSON / Pydantic），而非正则解析自由文本</td>
+<td>用正则/字符串匹配抽取 LLM 输出，脆弱且易错</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Unify Execution State and Business State</strong></td>
+<td>把「执行态」（loop 进度）与「业务态」（业务结果）统一成一条事件流</td>
+<td>内存里有 loop 状态、数据库里有业务状态，重启即丢失或错乱</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Launch/Pause/Resume with Simple APIs</strong></td>
+<td>Agent 像普通程序一样，能用简单 API 启动、暂停、恢复、停止</td>
+<td>长任务只能 <code>while...sleep</code> 阻塞挂起，进程挂了就从头再来</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Contact Humans with Tool Calls</strong></td>
+<td>把「请求人工确认/澄清」也建模成一种工具调用（HITL as a tool）</td>
+<td>高风险操作只能「yolo 盲跑」或被迫降级为低风险只读任务</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Own Your Control Flow</strong></td>
+<td>自己掌控循环的 break/continue：何时等审批、何时压缩上下文、何时熔断</td>
+<td>把控制流交给框架，无法在「工具选中」与「工具执行」之间插入审批</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Compact Errors into Context Window</strong></td>
+<td>工具失败时把错误信息压缩后回灌上下文，让 LLM 自愈</td>
+<td>工具一报错整个 Agent 直接崩溃退出</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Small, Focused Agents</strong></td>
+<td>单个 Agent 控制在 3~10（至多 20）步以内，做小做专</td>
+<td>一个巨型 Agent 试图扛 100 步任务，上下文爆炸、反复跑偏</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Trigger from Anywhere</strong></td>
+<td>Agent 能从 webhook、cron、IM 消息、前端事件等任意入口触发</td>
+<td>Agent 只能从聊天框触发，无法嵌入业务流</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Make Your Agent a Stateless Reducer</strong></td>
+<td>把 Agent 建模成无状态的 reducer（fold）：<code>state&#39; = reduce(event, state)</code></td>
+<td>状态散落在多处，无法重放、难以水平扩展与恢复</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>附录还有一条「<strong>Factor 13: Pre-fetch all the context you might need</strong>」（预先抓取所有可能需要的上下文），作为荣誉条目，强调在 LLM 决策前由确定性代码先把上下文备齐，而不是让 LLM 边走边找。</p>
+</blockquote>
+<p>几条容易踩坑的原则展开说明：</p>
+<ul>
+<li><p><strong>Factor 5（统一状态）</strong> 是 12 条里工程含量最高的一条。它的核心是：不要让「loop 当前进度」这种<strong>执行态</strong>只活在内存变量里，而业务结果活在数据库里——两者一旦分离，进程崩溃就无法恢复。正确做法是把所有发生的事（用户消息、LLM 的 tool call、工具结果、人工审批）都作为**事件（event）**追加到同一条 <code>thread</code> 里，状态就是事件的折叠结果。这样「恢复」等价于「重新 replay 这条事件流」。</p>
+</li>
+<li><p><strong>Factor 7（人工作为工具）</strong> 与 Factor 8 是孪生兄弟。作者反复强调他「对每个 Agent 框架的头号需求」就是：<strong>能在工具被「选中」和「被执行」之间插入一个暂停点</strong>，让人审核。没有这个粒度，你就只能在「只让 Agent 做只读研究」和「给它高危权限然后祈祷」之间二选一。</p>
+</li>
+<li><p><strong>Factor 12（无状态 reducer）</strong> 听起来玄，本质就是把 Agent 写成纯函数：<code>new_state = agent(events_so_far, new_event)</code>。任何一个时刻，只要把事件流喂进去，就能还原出与原运行完全一致的 Agent 状态。这让 Agent 天然可重放、可恢复、可水平扩展——这也是「stateless reducer」这个名字直接借用前端 Redux/<code>Array.reduce</code> 范式的原因。</p>
+</li>
+</ul>
+<h3 id="section-5">反模式 → 原则对照表</h3>
+<p>把 12 条反过来读，就是一份「Agent 翻车常见姿势」清单。下面给出工程实践中最常见的反模式及其对应原则：</p>
+<table>
+<thead>
+<tr>
+<th>反模式（典型翻车现场）</th>
+<th>对应原则</th>
+<th>不遵守的后果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>框架 <code>Agent(role, goal, personality).run(task)</code> 黑盒，prompt 看不见</td>
+<td>F2 Own Your Prompts</td>
+<td>质量卡在 80%，想突破必须逆向框架，最终重写</td>
+</tr>
+<tr>
+<td>把 tool 描述和系统提示一股脑塞进去，从不裁剪</td>
+<td>F3 Own Your Context</td>
+<td>多轮后上下文膨胀，模型「Lost in the Middle」失焦</td>
+</tr>
+<tr>
+<td>让 LLM 输出一段自然语言，再用正则抠出 <code>action:xxx</code></td>
+<td>F4 Structured Outputs</td>
+<td>模型换个说法就解析失败，链路脆弱</td>
+</tr>
+<tr>
+<td>loop 状态只在内存，DB 只存最终结果</td>
+<td>F5 Unify State</td>
+<td>进程一崩，跑了 30 分钟的任务彻底丢失</td>
+</tr>
+<tr>
+<td>部署等长任务用 <code>while True: sleep(5)</code> 阻塞</td>
+<td>F6 Pause/Resume</td>
+<td>一个 Pod 重启 = 全部重来；无法横向扩展</td>
+</tr>
+<tr>
+<td>危险操作（删库、打款）要么盲跑要么干脆不开放</td>
+<td>F7 + F8</td>
+<td>要么出事故，要么 Agent 沦为只能查不能做的玩具</td>
+</tr>
+<tr>
+<td>工具抛异常直接冒泡终止整个 Agent</td>
+<td>F9 Compact Errors</td>
+<td>一次网络抖动就全盘失败，无自愈能力</td>
+</tr>
+<tr>
+<td>一个「超级 Agent」端到端做完百步业务</td>
+<td>F10 Small Focused</td>
+<td>上下文爆炸、反复跑偏、难以调试</td>
+</tr>
+<tr>
+<td>Agent 只能从一个 Web 聊天框唤起</td>
+<td>F11 Trigger Anywhere</td>
+<td>无法嵌入 cron、webhook、IM 等真实业务流</td>
+</tr>
+<tr>
+<td>状态散在内存/Redis/DB 三处，互相不同步</td>
+<td>F12 Stateless Reducer</td>
+<td>无法重放、无法 debug「为什么这步这么决策」</td>
+</tr>
+</tbody></table>
+<h3 id="section-6">与经典 12-Factor App 的呼应与差异</h3>
+<p>12-Factor Agents 刻意沿用了「12 条」的形式与命名，但两者的<strong>关注层完全不同</strong>：12-Factor App（2011）面向 SaaS 云原生时代的<strong>部署与可移植性</strong>（代码库、依赖、配置、后端服务、并发、日志），而 12-Factor Agents（2025）面向 LLM 时代的<strong>应用内循环设计</strong>（prompt、上下文、状态、控制流）。可以这样对应理解：</p>
+<table>
+<thead>
+<tr>
+<th>12-Factor App（2011，云原生运维）</th>
+<th>12-Factor Agents（2025，Agent 应用设计）</th>
+<th>呼应关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I. Codebase：一份代码库多次部署</td>
+<td>F2 Own Your Prompts</td>
+<td>prompt 也是 codebase，需要版本化</td>
+</tr>
+<tr>
+<td>III. Config：配置放环境变量，不进代码</td>
+<td>F3 Own Your Context Window</td>
+<td>上下文是「运行时配置」，需显式组装</td>
+</tr>
+<tr>
+<td>IV. Backing Services：把 DB/缓存当可替换资源</td>
+<td>F4 Tools as Structured Outputs</td>
+<td>工具是可替换的外部服务，通过结构化输出对接</td>
+</tr>
+<tr>
+<td>VI. Processes：无状态进程，状态外置</td>
+<td>F5 + F12 Unify State / Stateless Reducer</td>
+<td>都强调状态不留在进程内存，可重建</td>
+</tr>
+<tr>
+<td>IX. Disposability：可快速启动、优雅退出</td>
+<td>F6 Launch/Pause/Resume</td>
+<td>都追求进程可被随意杀掉再恢复</td>
+</tr>
+<tr>
+<td>XI. Logs：日志作为事件流</td>
+<td>F9 Compact Errors</td>
+<td>都把「事件」作为一等公民灌进流</td>
+</tr>
+<tr>
+<td>XII. Admin Processes：一次性管理进程</td>
+<td>F11 Trigger from Anywhere</td>
+<td>都强调进程能从任意入口按需启动</td>
+</tr>
+</tbody></table>
+<p>差异同样关键：原版 12-Factor App <strong>不关心业务逻辑长什么样</strong>，它假设你写的是普通确定性代码；而 12-Factor Agents <strong>专门处理 LLM 引入的非确定性</strong>——如何约束 LLM 的输出（F4）、如何在它跑偏时纠错（F8/F9）、如何在它「失忆」前缩小任务范围（F10）。可以认为：<strong>12-Factor App 解决「软件怎么上云」，12-Factor Agents 解决「带 LLM 的软件怎么上生产」</strong>，两者是互补而非替代关系。</p>
+<h3 id="section-7">落地方法：用 12 条评审自己的 Agent 架构</h3>
+<p>面试中如果被问「你会怎么评审一个 Agent 架构」，12 条本身就是现成的 checklist。下面给出一个可操作的评审流程，先看整体评审链路图：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code>┌─────────────────────────────────────────────────────────────────┐
+│              12-Factor Agents 架构评审流程                        │
+└─────────────────────────────────────────────────────────────────┘
+
+  ① 先找「循环」      你的 Agent 是否有清晰的 LLM决策→执行→回灌循环？
+       │              └─ 没有 → 先补 Factor 1（NL→Tool Call）
+       ▼
+  ② 审「可控性」      F2 Prompt / F3 Context / F4 Structured Output
+       │              逐条问：prompt 在哪？上下文谁在裁？输出有 schema 吗？
+       ▼
+  ③ 审「可恢复性」    F5 统一状态 / F6 暂停恢复 / F12 无状态 reducer
+       │              └─ kill -9 一次进程，能否从断点 resume？能否 replay？
+       ▼
+  ④ 审「可介入性」    F7 人工即工具 / F8 自控控制流
+       │              └─ 工具「选中」和「执行」之间，能否插审批点？
+       ▼
+  ⑤ 审「鲁棒性」      F9 错误压缩 / F10 小而专注
+       │              └─ 工具失败会自愈吗？单 Agent 步数是否 ≤ 20？
+       ▼
+  ⑥ 审「可触达性」    F11 触发入口 / F13 预取上下文
+                      └─ 能否从 webhook/cron/IM 触发？上下文是否预取？
+</code></pre></details>
+<p>对应的最小可运行骨架（伪代码，体现 F1/F4/F5/F8/F9 几条核心原则）：</p>
+<details class="code-block"><summary><span>代码示例</span><button class="copy-code" type="button">复制</button></summary><pre><code class="language-python">from pydantic import BaseModel
+from typing import Literal, Union
+
+# ── F4: Tools as Structured Outputs ──
+# 把「下一步」定义成带 schema 的结构化输出，而非自由文本
+class Done(BaseModel):
+    intent: Literal[&quot;done&quot;]
+    final_answer: str
+
+class DeployBackend(BaseModel):
+    intent: Literal[&quot;deploy_backend&quot;]
+    tag: str
+    env: Literal[&quot;staging&quot;, &quot;production&quot;]
+
+class RequestApproval(BaseModel):
+    intent: Literal[&quot;request_approval&quot;]
+    reason: str
+    risky_action: str
+
+NextStep = Union[Done, DeployBackend, RequestApproval]
+
+# ── F5: 统一执行态与业务态为一条事件流 ──
+thread = {&quot;events&quot;: [initial_event]}
+
+consecutive_errors = 0  # ── F9: 错误计数，防止无限自愈打转 ──
+
+while True:
+    # F1 + F2: LLM 把自然语言决策成结构化的「下一步」，prompt 是你自己的
+    next_step: NextStep = await determine_next_step(thread)
+    thread[&quot;events&quot;].append({&quot;type&quot;: next_step.intent, &quot;data&quot;: next_step})
+
+    if isinstance(next_step, Done):
+        break  # 任务完成
+
+    # ── F8: 自己掌控控制流 ──
+    if isinstance(next_step, RequestApproval):
+        await db.save_thread(thread)          # F5/F6: 落盘后暂停
+        await notify_human(next_step)         # F7: 人工作为工具
+        break  # 等 webhook 回来再 resume，而不是阻塞 sleep
+
+    # ── F9: 错误压缩进上下文，触发自愈 ──
+    try:
+        result = await execute(next_step)
+        thread[&quot;events&quot;].append({&quot;type&quot;: &quot;result&quot;, &quot;data&quot;: result})
+        consecutive_errors = 0
+    except Exception as e:
+        consecutive_errors += 1
+        if consecutive_errors &gt;= 3:
+            thread[&quot;events&quot;].append({&quot;type&quot;: &quot;escalate_to_human&quot;, &quot;data&quot;: str(e)})
+            break  # 超过阈值，升级人工
+        thread[&quot;events&quot;].append({&quot;type&quot;: &quot;error&quot;, &quot;data&quot;: compact(e)})
+
+# ── F12: 整个 thread 可被重放 ──
+# 任何时候 new_state = replay(thread[&quot;events&quot;])，Agent 即恢复到该状态
+</code></pre></details>
+<p>读这段骨架时把它对着 12 条逐行标注：prompt 你自己写（F2）、输出有 Pydantic schema（F4）、状态全在 <code>thread</code> 事件流里（F5）、审批会落盘后暂停而非阻塞（F6/F7/F8）、错误会压缩回灌并计数熔断（F9）、整个 thread 可重放（F12）——这就是「评审通过」的样子。</p>
+<h2 id="section-8">常见误区 / 面试追问</h2>
+<ol>
+<li><p><strong>误区：「12 条必须全部遵守，少一条就不算生产级」</strong> — 这是最大的误读。作者明确说这些原则「可以独立采纳」，你可以只取其中一条（例如只做 F9 错误压缩）而不做其他 11 条。它的定位是<strong>菜单而非教条</strong>。正确的理解是：把它当 checklist 逐条自检「我有没有刻意思考过这一面」，而不是追求集齐 12 个徽章。</p>
+</li>
+<li><p><strong>误区：「12-Factor Agents 是反框架的，用了 LangGraph 就违背它」</strong> — 不准确。作者的态度是「框架能帮你拿到大多数原则，但一旦需要深度控制就会成为负担」。事实上 LangGraph 1.0 GA 后的 per-node 超时、checkpointing、interrupt-before 等特性，恰好分别对应了 F6（暂停恢复）、F5（状态持久化）、F7/F8（在节点执行前插入人工审批）。问题不是「能不能用框架」，而是「框架的黑盒你是否逆向得动」。自研 vs 框架的差异在于：自研天然满足全部 12 条（因为循环你自己写），框架则满足其中大部分但可能对 F2（prompt 透明）和 F8（控制流）做了封装，需要你额外花力气「打开」。</p>
+</li>
+<li><p><strong>追问：「12 条里优先级最高的是哪几条？」</strong> — 如果只能选三条，工程界共识倾向 <strong>F5（统一状态）+ F8（自控控制流）+ F10（小而专注）</strong>。F5 决定了 Agent 能不能从崩溃中恢复，F8 决定了你能不能在关键步骤插审批和熔断，F10 决定了上下文会不会爆炸。F1/F4 是基础前提（没有结构化输出谈不上生产化），而 F11/F12 更多是规模化后的优化项。面试时给出带排序的理由，比背诵 12 条更有说服力。</p>
+</li>
+<li><p><strong>追问：「Factor 10 说 Agent 要小，那 LLM 变强后这条不就过时了？」</strong> — 作者专门回答过这个问题，结论是：<strong>即使 LLM 能跑 100 步，保持小而专注依然是更优策略</strong>。原因是确定性代码比 LLM 决策便宜、可靠、可测试几个数量级，把能确定化的部分留在 DAG 里、只把真正需要灵活判断的环节交给 Agent，永远比「全塞给一个大 Agent」更经济。随着模型能力提升，单个 Agent 的 scope 可以「慢慢长大」，但「刻意控制规模」的工程纪律不会消失——这与大型代码库重构的直觉一致。</p>
+</li>
+<li><p><strong>追问：「12-Factor Agents 和 MCP / A2A 是什么关系？」</strong> — 正交且互补。MCP（Model Context Protocol）解决的是「Agent 怎么发现和调用工具」，对应 F4 中「工具作为结构化输出」的<strong>工具侧标准化</strong>；A2A 解决的是「Agent 之间怎么通信」，对应 F10/F11 的<strong>多 Agent 编排与触发</strong>。12-Factor Agents 不规定你用哪种工具协议，但 F1/F4/F8 会约束你「无论用什么协议，工具调用必须是结构化的、控制流必须在你手里」。作者在 README 里也半开玩笑地说「我不会专门讨论 MCP，但你应该看得出它插在哪里」。</p>
+</li>
+</ol>
+<h2 id="section-9">参考资料</h2>
+<ul>
+<li><a href="https://github.com/humanlayer/12-factor-agents">12-Factor Agents 官方仓库（humanlayer/12-factor-agents）</a> — 12 条原则原文与配套图示，Apache 2.0 / CC BY-SA 4.0</li>
+<li><a href="https://www.humanlayer.dev/blog/12-factor-agents">12 Factor Agents — HumanLayer 官方博客</a> — 作者 Dex Horthy 的原始阐述</li>
+<li><a href="https://github.com/humanlayer/12-factor-agents#the-short-version-the-12-factors">The Short Version: The 12 Factors（README 目录）</a> — 12 条原则索引与逐条链接</li>
+<li><a href="https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md">Factor 8: Own your control flow</a> — 控制流与「工具选中↔执行之间插审批」详解</li>
+<li><a href="https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md">Factor 10: Small, Focused Agents</a> — 「LLM 变强后是否还需要小 Agent」的论证</li>
+<li><a href="https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md">Factor 9: Compact Errors into Context Window</a> — 错误压缩与自愈、连续错误熔断的代码示例</li>
+<li><a href="https://12factor.net/">12-Factor App（Heroku, 2011）</a> — 被 12-Factor Agents 致敬的经典方法论</li>
+<li><a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents — Anthropic</a> — 与 12-Factor Agents 精神一致的官方工程指南（Agent = loop）</li>
+<li><a href="https://www.developersdigest.tech/blog/12-factor-agents-production-principles">12-Factor Agents: Production Principles for Reliable AI Agents — Developers Digest</a> — 第三方对 12 条的工程化解读与 star 数据引用</li>
+<li><a href="https://news.ycombinator.com/item?id=43699271">12-Factor Agents: Patterns of reliable LLM applications — Hacker News 讨论</a> — 社区对方法论的正反讨论</li>
+</ul>
+<hr>
+<h3 id="section-10">延伸思考 / 交叉引用</h3>
+<ul>
+<li>12 条中 <strong>F3 Own Your Context Window</strong> 即本项目的 <strong>#102 Context Engineering</strong>，建议合并阅读——F3 是 Context Engineering 在生产原则层面的精炼表述。</li>
+<li><strong>F7 Contact Humans with Tool Calls</strong> 关联 <strong>#080 Human-in-the-Loop</strong>，「人工即工具」（含高风险操作的审批卡点）是 HITL 的核心理念。</li>
+<li><strong>F10 Small, Focused Agents</strong> 关联多 Agent 拆分主题 <strong>#031 多 Agent 系统</strong> 与 <strong>#036 多 Agent 框架对比</strong>（LangGraph / CrewAI / OpenAI Agents SDK / Microsoft Agent Framework 在原则遵循度上的差异）。</li>
+<li><strong>F8 Own Your Control Flow + F9 Compact Errors</strong> 关联 <strong>#104 生产故障排查</strong> 与 <strong>#079 Guardrails</strong>，控制流熔断与安全护栏是同一枚硬币的两面。</li>
+<li>生产化落地方面，关联 <strong>#010 生产级 Agent 系统设计</strong>、<strong>#074 Trace 和 Span</strong>（F8 中 logging/tracing/metrics 的归属）以及 <strong>#027 MCP</strong>（工具侧标准化与 F4 的交叉点）。</li>
+</ul>
+<nav class="page-toc" aria-label="本文目录"><div class="toc-title">本文目录</div><ol><li class="toc-level-2"><a href="#section-1">简短回答</a></li><li class="toc-level-2"><a href="#section-2">详细解析</a></li><li class="toc-level-3"><a href="#section-3">核心理念：Agent 本质上是一个「确定性外壳 + LLM 决策内核」的循环</a></li><li class="toc-level-3"><a href="#section-4">12 条原则逐条解读</a></li><li class="toc-level-3"><a href="#section-5">反模式 → 原则对照表</a></li><li class="toc-level-3"><a href="#section-6">与经典 12-Factor App 的呼应与差异</a></li><li class="toc-level-3"><a href="#section-7">落地方法：用 12 条评审自己的 Agent 架构</a></li><li class="toc-level-2"><a href="#section-8">常见误区 / 面试追问</a></li><li class="toc-level-2"><a href="#section-9">参考资料</a></li><li class="toc-level-3"><a href="#section-10">延伸思考 / 交叉引用</a></li></ol></nav></article><nav class="chapter-nav"><a href="103.html" class="nav-card"><span>上一章</span><strong>← Agent 产品如何做合规设计？EU AI Act 对 Agent 有何影响？</strong></a><span></span></nav><footer class="site-footer">Agent Interview 100 · 本地静态阅读器</footer></main></div><script src="../assets/mermaid.min.js"></script><script src="../assets/mermaid-init.js"></script><script src="../assets/reader.js"></script></body></html>
