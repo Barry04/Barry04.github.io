@@ -1,0 +1,13 @@
+{% assign graphic = site.data.story_diagrams[include.key] %}
+{% if graphic %}
+<figure class="story-diagram story-diagram--{{ graphic.kind | escape }}" data-story-diagram aria-label="{{ graphic.description | escape }}">
+  <figcaption><span class="story-diagram__eyebrow">{{ graphic.kicker | escape }}</span><strong>{{ graphic.title | escape }}</strong></figcaption>
+  {% if graphic.question %}<p class="story-decision">{{ graphic.question | escape }}</p>{% endif %}
+  {% if graphic.kind == 'compare' or graphic.kind == 'branch' %}<ul{% else %}<ol{% endif %} class="story-flow story-flow--{{ graphic.kind | escape }} story-flow--{{ graphic.nodes.size }}">
+    {% for node in graphic.nodes %}
+    <li class="story-node story-node--{{ node.tone | escape }}" data-story-step="{{ forloop.index0 }}"><span class="story-node__index">{{ node.label | escape }}</span><strong>{{ node.title | escape }}</strong><span>{{ node.body | escape }}</span><small>{{ node.note | escape }}</small></li>
+    {% endfor %}
+  {% if graphic.kind == 'compare' or graphic.kind == 'branch' %}</ul>{% else %}</ol>{% endif %}
+  {% if graphic.caption %}<p class="story-feedback">{{ graphic.caption | escape }}</p>{% endif %}
+</figure>
+{% endif %}

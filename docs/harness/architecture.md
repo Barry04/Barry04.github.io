@@ -14,6 +14,7 @@
 - `assets/js/home-bg.js`：只在首页加载的 Canvas 粒子星座背景。颜色读 CSS 变量跟随深浅色；`prefers-reduced-motion` 下只画静态一帧；标签页隐藏时暂停
 - `assets/css/style.scss`、`assets/js/theme.js`：深浅色
 - 图解文章在 front matter 设 `reading_style: story`，仅该页加载 `assets/css/story.scss` 与 `assets/js/story.js`。`_includes/story/diagram.html` 提供 lifecycle / scope / feedback 三类图解；手机纵向重排、无 JS 完整可读。动画只在图解可见且页面前台时运行，支持手动暂停和系统减少动态效果。
+- `_data/story_diagrams.yml` 保存各篇定制图解，`_includes/story/graphic.html` 按 key 渲染 `flow`（顺序）、`compare`（并列）、`layers`（分层）或 `branch`（条件分支）。对照和分层不画顺序流线，分支保留条件，不把备选结果串成固定流程。
 - 注意：`.home-intro` / `.home-actions` / `.home-button` / `.home-eyebrow` 等首页类名由 `home.scss` 独占，`style.scss` 里不要重复定义（旧版首页曾用 `.home-intro` 做描述段落，已移除，否则 `max-width` 会压窄首屏网格）
 - `README.md`：首页时间轴
 - `YYYY/*.md`：文章；`resources/`：关于、归档、头像

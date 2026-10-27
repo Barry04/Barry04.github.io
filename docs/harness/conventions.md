@@ -9,6 +9,7 @@
   - `badge`（可选）—— 卡片角标，默认最新一篇自动显示"最新文章"
   - `reading_style: story`（可选）—— 连续图解式文章；用 `<section class="story-scene" data-scene="本幕观点" markdown="1">` 包正文章节，保留正常 h2 目录。图解用 `{% include story/diagram.html kind="lifecycle" %}`，也支持 `scope`、`feedback`；使用现有主题变量，代码、证据和引用不因图解化而删除。
 - 旧 Hexo 链接用 `redirect_from`
+- 定制图解用 `{% include story/graphic.html key="图解键" %}`，对应数据登记在 `_data/story_diagrams.yml`；`description` 写清关系，`nodes` 保留文字条件，颜色字段仅使用已定义的 blue / orange / green / purple。改写标题时显式保留原有 h2/h3 ID，避免 HTML Markdown 容器改变自动锚点。
 - 不要提交 `_site/`
 - 不要把密钥写进仓库
 - 不要引入非 GitHub Pages 白名单插件

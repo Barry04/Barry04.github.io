@@ -1,0 +1,119 @@
+vibe-context:
+  kind: layers
+  kicker: 看见代码之前，先补齐上下文
+  title: 一个文件，装不下老项目的全部约束。
+  description: 代码是当前实现；架构、业务契约与历史取舍共同约束本次修改，三层需要按任务关联读取。
+  caption: 分层表示不同来源的上下文，不表示三种固定执行步骤。
+  nodes:
+    - {label: 当前实现, title: 文件和调用链, body: 当前代码写成了什么样, note: 能解释实现，未必能解释取舍, tone: blue}
+    - {label: 项目约束, title: 业务契约与架构, body: 哪些行为必须保留，哪些边界不能跨, note: 从项目文档和实际调用中核对, tone: orange}
+    - {label: 历史依据, title: 决策、事故与迁移记录, body: 当初为什么这么写，现在是否仍然成立, note: 给出版本、范围和证据, tone: purple}
+vibe-verification:
+  kind: compare
+  kicker: 两种检查，回答不同问题
+  title: 解释得通，还要让调用方收到正确结果。
+  description: 模型自审检查代码是否看起来合理，独立验收依据需求检查实际返回和调用方行为，两者不能互相替代。
+  caption: 示例前提：需求要求用户不存在时返回明确错误。
+  nodes:
+    - {label: 实现视角, title: 已经检查 null, body: 空指针没了，编译也能过, note: 仍可能悄悄 return, tone: blue}
+    - {label: 契约视角, title: 调用方知道失败了吗, body: 验证状态、错误信息和调用结果, note: 由需求驱动的测试反驳实现, tone: green}
+vibe-delivery:
+  kind: flow
+  kicker: 把验证办法放到改动之前
+  title: 先确定怎样算对，再让 Agent 动手。
+  description: 先定位影响和编写验收，再实现并运行门禁，最后核对结果和提交；验证失败回到修复。
+  caption: 验证未通过 → 带着实际输出返回修复；高风险路径交给人判断。
+  nodes:
+    - {label: 动手前, title: 看影响，定验法, body: 明确范围、契约和验收样本, note: 测试先落下，隐性规则先写清, tone: blue}
+    - {label: 实现中, title: 在边界内修改, body: 编译、测试、架构与安全门禁, note: 越界或失败就挡回, tone: orange}
+    - {label: 交付时, title: 对结果，再提交, body: 历史回放与新契约分别验收, note: 保留能复现的证据, tone: green}
+governance-roles:
+  kind: compare
+  kicker: 同一次超时排查，留下三种不同产物
+  title: 方法要试着执行，事实要核对条件。
+  description: Skill保存复用方法，记忆保存事实和决策，任务记录保存调查现场；按用途采用不同验证方式。
+  caption: 假设案例：告警查询超时。三类产物可以互相引用。
+  nodes:
+    - {label: 怎么做, title: 项目 Skill, body: 定位、回放、验证的操作方法, note: 检查步骤与触发边界, tone: green}
+    - {label: 为什么, title: 项目记忆, body: 根因、数据条件与方案取舍, note: 核对版本、环境和证据, tone: blue}
+    - {label: 查过什么, title: 任务记录, body: 日志、命令与尚未证实的方向, note: 提炼有用证据，再按策略清理, tone: purple}
+governance-entry:
+  kind: branch
+  kicker: 把权限边界先定好
+  title: 让 Agent 做维护，让证据和授权控制入库。
+  description: 候选产物按风险和授权分流，低风险记忆可在既有授权下入库，Skill变更需要回归和回滚，扩大权限需要对应授权。
+  question: 这次维护属于哪一种变化？
+  caption: 记忆中的历史授权不能变成本次操作的权限。
+  nodes:
+    - {label: 低风险且已授权, title: 事实与索引维护, body: 证据完整、范围清楚的记忆可入库, note: 整理记录、去重、标记失效, tone: blue}
+    - {label: 改变默认方法, title: Skill 更新, body: 需要回归、旧版比较与回滚办法, note: 仍须属于已授权范围, tone: orange}
+    - {label: 超出当前授权, title: 扩权或发布变化, body: 交给有权决定的人, note: 工具配置、仓库权限和 CI 落实边界, tone: purple}
+governance-loop:
+  kind: flow
+  kicker: 用完之后，维护原来的知识
+  title: 反馈要回到条目、引用和检索入口。
+  description: 使用结果提供具体反馈，复核据此修订条目与引用，归档时退出默认检索；修订复验通过则继续生效。
+  caption: 修订 + 复验通过 → 继续生效；无法访问证据 → 待复核，不等同于已证伪。
+  nodes:
+    - {label: 使用, title: 留下具体结果, body: 哪一步有效，哪条前提失效, note: 记录任务、版本、输入和证据, tone: green}
+    - {label: 复核, title: 修订或合并, body: 核对范围，处理冲突和引用, note: 读取次数不等于有效性, tone: orange}
+    - {label: 确认退出时, title: 移出默认检索, body: 同步入口、索引和派生内容, note: 保留替代方法与历史证据, tone: purple}
+compatibility-facts:
+  kind: compare
+  kicker: 两份记录，不能互相代替
+  title: 开发进度说明做到哪，使用事实决定怎么改。
+  description: 开发阶段和发布依赖事实分别记录，待自测不能证明没有联调方或保留数据。
+  caption: 判断对象是本次要改的字段、接口和逻辑，不是给整个项目贴“未发布”标签。
+  nodes:
+    - {label: 进度, title: 开发 → 自测 → 修复, body: 当前需求还要完成哪些工作, note: 开发完成不会自动变成已发布, tone: blue}
+    - {label: 事实, title: 调用方、数据与部署, body: 谁还在使用，哪些数据必须保留, note: 不知道的保留 unknown，继续查证, tone: orange}
+compatibility-record:
+  kind: flow
+  kicker: 从需求进入时开始记录
+  title: 接着同一个需求修，别每轮重建背景。
+  description: 开始开发时关联或补建最小记录，修复时更新同一需求，实际部署和依赖证据分别维护。
+  caption: 换聊天也继续同一份记录；编号、分支、文件只能辅助匹配，归属不明先核对。
+  nodes:
+    - {label: 开始开发, title: 关联或补建, body: 目标、范围、起点和已知事实, note: 不要求用户额外提出“记录需求”, tone: blue}
+    - {label: 自测反馈, title: 修同一份需求, body: 核实本次修改的实际依赖, note: 实现完成 → 待自测；修复后仍回到待自测, tone: orange}
+    - {label: 持续维护, title: 更新证据和结果, body: 记录删改依据与兼容移除条件, note: 发布事实按真实反馈推进, tone: green}
+compatibility-choice:
+  kind: branch
+  kicker: 以 type → category 的假设改名为例
+  title: 兼容之前，先回答谁还在用 type。
+  description: 无保留义务的本轮实现直接修正，有真实依赖则兼容或迁移，事实未知先查证；不能仅凭未上线删除数据。
+  question: 本次字段是否存在真实保留义务？
+  caption: 自测环境也可能有联调、保留数据或已执行迁移，必须分别处理。
+  nodes:
+    - {label: 已确认没有, title: 统一修正并清理, body: 同步定义、调用和测试, note: 删除旧字段及废弃路径, tone: green}
+    - {label: 已确认存在, title: 兼容、协调或迁移, body: 明确使用者、依据和退出条件, note: 已执行迁移按实际数据库处理, tone: orange}
+    - {label: 还不清楚, title: 先查证, body: 核实发布、调用方和数据, note: unknown 既不等于未发布，也不等于必须兼容, tone: blue}
+jev-path:
+  kind: flow
+  kicker: 用假设的缓存排查串起判断
+  title: 不只记下一条回答，还要记住怎么走到这里。
+  description: 先收集日志证据，再根据证据选择排查分支，执行后复核；结果不支持假设则回退。
+  caption: 结果不支持当前假设 → 回退并调整方向；这是作者理解中的目标结构。
+  nodes:
+    - {label: 观察, title: 收集日志和条件, body: 当前请求、版本与异常现象, note: 把输入和证据留下, tone: blue}
+    - {label: 判断, title: 选择排查分支, body: 缓存、热点或其他方向, note: 记录假设、依赖和待验证点, tone: orange}
+    - {label: 复核, title: 用结果支持或推翻, body: 查缓存、查热点，比较证据, note: 允许回退，必要时交给人决定, tone: green}
+jev-controls:
+  kind: layers
+  kicker: 观察控制点，不做产品排行榜
+  title: 每往外一层，多管理一种过去难以留下的东西。
+  description: Prompt表达意图，Harness与Skill约束方法，决策运行时管理分支、状态与证据；是作者的概念分层。
+  caption: 分层表示职责的组合，不是行业必经的单向升级路线。
+  nodes:
+    - {label: 意图, title: Prompt, body: 说明目标，组织这一轮可见的信息, note: 风险是措辞和上下文变化导致结果漂移, tone: blue}
+    - {label: 方法, title: Harness / Skill, body: 提供工具、边界、经验和验证门禁, note: 风险是规则过期，或把灵活任务框死, tone: green}
+    - {label: 判断, title: 决策运行时, body: 管理状态、分支、回退与证据链, note: 风险是路径完整，判断前提却错了, tone: purple}
+jev-boundaries:
+  kind: compare
+  kicker: 让稳定结构和灵活选择各司其职
+  title: 固定检查点，保留重新判断的空间。
+  description: 稳定结构规定依赖、验收和停止条件，当前证据决定具体分支；可追踪不保证模型每次输出相同。
+  caption: 可重放意味着能记录、复查和比较决策，不能仅凭结构承诺相同输入必然得到相同判断。
+  nodes:
+    - {label: 结构保持稳定, title: 什么时候必须验证, body: 依赖、权限、门禁和人工决定点, note: 失败就停止或回退, tone: orange}
+    - {label: 选择接受新证据, title: 这次应该走哪条路, body: 当前输入、环境与已验证路径, note: 前提变化时更新或淘汰旧路径, tone: blue}
