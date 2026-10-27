@@ -1,0 +1,32 @@
+{% case include.kind %}
+{% when 'lifecycle' %}
+<figure class="story-diagram" data-story-diagram aria-label="新经验从候选经过验证与批准进入正式库，使用反馈触发下一次复核">
+  <figcaption><span class="story-diagram__eyebrow">经验的进门路径</span><strong>先留下证据，再决定能不能复用。</strong></figcaption>
+  <ol class="story-flow">
+    <li class="story-node story-node--blue" data-story-step="0"><span class="story-node__index">01</span><strong>候选经验</strong><span>事故现场与适用条件</span><small>暂不进入默认路由</small></li>
+    <li class="story-node story-node--orange" data-story-step="1"><span class="story-node__index">02</span><strong>验证与批准</strong><span>相似案例回放 · 边界检查</span><small>检索重复项，核对证据</small></li>
+    <li class="story-node story-node--green" data-story-step="2"><span class="story-node__index">03</span><strong>正式能力</strong><span>纳入项目工具箱</span><small>继续记录使用反馈</small></li>
+  </ol>
+  <p class="story-feedback"><span aria-hidden="true">↶</span> 使用反馈 / 环境变化 → 重新验证</p>
+</figure>
+{% when 'scope' %}
+<figure class="story-diagram" data-story-diagram aria-label="临时记录保留现场，项目 Skill 提炼本项目可复用方法，通用能力需要跨项目验证；范围与成熟度分别判断">
+  <figcaption><span class="story-diagram__eyebrow">状态与范围分别判断</span><strong>通用范围是可选项，项目经验也可以很成熟。</strong></figcaption>
+  <ol class="story-flow">
+    <li class="story-node story-node--blue" data-story-step="0"><span class="story-node__index">现场</span><strong>临时记录</strong><span>这一次发生了什么</span><small>保留日志、推测和条件</small></li>
+    <li class="story-node story-node--green" data-story-step="1"><span class="story-node__index">项目</span><strong>项目 Skill</strong><span>本项目反复成立的方法</span><small>再次命中 + 验证通过</small></li>
+    <li class="story-node story-node--purple" data-story-step="2"><span class="story-node__index">可选</span><strong>通用能力</strong><span>跨项目仍然成立</span><small>提炼共性，保留边界</small></li>
+  </ol>
+  <p class="story-feedback">扩大适用范围，需要新的验证证据。</p>
+</figure>
+{% when 'feedback' %}
+<figure class="story-diagram" data-story-diagram aria-label="环境变化或使用失败触发复核，根据证据更新或合并；确认失效后归档，并保留证据和替代方法">
+  <figcaption><span class="story-diagram__eyebrow">经验的退出路径</span><strong>环境变了，旧经验也要重新判断。</strong></figcaption>
+  <ol class="story-flow">
+    <li class="story-node story-node--orange" data-story-step="0"><span class="story-node__index">信号</span><strong>触发复核</strong><span>版本变化 · 使用失败</span><small>长期不用或被新方法替代</small></li>
+    <li class="story-node story-node--blue" data-story-step="1"><span class="story-node__index">判断</span><strong>核对证据</strong><span>适用条件还成立吗</span><small>重复则合并，冲突则厘清</small></li>
+    <li class="story-node story-node--purple" data-story-step="2"><span class="story-node__index">处置</span><strong>更新或归档</strong><span>修订后复验 / 移出默认库</span><small>留下证据和替代方法</small></li>
+  </ol>
+  <p class="story-feedback"><span aria-hidden="true">↶</span> 修订并复验通过 → 返回正式库</p>
+</figure>
+{% endcase %}

@@ -7,6 +7,7 @@
   - `summary`（建议）—— 卡片摘要，一句话
   - `image`（可选）—— 卡片配图，如 `/assets/<slug>-illustrations/01-x.png`；**不写则渲染为纯文字卡片**
   - `badge`（可选）—— 卡片角标，默认最新一篇自动显示"最新文章"
+  - `reading_style: story`（可选）—— 连续图解式文章；用 `<section class="story-scene" data-scene="本幕观点" markdown="1">` 包正文章节，保留正常 h2 目录。图解用 `{% include story/diagram.html kind="lifecycle" %}`，也支持 `scope`、`feedback`；使用现有主题变量，代码、证据和引用不因图解化而删除。
 - 旧 Hexo 链接用 `redirect_from`
 - 不要提交 `_site/`
 - 不要把密钥写进仓库

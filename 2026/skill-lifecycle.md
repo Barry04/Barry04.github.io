@@ -5,7 +5,12 @@ date: 2026-09-17
 tag: AI / 工程
 summary: 经验越积越多，怎样避免工具箱越来越乱？从候选、验证到归档，给 Skill 一条完整的生长路径。
 image: /assets/skill-lifecycle-illustrations/01-skill-toolbox-chaos.png
+reading_style: story
 ---
+
+<section class="story-scene" data-scene="从一个麻烦开始" markdown="1">
+
+## 工具越来越多，下一次反而更难选 {#story-problem}
 
 上一篇写存量项目里的 Agent 怎么改代码。[上下文、验证、Harness](./vibe-coding-bottleneck.md) 解决的是「这一次别改散」。
 
@@ -39,7 +44,11 @@ Skill 不能按普通文件堆着管。它更像项目里的经验：能试用�
 
 这不是凭空画出来的目录。我自己的 [ai-skill-repository](https://github.com/Barry04/ai-skill-repository) 已经在做前半段：把项目理解、跨仓定位、远程验证、经验沉淀拆成可安装、可审查、可版本管理的 Skill。写这篇，是因为跑起来之后才更明显地看见它下一步该补什么。
 
-## 已经有人在解决前半题
+</section>
+
+<section class="story-scene" data-scene="先找到，再按需读取" markdown="1">
+
+## 已经有人在解决前半题 {#已经有人在解决前半题}
 
 我暂时没找到一个成熟产品，已经把「Vibe Coding → 自动留下经验 → 评估 → 合并 → 淘汰」整条链做完。
 
@@ -66,7 +75,13 @@ Codex 甚至给最初那张“工具目录”留了上下文预算。目录太�
 
 我的仓库也按这个思路工作。`AGENTS.md` 是一张短地图：任务开始时，Agent 从索引里挑最多两个相关 Skill；细节放进各自的 `SKILL.md`、`references/` 和脚本里，真需要才读。这样“项目理解”和“Linux 验证”不会在每次任务一开始就占满上下文。
 
-## 后半题要项目自己补齐
+</section>
+
+<section class="story-scene" data-scene="让证据决定经验能否入库" markdown="1">
+
+## 后半题要项目自己补齐 {#后半题要项目自己补齐}
+
+{% include story/diagram.html kind="lifecycle" %}
 
 这些方案主要解决的是：Skill 如何定义、如何被发现、如何按需加载、如何跟着仓库版本管理。Anthropic 也已经在用试用区、PR 和使用量统计来管理一部分 Skill。
 
@@ -81,7 +96,13 @@ Codex 甚至给最初那张“工具目录”留了上下文预算。目录太�
 
 我把后半题叫 **Skill Lifecycle**。不是什么新名词，和代码的生命周期差不多：新东西先别急着当规范；用久了、验证过，才留下；被替代或长期不用，先复核再收起来。
 
-## 先别把所有东西都叫 Skill
+</section>
+
+<section class="story-scene" data-scene="把成熟度和适用范围分开" markdown="1">
+
+## 先别把所有东西都叫 Skill {#先别把所有东西都叫-skill}
+
+{% include story/diagram.html kind="scope" %}
 
 我会先把它们放到三类货架上，再分别判断生命周期状态和适用范围。状态决定是否进入正式路由；范围决定它在哪个项目或技术域内生效。项目专属的 Skill 也可以很成熟，不必为了“升级”而强行抽象成通用能力。
 
@@ -110,6 +131,9 @@ experiment-xxx
 ```
 
 它们可能只会用一次。写下来当然没问题，但不应该直接挤进正式库。否则以后每次检索，都得先穿过一层旧事故现场。
+
+<details class="story-detail" markdown="1">
+<summary>展开：三类经验与 Elasticsearch 超时的完整对应图</summary>
 
 <div class="diagram diagram-sumsec">
 <svg viewBox="0 0 960 500" role="img" aria-label="Skill 从临时记录经过验证，按需成为项目 Skill 或通用能力">
@@ -169,9 +193,11 @@ experiment-xxx
 </svg>
 </div>
 
+</details>
+
 这三类不是固定的上下级。一次排错记录如果后来反复命中，可以整理成项目 Skill；只有在其他项目也验证有效、且没有丢掉原有边界时，才有必要再提炼成通用 Skill。有些项目知识会长期保持项目级，同样可以是稳定能力。
 
-### 一个完整的实践样例
+### 一个完整的实践样例 {#一个完整的实践样例}
 
 假设某次告警服务出现 Elasticsearch 查询超时。第一次处理时，只留下调查材料：
 
@@ -233,7 +259,11 @@ validation:
 
 这就是我理解的“演进”：不是把临时文件换个名字塞进 `active/`，而是每升一层，都删掉偶然细节，补上验证证据，再扩大适用范围。
 
-## 给新经验留一个试用盒
+</section>
+
+<section class="story-scene" data-scene="候选不是正式规则" markdown="1">
+
+## 给新经验留一个试用盒 {#给新经验留一个试用盒}
 
 最简单的目录就够用：
 
@@ -262,7 +292,11 @@ Agent 做完任务，发现一个看起来能复用的办法，可以先放到 `
 
 人看得懂，模型也看得懂。
 
-## 这套仓库已经怎么做
+</section>
+
+<section class="story-scene" data-scene="把实验和正式能力分开" markdown="1">
+
+## 这套仓库已经怎么做 {#这套仓库已经怎么做}
 
 [ai-skill-repository](https://github.com/Barry04/ai-skill-repository) 不是一个把提示词堆起来的目录。它现在的布局，已经有了几个生命周期里的关键位置：
 
@@ -291,7 +325,11 @@ scripts/skillopt/            # 评分与 proposal 工具
 
 它还不是完整的 Skill 生命周期，但至少有了“新东西先别直接进门”的门槛。
 
-## 不是写得像说明书，就算有用
+</section>
+
+<section class="story-scene" data-scene="留下可以执行和验证的方法" markdown="1">
+
+## 不是写得像说明书，就算有用 {#不是写得像说明书就算有用}
 
 很多 Skill 只有这种内容：
 
@@ -344,7 +382,11 @@ validation:
 
 Anthropic 特别提到过 Verification Skill：不是让 Agent “认真检查一下”，而是让它真的跑一遍注册、结算或命令行操作，再对关键状态做断言。菜谱写得再漂亮，也得尝一口。
 
-## 重复的，要合并；相反的，要说清
+</section>
+
+<section class="story-scene" data-scene="减少重复，厘清冲突" markdown="1">
+
+## 重复的，要合并；相反的，要说清 {#重复的要合并相反的要说清}
 
 Skill 变多后，最常见的不是缺内容，是同一件事被说了四遍：
 
@@ -374,7 +416,11 @@ Skill B：Redis 修改禁止事务
 
 在允许局部覆盖的配置层里，越靠右通常越具体，优先级越高；安全、合规和明确标记为不可覆盖的约束仍然优先。要是两条同层规则冲突，宁可停下来问人，也别悄悄选一条。
 
-## 给工具箱做一张索引卡
+</section>
+
+<section class="story-scene" data-scene="让下一次任务找到合适的经验" markdown="1">
+
+## 给工具箱做一张索引卡 {#给工具箱做一张索引卡}
 
 一开始不用数据库。一个 `skills/index.yaml` 就行：
 
@@ -419,7 +465,13 @@ skills/
 
 有了这些数据，`proposals/` 才不只是“等人看的改动”；它可以更明确地回答：该升级、该合并，还是该关进 archive。
 
-## 经验要有进门，也要有出门
+</section>
+
+<section class="story-scene" data-scene="使用之后，继续复核" markdown="1">
+
+## 经验要有进门，也要有出门 {#经验要有进门也要有出门}
+
+{% include story/diagram.html kind="feedback" %}
 
 我现在更愿意把 Project Harness 看成两部分。
 
@@ -444,3 +496,5 @@ skills/
 代码会老，经验也会老。区别只是代码老了会报错，过时的 Skill 往往还会用一种很笃定的语气，把 Agent 带到错路上。
 
 我的 [ai-skill-repository](https://github.com/Barry04/ai-skill-repository) 已经有了地图、正式库、实验区、候选提案和回归检查。下一步要做的，是让它知道哪些经验真的被反复证明有用，哪些只是当时写得很像那么回事。
+
+</section>

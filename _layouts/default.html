@@ -56,6 +56,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_rev }}">
   {% if page_is_home %}<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}?v={{ asset_rev }}">{% endif %}
+  {% if page.reading_style == 'story' %}<link rel="stylesheet" href="{{ '/assets/css/story.css' | relative_url }}?v={{ asset_rev }}">{% endif %}
   <script>
     (function () {
       try {
@@ -69,7 +70,7 @@
     })();
   </script>
 </head>
-<body class="wiki-theme{% if page_is_home %} page-home{% endif %}{% if page_is_article %} page-article{% endif %}">
+<body class="wiki-theme{% if page_is_home %} page-home{% endif %}{% if page_is_article %} page-article{% endif %}{% if page.reading_style == 'story' %} page-story{% endif %}">
   <a class="skip-link" href="#main-content">跳到正文</a>
   <div id="read-progress" aria-hidden="true"></div>
   {% if page_is_home %}
@@ -125,6 +126,12 @@
       </details>
       {% endif %}
       <div class="article-body">
+        {% if page.reading_style == 'story' %}
+        <div class="story-controls">
+          <span>图解阅读 · 沿着问题往下看</span>
+          <button type="button" data-story-motion aria-pressed="false" hidden>暂停图解动画</button>
+        </div>
+        {% endif %}
         <div class="prose">
           {{ content }}
         </div>
@@ -156,6 +163,7 @@
     <p><a href="https://github.com/Barry04">GitHub</a> · <a href="{{ '/resources/AboutMe.html' | relative_url }}">关于</a></p>
   </footer>
   <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ asset_rev }}"></script>
+  {% if page.reading_style == 'story' %}<script src="{{ '/assets/js/story.js' | relative_url }}?v={{ asset_rev }}"></script>{% endif %}
   {% if page_is_home %}<script src="{{ '/assets/js/home-bg.js' | relative_url }}?v={{ asset_rev }}"></script>{% endif %}
 </body>
 </html>
