@@ -8,6 +8,7 @@ comments: false
 
 ## 现在
 
+- [FDE 岗位说明与面试突击手册](../2026/fde-interview-handbook.html)
 - [JEV：让决策从对话里走出来](../2026/jev-model-thinking.md)
 - [Skill 生命周期：Vibe Coding 下的管理与演进](../2026/skill-lifecycle.md)
 - [在存量项目中 Vibe Coding，如何更好让 Agent 写出优质代码](../2026/vibe-coding-bottleneck.md)

@@ -9,6 +9,11 @@
 
   <h3>现在</h3>
   <div class="home-index__group">
+    <a class="home-index__row" href="./2026/fde-interview-handbook.html">
+      <span class="home-index__date">11/05</span>
+      <span class="home-index__title">FDE 岗位说明与面试突击手册</span>
+      <span class="home-index__tags">AI/面试</span>
+    </a>
     <a class="home-index__row" href="./2026/agent-unreleased-code-compatibility.html">
       <span class="home-index__date">10/19</span>
       <span class="home-index__title">代码还没上线，Agent 已经开始兼容了</span>
