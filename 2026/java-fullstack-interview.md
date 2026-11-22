@@ -3,7 +3,7 @@ layout: default
 title: Java 全栈面试突击手册
 date: 2026-11-22
 tag: Java / 面试
-summary: 7 道常问的面试题，每题配一段口语回答和两轮追问。先练阿童木缓存优化、齐治运维助手和 Web / App 交付。
+summary: 7 道面试主问题和两轮追问，另有 14 道 Java、Spring、MyBatis 和后端场景题，配可直接口述的答案。
 permalink: /java-fullstack-interview/
 ---
 
@@ -64,6 +64,8 @@ permalink: /java-fullstack-interview/
 </section>
 
 后四题先用 30–45 秒讲清楚，听到追问再展开。项目业绩数字和页面交付范围按能确认的经历说。
+
+专项补练：[Java 基础](#java-basics) · [Spring 与 MyBatis](#spring-basics) · [JD 场景题](#jd-scenarios)。基础优先练 Spring AOP、线程池和深分页。
 
 ## 1. 阿童木的接口为什么慢？你做了什么优化？ {#cache}
 
@@ -214,5 +216,125 @@ permalink: /java-fullstack-interview/
 <summary>第二轮追问｜如果让整个团队用，你会怎么管？</summary>
 
 > 我会先挑一个重复度高、验收标准清楚的场景，比如补接口测试。把允许修改的范围、构建命令和必须覆盖的边界条件放到仓库里，沿用人工审查和自动测试。试行一段时间后看从提交到合入的耗时、审查返工和缺陷。如果生成快了但审查返工变多，就收窄使用范围，先把规则和验收做实。
+
+</details>
+
+## Java 基础补练 {#java-basics}
+
+<details class="interview-followup" markdown="1">
+<summary>HashMap 为什么查得快？当缓存键有什么坑？</summary>
+
+> 它按 key 的哈希值定位到桶，桶里有多个元素时，再用 equals 判断是不是同一个 key。哈希分布均匀时，查找通常接近常数时间。用自定义对象当 key，equals 和 hashCode 要一起实现，而且参与计算的字段在放进去之后要保持不变。否则对象还在 Map 里，却可能按原来的方式查不到。多线程共同修改时，我会按场景用 ConcurrentHashMap 或在业务层同步。需要原子的复合更新，可以考虑 compute 或 putIfAbsent。
+
+[Java HashMap 文档](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html)
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>volatile、synchronized 和 AtomicInteger 怎么选？</summary>
+
+> volatile 适合跨线程可见的状态，比如一个线程发出停止信号，其他线程能读到。像 count++ 这种操作要先读、再加、再写，多个线程仍然可能覆盖彼此的结果。只更新一个计数器，我会用 AtomicInteger 的原子方法。几个字段要一起更新、共同满足一个业务规则，我会用锁把整段操作保护起来。
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>线程池的核心线程、队列和最大线程怎么配？</summary>
+
+> 以 ThreadPoolExecutor 为例，通常先尝试创建核心线程，再入队。队列放不下，才尝试扩到最大线程数。仍然放不下就触发拒绝策略。队列太大，压力会先表现为排队时间变长，所以我会用下游容量和业务允许的等待时间来定线程数和队列长度。压测时看等待时间、拒绝次数和数据库连接占用，判断调大线程数能不能真正提高吞吐。
+
+[Java 线程池文档](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html)
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>ThreadLocal 在线程池里为什么要清理？</summary>
+
+> ThreadLocal 的值跟着线程。线程池会把同一个线程交给下一个请求使用，旧请求如果没有把上下文清掉，下一个请求就可能读到旧的用户信息或请求标识。我会在入口统一设置，在 finally 里 remove。如果工作切到了异步线程，就显式传递必要的上下文，并在那边独立清理。
+
+</details>
+
+## Spring 与 MyBatis 补练 {#spring-basics}
+
+<details class="interview-followup" markdown="1">
+<summary>Spring 的 IoC 是什么？单例 Bean 能存请求数据吗？</summary>
+
+> IoC 在日常开发里就是把对象创建和依赖组装交给 Spring 容器。比如 Service 依赖 Mapper，我倾向写在构造器里，这样启动和测试时都能明确看到它依赖什么。默认单例作用域下，同一个容器里的多个请求通常会共享这个实例，所以我会用方法参数或局部变量承载每次请求的数据。缓存之类确实需要共享的状态，再单独设计线程安全。
+
+[Spring Bean 作用域](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html)
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>AOP 怎么拦截方法？为什么同类调用容易踩坑？</summary>
+
+> Spring AOP 通常通过代理在目标方法前后加逻辑，像事务、日志都可以这么做。JDK 动态代理围绕接口，CGLIB 可以通过生成目标类的子类做代理。外部从容器拿代理来调用，拦截才有机会执行。目标对象内部直接调用自己的方法，通常会绕过代理。遇到这种情况，我会先看职责能否拆到独立 Service，用跨 Bean 调用把事务边界写清楚。
+
+[Spring AOP 代理机制](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>Spring Boot 自动配置是怎么回事？数据源没配起来怎么查？</summary>
+
+> Spring Boot 根据依赖、配置项和容器里已有的 Bean，决定哪些默认配置生效。比如自动配置遇到用户自己提供的数据源时，可以让用户的配置接管。排查数据源没起来，我会先看驱动依赖和当前启用的配置文件，再看启动日志里的条件报告，确认是某个条件不满足，还是业务配置覆盖了默认配置。
+
+[Spring Boot 自动配置](https://docs.spring.io/spring-boot/reference/using/auto-configuration.html)
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>MyBatis 的 <code>#{}</code> 和 <code>${}</code> 有什么区别？动态排序怎么写？</summary>
+
+> `#{}` 会把值作为参数绑定到预编译语句，可以用于 id、状态、日期这样的查询值。`${}` 是直接做文本替换。动态排序需要选列名时，我会让前端只传有限的业务选项，在服务端映射到预先定义好的固定列名和方向，再生成排序语句。
+
+[MyBatis 参数映射文档](https://mybatis.org/mybatis-3/sqlmap-xml.html#Parameters)
+
+</details>
+
+## 按 JD 补练场景题 {#jd-scenarios}
+
+<details class="interview-followup" markdown="1">
+<summary>告警列表翻到几千页就慢，怎么排查和优化？</summary>
+
+> 我先拿实际筛选条件查清慢的是总数统计，还是列表查询。列表查询看执行计划里的选用索引、扫描行数和排序。若是深度 OFFSET 跳过了大量数据，而且产品主要需要顺序翻页，我会用告警时间和 ID 做稳定排序，把上一页最后一条记录作为下一页的起点。如果还要任意跳页，就先确认产品需求，再决定保留哪种分页方式。改完会用生产量级的数据验证耗时和翻页结果。
+
+[MySQL 执行计划](https://dev.mysql.com/doc/refman/8.4/en/explain.html)
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>一个热点缓存过期，大量请求同时打到数据库，怎么处理？</summary>
+
+> 我会对同一个 key 合并回源，让少数请求负责重建缓存，并给数据库回源设并发上限。配置场景如果接受短时间旧值，可以在重建时先返回旧值。若是大量不同 key 同时到期，我还会给过期时间加随机偏移。恢复后看缓存命中率、回源次数和数据库压力，确认流量确实挡住了。
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>MQ 开始积压，怎么处理？扩消费者会不会重复处理？</summary>
+
+> 我先比较生产速度、消费速度和最老消息等了多久，再看消费者是跑得慢、被下游拖住，还是反复重试。下游有余量时可以提高消费并发，坏消息反复失败时按有限重试和死信流程处理。消费端用稳定业务键去重，把去重和业务更新放在同一个本地事务里，提交后再确认。这样即使消费者处理完后崩溃，消息重新投递，业务也能识别这件事已经做过了。
+
+[RabbitMQ 消费确认与生产确认](https://www.rabbitmq.com/docs/confirms)
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>微服务调用下游超时，重试几次合适？</summary>
+
+> 我先从整条请求允许的时间往下分，给下游调用设明确超时。重试要在剩余时间内，只处理适合重试的短暂错误，而且写操作得先有幂等保障。比如创建告警通知时，第一次超时可能已经写成功了，重试需要使用同一个业务请求标识，或者先查执行结果。下游持续失败时可以熔断，给主流程保留资源，并让页面知道这一步暂时不可用。
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>Java 进程内存一直涨，怎么判断是正常缓存还是泄漏？</summary>
+
+> 我先确认涨的是 JVM 堆还是整个进程内存，再看流量增加后，GC 回收完的堆能不能降回原来的区间。要是缓存上涨，我会看缓存条目数、大小上限和淘汰情况。如果回收后的占用还在持续抬升，就抓对象统计，必要时挑合适的窗口获取堆转储，查看哪些对象一直被引用。找到持有者以后再修，常见方向是给缓存设边界，或清理本应随请求释放的引用。
+
+</details>
+
+<details class="interview-followup" markdown="1">
+<summary>数据库主库故障，切换前后你关心什么？</summary>
+
+> 我先问业务能接受多久恢复、最多能丢多少数据。切换前看备库复制进度，避免旧主恢复后和新主同时接受写入。切换后验证核心读写、连接池恢复和数据一致性，再处理故障时结果不明确的请求。备份也要定期实际做恢复演练，记录多久能恢复到可用状态，以及能恢复到哪个时间点。
 
 </details>
